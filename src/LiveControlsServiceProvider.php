@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls;
 
+use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -12,6 +13,7 @@ class LiveControlsServiceProvider extends ServiceProvider
   {
     //Add Middlewares
     app('router')->aliasMiddleware('usergroup', CheckUserGroup::class);
+    app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
 
     $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livecontrols');
   }
