@@ -42,6 +42,14 @@ A class handling different payment systems for e-commerce etc.
 - Add IUGU Handler
 
 
+## Crypto
+A class handling cryptography like encrypted database entries and such
+
+### Todo
+- Add encryptor/decryptor
+- Add "EncryptedModel" which would transform encrypted database entries to normal models and viseversa
+
+
 ## Utils Classes
 A class with different utilities to make life easier, can be everything that doesn't fit into the other classes
 
