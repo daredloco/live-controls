@@ -2,39 +2,46 @@
  Controls/Scripts/Helpers for Laravel and Livewire
  Those are free to use, but are mostly for my own projects so no full support guaranteed.
 
-## Ranks Class
-A class handling ranks and permissions based per ranks
-
-### Todo
-- Add Ranks to database
-- Add Ranks Middleware
-- Add function to add ranks with artisan(?)
-
-
-## Permissions Class
-A class handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
+## Admin System
+A System providing an administration dashboard/interface to handle all the things here seperately
 
 ### Todo
 - ?
 
 
-## Captcha Class
-A class handling captchas (mostly Recaptcha, but can handle other systems as well)
+## User Groups System
+A System handling user groups and permissions based per ranks
+
+### Todo
+- Add usergroups to database
+- Add usergroups Middleware
+- Add function to add usergroups with artisan(?)
+
+
+## User Permissions System
+A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
+
+### Todo
+- ?
+
+
+## Captcha System
+A System handling captchas (mostly Recaptcha, but can handle other systems as well)
 
 ### Todo
 - Add Recaptcha v2
 - Add Recaptcha v3
 
 
-## Financial Class
-A class handling financial calculations and such
+## Financial System
+A System handling financial calculations and such
 
 ### Todo
 - ?
 
 
-## Payment Class
-A class handling different payment systems for e-commerce etc.
+## Payment System
+A System handling different payment systems for e-commerce etc.
 
 ### Todo
 - Add PagSeguro Handler
@@ -43,15 +50,15 @@ A class handling different payment systems for e-commerce etc.
 
 
 ## Crypto
-A class handling cryptography like encrypted database entries and such
+A System handling cryptography like encrypted database entries and such
 
 ### Todo
 - Add encryptor/decryptor
 - Add "EncryptedModel" which would transform encrypted database entries to normal models and viseversa
 
 
-## Utils Classes
-A class with different utilities to make life easier, can be everything that doesn't fit into the other classes
+## Utils Systemes
+A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
 ### Todo
 - ?
