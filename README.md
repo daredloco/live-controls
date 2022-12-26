@@ -20,6 +20,8 @@ A System providing an administration dashboard/interface to handle all the thing
 - ?
 
 
+
+
 ## User Groups System
 A System handling user groups
 
@@ -32,6 +34,8 @@ A System handling user groups
 - Colors can be asigned to User Groups
 
 
+
+
 ## User Permissions System
 A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
 
@@ -39,6 +43,8 @@ A System handling permissions for users or user groups, developer can add specif
 - Userpermissions per User/UserGroup
 - PermissionsHandler Facade to check if user has permissions
 - Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermission, livecontrols:unsetpermission
+
+
 
 
 ## Support Tickets System
@@ -50,6 +56,8 @@ A System handling support tickets where users can send tickets and admins/modera
 - Add moderators as group in config
 
 
+
+
 ## Financial System
 A System handling financial calculations and such
 
@@ -59,6 +67,8 @@ A System handling financial calculations and such
 
 ### Todo
 - ?
+
+
 
 
 ## Payment System
@@ -74,6 +84,8 @@ A System handling different payment systems for e-commerce etc.
 - Add Sicoob/Credsete Handler (Depends on demand on projects)
 
 
+
+
 ## Crypto
 A System handling cryptography like encrypted database entries and such
 
@@ -81,11 +93,15 @@ A System handling cryptography like encrypted database entries and such
 - Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
 
 
+
+
 ## Subscriptions
 A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
 
 ### Todo
 - Add a system to create subscription plans with name, description, value and default values
+
+
 
 
 ## Utils Systemes
