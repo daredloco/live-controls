@@ -12,10 +12,11 @@ A System providing an administration dashboard/interface to handle all the thing
 ## User Groups System
 A System handling user groups and permissions based per ranks
 
-### Todo
-- Add usergroups to database
-- Add usergroups Middleware
-- Add function to add usergroups with artisan(?)
+### Content
+- Usergroups table
+- Middleware for routes to check if user is in group (usergroup:group_key)
+- Middleware for routes to check if user is admin (admin). Admin group can be set in config and Master can be set as well
+- Artisan commands to add group and add/remove user from group: livecontrols:addgroup, livecontrols:setgroup, livecontrols:unsetgroup
 
 
 ## User Permissions System
