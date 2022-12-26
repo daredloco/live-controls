@@ -49,7 +49,7 @@ class LiveControlsServiceProvider extends ServiceProvider
       
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
-      ], 'config');
+      ], 'livecontrols-config');
     }
   }
 }
