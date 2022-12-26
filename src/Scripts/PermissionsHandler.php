@@ -38,6 +38,8 @@ class PermissionsHandler{
     }
 
     public function check(User $user = null):bool{
+        dd($this->permissions);
+        
         if(is_null($user)){
             $user = auth()->user();
         }
