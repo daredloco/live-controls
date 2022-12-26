@@ -3,6 +3,7 @@
 namespace Helvetiapps\LiveControls\Scripts;
 
 use App\Models\User;
+use Exception;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
@@ -38,8 +39,6 @@ class PermissionsHandler{
     }
 
     public function check(User $user = null):bool{
-        dd($this->permissions);
-        
         if(is_null($user)){
             $user = auth()->user();
         }
@@ -47,6 +46,7 @@ class PermissionsHandler{
         foreach($this->permissions as $permission){
             $perm = UserPermission::where('key', '=', $permission)->first();
             if(is_null($perm)){
+                throw new Exception('Permission "'.$permission.'" does not exist!');
                 //Ignore if permission was not found
                 continue;
             }
