@@ -5,7 +5,6 @@ namespace Helvetiapps\LiveControls;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
 
 class LiveControlsServiceProvider extends ServiceProvider
 {
@@ -28,7 +27,7 @@ class LiveControlsServiceProvider extends ServiceProvider
 
     $this->loadMigrationsFrom($migrationPaths);
     
-    $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
+    //$this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
 
     //Livewire::component('livecontrols-table', WireTable::class);
 
