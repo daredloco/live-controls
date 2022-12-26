@@ -8,6 +8,7 @@ use Helvetiapps\LiveControls\Console\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
 class LiveControlsServiceProvider extends ServiceProvider
@@ -51,5 +52,7 @@ class LiveControlsServiceProvider extends ServiceProvider
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
       ], 'livecontrols-config');
     }
+
+    //MACROS (Maybe used for crypto, not sure)
   }
 }

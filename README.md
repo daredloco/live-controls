@@ -62,9 +62,8 @@ A System handling different payment systems for e-commerce etc.
 ## Crypto
 A System handling cryptography like encrypted database entries and such
 
-### Todo
-- Add encryptor/decryptor
-- Add "EncryptedModel" which would transform encrypted database entries to normal models and viseversa
+### Content
+- Added IsEncrypted trait with createEncrypted(array $fields), updateEncrypted(array $fields) and decrypt(string ...$fields)
 
 
 ## Utils Systemes
