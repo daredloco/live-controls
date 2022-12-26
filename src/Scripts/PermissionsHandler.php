@@ -4,6 +4,7 @@ namespace Helvetiapps\LiveControls\Scripts;
 
 use App\Models\User;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
+use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
 class PermissionsHandler{
     private array $permissions = [];
@@ -41,10 +42,31 @@ class PermissionsHandler{
             $user = auth()->user();
         }
 
-        return true; //DEBUG, make a check for it as soon as you add UserPermissions
+        foreach($this->permissions as $permission){
+            $perm = UserPermission::where('key', '=', $permission)->first();
+            if(is_null($perm)){
+                //Ignore if permission was not found
+                continue;
+            }
+            if($perm->users()->where('users.id', '=', $user->id)->exist()){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function checkGroup(UserGroup $group):bool{
-        return true; //DEBUG, make a check for it as soon as you add UserPermissions
+        foreach($this->permissions as $permission){
+            $perm = UserPermission::where('key', '=', $permission)->first();
+            if(is_null($perm)){
+                //Ignore if permission was not found
+                continue;
+            }
+            if($perm->groups()->where('user_groups.id', '=', $group->id)->exists()){
+                return true;
+            }
+        }
+        return false;
     }
 }
