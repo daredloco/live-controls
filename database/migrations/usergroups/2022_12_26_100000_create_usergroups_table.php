@@ -18,6 +18,7 @@ class CreateUserGroupsTable extends Migration
             $table->string('name');
             $table->string('key');
             $table->string('description')->nullable();
+            $table->timestamps();
         });
     }
 
