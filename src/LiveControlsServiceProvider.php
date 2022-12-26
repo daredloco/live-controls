@@ -20,8 +20,7 @@ class LiveControlsServiceProvider extends ServiceProvider
   public function boot()
   {
     $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-    
-    //$this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
+    $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
 
     //Livewire::component('livecontrols-table', WireTable::class);
 
@@ -29,7 +28,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     {
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
-      ], 'config');
+      ], 'livecontrols-config');
     }
   }
 }
