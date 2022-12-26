@@ -5,7 +5,9 @@ namespace Helvetiapps\LiveControls\Models\UserGroups;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class UserGroup extends Model{
     use HasFactory;
@@ -20,5 +22,10 @@ class UserGroup extends Model{
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_usergroups', 'user_id', 'user_group_id');
+    }
+
+    public function permissions(): HasMany
+    {
+        return $this->hasMany(UserPermission::class, 'user_group_id');
     }
 }
