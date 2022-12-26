@@ -61,7 +61,7 @@ class PermissionsHandler{
                 return true;
             }
             foreach($groups as $group){
-                if($perm->groups()->where('groups.id', '=', $group->id)->exists()){
+                if($perm->groups()->where('user_groups.id', '=', $group->id)->exists()){
                     return true;
                 }
             }
