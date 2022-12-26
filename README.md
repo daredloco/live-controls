@@ -53,6 +53,10 @@ A System handling support tickets where users can send tickets and admins/modera
 ## Financial System
 A System handling financial calculations and such
 
+### Content
+- Fin class with useful functions (More functions will be added as time goes on)
+- Cashflow object which handles financial cashflow (Includes CashflowItem class)
+
 ### Todo
 - ?
 
