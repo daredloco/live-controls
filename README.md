@@ -67,9 +67,9 @@ A System handling different payment systems for e-commerce etc.
 - PagSeguro Objects with important informations: PaymentItem, PaymentReceiver, PaymentSender, ShippingInformation
 
 ### Todo
-- Add PagSeguro Transparent Checkout
-- Add Sicoob/Credsete Handler
 - Add IUGU Handler
+- Add PagSeguro Transparent Checkout (Depends on demand on projects)
+- Add Sicoob/Credsete Handler (Depends on demand on projects)
 
 
 ## Crypto
