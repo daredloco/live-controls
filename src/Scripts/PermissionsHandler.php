@@ -49,7 +49,7 @@ class PermissionsHandler{
             $user = auth()->user();
         }
 
-        $groups = $user->groups();
+        $groups = $user->groups;
 
         foreach($this->permissions as $permission){
             $perm = UserPermission::where('key', '=', $permission)->first();
