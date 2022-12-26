@@ -17,17 +17,17 @@ class AddUserGroupCommand extends Command
         $name = $this->ask('Name:');
         while($name == null || $name == ''){
             $this->warn('Group name is required!');
-            $name = $this->ask('Name:');
+            $name = $this->ask('Name');
         }
-        $key = $this->ask('Key:');
+        $key = $this->ask('Key');
         if(UserGroup::where('key', '=', $key)->exists()){
             $key = null;
         }
         while($key == null || $key == ''){
             $this->warn('Group key is required and needs to be unique!');
-            $key = $this->ask('Key:');
+            $key = $this->ask('Key');
         }
-        $desc = $this->ask('Description (Optional):');
+        $desc = $this->ask('Description (Optional)');
 
         if($this->confirm("Are those informations correct?")){
             $this->info('Name: '.$name);
