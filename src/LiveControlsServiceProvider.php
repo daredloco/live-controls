@@ -19,13 +19,7 @@ class LiveControlsServiceProvider extends ServiceProvider
 
   public function boot()
   {
-    $migrationsPath = __DIR__.'/../database/migrations/';
-    $migrationPaths = [
-      $migrationsPath.'usergroups',
-      $migrationsPath.'userpermissions'
-    ];
-
-    $this->loadMigrationsFrom($migrationPaths);
+    $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     
     //$this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
 
