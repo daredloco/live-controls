@@ -28,6 +28,11 @@ class AddUserToGroupCommand extends Command
             $this->warn('Invalid User ID!');
             return;
         }
+
+        if($group->users()->where('id', '=', $id)->exists()){
+            $this->warn('User is already in group!');
+            return;
+        }
         
         $group->users()->attach($id);
 
