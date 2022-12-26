@@ -3,6 +3,7 @@
 namespace Helvetiapps\LiveControls\Http\Middleware\UserGroups;
 
 use Closure;
+use Helvetiapps\LiveControls\Exceptions\InvalidUserGroupException;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Illuminate\Http\Request;
 
@@ -15,11 +16,17 @@ class CheckUserGroup
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, UserGroup $group)
+    public function handle(Request $request, Closure $next, string $key)
     {
-        if($group->id != auth()->user()->group->id){
+        $group = UserGroup::where('key', '=', $key)->first();
+        if(is_null($group)){
+            throw new InvalidUserGroupException($key);
+        }
+        
+        if(!$group->users()->where('user_id', '=', auth()->id())->exists()){
             abort(403);
         }
+
         return $next($request);
     }
 }
