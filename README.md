@@ -13,6 +13,10 @@
 A System providing an administration dashboard/interface to handle all the things here seperately
 
 ### Todo
+- Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
+- Add Permissions page - Admins will be able to add/edit/remove Permissions
+- Add Users page - Admins will be able to add/edit/remove Users and change their permissions
+- Add User Groups page - Admins will be able to add/edit/remove User Groups and change their permissions
 - ?
 
 
