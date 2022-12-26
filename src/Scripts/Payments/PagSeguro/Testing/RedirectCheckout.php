@@ -34,8 +34,6 @@ class RedirectCheckout{
         $credentials = static::getCredentials();
         $client = static::getClient();
 
-        $host = "CHANGE_ME";
-
         $itemsStr = '<items>';
         foreach($items as $item){
             $itemsStr .= '<item>
@@ -49,7 +47,7 @@ class RedirectCheckout{
         $itemsStr .= '</items>';
 
         try {
-            $response = $client->request('POST', $host.'checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'body' => '<checkout>
                 <sender>
                   <name>'.$sender->name.'</name>
