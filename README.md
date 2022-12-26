@@ -52,8 +52,12 @@ A System handling financial calculations and such
 ## Payment System
 A System handling different payment systems for e-commerce etc.
 
+### Content
+- PagSeguro Redirect Checkout
+- PagSeguro Objects with important informations: PaymentItem, PaymentReceiver, PaymentSender, ShippingInformation
+
 ### Todo
-- Add PagSeguro Handler
+- Add PagSeguro Transparent Checkout
 - Add Sicoob/Credsete Handler
 - Add IUGU Handler
 
@@ -63,6 +67,7 @@ A System handling cryptography like encrypted database entries and such
 
 ### Content
 - Added IsEncrypted trait with createEncrypted(array $fields), updateEncrypted(array $fields) and decrypt(string ...$fields)
+
 
 ## Subscriptions
 A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
