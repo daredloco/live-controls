@@ -2,6 +2,11 @@
  Controls/Scripts/Helpers for Laravel and Livewire
  Those are free to use, but are mostly for my own projects so no full support guaranteed.
 
+## Requirements
+- Laravel 9+
+- Livewire 2+
+- Fortify
+
 ## Admin System
 A System providing an administration dashboard/interface to handle all the things here seperately
 
