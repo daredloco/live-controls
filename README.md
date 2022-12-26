@@ -2,6 +2,8 @@
  Controls/Scripts/Helpers for Laravel and Livewire
  Those are free to use, but are mostly for my own projects so no full support guaranteed.
 
+ **This library is not ready to be used in production!**
+
 ## Requirements
 - Laravel 9+
 - JetStream
