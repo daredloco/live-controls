@@ -50,7 +50,7 @@ class AddUserToPermissionCommand extends Command
             $key = $this->ask('Group Key');
             $permissionkey = $this->ask('Permission Key');
 
-            $group = UserGroup::find($key);
+            $group = UserGroup::where('key', '=', $key)->first();
             $permission = UserPermission::where('key', '=', $permissionkey)->first();
 
             if(is_null($permission)){
