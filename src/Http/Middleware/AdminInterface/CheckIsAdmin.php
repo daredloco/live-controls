@@ -15,9 +15,9 @@ class CheckIsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, UserGroup $group)
+    public function handle(Request $request, Closure $next, string $groupkey)
     {
-        if($group->key != config('livecontrols.usergroups_admin') && auth()->id() != config('livecontrols.admininterface_master')){
+        if($groupkey != config('livecontrols.usergroups_admin') && auth()->id() != config('livecontrols.admininterface_master')){
             abort(403);
         }
         return $next($request);
