@@ -48,7 +48,7 @@ class PermissionsHandler{
                 //Ignore if permission was not found
                 continue;
             }
-            if($perm->users()->where('users.id', '=', $user->id)->exist()){
+            if($perm->users()->where('users.id', '=', $user->id)->exists()){
                 return true;
             }
         }
