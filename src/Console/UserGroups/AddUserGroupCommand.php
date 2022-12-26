@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Console;
+namespace Helvetiapps\LiveControls\Console\UserGroups;
 
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Illuminate\Console\Command;

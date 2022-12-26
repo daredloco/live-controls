@@ -2,9 +2,9 @@
 
 namespace Helvetiapps\LiveControls;
 
-use Helvetiapps\LiveControls\Console\AddUserGroupCommand;
-use Helvetiapps\LiveControls\Console\AddUserToGroupCommand;
-use Helvetiapps\LiveControls\Console\RemoveUserFromGroupCommand;
+use Helvetiapps\LiveControls\Console\UserGroups\AddUserGroupCommand;
+use Helvetiapps\LiveControls\Console\UserGroups\AddUserToGroupCommand;
+use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
