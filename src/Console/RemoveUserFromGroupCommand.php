@@ -28,7 +28,7 @@ class RemoveUserFromGroupCommand extends Command
             $this->warn('Invalid User ID!');
             return;
         }
-        if(!$group->users()->where('id', '=', $id)->exists()){
+        if(!$group->users()->where('users.id', '=', $id)->exists()){
             $this->warn('User is not in group!');
             return;
         }
