@@ -29,9 +29,7 @@ A System handling user groups and permissions based per ranks
 - Middleware for routes to check if user is admin (admin). Admin group can be set in config and Master can be set as well
 - Artisan commands to add group and add/remove user from group: livecontrols:addgroup, livecontrols:setgroup, livecontrols:unsetgroup
 - HasGroups trait for Users
-
-### Todo
-- Add colors to User Groups (Probably optional)
+- Colors can be asigned to User Groups
 
 
 ## User Permissions System
