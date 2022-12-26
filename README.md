@@ -4,8 +4,10 @@
 
 ## Requirements
 - Laravel 9+
+- JetStream
 - Livewire 2+
 - Fortify
+- [JetStrap](https://github.com/nascent-africa/jetstrap)
 
 ## Admin System
 A System providing an administration dashboard/interface to handle all the things here seperately
