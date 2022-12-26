@@ -19,7 +19,7 @@ class Fin{
         return $value;
     }
 
-    public static function saldo(int $profit_in_cents, int $expenses_in_cents){
+    public static function calculateSaldo(int $profit_in_cents, int $expenses_in_cents){
         return $profit_in_cents - $expenses_in_cents;
     }
 }
