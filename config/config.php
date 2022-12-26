@@ -8,7 +8,7 @@ return [
     
     //User groups
     'usergroups_enabled' => true, //Set this to true if usergroups should be enabled
-    'usergroups_admin' => 'admin', //The key of the usergroup with root access
+    'usergroups_admins' => ['admin'], //The keys of the usergroups with root access
 
     //User permissions
     'userpermissions_enabled' => true, //Set this to true if userpermissions should be enabled
