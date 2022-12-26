@@ -64,6 +64,12 @@ A System handling cryptography like encrypted database entries and such
 ### Content
 - Added IsEncrypted trait with createEncrypted(array $fields), updateEncrypted(array $fields) and decrypt(string ...$fields)
 
+## Subscriptions
+A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
+
+### Todo
+- Add a system to create subscription plans with name, description, value and default values
+
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
