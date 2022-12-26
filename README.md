@@ -30,6 +30,9 @@ A System handling user groups and permissions based per ranks
 - Artisan commands to add group and add/remove user from group: livecontrols:addgroup, livecontrols:setgroup, livecontrols:unsetgroup
 - HasGroups trait for Users
 
+### Todo
+- Add colors to User Groups (Probably optional)
+
 
 ## User Permissions System
 A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
