@@ -14,7 +14,7 @@ class AddUserGroupCommand extends Command
     public function handle()
     {
         $this->info("Please enter the informations for the new group.");
-        $name = $this->ask('Name:');
+        $name = $this->ask('Name');
         while($name == null || $name == ''){
             $this->warn('Group name is required!');
             $name = $this->ask('Name');
