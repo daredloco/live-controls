@@ -51,8 +51,8 @@ class PermissionsHandler{
 
         $groups = $user->groups;
 
-        dd($groups, $this->permissions);
-        
+        dd(auth()->user(), $groups, $this->permissions);
+
         foreach($this->permissions as $permission){
             $perm = UserPermission::where('key', '=', $permission)->first();
             if(is_null($perm)){
