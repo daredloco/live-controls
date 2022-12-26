@@ -66,6 +66,7 @@ A System handling financial calculations and such
 - Cashflow object which handles financial cashflow (Includes CashflowItem class)
 
 ### Todo
+- FGTS Calculator (Maybe someday)
 - ?
 
 
