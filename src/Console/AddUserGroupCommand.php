@@ -29,22 +29,24 @@ class AddUserGroupCommand extends Command
         }
         $desc = $this->ask('Description (Optional)');
 
+        $this->info('');
+        $this->info('------------------------------------');
+        $this->info('');
+        $this->info('Name: '.$name);
+        $this->info('Key: '.$key);
+        $this->info('Description: '.$desc);
         if($this->confirm("Are those informations correct?")){
-            $this->info('Name: '.$name);
-            $this->info('Key: '.$key);
-            $this->info('Description: '.$desc);
+            $group = UserGroup::create([
+                'name' => $name,
+                'key' => $key,
+                'description' => $desc
+            ]);
+    
+            if(is_null($group)){
+                $this->warn('Couldnt create User Group!');
+                return;
+            }
+            $this->info('User Group created!');
         }
-
-        $group = UserGroup::create([
-            'name' => $name,
-            'key' => $key,
-            'description' => $desc
-        ]);
-
-        if(is_null($group)){
-            $this->warn('Couldnt create User Group!');
-            return;
-        }
-        $this->info('User Group created!');
     }
 }
