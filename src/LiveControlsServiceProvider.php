@@ -5,7 +5,7 @@ namespace Helvetiapps\LiveControls;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserToGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
-use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromPermissionCommand;
+use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
