@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Helvetiapps\\LagoonCharts\\LagoonServiceProvider"
+                "Helvetiapps\\LiveControls\\LiveControlsServiceProvider"
             ]
         }
     },
