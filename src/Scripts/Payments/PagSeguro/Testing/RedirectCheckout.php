@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Log;
 use SimpleXMLElement;
 
 class RedirectCheckout{
-    public string $success_landing = '';
 
     /**
      * Returns an array with 'email' and 'token' depending if the application is in debug mode or not
