@@ -21,7 +21,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 
 ## User Groups System
-A System handling user groups and permissions based per ranks
+A System handling user groups
 
 ### Content
 - Usergroups per User
