@@ -43,6 +43,15 @@ A System handling permissions for users or user groups, developer can add specif
 - Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermission, livecontrols:unsetpermission
 
 
+## Support Tickets System
+A System handling support tickets where users can send tickets and admins/moderators have access to answer them
+
+### Todo
+- Add ticket frontend with type (can be added by admins), title, description and fileupload (if allowed in config)
+- Add frontend for admins/moderators to answer tickets and change their status
+- Add moderators as group in config
+
+
 ## Captcha System
 A System handling captchas (mostly Recaptcha, but can handle other systems as well)
 
