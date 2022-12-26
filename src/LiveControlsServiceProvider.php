@@ -8,9 +8,9 @@ use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
-use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
+use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
