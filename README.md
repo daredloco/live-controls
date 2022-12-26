@@ -52,14 +52,6 @@ A System handling support tickets where users can send tickets and admins/modera
 - Add moderators as group in config
 
 
-## Captcha System
-A System handling captchas (mostly Recaptcha, but can handle other systems as well)
-
-### Todo
-- Add Recaptcha v2
-- Add Recaptcha v3
-
-
 ## Financial System
 A System handling financial calculations and such
 
@@ -84,7 +76,7 @@ A System handling different payment systems for e-commerce etc.
 A System handling cryptography like encrypted database entries and such
 
 ### Content
-- Added IsEncrypted trait with createEncrypted(array $fields), updateEncrypted(array $fields) and decrypt(string ...$fields)
+- Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
 
 
 ## Subscriptions
