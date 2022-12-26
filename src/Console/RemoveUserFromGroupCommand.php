@@ -34,5 +34,7 @@ class RemoveUserFromGroupCommand extends Command
         }
         
         $group->users()->detach($id);
+
+        $this->info('Removed user from group!');
     }
 }

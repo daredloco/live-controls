@@ -30,5 +30,7 @@ class AddUserToGroupCommand extends Command
         }
         
         $group->users()->attach($id);
+
+        $this->info('Added user to group!');
     }
 }
