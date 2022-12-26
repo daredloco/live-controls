@@ -13,6 +13,8 @@
             "email": "60240491+daredloco@users.noreply.github.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "^7",
+        "livewire/livewire": "^2.3"
+    }
 }
