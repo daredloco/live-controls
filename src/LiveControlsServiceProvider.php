@@ -5,6 +5,9 @@ namespace Helvetiapps\LiveControls;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserToGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
+use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromPermissionCommand;
+use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
+use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
@@ -43,9 +46,15 @@ class LiveControlsServiceProvider extends ServiceProvider
     if ($this->app->runningInConsole())
     {
       $this->commands([
+        //User Group Commands
         AddUserGroupCommand::class,
         AddUserToGroupCommand::class,
         RemoveUserFromGroupCommand::class,
+
+        //User Permission Commands
+        AddUserPermissionCommand::class,
+        AddUserToPermissionCommand::class,
+        RemoveUserFromPermissionCommand::class
       ]);
       
       $this->publishes([

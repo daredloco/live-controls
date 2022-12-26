@@ -30,9 +30,7 @@ A System handling permissions for users or user groups, developer can add specif
 ### Content
 - Userpermissions per User/UserGroup
 - PermissionsHandler Facade to check if user has permissions
-
-### Todo
-- Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermissions, livecontrols:unsetpermissions
+- Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermission, livecontrols:unsetpermission
 
 
 ## Captcha System
