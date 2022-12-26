@@ -12,7 +12,8 @@ class UserGroup extends Model{
 
     protected $fillable = [
         'name',
-        'key'
+        'key',
+        'description'
     ];
     
     public function users(): BelongsToMany
