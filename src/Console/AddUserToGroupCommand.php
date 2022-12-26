@@ -29,11 +29,11 @@ class AddUserToGroupCommand extends Command
             return;
         }
 
-        if($group->users()->where('id', '=', $id)->exists()){
+        if($group->users()->where('users.id', '=', $id)->exists()){
             $this->warn('User is already in group!');
             return;
         }
-        
+
         $group->users()->attach($id);
 
         $this->info('Added user to group!');
