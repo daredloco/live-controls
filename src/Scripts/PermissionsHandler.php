@@ -6,6 +6,7 @@ use App\Models\User;
 use Exception;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Helvetiapps\LiveControls\Traits\UserGroups\HasGroups;
 
 class PermissionsHandler{
     private array $permissions = [];
@@ -39,19 +40,30 @@ class PermissionsHandler{
     }
 
     public function check(User $user = null):bool{
+
+        if(!in_array(HasGroups::class, class_uses_recursive(User::class))){
+            throw new Exception('HasGroups trait is missing in User class!');
+        }
+
         if(is_null($user)){
             $user = auth()->user();
         }
 
+        $groups = $user->groups();
+
         foreach($this->permissions as $permission){
             $perm = UserPermission::where('key', '=', $permission)->first();
             if(is_null($perm)){
-                throw new Exception('Permission "'.$permission.'" does not exist!');
                 //Ignore if permission was not found
                 continue;
             }
             if($perm->users()->where('users.id', '=', $user->id)->exists()){
                 return true;
+            }
+            foreach($groups as $group){
+                if($perm->groups()->where('groups.id', '=', $group->id)->exists()){
+                    return true;
+                }
             }
         }
 
