@@ -13,8 +13,14 @@
             "email": "60240491+daredloco@users.noreply.github.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Helvetiapps\\LagoonCharts\\LagoonServiceProvider"
+            ]
+        }
+    },
     "require-dev": {
-        "orchestra/testbench": "^7",
-        "livewire/livewire": "^2.3"
+        "orchestra/testbench": "^7"
     }
 }
