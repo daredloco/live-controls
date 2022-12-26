@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls;
 
+use Helvetiapps\LiveControls\Console\AddUserGroupCommand;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
@@ -18,7 +19,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
     });
-    
+
     $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livecontrols');
   }
 
@@ -38,6 +39,10 @@ class LiveControlsServiceProvider extends ServiceProvider
 
     if ($this->app->runningInConsole())
     {
+      $this->commands([
+          AddUserGroupCommand::class,
+      ]);
+      
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
       ], 'config');
