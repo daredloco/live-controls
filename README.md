@@ -18,7 +18,7 @@ A System providing an administration dashboard/interface to handle all the thing
 A System handling user groups and permissions based per ranks
 
 ### Content
-- Usergroups table
+- Usergroups per User
 - Middleware for routes to check if user is in group (usergroup:group_key)
 - Middleware for routes to check if user is admin (admin). Admin group can be set in config and Master can be set as well
 - Artisan commands to add group and add/remove user from group: livecontrols:addgroup, livecontrols:setgroup, livecontrols:unsetgroup
@@ -27,8 +27,12 @@ A System handling user groups and permissions based per ranks
 ## User Permissions System
 A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
 
+### Content
+- Userpermissions per User/UserGroup
+- PermissionsHandler Facade to check if user has permissions
+
 ### Todo
-- ?
+- Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermissions, livecontrols:unsetpermissions
 
 
 ## Captcha System
