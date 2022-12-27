@@ -4,7 +4,7 @@ namespace Helvetiapps\LiveControls\Http\Livewire\Admin;
 
 use Livewire\Component;
 
-class Dashboard extends Component
+class Main extends Component
 {
     public $page;
 
