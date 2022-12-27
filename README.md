@@ -10,6 +10,10 @@
 - Livewire 2+
 - Fortify
 - [JetStrap](https://github.com/nascent-africa/jetstrap)
+- stack('styles') in the <head> of the layout (If using ToastR)
+
+
+
 
 ## Admin System
 A System providing an administration dashboard/interface to handle all the things here seperately
@@ -109,6 +113,15 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 
 ### Todo
 - Add a system to create subscription plans with name, description, value and default values
+
+
+
+
+## ToastR
+Simple implementation of ToastR popups
+
+### Content
+- Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.
 
 
 

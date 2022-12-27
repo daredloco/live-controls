@@ -17,6 +17,7 @@ use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -71,6 +72,10 @@ class LiveControlsServiceProvider extends ServiceProvider
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
       ], 'livecontrols-config');
+
+      //Load Blade Components
+      Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
+
     }
 
     //MACROS (Maybe used for crypto, not sure)
