@@ -3,49 +3,49 @@
     <style>
          /* The side navigation menu */
         .livecontrols-sidebar {
-        margin: 0;
-        padding: 0;
-        background-color: #f1f1f1;
-        height: 100%;
-        overflow: auto;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            height: 100%;
+            overflow: auto;
         }
 
         /* Sidebar links */
         .livecontrols-sidebar a {
-        display: block;
-        color: black;
-        padding: 16px;
-        text-decoration: none;
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
         }
 
         /* Active/current link */
         .livecontrols-sidebar a.active {
-        background-color: #04AA6D;
-        color: white;
+            background-color: #04AA6D;
+            color: white;
         }
 
         /* Links on mouse-over */
         .livecontrols-sidebar a:hover:not(.active) {
-        background-color: #555;
-        color: white;
+            background-color: #555;
+            color: white !important;
         }
 
         /* On screens that are less than 700px wide, make the sidebar into a topbar */
         @media screen and (max-width: 700px) {
-        .livecontrols-sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-        }
-        .livecontrols-sidebar a {float: left;}
+            .livecontrols-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .livecontrols-sidebar a {float: left;}
         }
 
         /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
         @media screen and (max-width: 400px) {
-        .livecontrols-sidebar a {
-            text-align: center;
-            float: none;
-        }
+            .livecontrols-sidebar a {
+                text-align: center;
+                float: none;
+            }
         } 
     </style>
     @endpush
