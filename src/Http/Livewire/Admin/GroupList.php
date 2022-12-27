@@ -29,8 +29,10 @@ class GroupList extends Component
 
     public function editPermissions($id){
         $this->itemToEdit = UserGroup::find($id);
-        $this->itemPermissions = $this->itemToEdit->permissions()->get()->toArray();
-        dd($this->itemPermissions);
+        $this->itemPermissions = [];
+        foreach($this->itemToEdit->permissions as $permission){
+            array_push($this->itemPermissions, $permission->id);
+        }
         $this->showPermissionModal = true;
     }
 
