@@ -38,9 +38,9 @@ class LiveControlsServiceProvider extends ServiceProvider
     ];
 
     $this->loadMigrationsFrom($migrationPaths);
-    
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
-
+    $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+    
     //Livewire::component('livecontrols-table', WireTable::class);
 
     if ($this->app->runningInConsole())
