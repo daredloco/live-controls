@@ -17,7 +17,7 @@
                 @foreach($groups as $group)
                     <tr class="">
                         <th scope="row">{{ $group->id }}</th>
-                        <td>{{ $group->name }} <span  class="rounded-circle" style="background-color: {{ $group->color }};">&nbsp;</td>
+                        <td>{{ $group->name }} <span  class="rounded-circle" style="background-color: {{ $group->color }}; aspect-ratio: 1 / 1;">&nbsp;</td>
                         <td>{{ $group->key }}</td>
                         <td>
                             <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">Edit</a> 
