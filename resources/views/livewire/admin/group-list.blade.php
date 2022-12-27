@@ -22,7 +22,7 @@
                         <td>{{ $group->key }}</td>
                         <td style="background-color: {{ $group->color }}"></td>
                         <td>
-                            <a wire:click.prevent='editPermissions({{$group->id}})'>Permissions</a> 
+                            <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>Permissions</a> 
                             <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">Edit</a> 
                             <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">Delete</a>
                             <form name="delete{{$group->id}}Form" action="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" method="POST">
