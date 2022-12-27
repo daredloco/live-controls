@@ -12,7 +12,7 @@
                     <x-jet-validation-errors class="mb-3" />
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('livecontrols.admin.usergroups.update') }}">
+                        <form method="POST" action="{{ route('livecontrols.admin.usergroups.update', ['userGroup' => $userGroup->id]) }}">
                             @csrf
                             @method('PUT')
 
