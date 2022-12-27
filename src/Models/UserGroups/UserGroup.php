@@ -24,8 +24,8 @@ class UserGroup extends Model{
         return $this->belongsToMany(User::class, 'user_usergroups', 'user_id', 'user_group_id');
     }
 
-    public function permissions(): HasMany
+    public function permissions(): BelongsToMany
     {
-        return $this->hasMany(UserPermission::class, 'user_group_id');
+        return $this->belongsToMany(UserPermission::class, 'group_userpermissions', 'user_permission_id', 'user_group_id');
     }
 }
