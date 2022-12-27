@@ -1,4 +1,8 @@
 <div>
+    <div class="col-md-5">
+        <input type="text" class="form-control" placeholder="Search..." aria-label="Search..." wire:model='search'>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>

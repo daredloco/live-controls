@@ -7,9 +7,15 @@ use App\Models\User;
 
 class UserList extends Component
 {
+    public $search = '';
+
     public function render()
     {
-        $users = User::paginate();
+        if($this->search != ''){
+            $users = User::where('name', 'LIKE', '%'.$this->search.'%')->paginate();
+        }else{
+            $users = User::paginate();
+        }
 
         $createRoute = config('livecontrols.routes_users')['create'] == '' ? false : config('livecontrols.routes_users')['create'];
         $editRoute = config('livecontrols.routes_users')['edit'] == '' ? false : config('livecontrols.routes_users')['edit'];
