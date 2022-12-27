@@ -20,14 +20,18 @@
                         <td>{{ $group->name }}</td>
                         <td>{{ $group->key }}</td>
                         <td>
-                            <a href="#">Edit</a> 
-                            <a href="#">Delete</a>    
+                            <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">Edit</a> 
+                            <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">Delete</a>
+                            <form name="delete{{$group->id}}Form" action="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            </form>    
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    <a href="#" class="btn btn-success text-white">Create</a>
+    <a href="{{ route('livecontrols.admin.usergroups.create') }}" class="btn btn-success text-white">Create</a>
 
 </div>
