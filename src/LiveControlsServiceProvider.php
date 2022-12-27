@@ -8,6 +8,7 @@ use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
@@ -40,8 +41,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     $this->loadMigrationsFrom($migrationPaths);
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
     $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-    
-    //Livewire::component('livecontrols-table', WireTable::class);
+
+    Livewire::component('livecontrols-admin', Main::class);
 
     if ($this->app->runningInConsole())
     {
