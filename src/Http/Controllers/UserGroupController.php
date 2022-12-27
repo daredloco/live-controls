@@ -22,9 +22,9 @@ class UserGroupController extends Controller
         $userGroup = UserGroup::create($validated);
 
         if(!is_null($userGroup)){
-            return redirect('livecontrols.admin.index')->with('success', 'UserGroup created!');
+            return redirect()->route('livecontrols.admin.index')->with('success', 'UserGroup created!');
         }
-        return redirect('livecontrols.admin.index')->with('exception', 'Couldn\'t create UserGroup!');
+        return redirect()->route('livecontrols.admin.index')->with('exception', 'Couldn\'t create UserGroup!');
     }
 
     public function edit(UserGroup $userGroup){
@@ -40,15 +40,15 @@ class UserGroupController extends Controller
         ]);
 
         if($userGroup->update($validated)){
-            return redirect('livecontrols.admin.index')->with('success', 'UserGroup updated!');
+            return redirect()->route('livecontrols.admin.index')->with('success', 'UserGroup updated!');
         }
-        return redirect('livecontrols.admin.index')->with('exception', 'Couldn\'t update UserGroup!');
+        return redirect()->route('livecontrols.admin.index')->with('exception', 'Couldn\'t update UserGroup!');
     }
 
     public function destroy(UserGroup $userGroup){
         if($userGroup->delete()){
-            return redirect('livecontrols.admin.index')->with('success', 'UserGroup deleted!');
+            return redirect()->route('livecontrols.admin.index')->with('success', 'UserGroup deleted!');
         }
-        return redirect('livecontrols.admin.index')->with('exception', 'Couldn\'t delete UserGroup!');
+        return redirect()->route('livecontrols.admin.index')->with('exception', 'Couldn\'t delete UserGroup!');
     }
 }
