@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Scripts\Payments\PagSeguro;
+namespace Helvetiapps\LiveControls\Scripts\Payments\PagSeguro\Testing;
 
 use Carbon\Carbon;
 use Exception;
