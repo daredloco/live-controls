@@ -14,7 +14,8 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('livecontrols.admin.usergroups.update') }}">
                             @csrf
-
+                            @method('PUT')
+                            
                             <div class="mb-3">
                                 <x-jet-label value="{{ __('Name') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
