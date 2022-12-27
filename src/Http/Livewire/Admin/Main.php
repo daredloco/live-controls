@@ -15,6 +15,7 @@ class Main extends Component
     public function render()
     {
         $customPages = config('livecontrols.admininterface_customcontrols');
+        dd($customPages);
         return view('livecontrols::livewire.admin.main', ['customPages' => $customPages]);
     }
 
