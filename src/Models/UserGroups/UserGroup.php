@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class UserGroup extends Model{
     use HasFactory;
