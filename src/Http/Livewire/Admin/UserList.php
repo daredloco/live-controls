@@ -11,12 +11,12 @@ class UserList extends Component
     {
         $users = User::paginate();
 
-        $createRoute = config('livecontrols.routes_users')['create'] == '' ? '#' : config('livecontrols.routes_users')['create'];
-        $editRoute = config('livecontrols.routes_users')['edit'] == '' ? '#' : config('livecontrols.routes_users')['edit'];
-        $deleteRoute = config('livecontrols.routes_users')['delete'] == '' ? '#' : config('livecontrols.routes_users')['delete'];
+        $createRoute = config('livecontrols.routes_users')['create'] == '' ? false : config('livecontrols.routes_users')['create'];
+        $editRoute = config('livecontrols.routes_users')['edit'] == '' ? false : config('livecontrols.routes_users')['edit'];
+        $deleteRoute = config('livecontrols.routes_users')['delete'] == '' ? false : config('livecontrols.routes_users')['delete'];
 
         dd($createRoute, $editRoute, $deleteRoute);
-        
+
         return view('livecontrols::livewire.admin.user-list', ['users' => $users, 'createRoute' => $createRoute, 'editRoute' => $editRoute, 'deleteRoute' => $deleteRoute]);
     }
 }

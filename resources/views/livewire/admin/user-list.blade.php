@@ -16,13 +16,20 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ $editRoute }}">Edit</a> 
-                            <a href="{{ $deleteRoute }}">Delete</a>
+                            @if($editRoute !== false)
+                                <a href="{{ $editRoute }}">Edit</a> 
+                            @endif
+
+                            @if($deleteRoute !== false)
+                                <a href="{{ $deleteRoute }}">Delete</a>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">Create</a>
+    @if($createRoute !== false)
+        <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">Create</a>
+    @endif
 </div>
