@@ -15,7 +15,7 @@
                         <form method="POST" action="{{ route('livecontrols.admin.usergroups.update') }}">
                             @csrf
                             @method('PUT')
-                            
+
                             <div class="mb-3">
                                 <x-jet-label value="{{ __('Name') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="mb-3">
-                              <label for="description" class="form-label"></label>
+                              <label for="description" class="form-label">Description</label>
                               <textarea class="form-control" name="description" id="description" rows="3">{{ old('description', $userGroup->description) }}</textarea>
                             </div>
                             
