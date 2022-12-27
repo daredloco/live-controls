@@ -6,7 +6,12 @@ use Helvetiapps\LiveControls\Http\Controllers\UserPermissionController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Interface
-Route::middleware(['web'])->group(function(){
+Route::middleware([
+    'web',
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified']
+    )->group(function(){
     Route::prefix(config('livecontrols.admininterface_prefix'))->middleware(['admin'])->group(function () {
         //Add routes that can be accessed only by admins
         Route::get('dashboard', [AdminInterfaceController::class, 'index'])->name('livecontrols.admin.dashboard');
