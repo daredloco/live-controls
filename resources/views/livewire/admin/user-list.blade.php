@@ -20,6 +20,8 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
+                            <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>Permissions</a> 
+
                             @if($editRoute !== false)
                                 <a href="{{ $editRoute }}">Edit</a> 
                             @endif
@@ -36,4 +38,33 @@
     @if($createRoute !== false)
         <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">Create</a>
     @endif
+
+    <!-- Permissions Modal -->
+    <x-jet-dialog-modal wire:model="showPermissionModal">
+        <x-slot name="title">
+            Edit Permissions
+        </x-slot>
+    
+        <x-slot name="content">
+            @if(!is_null($itemToEdit))
+                @foreach($permissions as $permission)
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                        type="checkbox" value="1" id="perm-{{ $permission->id }}" wire:click='updatePermission({{$permission->id}})'
+                        @if(in_array($permission->id, $itemPermissions)) checked @endif>
+                        <label class="form-check-label" for="perm-{{ $permission->id }}">
+                            {{ $permission->name }}
+                        </label>
+                    </div>
+                @endforeach
+            @endif
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('showPermissionModal')" wire:loading.attr="disabled">
+                Close
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-jet-dialog-modal>    
+    <!-- /Permissions Modal -->
 </div>
