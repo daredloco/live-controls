@@ -16,8 +16,8 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route(config('livecontrols.routes_users')['edit']) }}">Edit</a> 
-                            <a href="{{ route(config('livecontrols.routes_users')['delete']) }}">Delete</a>
+                            <a href="{{ $editRoute }}">Edit</a> 
+                            <a href="{{ $deleteRoute }}">Delete</a>
                         </td>
                     </tr>
                 @endforeach
