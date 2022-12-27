@@ -15,8 +15,6 @@ class UserList extends Component
         $editRoute = config('livecontrols.routes_users')['edit'] == '' ? false : config('livecontrols.routes_users')['edit'];
         $deleteRoute = config('livecontrols.routes_users')['delete'] == '' ? false : config('livecontrols.routes_users')['delete'];
 
-        dd($createRoute, $editRoute, $deleteRoute);
-
         return view('livecontrols::livewire.admin.user-list', ['users' => $users, 'createRoute' => $createRoute, 'editRoute' => $editRoute, 'deleteRoute' => $deleteRoute]);
     }
 }
