@@ -49,7 +49,7 @@
                     <div class="form-check">
                         <input class="form-check-input" 
                         type="checkbox" value="1" id="perm-{{ $permission->id }}" wire:click='updatePermission({{$permission->id}})'
-                        @if(in_array($permission, $itemPermissions)) checked @endif>
+                        @if(in_array($permission, $itemPermissions->toArray())) checked @endif>
                         <label class="form-check-label" for="perm-{{ $permission->id }}">
                             {{ $permission->name }}
                         </label>
