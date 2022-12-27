@@ -1,6 +1,9 @@
 <?php
 
 return [
+    //External Routes
+    'routes_users' => ['create' => '', 'edit' => '', 'delete' => ''], //Set the routes where you create, edit or delete Users
+
     //Admin Interface
     'admininterface_enabled' => true, //Set this to true if you want to enable the admin interface
     'admininterface_master' => 1, //Set this to the user id you want to give master access

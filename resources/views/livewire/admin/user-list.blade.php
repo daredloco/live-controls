@@ -15,11 +15,14 @@
                         <th scope="row">{{ $user->id }}</th>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td></td>
+                        <td>
+                            <a href="{{ route(config('livecontrols.routes_users')['edit']) }}">Edit</a> 
+                            <a href="{{ route(config('livecontrols.routes_users')['delete']) }}">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
-    
+    <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">Create</a>
 </div>
