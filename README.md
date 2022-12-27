@@ -18,6 +18,7 @@
 
 ## Admin System
 A System providing an administration dashboard/interface to handle all the things here seperately
+[Documentation](https://github.com/daredloco/live-controls/wiki/02.-Admin-Interface)
 
 ### Content
 - User Page where admins can add/edit/remove Users and give them Permissions
@@ -35,6 +36,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ## User Groups System
 A System handling user groups
+[Documentation](https://github.com/daredloco/live-controls/wiki/03.-User-Groups)
 
 ### Content
 - Usergroups per User
@@ -49,6 +51,7 @@ A System handling user groups
 
 ## User Permissions System
 A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
+[Documentation](https://github.com/daredloco/live-controls/wiki/04.-User-Permissions)
 
 ### Content
 - Userpermissions per User/UserGroup
@@ -60,6 +63,7 @@ A System handling permissions for users or user groups, developer can add specif
 
 ## Support Tickets System
 A System handling support tickets where users can send tickets and admins/moderators have access to answer them
+[Documentation](https://github.com/daredloco/live-controls/wiki/05.-Support-Tickets)
 
 ### Todo
 - Add ticket frontend with type (can be added by admins), title, description and fileupload (if allowed in config)
@@ -71,6 +75,7 @@ A System handling support tickets where users can send tickets and admins/modera
 
 ## Financial System
 A System handling financial calculations and such
+[Documentation](https://github.com/daredloco/live-controls/wiki/06.-Financial)
 
 ### Content
 - Fin class with useful functions (More functions will be added as time goes on)
@@ -85,6 +90,7 @@ A System handling financial calculations and such
 
 ## Payment System
 A System handling different payment systems for e-commerce etc.
+[Documentation](https://github.com/daredloco/live-controls/wiki/07.-Payment)
 
 ### Content
 - PagSeguro Redirect Checkout
@@ -103,6 +109,7 @@ A System handling different payment systems for e-commerce etc.
 
 ## Crypto
 A System handling cryptography like encrypted database entries and such
+[Documentation](https://github.com/daredloco/live-controls/wiki/08.-Crypto)
 
 ### Content
 - Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
@@ -121,6 +128,7 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 
 ## ToastR
 Simple implementation of ToastR popups
+[Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
 
 ### Content
 - Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.
@@ -130,6 +138,7 @@ Simple implementation of ToastR popups
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
+[Documentation](https://github.com/daredloco/live-controls/wiki/10.-Utils)
 
 ### Todo
 - ?
