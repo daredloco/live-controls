@@ -8,6 +8,8 @@ class Main extends Component
 {
     public $page;
 
+    protected $queryString = ['page' => ['as' => 'p']];
+
     public function mount(){
         $this->page = 'dashboard';
     }
