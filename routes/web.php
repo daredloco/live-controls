@@ -4,7 +4,9 @@ use Helvetiapps\LiveControls\Http\Controllers\AdminInterfaceController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Interface
-Route::prefix(config('livecontrols.admininterface_prefix'))->middleware(['admin'])->group(function () {
-    //Add routes that can be accessed only by admins
-    Route::get('dashboard', [AdminInterfaceController::class, 'index'])->name('livecontrols.admin.dashboard');
+Route::middleware(['web'])->group(function(){
+    Route::prefix(config('livecontrols.admininterface_prefix'))->middleware(['admin'])->group(function () {
+        //Add routes that can be accessed only by admins
+        Route::get('dashboard', [AdminInterfaceController::class, 'index'])->name('livecontrols.admin.dashboard');
+    });
 });
