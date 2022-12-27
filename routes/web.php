@@ -1,6 +1,8 @@
 <?php
 
 use Helvetiapps\LiveControls\Http\Controllers\AdminInterfaceController;
+use Helvetiapps\LiveControls\Http\Controllers\UserGroupController;
+use Helvetiapps\LiveControls\Http\Controllers\UserPermissionController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Interface
