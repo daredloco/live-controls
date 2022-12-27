@@ -16,8 +16,9 @@
 
 
 
-## Admin System
+## Admin Interface
 A System providing an administration dashboard/interface to handle all the things here seperately
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/02.-Admin-Interface)
 
 ### Content
@@ -36,6 +37,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ## User Groups System
 A System handling user groups
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/03.-User-Groups)
 
 ### Content
@@ -51,6 +53,7 @@ A System handling user groups
 
 ## User Permissions System
 A System handling permissions for users or user groups, developer can add specific permissions by keyword and specific actions based on them which will show up afterwards
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/04.-User-Permissions)
 
 ### Content
@@ -63,6 +66,7 @@ A System handling permissions for users or user groups, developer can add specif
 
 ## Support Tickets System
 A System handling support tickets where users can send tickets and admins/moderators have access to answer them
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/05.-Support-Tickets)
 
 ### Todo
@@ -75,6 +79,7 @@ A System handling support tickets where users can send tickets and admins/modera
 
 ## Financial System
 A System handling financial calculations and such
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/06.-Financial)
 
 ### Content
@@ -90,6 +95,7 @@ A System handling financial calculations and such
 
 ## Payment System
 A System handling different payment systems for e-commerce etc.
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/07.-Payment)
 
 ### Content
@@ -109,6 +115,7 @@ A System handling different payment systems for e-commerce etc.
 
 ## Crypto
 A System handling cryptography like encrypted database entries and such
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/08.-Crypto)
 
 ### Content
@@ -128,6 +135,7 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 
 ## ToastR
 Simple implementation of ToastR popups
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
 
 ### Content
@@ -138,6 +146,7 @@ Simple implementation of ToastR popups
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/10.-Utils)
 
 ### Todo
