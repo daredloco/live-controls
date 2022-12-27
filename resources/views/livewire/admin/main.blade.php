@@ -51,12 +51,12 @@
     @endpush
     <div class="row">
         <div class="col-md-3 livecontrols-sidebar">
-            <a @if($page == 'dashboard') class="active" @endif href="#dashboard" wire:click.prevent="changePage('dashboard')">Dashboard</a>
-            <a @if($page == 'users') class="active" @endif href="#users" wire:click.prevent="changePage('users')">Users</a>
-            <a @if($page == 'groups') class="active" @endif href="#groups" wire:click.prevent="changePage('groups')">User Groups</a>
-            <a @if($page == 'permissions') class="active" @endif href="#permissions" wire:click.prevent="changePage('permissions')">Permissions</a>
+            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">Dashboard</a>
+            <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">Users</a>
+            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">User Groups</a>
+            <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">Permissions</a>
             @foreach($customPages as $label => $key)
-                <a href="#{{ $key }}" wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
+                <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
             @endforeach
         </div>
         <div class="col-md-9 content">
