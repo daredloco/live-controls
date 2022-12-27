@@ -10,7 +10,6 @@
 - Livewire 2+
 - Fortify
 - [JetStrap](https://github.com/nascent-africa/jetstrap)
-- stack('styles') in the <head> of the layout (If using ToastR)
 
 
 
