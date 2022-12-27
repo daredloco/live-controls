@@ -1,5 +1,5 @@
 <div>
-    <div class="col-md-5">
+    <div class="col-md-4">
         <input type="text" class="form-control" placeholder="Search..." aria-label="Search..." wire:model='search'>
     </div>
 
