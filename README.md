@@ -18,13 +18,14 @@
 A System providing an administration dashboard/interface to handle all the things here seperately
 
 ### Content
+- User Page where admins can add/edit/remove Users and give them Permissions
+- User Group Page where admins can add/edit/remove Groups and give them Permissions
+- Permissions Page where admins can add/edit/remove Permissions
 - You can add custom livewire controls to the Admin Interface by adding them to the configuration file
 
 ### Todo
 - Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
-- Add Permissions page - Admins will be able to add/edit/remove Permissions
-- Add Users page - Admins will be able to add/edit/remove Users and change their permissions
-- Add User Groups page - Admins will be able to add/edit/remove User Groups and change their permissions
+- Add function to set groups of user similar to the permissions
 - ?
 
 
@@ -51,7 +52,7 @@ A System handling permissions for users or user groups, developer can add specif
 - Userpermissions per User/UserGroup
 - PermissionsHandler Facade to check if user has permissions
 - Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermission, livecontrols:unsetpermission
-
+- HasPermissions trait for Users
 
 
 
