@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('Edit UserGroup').' "'.$userGroup.'"' }}
+            {{ __('Edit UserGroup').' "'.$userGroup->name.'"' }}
         </h2>
     </x-slot>
 
