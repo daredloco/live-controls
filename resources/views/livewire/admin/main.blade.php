@@ -72,7 +72,7 @@
       
       <div class="content">
         @if($page == 'dashboard')
-            Dashboard
+            @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard'))
         @elseif($page == 'users')
             Users
         @elseif($page == 'groups')
