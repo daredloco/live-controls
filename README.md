@@ -80,9 +80,12 @@ A System handling different payment systems for e-commerce etc.
 ### Content
 - PagSeguro Redirect Checkout
 - PagSeguro Objects with important informations: PaymentItem, PaymentReceiver, PaymentSender, ShippingInformation
+- IUGU Transparent Checkout
+- IUGU has the option to create a payment per PIX, Bank Slip or Credit Card and you can update a bill and remove it if it isn't already paid or due
+- IUGU Objects with important informations: PaymentItem, PaymentSender
 
 ### Todo
-- Add IUGU Handler
+- Add IUGU Debit Card (If possible)
 - Add PagSeguro Transparent Checkout (Depends on demand on projects)
 - Add Sicoob/Credsete Handler (Depends on demand on projects)
 
