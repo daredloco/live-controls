@@ -15,23 +15,26 @@ class CheckIsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, string $groupKey)
+    public function handle(Request $request, Closure $next)
     {
         //Pass if user is master
         if(auth()->id() == config('livecontrols.admininterface_master')){
             return $next($request);
         }
 
-        //Pass if user is in admin group(s)
-        if(is_array(config('livecontrols.usergroups_admins'))){
-            foreach(config('livecontrols.usergroups_admins') as $adminKey){
-                if($adminKey == $groupKey){
+        foreach(auth()->user()->groups as $group){
+            $groupKey = $group->key;
+            //Pass if user is in admin group(s)
+            if(is_array(config('livecontrols.usergroups_admins'))){
+                foreach(config('livecontrols.usergroups_admins') as $adminKey){
+                    if($adminKey == $groupKey){
+                        return $next($request);
+                    }
+                }
+            }else{
+                if($groupKey == config('livecontrols.usergroups_admins')){
                     return $next($request);
                 }
-            }
-        }else{
-            if($groupKey == config('livecontrols.usergroups_admins')){
-                return $next($request);
             }
         }
 
