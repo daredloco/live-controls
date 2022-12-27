@@ -9,7 +9,10 @@ use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCom
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Dashboard;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
@@ -44,8 +47,12 @@ class LiveControlsServiceProvider extends ServiceProvider
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
     $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
+    //Admin Interface Components
     Livewire::component('livecontrols-admin', Main::class);
     Livewire::component('livecontrols-admin-dashboard', Dashboard::class);
+    Livewire::component('livecontrols-admin-userlist', UserList::class);
+    Livewire::component('livecontrols-admin-grouplist', GroupList::class);
+    Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
 
     if ($this->app->runningInConsole())
     {

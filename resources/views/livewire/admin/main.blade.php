@@ -63,11 +63,11 @@
             @if($page == 'dashboard')
                 @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard'))
             @elseif($page == 'users')
-                Users
+                @livewire('livecontrols-admin-userlist', [], key('admin-userlist'))
             @elseif($page == 'groups')
-                Groups
+                @livewire('livecontrols-admin-grouplist', [], key('admin-grouplist'))
             @elseif($page == 'permissions')
-                Permissions
+                @livewire('livecontrols-admin-permissionlist', [], key('admin-permissionlist'))
             @endif
             @foreach($customPages as $key)
                 @if($page == $key)
