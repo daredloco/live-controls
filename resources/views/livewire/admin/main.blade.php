@@ -58,31 +58,31 @@
         } 
     </style>
     @endpush
-
-    <div class="livecontrols-sidebar">
-        <a class="active" href="#dashboard" wire:click.prevent="changePage('dashboard')">Dashboard</a>
-        <a href="#users" wire:click.prevent="changePage('users')">Users</a>
-        <a href="#groups" wire:click.prevent="changePage('groups')">User Groups</a>
-        <a href="#permissions" wire:click.prevent="changePage('permissions')">Permissions</a>
-        @foreach($customPages as $label => $key)
-            <a href="#{{ $key }}" wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
-        @endforeach
-      </div>
-      
-      <div class="content">
-        @if($page == 'dashboard')
-            @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard'))
-        @elseif($page == 'users')
-            Users
-        @elseif($page == 'groups')
-            Groups
-        @elseif($page == 'permissions')
-            Permissions
-        @endif
-        @foreach($customPages as $key)
-            @if($page == $key)
-                @livewire($key)
+    <div class="row">
+        <div class="col-md-4 livecontrols-sidebar">
+            <a class="active" href="#dashboard" wire:click.prevent="changePage('dashboard')">Dashboard</a>
+            <a href="#users" wire:click.prevent="changePage('users')">Users</a>
+            <a href="#groups" wire:click.prevent="changePage('groups')">User Groups</a>
+            <a href="#permissions" wire:click.prevent="changePage('permissions')">Permissions</a>
+            @foreach($customPages as $label => $key)
+                <a href="#{{ $key }}" wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
+            @endforeach
+        </div>
+        <div class="col-md-8 content">
+            @if($page == 'dashboard')
+                @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard'))
+            @elseif($page == 'users')
+                Users
+            @elseif($page == 'groups')
+                Groups
+            @elseif($page == 'permissions')
+                Permissions
             @endif
-        @endforeach
-      </div>
+            @foreach($customPages as $key)
+                @if($page == $key)
+                    @livewire($key)
+                @endif
+            @endforeach
+        </div>
+    </div>
 </div>
