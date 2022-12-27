@@ -17,6 +17,6 @@ class GroupList extends Component
             $groups = UserGroup::paginate();
         }
 
-        return view('livecontrols::livewire.admin.user-list', ['groups' => $groups]);
+        return view('livecontrols::livewire.admin.group-list', ['groups' => $groups]);
     }
 }
