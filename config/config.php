@@ -15,5 +15,5 @@ return [
 
     //Payment System
     'payments_enabled' => true, //Set this to true if payments should be enabled
-    'payments_backends' => ['pagseguro'], //Set the payment backends here. Supportet are 'pagseguro', 'iugu'
+    'payments_backends' => ['pagseguro'], //Set the payment backends here. Supported are 'pagseguro', 'iugu'
 ];
