@@ -10,6 +10,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Key</th>
+                    <th scope="col">Color</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -17,8 +18,9 @@
                 @foreach($groups as $group)
                     <tr class="">
                         <th scope="row">{{ $group->id }}</th>
-                        <td>{{ $group->name }} <span  class="rounded-circle" style="background-color: {{ $group->color }}; width: 12px; aspect-ratio: 1 / 1;">&nbsp;</td>
+                        <td>{{ $group->name }}</td>
                         <td>{{ $group->key }}</td>
+                        <td style="background-color: {{ $group->color }}"></td>
                         <td>
                             <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">Edit</a> 
                             <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">Delete</a>
