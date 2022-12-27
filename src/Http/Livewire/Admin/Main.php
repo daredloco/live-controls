@@ -11,7 +11,9 @@ class Main extends Component
     protected $queryString = ['page' => ['as' => 'p']];
 
     public function mount(){
-        $this->page = 'dashboard';
+        if(is_null($this->page)){
+            $this->page = 'dashboard';
+        }
     }
 
     public function render()
