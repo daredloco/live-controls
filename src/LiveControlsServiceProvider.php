@@ -14,6 +14,7 @@ use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 
 class LiveControlsServiceProvider extends ServiceProvider
 {
