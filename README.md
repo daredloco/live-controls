@@ -68,10 +68,17 @@ A System handling support tickets where users can send tickets and admins/modera
 
 [Documentation](https://github.com/daredloco/live-controls/wiki/05.-Support-Tickets)
 
+### Content
+- Ticket Frontend for Users and Moderators. With route('livecontrols.support.index')
+- SupportTickets with Title, Body, Priority and Status
+- Configuration for "moderator" groups
+
 ### Todo
-- Add ticket frontend with type (can be added by admins), title, description and fileupload (if allowed in config)
-- Add frontend for admins/moderators to answer tickets and change their status
-- Add moderators as group in config
+- Show SupportMessages inside the SupportTickets and let users and moderators write new ones
+- Let users and moderators change the status of the tickets
+- If a ticket is closed, disable the function to send SupportMessages
+- Let users and moderators reopen a support ticket
+- Add the function to remove SupportTickets from the system
 
 
 
