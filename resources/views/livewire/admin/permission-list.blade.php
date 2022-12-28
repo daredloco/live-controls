@@ -10,6 +10,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Key</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
@@ -19,6 +20,7 @@
                         <th scope="row">{{ $permission->id }}</th>
                         <td>{{ $permission->name }}</td>
                         <td>{{ $permission->key }}</td>
+                        <td>{{ $permission->description }}</td>
                         <td>
                             <a href="{{ route('livecontrols.admin.userpermissions.edit', ['userPermission' => $permission->id]) }}">Edit</a> 
                             <a href="{{ route('livecontrols.admin.userpermissions.delete', ['userPermission' => $permission->id]) }}" onclick="event.preventDefault(); document.delete{{ $permission->id }}Form.submit();">Delete</a>

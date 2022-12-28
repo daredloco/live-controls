@@ -10,6 +10,7 @@
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Key</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Color</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -20,6 +21,7 @@
                         <th scope="row">{{ $group->id }}</th>
                         <td>{{ $group->name }}</td>
                         <td>{{ $group->key }}</td>
+                        <td>{{ $group->description }}</td>
                         <td style="background-color: {{ $group->color }}"></td>
                         <td>
                             <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>Permissions</a> 
