@@ -21,8 +21,8 @@
             </li>
         @endforeach
     </ul>
-    
+
     <div class="d-flex justify-content-center">
-        {{ $supportTickets->links() }}
+        {{ $supportMessages->links() }}
     </div>
 </div>
