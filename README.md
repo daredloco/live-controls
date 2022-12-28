@@ -149,6 +149,19 @@ Simple implementation of ToastR popups
 
 
 
+## SweetAlert2
+Simple implementation of SweetAlert2 popups.
+This will replace the ToastR popups due to abandoned project.
+
+Documentation
+
+### Todo
+- Add a SweetAlert2 implementation which uses the same things as ToastR to replace it without the need of changing anything within the code.
+- Add additional functionality to use it for other usecases as well
+
+
+
+
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
