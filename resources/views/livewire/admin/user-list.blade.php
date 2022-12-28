@@ -46,7 +46,7 @@
         </x-slot>
     
         <x-slot name="content">
-            @if(!is_null($itemToEdit))
+            @if($showPermissionModal === true)
                 @foreach($permissions as $permission)
                     <div class="form-check">
                         <input class="form-check-input" 
@@ -75,7 +75,7 @@
         </x-slot>
     
         <x-slot name="content">
-            @if(!is_null($itemToEdit))
+            @if($showGroupModal === true)
                 @foreach($groups as $group)
                     <div class="form-check">
                         <input class="form-check-input" 
