@@ -10,7 +10,7 @@ class MessagesHandler extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    
+
     public $supportTicket;
 
     public $newTitle = '';
@@ -24,7 +24,7 @@ class MessagesHandler extends Component
 
     public function sendMessage(){
         $this->validate([
-            'newTitle' => 'required',
+            'newTitle' => 'nullable',
             'newBody' => 'required'
         ]);
 
