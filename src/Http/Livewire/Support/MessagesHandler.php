@@ -47,6 +47,9 @@ class MessagesHandler extends Component
 
     public function removeMessage($id){
         $supportMessage = SupportMessage::find($id);
+        if(auth()->id() != $supportMessage->user_id && !auth()->user()->support_team){
+            return;
+        }
         if($supportMessage->delete()){
             $this->dispatchBrowserEvent('showToast', ['success', 'Message deleted!']);
             return;

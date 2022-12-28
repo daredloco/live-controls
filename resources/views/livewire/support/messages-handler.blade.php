@@ -17,8 +17,10 @@
 
                 {!! nl2br($supportMessage->body) !!}
                 <hr>
-                <a href="#" wire:click='removeMessage({{$supportMessage->id}})' style="color: rgb(184, 4, 4);">Remove</a>
+                @if(auth()->id() == $supportMessage->user_id || auth()->user()->support_team)
+                <a href="#" wire:click.prevent='removeMessage({{$supportMessage->id}})' style="color: rgb(184, 4, 4);">Remove</a>
                 <br>
+                @endif
                 <small class="text-muted">{{ $supportMessage->user->name.' at '.$supportMessage->created_at->format('d.m.Y H:i:s') }}</small>
             </li>
         @endforeach
