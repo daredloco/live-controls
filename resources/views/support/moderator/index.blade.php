@@ -5,6 +5,12 @@
         </h2>
     </x-slot>
 
+    @if(count($supportTickets) < 1)
+        <div class="alert alert-info" role="alert">
+            <strong>No Support Tickets found!</strong>
+        </div>
+    @endif
+
     <div class="col-md-6">
         @foreach($supportTickets as $supportTicket)
             <div class="card">
