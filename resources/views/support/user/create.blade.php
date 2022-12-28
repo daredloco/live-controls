@@ -23,12 +23,12 @@
                             </div>
 
                             <div class="mb-3">
-                              <label for="description" class="form-label">Description</label>
-                              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                              <label for="body" class="form-label">Describe your Problem</label>
+                              <textarea class="form-control" name="body" id="body" rows="3"></textarea>
                             </div>
                             
                             <div class="mb-3">
-                                <label for="" class="form-label">Priority</label>
+                                <label for="priority" class="form-label">Priority</label>
                                 <select class="form-select" name="priority" id="priority">
                                     <option selected>Select one</option>
                                     <option value="">Low</option>
