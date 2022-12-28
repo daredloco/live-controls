@@ -31,7 +31,7 @@ trait IsEncrypted
 
         //If only one field is set, return a string
         if(count($fields) == 1){
-            return Crypt::decrypt($this->{$fields});
+            return Crypt::decrypt($this->{$fields[0]});
         }
 
         //If more than one field is set, return an array
