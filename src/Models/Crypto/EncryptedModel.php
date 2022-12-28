@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Crypt;
 
 class EncryptedModel extends Model
 {
+    protected $table;
+    
     public function create(array $attributes = [], array $ignoredFields = [], array $options = []){
         $encAttributes = [];
         foreach($attributes as $field => $attribute){
