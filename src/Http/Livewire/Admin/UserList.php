@@ -18,6 +18,7 @@ class UserList extends Component
     public $showGroupModal = false;
     public $itemToEdit = null;
     public $itemPermissions = [];
+    public $itemGroups = [];
 
     public function render()
     {
@@ -66,7 +67,7 @@ class UserList extends Component
         }
         $this->itemGroups = [];
         foreach($this->itemToEdit->groups as $group){
-            array_push($this->itemPermissions, $group->id);
+            array_push($this->itemGroups, $group->id);
         }
         $this->showGroupModal = true;
     }
