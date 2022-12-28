@@ -8,13 +8,13 @@ trait IsEncrypted
 {
     public string $encryptionPublic;
 
-    public function createEncrypted(array $fields, array $ignoredFields = []){
+    public static function createEncrypted(array $fields, array $ignoredFields = []){
         $encryptedFields = [];
         foreach($fields as $key => $value){
             $encryptedFields[$key] = in_array($key, $ignoredFields) ? $value : Crypt::encrypt($value);
         }
 
-        return $this->create($encryptedFields);
+        return static::create($encryptedFields);
     }
 
     public function updateEncrypted(array $fields, array $ignoredFields = []){
