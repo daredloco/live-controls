@@ -16,17 +16,20 @@ class CheckUserGroup
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, string $key)
+    public function handle(Request $request, Closure $next, string ...$keys)
     {
-        $group = UserGroup::where('key', '=', $key)->first();
-        if(is_null($group)){
-            throw new InvalidUserGroupException($key);
-        }
-        
-        if(!$group->users()->where('user_id', '=', auth()->id())->exists()){
-            abort(403);
+        foreach($keys as $key){
+            $group = UserGroup::where('key', '=', $key)->first();
+            if(is_null($group)){
+                throw new InvalidUserGroupException($key);
+            }
+            
+            if($group->users()->where('user_id', '=', auth()->id())->exists()){
+                return $next($request);
+            }
         }
 
-        return $next($request);
+        abort(403);
+        
     }
 }
