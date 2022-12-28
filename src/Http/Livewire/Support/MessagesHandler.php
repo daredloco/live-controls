@@ -44,4 +44,13 @@ class MessagesHandler extends Component
         }
         $this->dispatchBrowserEvent('showToast', ['exception', 'Couldn\'t send message!']);
     }
+
+    public function removeMessage($id){
+        $supportMessage = SupportMessage::find($id);
+        if($supportMessage->delete()){
+            $this->dispatchBrowserEvent('showToast', ['success', 'Message deleted!']);
+            return;
+        }
+        $this->dispatchBrowserEvent('showToast', ['exception', 'Coulnd\'t delete Message!']);
+    }
 }

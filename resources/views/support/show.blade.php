@@ -11,6 +11,8 @@
             <p class="card-text">
                 {!! nl2br($supportTicket->body) !!}
             </p>
+            <a href="{{ route('livecontrols.support.delete', ['supportTicket' => $supportTicket->id]) }}" style="color: rgb(184, 4, 4);">Remove</a>
+            <br>
             <small class="text-muted">{{ $supportTicket->user->name.' at '.$supportTicket->created_at->format('d.m.Y H:i:s') }}</small>
             <hr>
             <strong>Messages:</strong>
