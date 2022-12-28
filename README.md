@@ -78,7 +78,6 @@ A System handling support tickets where users can send tickets and admins/modera
 - Let users and moderators change the status of the tickets
 - If a ticket is closed, disable the function to send SupportMessages
 - Let users and moderators reopen a support ticket
-- Add the function to remove SupportTickets from the system
 
 
 
