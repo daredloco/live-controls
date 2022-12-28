@@ -4,6 +4,10 @@ namespace Helvetiapps\LiveControls\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\User;
+use Exception;
+use Helvetiapps\LiveControls\Exceptions\InvalidUserGroupException;
+use Helvetiapps\LiveControls\Exceptions\InvalidUserPermissionException;
+use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
 class UserList extends Component
@@ -11,9 +15,10 @@ class UserList extends Component
     public $search = '';
 
     public $showPermissionModal = false;
+    public $showGroupModal = false;
     public $itemToEdit = null;
     public $itemPermissions = [];
-    
+
     public function render()
     {
         if($this->search != ''){
@@ -33,6 +38,9 @@ class UserList extends Component
 
     public function editPermissions($id){
         $this->itemToEdit = User::find($id);
+        if(is_null($this->itemToEdit)){
+            throw new Exception('Invalid User with ID '.$id);
+        }
         $this->itemPermissions = [];
         foreach($this->itemToEdit->permissions as $permission){
             array_push($this->itemPermissions, $permission->id);
@@ -48,5 +56,27 @@ class UserList extends Component
         }
         $this->itemToEdit->permissions()->attach($id);
         $this->dispatchBrowserEvent('showToast', ['success', 'Permission granted!']);
+    }
+
+    public function editGroups($id){
+        $this->itemToEdit = User::find($id);
+        if(is_null($this->itemToEdit)){
+            throw new Exception('Invalid User with ID '.$id);
+        }
+        $this->itemGroups = [];
+        foreach($this->itemToEdit->groups as $group){
+            array_push($this->itemPermissions, $group->id);
+        }
+        $this->showGroupModal = true;
+    }
+
+    public function updateGroup($id){
+        if($this->itemToEdit->groups->contains($id)){
+            $this->itemToEdit->groups()->detach($id);
+            $this->dispatchBrowserEvent('showToast', ['success', 'User removed from Group!']);
+            return;
+        }
+        $this->itemToEdit->groups()->attach($id);
+        $this->dispatchBrowserEvent('showToast', ['success', 'User added to Group!']);
     }
 }

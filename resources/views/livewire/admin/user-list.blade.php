@@ -21,7 +21,7 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>Permissions</a> 
-
+                            <a href="#" wire:click.prevent='editGroups({{$user->id}})'>Groups</a>
                             @if($editRoute !== false)
                                 <a href="{{ $editRoute }}">Edit</a> 
                             @endif
@@ -67,4 +67,33 @@
         </x-slot>
     </x-jet-dialog-modal>    
     <!-- /Permissions Modal -->
+
+    <!-- Groups Modal -->
+    <x-jet-dialog-modal wire:model="showGroupModal">
+        <x-slot name="title">
+            Edit Groups
+        </x-slot>
+    
+        <x-slot name="content">
+            @if(!is_null($itemToEdit))
+                @foreach($groups as $group)
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                        type="checkbox" value="1" id="perm-{{ $group->id }}" wire:click='updateGroup({{$group->id}})'
+                        @if(in_array($group->id, $itemGroups)) checked @endif>
+                        <label class="form-check-label" for="perm-{{ $group->id }}">
+                            {{ $group->name }}
+                        </label>
+                    </div>
+                @endforeach
+            @endif
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('showGroupModal')" wire:loading.attr="disabled">
+                Close
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-jet-dialog-modal>    
+    <!-- /Groups Modal -->
 </div>
