@@ -20,14 +20,16 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>Permissions</a> 
-                            <a href="#" wire:click.prevent='editGroups({{$user->id}})'>Groups</a>
-                            @if($editRoute !== false)
-                                <a href="{{ $editRoute }}">Edit</a> 
-                            @endif
+                            @if($user->id != config('livecontrols.admininterface_master') || $user->id == auth()->id())
+                                <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>Permissions</a> 
+                                <a href="#" wire:click.prevent='editGroups({{$user->id}})'>Groups</a>
+                                @if($editRoute !== false)
+                                    <a href="{{ $editRoute }}">Edit</a> 
+                                @endif
 
-                            @if($deleteRoute !== false)
-                                <a href="{{ $deleteRoute }}">Delete</a>
+                                @if($deleteRoute !== false)
+                                    <a href="{{ $deleteRoute }}">Delete</a>
+                                @endif
                             @endif
                         </td>
                     </tr>
