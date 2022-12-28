@@ -15,6 +15,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
+use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
 use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
@@ -28,6 +29,7 @@ class LiveControlsServiceProvider extends ServiceProvider
   {
     //Add Middlewares
     app('router')->aliasMiddleware('usergroup', CheckUserGroup::class);
+    app('router')->aliasMiddleware('userpermission', CheckUserPermission::class);
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
 
     $this->app->bind('permissionshandler', function($app){
