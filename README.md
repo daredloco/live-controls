@@ -75,7 +75,7 @@ A System handling support tickets where users can send tickets and admins/modera
 - SupportTickets contain SupportMessages
 
 ### Todo
-- Let users and moderators change the status of the tickets
+- Let moderators change the status of the tickets
 - If a ticket is closed, disable the function to send SupportMessages
 - Let users and moderators reopen a support ticket
 
