@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Crypt;
 class EncryptedModel extends Model
 {
     protected $table;
-    
+
     public function create(array $attributes = [], array $ignoredFields = [], array $options = []){
         $encAttributes = [];
         foreach($attributes as $field => $attribute){
             array_push($encAttributes, in_array($field, $ignoredFields) ? $attribute : Crypt::encrypt($attribute));
         }
+        parent::setTable($this->table);
         parent::__construct($encAttributes);
         parent::save($options);
     }
