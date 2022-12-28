@@ -15,6 +15,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
+use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Blade;
@@ -31,6 +32,9 @@ class LiveControlsServiceProvider extends ServiceProvider
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
+    });
+    $this->app->bind('encryptedmodel', function($app){
+      return new EncryptedModel();
     });
 
     $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livecontrols');
