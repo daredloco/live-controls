@@ -14,6 +14,7 @@
             <small class="text-muted">{{ $supportTicket->user->name.' at '.$supportTicket->created_at->format('d.m.Y H:i:s') }}</small>
             <hr>
             <strong>Messages:</strong>
+            @livewire('livecontrols-support-messages', ['supportTicket' => $supportTicket], key('support-messages'))
         </div>
     </div>
 
