@@ -29,7 +29,6 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ### Todo
 - Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
-- Add function to set groups of user similar to the permissions
 - ?
 
 
