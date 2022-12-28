@@ -72,9 +72,9 @@ A System handling support tickets where users can send tickets and admins/modera
 - Ticket Frontend for Users and Moderators. With route('livecontrols.support.index')
 - SupportTickets with Title, Body, Priority and Status
 - Configuration for "moderator" groups
+- SupportTickets contain SupportMessages
 
 ### Todo
-- Show SupportMessages inside the SupportTickets and let users and moderators write new ones
 - Let users and moderators change the status of the tickets
 - If a ticket is closed, disable the function to send SupportMessages
 - Let users and moderators reopen a support ticket

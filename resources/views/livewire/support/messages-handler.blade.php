@@ -14,11 +14,15 @@
                 @if(!is_null($supportMessage->title) && $supportMessage->title != '')
                     <p><strong>{{ $supportMessage->title }}</strong></p>
                 @endif
-                
+
                 {!! nl2br($supportMessage->body) !!}
                 <hr>
                 <small class="text-muted">{{ $supportMessage->user->name.' at '.$supportMessage->created_at->format('d.m.Y H:i:s') }}</small>
             </li>
         @endforeach
     </ul>
+    
+    <div class="d-flex justify-content-center">
+        {{ $supportTickets->links() }}
+    </div>
 </div>

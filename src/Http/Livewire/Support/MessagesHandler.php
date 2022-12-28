@@ -4,9 +4,13 @@ namespace Helvetiapps\LiveControls\Http\Livewire\Support;
 
 use Helvetiapps\LiveControls\Models\Support\SupportMessage;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class MessagesHandler extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    
     public $supportTicket;
 
     public $newTitle = '';

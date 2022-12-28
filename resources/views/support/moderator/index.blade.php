@@ -26,5 +26,8 @@
             </div>
         @endforeach
     </div>
-
+    
+    <div class="d-flex justify-content-center">
+        {{ $supportTickets->links() }}
+    </div>
 </x-app-layout>
