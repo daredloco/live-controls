@@ -6,7 +6,7 @@
     </x-slot>
 
     @if(count($supportTickets) < 1)
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-info text-center" role="alert">
             <strong>No Support Tickets found!</strong>
         </div>
     @endif
