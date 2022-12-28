@@ -21,9 +21,9 @@ class UserPermissionController extends Controller
         $userPermission = UserPermission::create($validated);
 
         if(!is_null($userPermission)){
-            return redirect()->route('livecontrols.admin.dashboard')->with('success', 'UserPermission created!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('success', 'UserPermission created!');
         }
-        return redirect()->route('livecontrols.admin.dashboard')->with('exception', 'Couldn\'t create UserPermission!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('exception', 'Couldn\'t create UserPermission!');
     }
 
     public function edit(UserPermission $userPermission){
@@ -38,15 +38,15 @@ class UserPermissionController extends Controller
         ]);
 
         if($userPermission->update($validated)){
-            return redirect()->route('livecontrols.admin.dashboard')->with('success', 'UserPermission updated!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('success', 'UserPermission updated!');
         }
-        return redirect()->route('livecontrols.admin.dashboard')->with('exception', 'Couldn\'t update UserPermission!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('exception', 'Couldn\'t update UserPermission!');
     }
 
     public function destroy(UserPermission $userPermission){
         if($userPermission->delete()){
-            return redirect()->route('livecontrols.admin.dashboard')->with('success', 'UserPermission deleted!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('success', 'UserPermission deleted!');
         }
-        return redirect()->route('livecontrols.admin.dashboard')->with('exception', 'Couldn\'t delete UserPermission!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'permissions'])->with('exception', 'Couldn\'t delete UserPermission!');
     }
 }
