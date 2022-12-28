@@ -18,7 +18,7 @@ class MessagesHandler extends Component
 
     public function render()
     {
-        $supportMessages = $this->supportTicket->messages()->orderBy('created_at', 'desc')->paginate();
+        $supportMessages = $this->supportTicket->messages()->orderBy('created_at', 'desc')->paginate(5, ['*'], 'comments');
         return view('livecontrols::livewire.support.messages-handler', ['supportMessages' => $supportMessages]);
     }
 
