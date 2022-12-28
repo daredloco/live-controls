@@ -24,17 +24,17 @@
 
                             <div class="mb-3">
                               <label for="body" class="form-label">Describe your Problem</label>
-                              <textarea class="form-control" name="body" id="body" rows="3"></textarea>
+                              <textarea class="form-control" name="body" id="body" rows="3">{{ old('body') }}</textarea>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="priority" class="form-label">Priority</label>
                                 <select class="form-select" name="priority" id="priority">
                                     <option selected>Select one</option>
-                                    <option value="">Low</option>
-                                    <option value="">Medium</option>
-                                    <option value="">High</option>
-                                    <option value="">Critical</option>
+                                    <option value="1" @if(old('priority') == 1) selected @endif>Low</option>
+                                    <option value="2" @if(old('priority') == 2) selected @endif>Medium</option>
+                                    <option value="3" @if(old('priority') == 3) selected @endif>High</option>
+                                    <option value="4" @if(old('priority') == 4) selected @endif>Critical</option>
                                 </select>
                             </div>
 
