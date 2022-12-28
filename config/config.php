@@ -20,4 +20,9 @@ return [
     //Payment System
     'payments_enabled' => true, //Set this to true if payments should be enabled
     'payments_backends' => ['pagseguro'], //Set the payment backends here. Supported are 'pagseguro', 'iugu'
+
+    //Support System
+    'support_enabled' => true, //Set this to true to enable the support system
+    'support_groups' => ['moderators'], //Set the support groups here. (ex. ['moderators']), admins will be automatically set!
+    'support_prefix' => 'support', //The prefix used for the Route::group
 ];

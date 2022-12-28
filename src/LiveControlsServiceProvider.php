@@ -47,7 +47,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     $migrationsPath = __DIR__.'/../database/migrations/';
     $migrationPaths = [
       $migrationsPath.'usergroups',
-      $migrationsPath.'userpermissions'
+      $migrationsPath.'userpermissions',
+      $migrationsPath.'support'
     ];
 
     $this->loadMigrationsFrom($migrationPaths);
