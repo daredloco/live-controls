@@ -29,6 +29,11 @@ class SweetAlert extends Component
     public $timer;
     public $timerProgressBar;
 
+    public $imageUrl;
+    public $imageHeight;
+    public $imageWidth;
+    public $imageAlt;
+
     protected $listeners = ['popupSent' => 'createPopup'];
 
     public function mount(){
@@ -59,6 +64,11 @@ class SweetAlert extends Component
         $this->timer = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timer', $popupInfo, null);
         $this->timerProgressBar = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timerProgressBar', $popupInfo, false);
         $this->hasInput = \Helvetiapps\LiveControls\Utils\Arrays::array_get('hasInput', $popupInfo, false);
+        
+        $this->imageUrl = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageUrl', $popupInfo, null);
+        $this->imageWidth = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageWidth', $popupInfo, null);
+        $this->imageHeight = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageHeight', $popupInfo, null);
+        $this->imageAlt = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageAlt', $popupInfo, null);
 
         if(!$fromListener){
             return;
@@ -77,6 +87,10 @@ class SweetAlert extends Component
             'confirmEvent' => $this->confirmEvent,
             'denyEvent' => $this->denyEvent,
             'cancelEvent' => $this->cancelEvent,
+            'imageUrl' => $this->imageUrl,
+            'imageWidth' => $this->imageWidth,
+            'imageHeight' => $this->imageHeight,
+            'imageAlt' => $this->imageAlt,
             'hasInput' => $this->hasInput
         ];
 

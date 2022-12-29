@@ -21,7 +21,11 @@
             showCancelButton: popupArr["cancelButtonText"] == null ? false : true,
             confirmButtonText: popupArr["confirmButtonText"] == null ? '' : popupArr["confirmButtonText"],
             denyButtonText: popupArr["denyButtonText"] == null ? '' : popupArr["denyButtonText"],
-            cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"]
+            cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"],
+            imageUrl: popupArr["imageUrl"],
+            imageHeight: popupArr["imageHeight"],
+            imageWidth: popupArr["imageWidth"],
+            imageAlt: popupArr["imageAlt"]
         }).then((result) => { 
             if(result.isConfirmed){
                 Livewire.emit(popupArr["confirmEvent"]);
@@ -48,7 +52,11 @@
             showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
             confirmButtonText: "{{ $confirmButtonText }}",
             denyButtonText: "{{ $denyButtonText }}",
-            cancelButtonText: "{{ $cancelButtonText }}"
+            cancelButtonText: "{{ $cancelButtonText }}",
+            imageUrl: "{{ $imageUrl }}",
+            imageHeight: {{ $imageHeight }},
+            imageWidth: {{ $imageWidth }},
+            imageAlt: "{{ $imageAlt }}"
         }).then((result) => { 
             if(result.isConfirmed){
                 Livewire.emit('{{ $confirmEvent }}');
