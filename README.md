@@ -153,7 +153,7 @@ Simple implementation of ToastR popups
 Simple implementation of SweetAlert2 popups.
 
 ### Content
-- Blade Component <livecontrols::sweetAlert2> which can be called by livewire or javascript. Put it on the bottom of the body.
+- Livewire Control (Blade Component didn't work). Add it to the body of your layout or the page you want to use it.
 
 [Documentation](https://github.com/daredloco/live-controls/wiki/10.-SweetAlert2)
 
