@@ -151,13 +151,11 @@ Simple implementation of ToastR popups
 
 ## SweetAlert2
 Simple implementation of SweetAlert2 popups.
-This will replace the ToastR popups due to abandoned project.
 
-Documentation
+### Content
+- Blade Component <livecontrols::sweet-alert-2> which can be called by livewire or javascript. Put it on the bottom of the body.
 
-### Todo
-- Add a SweetAlert2 implementation which uses the same things as ToastR to replace it without the need of changing anything within the code.
-- Add additional functionality to use it for other usecases as well
+[Documentation](https://github.com/daredloco/live-controls/wiki/11.-Sweet-Alert)
 
 
 
