@@ -12,7 +12,7 @@
         if(popupArr["inputFields"] !== false){
             //WITH INPUT
             alert('Inputs are not included in this version!');
-            const { value: sweetAlertValues } = await Swal.fire({
+            const sweetAlertValues = Swal.fire({
                 title: popupArr["title"],
                 text: popupArr["message"],
                 html: popupArr["html"],
