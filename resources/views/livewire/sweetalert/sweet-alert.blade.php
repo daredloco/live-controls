@@ -37,7 +37,7 @@
                         console.log(results.size);
                     });
                     console.log(results.size);
-                    Livewire.emit(popupArr["confirmEvent"], JSON.stringify(results));
+                    Livewire.emit(popupArr["confirmEvent"], JSON.stringify(results.size));
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
                 }else if(result.isDismissed){
