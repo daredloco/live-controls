@@ -65,6 +65,6 @@ class SweetAlert extends Component
             'cancelEvent' => $this->cancelEvent
         ];
 
-        $this->emitSelf('showPopup', $popupArr);
+        $this->emit('showPopup', $popupArr);
     }
 }
