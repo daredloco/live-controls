@@ -28,7 +28,7 @@ class SweetAlert extends Component
         $this->hasPopup = false;
         if(Session::has('popup')){
             $popupInfo = Session::get('popup');
-            $this->createPopup($popupInfo);
+            $this->createPopup($popupInfo, false);
         }
     }
 
@@ -37,7 +37,7 @@ class SweetAlert extends Component
         return view('livecontrols::livewire.sweetalert.sweet-alert');
     }
 
-    public function createPopup(array $popupInfo){
+    public function createPopup(array $popupInfo, bool $fromListener = true){
         $this->hasPopup = true;
         $this->type = $popupInfo["type"];
         $this->title = \Helvetiapps\LiveControls\Utils\Arrays::array_get("title", $popupInfo, ucfirst($this->type));
@@ -49,6 +49,22 @@ class SweetAlert extends Component
         $this->denyEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('denyEvent', $popupInfo);
         $this->cancelEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('cancelEvent', $popupInfo);
 
-        $this->emitSelf('showPopup', $this->type);
+        if(!$fromListener){
+            return;
+        }
+
+        $popupArr = [
+            'type' => $this->type,
+            'title' => $this->title,
+            'message' => $this->message,
+            'confirmButtonText' => $this->confirmButtonText,
+            'denyButtonText' => $this->denyButtonText,
+            'cancelButtonText' => $this->cancelButtonText,
+            'confirmEvent' => $this->confirmEvent,
+            'denyEvent' => $this->denyEvent,
+            'cancelEvent' => $this->cancelEvent
+        ];
+
+        $this->emitSelf('showPopup', $popupArr);
     }
 }
