@@ -37,9 +37,9 @@
                 if(result.isConfirmed){
                     Livewire.emit(popupArr["confirmEvent"]);
                     alert(document.getElementById('number').value);
-                    @foreach($inputFields as $inputField)
-                     alert(document.getElementById('{{ $inputField["name"] }}').value);
-                    @endforeach
+                    popupArr["inputFields"].forEach(function callback(value, index){
+                        console.log(index + ": " + value);
+                    });
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
                 }else if(result.isDismissed){
