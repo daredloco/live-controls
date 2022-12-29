@@ -80,11 +80,11 @@ class SweetAlert extends Component
             $this->inputFieldNames = "[";
             foreach($this->inputFields as $idx => $inputField){
                 if($idx < count($this->inputFields)){
-                    $this->inputFieldNames .= 'document.getElementById("'.$inputField["name"].'").value,'."\r\n";
+                    $this->inputFieldNames .= 'document.getElementById("'.$inputField["name"].'").value,';
                 }else{
-                    $this->inputFieldNames .= 'document.getElementById("'.$inputField["name"].'").value'."\r\n";
+                    $this->inputFieldNames .= 'document.getElementById("'.$inputField["name"].'").value';
                 }
-                $this->html .= "\r\n".$inputField["html"];
+                $this->html .= $inputField["html"];
             }
             $this->inputFieldNames .= "]";
         }
