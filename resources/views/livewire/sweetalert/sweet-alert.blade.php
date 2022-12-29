@@ -21,7 +21,7 @@
             cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"]
         }).then((result) => { 
             if(result.isConfirmed){
-                alert('Confirmed!');
+                alert('Confirmed! => {{ $confirmEvent }}');
                 Livewire.emit('{{ $confirmEvent }}');
             }else if (result.isDenied){
                 Livewire.emit('{{ $denyEvent }}');
