@@ -101,7 +101,7 @@
                 imageAlt: "{{ $imageAlt }}",
                 focusConfirm: false,
                 preConfirm: () => {
-                    return {!! $inputFieldNames !!}
+                    return {!! html_entity_decode($inputFieldNames) !!}
                 }
             });
 
