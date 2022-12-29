@@ -116,6 +116,4 @@
     
     </script>
     <!-- /SWEET ALERT 2 -->
-
-    {{ dd('Hello') }}
 </div>
