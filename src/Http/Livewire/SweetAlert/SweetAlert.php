@@ -26,6 +26,9 @@ class SweetAlert extends Component
 
     public $hasInput;
 
+    public $timer;
+    public $timerProgressBar;
+
     protected $listeners = ['popupSent' => 'createPopup'];
 
     public function mount(){
@@ -53,8 +56,10 @@ class SweetAlert extends Component
         $this->confirmEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('confirmEvent', $popupInfo);
         $this->denyEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('denyEvent', $popupInfo);
         $this->cancelEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('cancelEvent', $popupInfo);
+        $this->timer = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timer', $popupInfo, null);
+        $this->timerProgressBar = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timerProgressBar', $popupInfo, false);
         $this->hasInput = \Helvetiapps\LiveControls\Utils\Arrays::array_get('hasInput', $popupInfo, false);
-        
+
         if(!$fromListener){
             return;
         }
@@ -62,6 +67,8 @@ class SweetAlert extends Component
         $popupArr = [
             'type' => $this->type,
             'title' => $this->title,
+            'timer' => $this->timer,
+            'timerProgressBar' => $this->timerProgressBar,
             'message' => $this->message,
             'html' => $this->html,
             'confirmButtonText' => $this->confirmButtonText,
