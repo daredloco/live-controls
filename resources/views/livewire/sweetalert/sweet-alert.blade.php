@@ -40,7 +40,7 @@
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
 
-                    Livewire.emit(popupArr["confirmEvent"]);
+                    Livewire.emit(popupArr["confirmEvent"], results);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
                 }else if(result.isDismissed){
