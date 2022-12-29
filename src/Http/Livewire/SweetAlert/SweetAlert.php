@@ -72,7 +72,6 @@ class SweetAlert extends Component
 
         //If Inputfields are not empty, add them to the bottom of $this->html
         if($this->inputFields !== false){
-            dd($this->inputFields);
             if($this->html == null){
                 $this->html = "";
             }
