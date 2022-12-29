@@ -32,7 +32,7 @@
             }).then((result) => { 
                 if(result.isConfirmed){
                     let results = new Map();
-                    popupArr["inputFields"].forEach(function callback(value, index){
+                    popupArr["inputFields"].forEach(function(results) callback(value, index){
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
                     Livewire.emit(popupArr["confirmEvent"], JSON.stringify(results));
