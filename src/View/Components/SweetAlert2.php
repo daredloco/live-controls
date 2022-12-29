@@ -38,9 +38,10 @@ class SweetAlert2 extends Component
      */
     public function render()
     {
+        $hasPopup = false;
         if(Session::has('popup')){
             $popupInfo = Session::get('popup');
-            $this->hasPopup = true;
+            $hasPopup = true;
             $this->type = $popupInfo["type"];
             $this->title = \Helvetiapps\LiveControls\Utils\Arrays::array_get("title", $popupInfo, ucfirst($this->type));
             $this->message = $popupInfo["message"];
@@ -53,7 +54,7 @@ class SweetAlert2 extends Component
         }
         return view('livecontrols::components.sweetalert2',
             [
-                'hasPopup' => $this->hasPopup
+                'hasPopup' => $hasPopup
             ]    
         );
     }
