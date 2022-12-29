@@ -38,7 +38,7 @@
                     Livewire.emit(popupArr["confirmEvent"]);
                     alert(document.getElementById('number').value);
                     popupArr["inputFields"].forEach(function callback(value, index){
-                        console.log(value["name"]);
+                        alert(document.getElementById(value["name"]));
                     });
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
