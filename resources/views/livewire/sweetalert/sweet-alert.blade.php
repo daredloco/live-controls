@@ -12,7 +12,7 @@
         if(popupArr["inputFields"] !== false){
             //WITH INPUT
             alert('Inputs are not included in this version!');
-            Swal.fire({
+            const { value: sweetAlertValues } = await Swal.fire({
                 title: popupArr["title"],
                 text: popupArr["message"],
                 html: popupArr["html"],
@@ -40,6 +40,10 @@
                     }
                 }
             });
+
+            if (sweetAlertValues) {
+                Swal.fire(JSON.stringify(sweetAlertValues))
+            }
         }else{
             //WITHOUT INPUT
             Swal.fire({
