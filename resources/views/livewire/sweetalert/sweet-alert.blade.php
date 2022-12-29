@@ -31,7 +31,7 @@
                 focusConfirm: false
             }).then((result) => { 
                 if(result.isConfirmed){
-                    var results = new Map();
+                    const results = new Map();
                     popupArr["inputFields"].forEach(function callback(value, index){
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
