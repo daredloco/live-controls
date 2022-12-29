@@ -163,8 +163,8 @@ Simple implementation of SweetAlert2 popups.
 - Add timer to close window
 - Add progressbar to close window
 - Add optional text to close window with progress
-- Add confirm popup with optional following popup for confirm and deny buttons
 - Add option to call popup with custom options (Add a constructor for custom popups like in lagoon charts library)
+- Add inputfields to popups
 
 [Documentation](https://github.com/daredloco/live-controls/wiki/10.-SweetAlert2)
 
