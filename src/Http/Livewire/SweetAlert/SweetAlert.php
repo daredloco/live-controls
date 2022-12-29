@@ -24,7 +24,7 @@ class SweetAlert extends Component
     public $denyEvent;
     public $cancelEvent;
 
-    public $hasInput;
+    public $inputFields;
 
     public $timer;
     public $timerProgressBar;
@@ -63,12 +63,22 @@ class SweetAlert extends Component
         $this->cancelEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('cancelEvent', $popupInfo);
         $this->timer = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timer', $popupInfo, null);
         $this->timerProgressBar = \Helvetiapps\LiveControls\Utils\Arrays::array_get('timerProgressBar', $popupInfo, false);
-        $this->hasInput = \Helvetiapps\LiveControls\Utils\Arrays::array_get('hasInput', $popupInfo, false);
+        $this->inputFields = \Helvetiapps\LiveControls\Utils\Arrays::array_get('inputFields', $popupInfo, false);
         
         $this->imageUrl = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageUrl', $popupInfo, null);
         $this->imageWidth = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageWidth', $popupInfo, null);
         $this->imageHeight = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageHeight', $popupInfo, null);
         $this->imageAlt = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageAlt', $popupInfo, null);
+
+        //If Inputfields are not empty, add them to the bottom of $this->html
+        if($this->inputFields !== false){
+            if($this->html == null){
+                $this->html = "";
+            }
+            foreach($this->inputFields as $inputField){
+                $this->html .= "\r\n".$inputField["html"];
+            }
+        }
 
         if(!$fromListener){
             return;
@@ -91,7 +101,7 @@ class SweetAlert extends Component
             'imageWidth' => $this->imageWidth,
             'imageHeight' => $this->imageHeight,
             'imageAlt' => $this->imageAlt,
-            'hasInput' => $this->hasInput
+            'inputFields' => $this->inputFields
         ];
 
         $this->emit('showPopup', $popupArr);

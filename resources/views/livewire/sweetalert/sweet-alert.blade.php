@@ -9,65 +9,136 @@
     });
 
     Livewire.on('showPopup', popupArr => {
-        Swal.fire({
-            title: popupArr["title"],
-            text: popupArr["message"],
-            html: popupArr["html"],
-            icon: popupArr["type"],
-            timer: popupArr["timer"],
-            timerProgressBar: popupArr["timerProgressBar"],
-            showConfirmButton: popupArr["confirmButtonText"] == null ? false : true,
-            showDenyButton: popupArr["denyButtonText"] == null ? false : true,
-            showCancelButton: popupArr["cancelButtonText"] == null ? false : true,
-            confirmButtonText: popupArr["confirmButtonText"] == null ? '' : popupArr["confirmButtonText"],
-            denyButtonText: popupArr["denyButtonText"] == null ? '' : popupArr["denyButtonText"],
-            cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"],
-            imageUrl: popupArr["imageUrl"],
-            imageHeight: popupArr["imageHeight"],
-            imageWidth: popupArr["imageWidth"],
-            imageAlt: popupArr["imageAlt"]
-        }).then((result) => { 
-            if(result.isConfirmed){
-                Livewire.emit(popupArr["confirmEvent"]);
-            }else if (result.isDenied){
-                Livewire.emit(popupArr["denyEvent"]);
-            }else if(result.isDismissed){
-                if(result.dismiss == Swal.DismissReason.cancel){
-                    Livewire.emit(popupArr["cancelEvent"]);
+        if($popupArr["inputFields"] !== false){
+            //WITH INPUT
+            alert('Inputs are not included in this version!');
+            Swal.fire({
+                title: popupArr["title"],
+                text: popupArr["message"],
+                html: popupArr["html"],
+                icon: popupArr["type"],
+                timer: popupArr["timer"],
+                timerProgressBar: popupArr["timerProgressBar"],
+                showConfirmButton: popupArr["confirmButtonText"] == null ? false : true,
+                showDenyButton: popupArr["denyButtonText"] == null ? false : true,
+                showCancelButton: popupArr["cancelButtonText"] == null ? false : true,
+                confirmButtonText: popupArr["confirmButtonText"] == null ? '' : popupArr["confirmButtonText"],
+                denyButtonText: popupArr["denyButtonText"] == null ? '' : popupArr["denyButtonText"],
+                cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"],
+                imageUrl: popupArr["imageUrl"],
+                imageHeight: popupArr["imageHeight"],
+                imageWidth: popupArr["imageWidth"],
+                imageAlt: popupArr["imageAlt"]
+            }).then((result) => { 
+                if(result.isConfirmed){
+                    Livewire.emit(popupArr["confirmEvent"]);
+                }else if (result.isDenied){
+                    Livewire.emit(popupArr["denyEvent"]);
+                }else if(result.isDismissed){
+                    if(result.dismiss == Swal.DismissReason.cancel){
+                        Livewire.emit(popupArr["cancelEvent"]);
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            //WITHOUT INPUT
+            Swal.fire({
+                title: popupArr["title"],
+                text: popupArr["message"],
+                html: popupArr["html"],
+                icon: popupArr["type"],
+                timer: popupArr["timer"],
+                timerProgressBar: popupArr["timerProgressBar"],
+                showConfirmButton: popupArr["confirmButtonText"] == null ? false : true,
+                showDenyButton: popupArr["denyButtonText"] == null ? false : true,
+                showCancelButton: popupArr["cancelButtonText"] == null ? false : true,
+                confirmButtonText: popupArr["confirmButtonText"] == null ? '' : popupArr["confirmButtonText"],
+                denyButtonText: popupArr["denyButtonText"] == null ? '' : popupArr["denyButtonText"],
+                cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"],
+                imageUrl: popupArr["imageUrl"],
+                imageHeight: popupArr["imageHeight"],
+                imageWidth: popupArr["imageWidth"],
+                imageAlt: popupArr["imageAlt"]
+            }).then((result) => { 
+                if(result.isConfirmed){
+                    Livewire.emit(popupArr["confirmEvent"]);
+                }else if (result.isDenied){
+                    Livewire.emit(popupArr["denyEvent"]);
+                }else if(result.isDismissed){
+                    if(result.dismiss == Swal.DismissReason.cancel){
+                        Livewire.emit(popupArr["cancelEvent"]);
+                    }
+                }
+            });
+        }
     });
 
     @if($hasPopup)
-        Swal.fire({
-            title: "{{ $title }}",
-            text: "{{ $message }}",
-            html: "{{ $html }}",
-            icon: "{{ $type }}",
-            timer: {{ $timer }},
-            timerProgressBar: {{ $timerProgressBar }},
-            showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
-            showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
-            showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
-            confirmButtonText: "{{ $confirmButtonText }}",
-            denyButtonText: "{{ $denyButtonText }}",
-            cancelButtonText: "{{ $cancelButtonText }}",
-            imageUrl: "{{ $imageUrl }}",
-            imageHeight: {{ $imageHeight }},
-            imageWidth: {{ $imageWidth }},
-            imageAlt: "{{ $imageAlt }}"
-        }).then((result) => { 
-            if(result.isConfirmed){
-                Livewire.emit('{{ $confirmEvent }}');
-            }else if (result.isDenied){
-                Livewire.emit('{{ $denyEvent }}');
-            }else if(result.isDismissed){
-                if(result.dismiss == Swal.DismissReason.cancel){
-                    Livewire.emit('{{ $cancelEvent }}');
+        @if($inputFields !== false)
+            const { value: sweetAlertValues } = await Swal.fire({
+                title: "{{ $title }}",
+                text: "{{ $message }}",
+                html: "{{ $html }}",
+                icon: "{{ $type }}",
+                showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
+                showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
+                showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
+                confirmButtonText: "{{ $confirmButtonText }}",
+                denyButtonText: "{{ $denyButtonText }}",
+                cancelButtonText: "{{ $cancelButtonText }}",
+                imageUrl: "{{ $imageUrl }}",
+                imageHeight: {{ $imageHeight }},
+                imageWidth: {{ $imageWidth }},
+                imageAlt: "{{ $imageAlt }}",
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+                        @foreach($inputFields as $key => $inputField)
+                            @if($key == count($inputFields) - 1)
+                                document.getElementById('{{ $inputField["name"] }}').value
+                            @else
+                                document.getElementById('{{ $inputField["name"] }}').value,
+                            @endif
+                        @endforeach
+                    ]
                 }
+            });
+
+            if (sweetAlertValues) {
+                Swal.fire(JSON.stringify(sweetAlertValues))
             }
-        });
+        @else
+            Swal.fire({
+                title: "{{ $title }}",
+                text: "{{ $message }}",
+                html: "{{ $html }}",
+                icon: "{{ $type }}",
+                timer: {{ $timer }},
+                timerProgressBar: {{ $timerProgressBar }},
+                showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
+                showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
+                showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
+                confirmButtonText: "{{ $confirmButtonText }}",
+                denyButtonText: "{{ $denyButtonText }}",
+                cancelButtonText: "{{ $cancelButtonText }}",
+                imageUrl: "{{ $imageUrl }}",
+                imageHeight: {{ $imageHeight }},
+                imageWidth: {{ $imageWidth }},
+                imageAlt: "{{ $imageAlt }}"
+            }).then((result) => { 
+                if(result.isConfirmed){
+                    Livewire.emit('{{ $confirmEvent }}');
+                }else if (result.isDenied){
+                    Livewire.emit('{{ $denyEvent }}');
+                }else if(result.isDismissed){
+                    if(result.dismiss == Swal.DismissReason.cancel){
+                        Livewire.emit('{{ $cancelEvent }}');
+                    }
+                }
+            });
+        @endif
+
+
     @else
     //OLD SYSTEM
         @if(Session::has('success'))
