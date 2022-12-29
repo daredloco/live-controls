@@ -51,6 +51,6 @@ class SweetAlert extends Component
      */
     public function render()
     {
-        return view('livecontrols::components.sweetalert2');
+        return view('livecontrols::components.sweet-alert');
     }
 }
