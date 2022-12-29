@@ -34,6 +34,7 @@
                     let results = new Map();
                     popupArr["inputFields"].forEach(function callback(value, index){
                         results.set(value["name"], document.getElementById(value["name"]).value);
+                        console.log(results.size);
                     });
                     alert(results["number"]);
                     Livewire.emit(popupArr["confirmEvent"], JSON.stringify(results));
