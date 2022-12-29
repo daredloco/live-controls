@@ -38,7 +38,7 @@
                     Livewire.emit(popupArr["confirmEvent"]);
                     alert(document.getElementById('number').value);
                     @foreach($inputFields as $inputField)
-                     alert(document.getElementById('{{ $inputField["name"] }}'));
+                     alert(document.getElementById('{{ $inputField["name"] }}').value);
                     @endforeach
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
