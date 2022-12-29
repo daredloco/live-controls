@@ -37,7 +37,7 @@
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
 
-                    alert(results.count());
+                    alert(results.size);
                     Livewire.emit(popupArr["confirmEvent"], results);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
