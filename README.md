@@ -155,7 +155,7 @@ Simple implementation of SweetAlert2 popups.
 ### Content
 - Blade Component <livecontrols::sweet-alert-2> which can be called by livewire or javascript. Put it on the bottom of the body.
 
-[Documentation](https://github.com/daredloco/live-controls/wiki/11.-SweetAlert2)
+[Documentation](https://github.com/daredloco/live-controls/wiki/10.-SweetAlert2)
 
 
 
@@ -163,7 +163,7 @@ Simple implementation of SweetAlert2 popups.
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
-[Documentation](https://github.com/daredloco/live-controls/wiki/10.-Utils)
+[Documentation](https://github.com/daredloco/live-controls/wiki/11.-Utils)
 
 ### Todo
 - ?
