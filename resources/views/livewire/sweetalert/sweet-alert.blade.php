@@ -132,8 +132,8 @@
                 denyButtonText: "{{ $denyButtonText }}",
                 cancelButtonText: "{{ $cancelButtonText }}",
                 imageUrl: "{{ $imageUrl }}",
-                imageHeight: {{ $imageHeight }},
-                imageWidth: {{ $imageWidth }},
+                imageHeight: {{ $imageHeight == null ? 'null' : $imageHeight }},
+                imageWidth: {{ $imageWidth == null ? 'null' : $imageWidth }},
                 imageAlt: "{{ $imageAlt }}"
             }).then((result) => { 
                 if(result.isConfirmed){
