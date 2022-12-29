@@ -33,7 +33,6 @@
                 preConfirm: () => {
                     return {{ $inputFieldNames }}
                 }
-                }
             }).then((result) => { 
                 if(result.isConfirmed){
                     Livewire.emit(popupArr["confirmEvent"]);

@@ -72,6 +72,7 @@ class SweetAlert extends Component
         $this->imageAlt = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageAlt', $popupInfo, null);
 
         //If Inputfields are not empty, add them to the bottom of $this->html
+        $this->inputFieldNames = "";
         if($this->inputFields !== false){
             if($this->html == null){
                 $this->html = "";
