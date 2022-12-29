@@ -29,10 +29,7 @@
                 imageHeight: popupArr["imageHeight"],
                 imageWidth: popupArr["imageWidth"],
                 imageAlt: popupArr["imageAlt"],
-                focusConfirm: false,
-                preConfirm: () => {
-                    {!! html_entity_decode($inputFieldNames) !!}
-                }
+                focusConfirm: false
             }).then((result) => { 
                 if(result.isConfirmed){
                     var results = new Map();
@@ -40,6 +37,7 @@
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
 
+                    alert(results.count());
                     Livewire.emit(popupArr["confirmEvent"], results);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
