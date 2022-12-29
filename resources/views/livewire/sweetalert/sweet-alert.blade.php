@@ -85,6 +85,7 @@
 
     @if($hasPopup)
         @if($inputFields !== false)
+            alert('Inputfields not supported in this version due to exceptions');
             const { value: sweetAlertValues } = await Swal.fire({
                 title: "{{ $title }}",
                 text: "{{ $message }}",
