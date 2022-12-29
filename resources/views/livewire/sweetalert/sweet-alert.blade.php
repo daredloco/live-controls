@@ -21,13 +21,12 @@
             cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"]
         }).then((result) => { 
             if(result.isConfirmed){
-                alert('Confirmed! => {{ $confirmEvent }}');
-                Livewire.emit('{{ $confirmEvent }}');
+                Livewire.emit(popupArr["confirmEvent"]);
             }else if (result.isDenied){
-                Livewire.emit('{{ $denyEvent }}');
+                Livewire.emit(popupArr["denyEvent"]);
             }else if(result.isDismissed){
                 if(result.dismiss == Swal.DismissReason.cancel){
-                    Livewire.emit('{{ $cancelEvent }}');
+                    Livewire.emit(popupArr["cancelEvent"]);
                 }
             }
         });
