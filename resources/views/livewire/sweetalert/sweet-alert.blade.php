@@ -45,9 +45,9 @@
                 }
             });
 
-            if (sweetAlertValues) {
-                Swal.fire(JSON.stringify(sweetAlertValues))
-            }
+            // if (sweetAlertValues) {
+            //     Swal.fire(JSON.stringify(sweetAlertValues))
+            // }
         }else{
             //WITHOUT INPUT
             Swal.fire({
