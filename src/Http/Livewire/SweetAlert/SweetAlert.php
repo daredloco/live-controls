@@ -86,7 +86,7 @@ class SweetAlert extends Component
                 }
                 $this->html .= "\r\n".$inputField["html"];
             }
-            $this->inputFieldNames = "]";
+            $this->inputFieldNames .= "]";
         }
 
         if(!$fromListener){
