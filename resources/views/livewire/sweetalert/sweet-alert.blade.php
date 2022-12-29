@@ -36,8 +36,6 @@
                     popupArr["inputFields"].forEach(function callback(value, index){
                         results.set(value["name"], document.getElementById(value["name"]).value);
                     });
-
-                    alert(results.size);
                     Livewire.emit(popupArr["confirmEvent"], results);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
@@ -86,34 +84,24 @@
 
     @if($hasPopup)
         @if($inputFields !== false)
-            callSweetAlertWithInput();
-            async function callSweetAlertWithInput() {
-                alert('Inputfields not supported in this version due to exceptions');
-                const { value: sweetAlertValues } = await Swal.fire({
-                    title: "{{ $title }}",
-                    text: "{{ $message }}",
-                    html: "{{ $html }}",
-                    icon: "{{ $type }}",
-                    showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
-                    showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
-                    showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
-                    confirmButtonText: "{{ $confirmButtonText }}",
-                    denyButtonText: "{{ $denyButtonText }}",
-                    cancelButtonText: "{{ $cancelButtonText }}",
-                    imageUrl: "{{ $imageUrl }}",
-                    imageHeight: {{ $imageHeight == null ? 'null' : $imageHeight }},
-                    imageWidth: {{ $imageWidth == null ? 'null' : $imageWidth }},
-                    imageAlt: "{{ $imageAlt }}",
-                    focusConfirm: false,
-                    preConfirm: () => {
-                        return {!! html_entity_decode($inputFieldNames) !!}
-                    }
-                });
-
-                if (sweetAlertValues) {
-                    Swal.fire(JSON.stringify(sweetAlertValues))
-                }
-            }
+            alert('Inputfields not supported in this version due to exceptions');
+            Swal.fire({
+                title: "{{ $title }}",
+                text: "{{ $message }}",
+                html: @js($html),
+                icon: "{{ $type }}",
+                showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
+                showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
+                showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
+                confirmButtonText: "{{ $confirmButtonText }}",
+                denyButtonText: "{{ $denyButtonText }}",
+                cancelButtonText: "{{ $cancelButtonText }}",
+                imageUrl: "{{ $imageUrl }}",
+                imageHeight: {{ $imageHeight == null ? 'null' : $imageHeight }},
+                imageWidth: {{ $imageWidth == null ? 'null' : $imageWidth }},
+                imageAlt: "{{ $imageAlt }}",
+                focusConfirm: false
+            });
         @else
             Swal.fire({
                 title: "{{ $title }}",
