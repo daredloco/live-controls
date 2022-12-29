@@ -14,6 +14,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
+use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
@@ -63,6 +64,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-admin-grouplist', GroupList::class);
     Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
+    Livewire::component('livecontrols-sweetalert', SweetAlert::class);
 
     if ($this->app->runningInConsole())
     {

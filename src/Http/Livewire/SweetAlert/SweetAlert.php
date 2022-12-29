@@ -1,12 +1,13 @@
 <?php
 
-namespace Helvetiapps\LiveControls\View\Components;
+namespace Helvetiapps\LiveControls\Http\Livewire\SweetAlert;
 
 use Illuminate\Support\Facades\Session;
-use Illuminate\View\Component;
+use Livewire\Component;
 
 class SweetAlert extends Component
 {
+
     public $hasPopup;
 
     public $title;
@@ -21,13 +22,7 @@ class SweetAlert extends Component
     public $denyEvent;
     public $cancelEvent;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    public function mount(){
         $this->hasPopup = false;
         if(Session::has('popup')){
             $popupInfo = Session::get('popup');
@@ -44,13 +39,8 @@ class SweetAlert extends Component
         }
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
     public function render()
     {
-        return view('livecontrols::components.sweet-alert');
+        return view('livecontrols::livewire.support.messages-handler');
     }
 }

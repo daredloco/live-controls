@@ -2,11 +2,6 @@
     <!-- SWEET ALERT 2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-
-
-
-
     <script type="text/javascript">
     @if($hasPopup)
         Swal.fire({
