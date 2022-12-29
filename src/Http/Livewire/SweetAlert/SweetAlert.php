@@ -108,8 +108,7 @@ class SweetAlert extends Component
             'imageWidth' => $this->imageWidth,
             'imageHeight' => $this->imageHeight,
             'imageAlt' => $this->imageAlt,
-            'inputFields' => $this->inputFields,
-            'inputFieldNames' => $inputFieldNames
+            'inputFields' => $this->inputFields
         ];
 
         $this->emit('showPopup', $popupArr);
