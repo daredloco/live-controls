@@ -5,10 +5,12 @@
     <script type="text/javascript">
     //NEW SYSTEM
     window.addEventListener('popup', event => {
+        alert('sent');
         Livewire.emit('popupSent', event.detail);
     });
 
     Livewire.on('showPopup', popupArr => {
+        alert('shown');
         Swal.fire({
             title: popupArr["title"],
             text: popupArr["text"],
