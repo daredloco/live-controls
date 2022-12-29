@@ -9,12 +9,12 @@ class NumericInput extends Input {
     public ?int $maxValue = null;
     public ?float $step = null;
 
-    public function __construct($inputName, $value = "", string $label = "", ?int $min = null, ?int $max = null, ?float $step = null)
+    public function __construct($inputName, $value = "", string $label = "", string $placeHolder = "", string $parentClass = "mt-3", ?int $min = null, ?int $max = null, ?float $step = null)
     {
         $this->minValue = $min;
         $this->maxValue = $max;
         $this->step = $step;
-        parent::__construct($inputName, $value, $label);
+        parent::__construct($inputName, $value, $label, $placeHolder, $parentClass);
     }
 
     public function toArray():array{
