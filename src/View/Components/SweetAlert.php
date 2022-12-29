@@ -5,7 +5,7 @@ namespace Helvetiapps\LiveControls\View\Components;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\Component;
 
-class SweetAlert2 extends Component
+class SweetAlert extends Component
 {
     public $hasPopup = false;
 
