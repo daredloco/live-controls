@@ -5,19 +5,17 @@
     <script type="text/javascript">
     //NEW SYSTEM
     window.addEventListener('popup', event => {
-        alert('sent');
         Livewire.emit('popupSent', event.detail);
     });
 
     Livewire.on('showPopup', popupArr => {
-        alert('shown');
         Swal.fire({
             title: popupArr["title"],
             text: popupArr["message"],
             icon: popupArr["type"],
-            showConfirmButton: popupArr["showConfirmButton"] == null ? false : true,
-            showDenyButton: popupArr["showDenyButton"] == null ? false : true,
-            showCancelButton: popupArr["showCancelButton"] == null ? false : true,
+            showConfirmButton: popupArr["confirmButtonText"] == null ? false : true,
+            showDenyButton: popupArr["denyButtonText"] == null ? false : true,
+            showCancelButton: popupArr["cancelButtonText"] == null ? false : true,
             confirmButtonText: popupArr["confirmButtonText"] == null ? '' : popupArr["confirmButtonText"],
             denyButtonText: popupArr["denyButtonText"] == null ? '' : popupArr["denyButtonText"],
             cancelButtonText: popupArr["cancelButtonText"] == null ? '' : popupArr["cancelButtonText"]
