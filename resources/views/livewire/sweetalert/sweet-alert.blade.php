@@ -36,6 +36,7 @@
             }).then((result) => { 
                 if(result.isConfirmed){
                     Livewire.emit(popupArr["confirmEvent"]);
+                    alert(document.getElementById('number').value);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
                 }else if(result.isDismissed){
