@@ -25,6 +25,7 @@ class SweetAlert extends Component
     public $cancelEvent;
 
     public $inputFields;
+    public $inputFieldNames;
 
     public $timer;
     public $timerProgressBar;
@@ -71,11 +72,17 @@ class SweetAlert extends Component
         $this->imageAlt = \Helvetiapps\LiveControls\Utils\Arrays::array_get('imageAlt', $popupInfo, null);
 
         //If Inputfields are not empty, add them to the bottom of $this->html
+        $this->inputFieldNames = [];
         if($this->inputFields !== false){
             if($this->html == null){
                 $this->html = "";
             }
-            foreach($this->inputFields as $inputField){
+            foreach($this->inputFields as $idx => $inputField){
+                if($idx < count($this->inputFields)){
+                    array_push($this->inputFieldNames, 'document.getElementById("'.$inputField["name"].'").value,');
+                }else{
+                    array_push($this->inputFieldNames, 'document.getElementById("'.$inputField["name"].'").value');
+                }
                 $this->html .= "\r\n".$inputField["html"];
             }
         }
@@ -101,7 +108,8 @@ class SweetAlert extends Component
             'imageWidth' => $this->imageWidth,
             'imageHeight' => $this->imageHeight,
             'imageAlt' => $this->imageAlt,
-            'inputFields' => $this->inputFields
+            'inputFields' => $this->inputFields,
+            'inputFieldNames' => $inputFieldNames
         ];
 
         $this->emit('showPopup', $popupArr);

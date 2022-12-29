@@ -28,7 +28,13 @@
                 imageUrl: popupArr["imageUrl"],
                 imageHeight: popupArr["imageHeight"],
                 imageWidth: popupArr["imageWidth"],
-                imageAlt: popupArr["imageAlt"]
+                imageAlt: popupArr["imageAlt"],
+                focusConfirm: false,
+                preConfirm: () => {
+                    return [
+                        {{ $inputFieldNames }}
+                    ]
+                }
             }).then((result) => { 
                 if(result.isConfirmed){
                     Livewire.emit(popupArr["confirmEvent"]);
