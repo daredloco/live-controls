@@ -11,7 +11,6 @@
     Livewire.on('showPopup', popupArr => {
         if(popupArr["inputFields"] !== false){
             //WITH INPUT
-            alert('Inputs are not included in this version!');
             Swal.fire({
                 title: popupArr["title"],
                 text: popupArr["message"],
@@ -45,10 +44,6 @@
                     }
                 }
             });
-
-            // if (sweetAlertValues) {
-            //     Swal.fire(JSON.stringify(sweetAlertValues))
-            // }
         }else{
             //WITHOUT INPUT
             Swal.fire({
