@@ -32,7 +32,7 @@
                 focusConfirm: false,
                 preConfirm: () => {
                     return {{ $inputFieldNames }}
-                    
+                }
                 }
             }).then((result) => { 
                 if(result.isConfirmed){
