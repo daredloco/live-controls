@@ -89,7 +89,7 @@
                 const { value: sweetAlertValues } = await Swal.fire({
                     title: "{{ $title }}",
                     text: "{{ $message }}",
-                    html: "{{ $html }}",
+                    html: "{!! html_entity_decode($html) !!}",
                     icon: "{{ $type }}",
                     showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
                     showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
