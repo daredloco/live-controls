@@ -31,7 +31,7 @@
                 imageAlt: popupArr["imageAlt"],
                 focusConfirm: false,
                 preConfirm: () => {
-                    return {{ $inputFieldNames }}
+                    {!! html_entity_decode($inputFieldNames) !!}
                 }
             }).then((result) => { 
                 if(result.isConfirmed){
