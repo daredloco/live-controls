@@ -76,180 +76,44 @@
         @endif
 
         window.addEventListener('showToast', toastarr => {
-            var toastTitle = null;
-            var confirmButton = null;
-            var denyButton = null;
-            var cancelButton = null;
-
-            var confirmEvent = null;
-            var denyEvent = null;
-            var cancelEvent = null;
-
-            if("title" in toastarr){
-                toastTitle = toastarr["title"];
-            }
-            if("confirmButton" in toastarr){
-                confirmButton = toastarr["confirmButton"];
-            }
-            if("denyButton" in toastarr){
-                denyButton = toastarr["denyButton"];
-            }
-            if("cancelButton" in toastarr){
-                cancelButton = toastarr["cancelButton"];
-            }
-            if("confirmEvent" in toastarr){
-                confirmEvent = toastarr["confirmEvent"];
-            }
-            if("denyEvent" in toastarr){
-                denyEvent = toastarr["denyEvent"];
-            }
-            if("cancelEvent" in toastarr){
-                cancelEvent = toastarr["cancelEvent"];
-            }
-
             if(toastarr["detail"][0] == "success"){
                 Swal.fire({
-                    title: toastTitle == null ? 'Success!' : toastTitle,
+                    title: 'Success!',
                     text: toastarr["detail"][1],
                     icon: "success",
-                    showConfirmButton: confirmButton == null ? false : true
-                    showDenyButton: denyButton == null ? false : true
-                    showCancelButton: cancelButton == null ? false : true
-                    confirmButtonText: confirmButton,
-                    denyButtonText: denyButton,
-                    cancelButtonText: cancelButton
-                }).then((result) => { 
-                    if(result.isConfirmed){
-                        if(confirmEvent != null){
-                            Livewire.emit(confirmEvent);
-                        }
-                    }else if (result.isDenied){
-                        if(denyEvent != null){
-                            Livewire.emit(denyEvent);
-                        }
-                    }else if(result.isDismissed){
-                        if(result.dismiss == Swal.DismissReason.cancel){
-                            if(cancelEvent != null){
-                                Livewire.emit(cancelEvent);
-                            }
-                        }
-                    }
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    showCancelButton: false
                 });
             }
             if(toastarr["detail"][0] == "warning"){
                 Swal.fire({
-                    title: toastTitle == null ? 'Warning!' : toastTitle,
+                    title: 'Warning!',
                     text: toastarr["detail"][1],
                     icon: "warning",
-                    showConfirmButton: confirmButton == null ? false : true
-                    showDenyButton: denyButton == null ? false : true
-                    showCancelButton: cancelButton == null ? false : true
-                    confirmButtonText: confirmButton,
-                    denyButtonText: denyButton,
-                    cancelButtonText: cancelButton
-                }).then((result) => { 
-                    if(result.isConfirmed){
-                        if(confirmEvent != null){
-                            Livewire.emit(confirmEvent);
-                        }
-                    }else if (result.isDenied){
-                        if(denyEvent != null){
-                            Livewire.emit(denyEvent);
-                        }
-                    }else if(result.isDismissed){
-                        if(result.dismiss == Swal.DismissReason.cancel){
-                            if(cancelEvent != null){
-                                Livewire.emit(cancelEvent);
-                            }
-                        }
-                    }
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    showCancelButton: false
                 });
             }
             if(toastarr["detail"][0] == "exception"){
                 Swal.fire({
-                    title: toastTitle == null ? 'Error!' : toastTitle,
+                    title: 'Error!',
                     text: toastarr["detail"][1],
                     icon: "exception",
-                    showConfirmButton: confirmButton == null ? false : true
-                    showDenyButton: denyButton == null ? false : true
-                    showCancelButton: cancelButton == null ? false : true
-                    confirmButtonText: confirmButton,
-                    denyButtonText: denyButton,
-                    cancelButtonText: cancelButton
-                }).then((result) => { 
-                    if(result.isConfirmed){
-                        if(confirmEvent != null){
-                            Livewire.emit(confirmEvent);
-                        }
-                    }else if (result.isDenied){
-                        if(denyEvent != null){
-                            Livewire.emit(denyEvent);
-                        }
-                    }else if(result.isDismissed){
-                        if(result.dismiss == Swal.DismissReason.cancel){
-                            if(cancelEvent != null){
-                                Livewire.emit(cancelEvent);
-                            }
-                        }
-                    }
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    showCancelButton: false
                 });
             }
             if(toastarr["detail"][0] == "info"){
                 Swal.fire({
-                    title: toastTitle == null ? 'Info!' : toastTitle,
+                    title: 'Information',
                     text: toastarr["detail"][1],
                     icon: "info",
-                    showConfirmButton: confirmButton == null ? false : true
-                    showDenyButton: denyButton == null ? false : true
-                    showCancelButton: cancelButton == null ? false : true
-                    confirmButtonText: confirmButton,
-                    denyButtonText: denyButton,
-                    cancelButtonText: cancelButton
-                }).then((result) => { 
-                    if(result.isConfirmed){
-                        if(confirmEvent != null){
-                            Livewire.emit(confirmEvent);
-                        }
-                    }else if (result.isDenied){
-                        if(denyEvent != null){
-                            Livewire.emit(denyEvent);
-                        }
-                    }else if(result.isDismissed){
-                        if(result.dismiss == Swal.DismissReason.cancel){
-                            if(cancelEvent != null){
-                                Livewire.emit(cancelEvent);
-                            }
-                        }
-                    }
-                });
-            }
-            if(toastarr["detail"][0] == "question"){
-                Swal.fire({
-                    title: toastTitle == null ? 'Question!' : toastTitle,
-                    text: toastarr["detail"][1],
-                    icon: "question",
-                    showConfirmButton: confirmButton == null ? false : true
-                    showDenyButton: denyButton == null ? false : true
-                    showCancelButton: cancelButton == null ? false : true
-                    confirmButtonText: confirmButton,
-                    denyButtonText: denyButton,
-                    cancelButtonText: cancelButton
-                }).then((result) => { 
-                    if(result.isConfirmed){
-                        if(confirmEvent != null){
-                            Livewire.emit(confirmEvent);
-                        }
-                    }else if (result.isDenied){
-                        if(denyEvent != null){
-                            Livewire.emit(denyEvent);
-                        }
-                    }else if(result.isDismissed){
-                        if(result.dismiss == Swal.DismissReason.cancel){
-                            if(cancelEvent != null){
-                                Livewire.emit(cancelEvent);
-                            }
-                        }
-                    }
+                    showConfirmButton: false,
+                    showDenyButton: false,
+                    showCancelButton: false
                 });
             }
         });
