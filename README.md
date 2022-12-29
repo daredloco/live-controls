@@ -158,6 +158,7 @@ Simple implementation of SweetAlert2 popups.
 
 ### Content
 - Livewire Control (Blade Component didn't work). Add it to the body of your layout or the page you want to use it.
+- Added InputTypes: TextInput, NumericInput
 
 ### Todo
 - Add timer to close window
