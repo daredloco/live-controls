@@ -83,30 +83,33 @@
 
     @if($hasPopup)
         @if($inputFields !== false)
-            alert('Inputfields not supported in this version due to exceptions');
-            const { value: sweetAlertValues } = await Swal.fire({
-                title: "{{ $title }}",
-                text: "{{ $message }}",
-                html: "{{ $html }}",
-                icon: "{{ $type }}",
-                showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
-                showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
-                showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
-                confirmButtonText: "{{ $confirmButtonText }}",
-                denyButtonText: "{{ $denyButtonText }}",
-                cancelButtonText: "{{ $cancelButtonText }}",
-                imageUrl: "{{ $imageUrl }}",
-                imageHeight: {{ $imageHeight }},
-                imageWidth: {{ $imageWidth }},
-                imageAlt: "{{ $imageAlt }}",
-                focusConfirm: false,
-                preConfirm: () => {
-                    return {!! html_entity_decode($inputFieldNames) !!}
-                }
-            });
+            callSweetAlertWithInput();
+            async function callSweetAlertWithInput() {
+                alert('Inputfields not supported in this version due to exceptions');
+                const { value: sweetAlertValues } = await Swal.fire({
+                    title: "{{ $title }}",
+                    text: "{{ $message }}",
+                    html: "{{ $html }}",
+                    icon: "{{ $type }}",
+                    showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
+                    showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
+                    showCancelButton: {{ $cancelButtonText == null ? 'false' : 'true' }},
+                    confirmButtonText: "{{ $confirmButtonText }}",
+                    denyButtonText: "{{ $denyButtonText }}",
+                    cancelButtonText: "{{ $cancelButtonText }}",
+                    imageUrl: "{{ $imageUrl }}",
+                    imageHeight: {{ $imageHeight }},
+                    imageWidth: {{ $imageWidth }},
+                    imageAlt: "{{ $imageAlt }}",
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        return {!! html_entity_decode($inputFieldNames) !!}
+                    }
+                });
 
-            if (sweetAlertValues) {
-                Swal.fire(JSON.stringify(sweetAlertValues))
+                if (sweetAlertValues) {
+                    Swal.fire(JSON.stringify(sweetAlertValues))
+                }
             }
         @else
             Swal.fire({
