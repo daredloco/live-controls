@@ -16,9 +16,9 @@
             showConfirmButton: {{ $confirmButtonText == null ? false : true }}
             showDenyButton: {{ $denyButtonText == null ? false : true }}
             showCancelButton: {{ $cancelButtonText == null ? false : true }}
-            confirmButtonText: {{ $confirmButtonText }},
-            denyButtonText: {{ $denyButtonText }},
-            cancelButtonText: {{ $cancelButtonText }}
+            confirmButtonText: "{{ $confirmButtonText }}",
+            denyButtonText: "{{ $denyButtonText }}",
+            cancelButtonText: "{{ $cancelButtonText }}"
         }).then((result) => { 
             if(result.isConfirmed){
                 Livewire.emit('{{ $confirmEvent }}');
