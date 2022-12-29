@@ -53,25 +53,6 @@ class SweetAlert extends Component
             return;
         }
 
-        //If title is null, check the type of the popup and set the title to it
-        if($this->title == null){
-            if($this->type == 'success'){
-                $this->title = 'Success!';
-            }
-            if($this->type == 'error'){
-                $this->title = 'Error!';
-            }
-            if($this->type == 'warning'){
-                $this->title = 'Warning!';
-            }
-            if($this->type == 'info'){
-                $this->title = 'Information';
-            }
-            if($this->type == 'question'){
-                $this->title = 'Question';
-            }
-        }
-        
         $popupArr = [
             'type' => $this->type,
             'title' => $this->title,
