@@ -106,9 +106,9 @@
                     return [
                         @foreach($inputFields as $key => $inputField)
                             @if($key == count($inputFields) - 1)
-                                document.getElementById("{!! htmlspecialchars_decode($inputField["name"]) !!}").value
+                                document.getElementById(" {{ $inputField[\"name\"]) }}").value
                             @else
-                                document.getElementById("{{ $inputField["name"] }}").value,
+                                document.getElementById("{{ $inputField[\"name\"] }}").value,
                             @endif
                         @endforeach
                     ]
