@@ -24,6 +24,8 @@ class SweetAlert extends Component
     public $denyEvent;
     public $cancelEvent;
 
+    public $hasInput;
+
     protected $listeners = ['popupSent' => 'createPopup'];
 
     public function mount(){
@@ -51,7 +53,8 @@ class SweetAlert extends Component
         $this->confirmEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('confirmEvent', $popupInfo);
         $this->denyEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('denyEvent', $popupInfo);
         $this->cancelEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('cancelEvent', $popupInfo);
-
+        $this->hasInput = \Helvetiapps\LiveControls\Utils\Arrays::array_get('hasInput', $popupInfo, false);
+        
         if(!$fromListener){
             return;
         }
@@ -66,7 +69,8 @@ class SweetAlert extends Component
             'cancelButtonText' => $this->cancelButtonText,
             'confirmEvent' => $this->confirmEvent,
             'denyEvent' => $this->denyEvent,
-            'cancelEvent' => $this->cancelEvent
+            'cancelEvent' => $this->cancelEvent,
+            'hasInput' => $this->hasInput
         ];
 
         $this->emit('showPopup', $popupArr);
