@@ -35,11 +35,12 @@
                 }
             }).then((result) => { 
                 if(result.isConfirmed){
-                    Livewire.emit(popupArr["confirmEvent"]);
-                    alert(document.getElementById('number').value);
+                    var results = new Map();
                     popupArr["inputFields"].forEach(function callback(value, index){
-                        console.log(document.getElementById(value["name"]).value);
+                        results.value["name"] = document.getElementById(value["name"]).value);
                     });
+
+                    Livewire.emit(popupArr["confirmEvent"]);
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
                 }else if(result.isDismissed){
