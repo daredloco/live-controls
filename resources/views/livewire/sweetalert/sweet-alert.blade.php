@@ -37,7 +37,7 @@
                 if(result.isConfirmed){
                     var results = new Map();
                     popupArr["inputFields"].forEach(function callback(value, index){
-                        results.value["name"] = document.getElementById(value["name"]).value);
+                        results.set(value["name"], document.getElementById(value["name"]).value);
                     });
 
                     Livewire.emit(popupArr["confirmEvent"]);
