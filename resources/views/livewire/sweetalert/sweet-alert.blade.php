@@ -3,6 +3,35 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script type="text/javascript">
+    //NEW SYSTEM
+    window.addEventListener('popup', popupArr => {
+        Livewire.emit('popupSent', $popupArr);
+    });
+
+    Livewire.on('showPopup', popupType => {
+        Swal.fire({
+            title: "{{ $title }}",
+            text: "{{ $message }}",
+            icon: popupType,
+            showConfirmButton: {{ $confirmButtonText == null ? false : true }}
+            showDenyButton: {{ $denyButtonText == null ? false : true }}
+            showCancelButton: {{ $cancelButtonText == null ? false : true }}
+            confirmButtonText: "{{ $confirmButtonText }}",
+            denyButtonText: "{{ $denyButtonText }}",
+            cancelButtonText: "{{ $cancelButtonText }}"
+        }).then((result) => { 
+            if(result.isConfirmed){
+                Livewire.emit('{{ $confirmEvent }}');
+            }else if (result.isDenied){
+                Livewire.emit('{{ $denyEvent }}');
+            }else if(result.isDismissed){
+                if(result.dismiss == Swal.DismissReason.cancel){
+                    Livewire.emit('{{ $cancelEvent }}');
+                }
+            }
+        });
+    });
+
     @if($hasPopup)
         Swal.fire({
             title: "{{ $title }}",
@@ -26,6 +55,7 @@
             }
         });
     @else
+    //OLD SYSTEM
         @if(Session::has('success'))
             Swal.fire({
                 title: "Success!",
