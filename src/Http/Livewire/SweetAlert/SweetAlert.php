@@ -41,6 +41,6 @@ class SweetAlert extends Component
 
     public function render()
     {
-        return view('livecontrols::livewire.support.messages-handler');
+        return view('livecontrols::livewire.sweetalert.sweet-alert');
     }
 }
