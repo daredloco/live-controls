@@ -28,6 +28,16 @@ class SweetAlert2 extends Component
      */
     public function __construct()
     {
+        
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
+     */
+    public function render()
+    {
         if(Session::has('popup')){
             $popupInfo = Session::get('popup');
             $this->hasPopup = true;
@@ -41,15 +51,10 @@ class SweetAlert2 extends Component
             $this->denyEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('denyEvent', $popupInfo);
             $this->cancelEvent = \Helvetiapps\LiveControls\Utils\Arrays::array_get('cancelEvent', $popupInfo);
         }
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
-    {
-        return view('livecontrols::components.sweetalert2');
+        return view('livecontrols::components.sweetalert2',
+            [
+                'hasPopup' => $this->hasPopup
+            ]    
+        );
     }
 }
