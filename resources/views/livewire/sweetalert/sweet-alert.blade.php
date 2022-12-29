@@ -32,7 +32,7 @@
                 focusConfirm: false,
                 preConfirm: () => {
                     return [
-                        {{ $inputFieldNames }}
+                        {!! $inputFieldNames !!}
                     ]
                 }
             }).then((result) => { 
