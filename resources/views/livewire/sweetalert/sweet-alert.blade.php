@@ -12,6 +12,7 @@
         Swal.fire({
             title: popupArr["title"],
             text: popupArr["message"],
+            html: popupArr["html"],
             icon: popupArr["type"],
             showConfirmButton: popupArr["confirmButtonText"] == null ? false : true,
             showDenyButton: popupArr["denyButtonText"] == null ? false : true,
@@ -36,6 +37,7 @@
         Swal.fire({
             title: "{{ $title }}",
             text: "{{ $message }}",
+            html: "{{ $html }}",
             icon: "{{ $type }}",
             showConfirmButton: {{ $confirmButtonText == null ? 'false' : 'true' }},
             showDenyButton: {{ $denyButtonText == null ? 'false' : 'true' }},
