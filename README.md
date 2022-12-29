@@ -141,6 +141,9 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 ## ToastR
 Simple implementation of ToastR popups
 
+**DO NOT USE TOASTR ANYMORE, WILL BE REMOVED IN THE FUTURE**
+Reason: https://github.com/CodeSeven/toastr/issues/689
+
 [Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
 
 ### Content
