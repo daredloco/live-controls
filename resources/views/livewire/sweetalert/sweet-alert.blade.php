@@ -4,8 +4,8 @@
 
     <script type="text/javascript">
     //NEW SYSTEM
-    window.addEventListener('popup', popupArr => {
-        Livewire.emit('popupSent', $popupArr);
+    window.addEventListener('popup', event => {
+        Livewire.emit('popupSent', event.detail);
     });
 
     Livewire.on('showPopup', popupType => {
