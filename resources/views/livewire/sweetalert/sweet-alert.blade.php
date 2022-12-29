@@ -13,7 +13,7 @@
         alert('shown');
         Swal.fire({
             title: popupArr["title"],
-            text: popupArr["text"],
+            text: popupArr["message"],
             icon: popupArr["type"],
             showConfirmButton: popupArr["showConfirmButton"] == null ? false : true,
             showDenyButton: popupArr["showDenyButton"] == null ? false : true,
