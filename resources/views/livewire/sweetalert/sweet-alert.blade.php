@@ -36,7 +36,7 @@
                         results.set(value["name"], document.getElementById(value["name"]).value);
                         console.log(results.size);
                     });
-                    alert(results["number"]);
+                    console.log(results.size);
                     Livewire.emit(popupArr["confirmEvent"], JSON.stringify(results));
                 }else if (result.isDenied){
                     Livewire.emit(popupArr["denyEvent"]);
