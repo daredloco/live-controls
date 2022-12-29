@@ -32,7 +32,7 @@
                 focusConfirm: false,
                 preConfirm: () => {
                     return [
-                        {!! echo($inputFieldNames) !!}
+                        {{ $inputFieldNames }}
                     ]
                 }
             }).then((result) => { 
