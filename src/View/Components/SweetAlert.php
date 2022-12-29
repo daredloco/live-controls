@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 
 class SweetAlert extends Component
 {
-    public $hasPopup = false;
+    public $hasPopup;
 
     public $title;
     public $type;
