@@ -9,7 +9,7 @@
     });
 
     Livewire.on('showPopup', popupArr => {
-        if($popupArr["inputFields"] !== false){
+        if(popupArr["inputFields"] !== false){
             //WITH INPUT
             alert('Inputs are not included in this version!');
             Swal.fire({
