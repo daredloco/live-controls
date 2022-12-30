@@ -8,7 +8,7 @@ trait HasPopups{
         $this->dispatchBrowserEvent('popup',$data); 
     }
 
-    public function popupInfo(string $title, string $message, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
+    public function popupInfo(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'info',
             'title' => $title,
@@ -18,11 +18,12 @@ trait HasPopups{
             'denyButtonText' => $denyText,
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
-            'cancelEvent' => $cancelEvent
+            'cancelEvent' => $cancelEvent,
+            'timer' => $timer
         ]);
     }
 
-    public function popupWarn(string $title, string $message, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
+    public function popupWarn(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'warn',
             'title' => $title,
@@ -32,11 +33,12 @@ trait HasPopups{
             'denyButtonText' => $denyText,
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
-            'cancelEvent' => $cancelEvent
+            'cancelEvent' => $cancelEvent,
+            'timer' => $timer
         ]);
     }
 
-    public function popupSuccess(string $title, string $message, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
+    public function popupSuccess(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'success',
             'title' => $title,
@@ -46,11 +48,12 @@ trait HasPopups{
             'denyButtonText' => $denyText,
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
-            'cancelEvent' => $cancelEvent
+            'cancelEvent' => $cancelEvent,
+            'timer' => $timer
         ]);
     }
 
-    public function popupError(string $title, string $message, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
+    public function popupError(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'error',
             'title' => $title,
@@ -60,11 +63,12 @@ trait HasPopups{
             'denyButtonText' => $denyText,
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
-            'cancelEvent' => $cancelEvent
+            'cancelEvent' => $cancelEvent,
+            'timer' => $timer
         ]);
     }
 
-    public function popupQuestion(string $title, string $message, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
+    public function popupQuestion(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'question',
             'title' => $title,
@@ -74,7 +78,8 @@ trait HasPopups{
             'denyButtonText' => $denyText,
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
-            'cancelEvent' => $cancelEvent
+            'cancelEvent' => $cancelEvent,
+            'timer' => $timer
         ]);
     }
 
