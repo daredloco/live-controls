@@ -21,6 +21,7 @@ use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission
 use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
@@ -90,9 +91,11 @@ class LiveControlsServiceProvider extends ServiceProvider
 
       //Add Popup Macro
       Redirector::macro('popup', function ($data) {
-          return $this->with('popup', $data);
+        return $this->with('popup', $data);
       });
-
+      RedirectResponse::macro('popup', function ($data) {
+        return $this->with('popup', $data);
+      });
     }
 
     //MACROS (Maybe used for crypto, not sure)
