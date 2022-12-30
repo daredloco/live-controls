@@ -15,7 +15,7 @@ class Input{
     public bool $disabled = false;
     public bool $required = false;
 
-    public function __construct($inputName, $value = "", string $label = null, $placeHolder = "", $parentClass ="mt-3"){
+    public function __construct(string $inputName, $value = "", string $label = null, string $placeHolder = "", string $parentClass ="mt-3"){
         $this->inputName = $inputName;
         $this->label = $label;
         $this->placeHolder = $placeHolder;
