@@ -14,13 +14,12 @@ class Input{
     public string $inputType = 'text';
     public bool $disabled = false;
 
-    public function __construct($inputName, $value = "", string $label = null, $placeHolder = "", bool $disabled = false, $parentClass ="mt-3"){
+    public function __construct($inputName, $value = "", string $label = null, $placeHolder = "", $parentClass ="mt-3"){
         $this->inputName = $inputName;
         $this->label = $label;
         $this->placeHolder = $placeHolder;
         $this->parentClass = $parentClass;
         $this->value = $value;
-        $this->disabled = $disabled;
     }
 
     public function toArray():array{
@@ -38,5 +37,9 @@ class Input{
 
     public function getName():string{
         return $this->inputName;
+    }
+
+    public function setDisabled(bool $disabled){
+        $this->disabled = $disabled;
     }
 }
