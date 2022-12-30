@@ -32,7 +32,7 @@ class NumericInput extends Input {
         if(!is_null($this->step)){
             $html .= ' step="'.str_replace(',','.', $this->step).'"';
         }
-        $html .= ($this->disabled ? ' disabled' : '').'>'; //Close the input tag
+        $html .= ($this->disabled ? ' disabled' : '').($this->required ? ' required' : '').'>'; //Close the input tag
         $html .= '</div>';
         return [
             'name' => $this->inputName,
