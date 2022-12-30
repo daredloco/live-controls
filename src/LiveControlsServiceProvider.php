@@ -21,6 +21,7 @@ use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission
 use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
@@ -86,6 +87,11 @@ class LiveControlsServiceProvider extends ServiceProvider
 
       //Load Blade Components
       Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
+
+      //Add Popup Macro
+      Redirector::macro('popup', function ($data) {
+          return $this->with('popup', $data);
+      });
 
     }
 
