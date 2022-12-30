@@ -17,7 +17,7 @@ class InputGroup
         $this->inputs = [];
     }
 
-    public function add(TextInput|NumericInput|ColorInput|DateInput|TimeInput|TextArea ...$inputs){
+    public function add(TextInput|NumericInput|ColorInput|DateInput|TimeInput|TextArea|SelectInput ...$inputs){
         foreach($inputs as $input){
             if(array_key_exists($input->getName(), $this->inputs)){
                 throw new Exception('Input with the name "'.$input->getName().'" already exists in InputGroup!');
