@@ -68,6 +68,18 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);
 
+    //Load Blade Components
+    Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
+    
+    //MACROS
+    //Add Popup Macros
+    Redirector::macro('popup', function ($data) {
+      return $this->with('popup', $data);
+    });
+    RedirectResponse::macro('popup', function ($data) {
+      return $this->with('popup', $data);
+    });
+
     if ($this->app->runningInConsole())
     {
       $this->commands([
@@ -85,19 +97,6 @@ class LiveControlsServiceProvider extends ServiceProvider
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
       ], 'livecontrols-config');
-
-      //Load Blade Components
-      Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
-
-      //Add Popup Macro
-      Redirector::macro('popup', function ($data) {
-        return $this->with('popup', $data);
-      });
-      RedirectResponse::macro('popup', function ($data) {
-        return $this->with('popup', $data);
-      });
     }
-
-    //MACROS (Maybe used for crypto, not sure)
   }
 }
