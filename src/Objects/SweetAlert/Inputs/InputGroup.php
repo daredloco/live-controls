@@ -16,11 +16,13 @@ class InputGroup
         $this->groupClass = $class;
     }
 
-    public function add(TextInput|NumericInput|ColorInput|DateInput|TimeInput $input){
-        if(array_key_exists($input->getName(), $this->inputs)){
-            throw new Exception('Input with the name "'.$input->getName().'" already exists in InputGroup!');
+    public function add(TextInput|NumericInput|ColorInput|DateInput|TimeInput ...$inputs){
+        foreach($inputs as $input){
+            if(array_key_exists($input->getName(), $this->inputs)){
+                throw new Exception('Input with the name "'.$input->getName().'" already exists in InputGroup!');
+            }
+            $this->inputs[$input->getName()] = $input;
         }
-        $this->inputs[$input->getName()] = $input;
     }
 
     public function remove(string $name){
