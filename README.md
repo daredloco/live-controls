@@ -165,6 +165,7 @@ Simple implementation of SweetAlert2 popups.
 ### Todo
 - Add option to call popup with custom options (Add a constructor for custom popups like in lagoon charts library)
 - Add inputfields to popups called from controller
+- Add more types of inputfields (Select, Radio, Checkbox, ...)
 - Add to show loading spinner
 ```
 didOpen: () => {
