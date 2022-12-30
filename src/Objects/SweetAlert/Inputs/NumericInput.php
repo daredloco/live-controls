@@ -5,8 +5,8 @@ namespace Helvetiapps\LiveControls\Objects\SweetAlert\Inputs;
 class NumericInput extends Input {
     public string $inputType = 'number';
 
-    public ?int $minValue = null;
-    public ?int $maxValue = null;
+    public ?string $minValue = null;
+    public ?string $maxValue = null;
     public ?float $step = null;
 
     public function __construct($inputName, $value = "", string $label = "", string $placeHolder = "", ?int $min = null, ?int $max = null, ?float $step = null)
