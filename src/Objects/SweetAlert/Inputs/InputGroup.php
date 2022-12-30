@@ -42,4 +42,8 @@ class InputGroup
 
         return $html;
     }
+
+    public function toArray():array{
+        return $this->inputs;
+    }
 }
