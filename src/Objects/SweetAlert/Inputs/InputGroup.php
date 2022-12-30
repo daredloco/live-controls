@@ -47,6 +47,10 @@ class InputGroup
     }
 
     public function toArray():array{
-        return $this->inputs;
+        $arr = [];
+        foreach($this->inputs as $input){
+            array_push($arr,$input->toArray());
+        }
+        return $arr;
     }
 }
