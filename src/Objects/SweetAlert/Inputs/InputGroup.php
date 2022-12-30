@@ -14,6 +14,7 @@ class InputGroup
     {
         $this->groupId = $groupId;
         $this->groupClass = $class;
+        $this->inputs = [];
     }
 
     public function add(TextInput|NumericInput|ColorInput|DateInput|TimeInput ...$inputs){
