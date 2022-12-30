@@ -19,7 +19,8 @@ trait HasPopups{
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
             'cancelEvent' => $cancelEvent,
-            'timer' => $timer
+            'timer' => $timer,
+            'timerProgressBar' => is_null($timer) ? null : true
         ]);
     }
 
@@ -34,7 +35,8 @@ trait HasPopups{
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
             'cancelEvent' => $cancelEvent,
-            'timer' => $timer
+            'timer' => $timer,
+            'timerProgressBar' => is_null($timer) ? null : true
         ]);
     }
 
@@ -49,7 +51,8 @@ trait HasPopups{
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
             'cancelEvent' => $cancelEvent,
-            'timer' => $timer
+            'timer' => $timer,
+            'timerProgressBar' => is_null($timer) ? null : true
         ]);
     }
 
@@ -64,7 +67,8 @@ trait HasPopups{
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
             'cancelEvent' => $cancelEvent,
-            'timer' => $timer
+            'timer' => $timer,
+            'timerProgressBar' => is_null($timer) ? null : true
         ]);
     }
 
@@ -79,7 +83,8 @@ trait HasPopups{
             'denyEvent' => $denyEvent,
             'cancelButtonText' => $cancelText,
             'cancelEvent' => $cancelEvent,
-            'timer' => $timer
+            'timer' => $timer,
+            'timerProgressBar' => is_null($timer) ? null : true
         ]);
     }
 
