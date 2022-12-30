@@ -26,7 +26,7 @@ trait HasPopups{
 
     public function popupWarn(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
-            'type' => 'warn',
+            'type' => 'warning',
             'title' => $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
