@@ -1,18 +1,18 @@
 <div>
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="{{ __('Search...') }}" aria-label="{{ __('Search...') }}" wire:model='search'>
+        <input type="text" class="form-control" placeholder="{{ __('livecontrols::general.search') }}" aria-label="{{ __('livecontrols::general.search') }}" wire:model='search'>
     </div>
 
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">{{ __('ID') }}</th>
-                    <th scope="col">{{ __('Name') }}</th>
-                    <th scope="col">{{ __('Key') }}</th>
-                    <th scope="col">{{ __('Description') }}</th>
-                    <th scope="col">{{ __('Color') }}</th>
-                    <th scope="col">{{ __('Actions') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.id') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.name') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.key') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.description') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.color') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,9 +24,9 @@
                         <td>{{ $group->description }}</td>
                         <td style="background-color: {{ $group->color }}"></td>
                         <td>
-                            <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>{{ __('Permissions') }}</a> 
-                            <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">{{ __('Edit') }}</a> 
-                            <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">{{ __('Delete') }}</a>
+                            <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                            <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
+                            <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
                             <form name="delete{{$group->id}}Form" action="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -37,12 +37,12 @@
             </tbody>
         </table>
     </div>
-    <a href="{{ route('livecontrols.admin.usergroups.create') }}" class="btn btn-success text-white">{{ __('Create') }}</a>
+    <a href="{{ route('livecontrols.admin.usergroups.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
-            {{ __('Edit :type', ['type' => __('Permissions')])}}
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.permissions')])}}
         </x-slot>
     
         <x-slot name="content">
@@ -62,7 +62,7 @@
     
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('showPermissionModal')" wire:loading.attr="disabled">
-                {{ __('Close') }}
+                {{ __('livecontrols::general.close') }}
             </x-jet-secondary-button>
         </x-slot>
     </x-jet-dialog-modal>    

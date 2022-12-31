@@ -51,10 +51,10 @@
     @endpush
     <div class="row">
         <div class="col-md-3 livecontrols-sidebar">
-            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('Dashboard') }}</a>
-            <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">{{ __('Users') }}</a>
-            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('User Groups') }}</a>
-            <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('Permissions') }}</a>
+            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('livecontrols::admin.dashboard') }}</a>
+            <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">{{ __('livecontrols::admin.users') }}</a>
+            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('livecontrols::admin.user_groups') }}</a>
+            <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('livecontrols::admin.permissions') }}</a>
             @foreach($customPages as $label => $key)
                 <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
             @endforeach

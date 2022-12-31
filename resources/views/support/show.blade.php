@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('Support Ticket #').$supportTicket->id }}
+            {{ __('livecontrols::support.support_ticket_nr', ['ticket' => $supportTicket->id]) }}
         </h2>
     </x-slot>
 
@@ -18,9 +18,9 @@
                 @method('DELETE')
             </form>
             <br>
-            <small class="text-muted">{{ $supportTicket->user->name.' at '.$supportTicket->created_at->format('d.m.Y H:i:s') }}</small>
+            <small class="text-muted">{{ __('livecontrols::support.user_at_datetime', ['user' => $supportTicket->user->name, 'dateTime' => $supportTicket->created_at->format(__('livecontrols::general.date_time_format'))]) }}</small>
             <hr>
-            <strong>Messages:</strong>
+            <strong>{{ __('livecontrols::support.messages') }}:</strong>
             @livewire('livecontrols-support-messages', ['supportTicket' => $supportTicket], key('support-messages'))
         </div>
     </div>

@@ -1,16 +1,16 @@
 <div>
     <div class="col-md-4">
-        <input type="text" class="form-control" placeholder="{{ __('Search...') }}" aria-label="{{ __('Search...') }}" wire:model='search'>
+        <input type="text" class="form-control" placeholder="{{ __('livecontrols::general.search') }}" aria-label="{{ __('livecontrols::general.search') }}" wire:model='search'>
     </div>
 
     <div class="table-responsive">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">{{ __('ID') }}</th>
-                    <th scope="col">{{ __('Name') }}</th>
-                    <th scope="col">{{ __('Email') }}</th>
-                    <th scope="col">{{ __('Actions') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.id') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.name') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.email') }}</th>
+                    <th scope="col">{{ __('livecontrols::general.actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,14 +21,18 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             @if($user->id != config('livecontrols.admininterface_master') || $user->id == auth()->id())
-                                <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>{{ __('Permissions') }}</a> 
-                                <a href="#" wire:click.prevent='editGroups({{$user->id}})'>{{ __('Groups') }}</a>
+                                <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                                <a href="#" wire:click.prevent='editGroups({{$user->id}})'>{{ __('livecontrols::admin.groups') }}</a>
                                 @if($editRoute !== false)
-                                    <a href="{{ $editRoute }}">{{ __('Edit') }}</a> 
+                                    <a href="{{ $editRoute }}">{{ __('livecontrols::general.edit') }}</a> 
                                 @endif
 
                                 @if($deleteRoute !== false)
-                                    <a href="{{ $deleteRoute }}">{{ __('Delete') }}</a>
+                                    <a href="{{ $deleteRoute }}" onclick="event.preventDefault(); document.delete{{ $user->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
+                                    <form name="delete{{$user->id}}Form" action="{{ route($deleteRoute, ['user' => $user->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>  
                                 @endif
                             @endif
                         </td>
@@ -38,13 +42,13 @@
         </table>
     </div>
     @if($createRoute !== false)
-        <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">{{ __('Create') }}</a>
+        <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
     @endif
 
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
-            {{ __('Edit :type', ['type' => 'Permissions']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.permissions']) }}
         </x-slot>
     
         <x-slot name="content">
@@ -64,7 +68,7 @@
     
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('showPermissionModal')" wire:loading.attr="disabled">
-                {{ __('Close') }}
+                {{ __('livecontrols::general.close') }}
             </x-jet-secondary-button>
         </x-slot>
     </x-jet-dialog-modal>    
@@ -73,7 +77,7 @@
     <!-- Groups Modal -->
     <x-jet-dialog-modal wire:model="showGroupModal">
         <x-slot name="title">
-            {{ __('Edit :type', ['type' => 'Groups']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.groups']) }}
         </x-slot>
     
         <x-slot name="content">
@@ -93,7 +97,7 @@
     
         <x-slot name="footer">
             <x-jet-secondary-button wire:click="$toggle('showGroupModal')" wire:loading.attr="disabled">
-                {{ __('Close') }}
+                {{ __('livecontrols::general.close') }}
             </x-jet-secondary-button>
         </x-slot>
     </x-jet-dialog-modal>    

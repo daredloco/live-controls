@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="h4 font-weight-bold">
-            {{ __('Add new UserGroup') }}
+            {{ __('livecontrols::general.add_type', ['type' => __('livecontrols::admin.user_group')]) }}
         </h2>
     </x-slot>
 
@@ -16,35 +16,35 @@
                             @csrf
 
                             <div class="mb-3">
-                                <x-jet-label value="{{ __('Name') }}" /><br>
+                                <x-jet-label value="{{ __('livecontrols::general.name') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
                                              :value="old('name')" required autofocus />
                                 <x-jet-input-error for="name"></x-jet-input-error>
                             </div>
 
                             <div class="mb-3">
-                                <x-jet-label value="{{ __('Key') }}" /><br>
+                                <x-jet-label value="{{ __('livecontrols::general.key') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('key') ? 'is-invalid' : '' }}" type="text" name="key"
                                              :value="old('key')" required />
                                 <x-jet-input-error for="key"></x-jet-input-error>
                             </div>
 
                             <div class="mb-3">
-                                <x-jet-label value="{{ __('Color') }}" /><br>
+                                <x-jet-label value="{{ __('livecontrols::general.color') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('color') ? 'is-invalid' : '' }} form-control-color" type="color" name="color"
                                              :value="old('color')" required />
                                 <x-jet-input-error for="color"></x-jet-input-error>
                             </div>
 
                             <div class="mb-3">
-                              <label for="description" class="form-label">Description</label>
+                              <label for="description" class="form-label">{{ __('livecontrols::general.description') }}</label>
                               <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                             </div>
                             
                             <div class="mb-0">
                                 <div class="d-flex justify-content-end align-items-baseline">
                                     <x-jet-button>
-                                        {{ __('Create') }}
+                                        {{ __('livecontrols::general.create') }}
                                     </x-jet-button>
                                 </div>
                             </div>

@@ -134,7 +134,7 @@
     //OLD SYSTEM
         @if(Session::has('success'))
             Swal.fire({
-                title: "{{ __('Success!') }}",
+                title: "{{ __('livecontrols::alerts.success') }}",
                 text: "{{ session('success') }}",
                 icon: "success",
                 showConfirmButton: false,
@@ -145,7 +145,7 @@
 
         @if(Session::has("warning"))
             Swal.fire({
-                title: "{{ __('Warning!') }}",
+                title: "{{ __('livecontrols::alerts.warning') }}",
                 text: "{{ session('warning') }}",
                 icon: "warning",
                 showConfirmButton: false,
@@ -156,7 +156,7 @@
 
         @if(Session::has("exception"))
             Swal.fire({
-                title: "{{ __('Error!') }}",
+                title: "{{ __('livecontrols::alerts.error') }}",
                 text: "{{ session('exception') }}",
                 icon: "error",
                 showConfirmButton: false,
@@ -167,7 +167,7 @@
 
         @if(Session::has("info"))
             Swal.fire({
-                title: "{{ __('Information') }}",
+                title: "{{ __('livecontrols::alerts.info') }}",
                 text: "{{ session('info') }}",
                 icon: "info",
                 showConfirmButton: false,
@@ -179,7 +179,7 @@
         window.addEventListener('showToast', toastarr => {
             if(toastarr["detail"][0] == "success"){
                 Swal.fire({
-                    title: '{{ __('Success!') }}',
+                    title: '{{ __('livecontrols::alerts.success') }}',
                     text: toastarr["detail"][1],
                     icon: "success",
                     showConfirmButton: false,
@@ -189,7 +189,7 @@
             }
             if(toastarr["detail"][0] == "warning"){
                 Swal.fire({
-                    title: '{{ __('Warning!') }}',
+                    title: '{{ __('livecontrols::alerts.warning') }}',
                     text: toastarr["detail"][1],
                     icon: "warning",
                     showConfirmButton: false,
@@ -199,7 +199,7 @@
             }
             if(toastarr["detail"][0] == "exception"){
                 Swal.fire({
-                    title: '{{ __('Error!') }}',
+                    title: '{{ __('livecontrols::alerts.error') }}',
                     text: toastarr["detail"][1],
                     icon: "exception",
                     showConfirmButton: false,
@@ -209,7 +209,7 @@
             }
             if(toastarr["detail"][0] == "info"){
                 Swal.fire({
-                    title: '{{ __('Information') }}',
+                    title: '{{ __('livecontrols::alerts.info') }}',
                     text: toastarr["detail"][1],
                     icon: "info",
                     showConfirmButton: false,

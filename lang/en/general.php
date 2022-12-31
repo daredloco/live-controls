@@ -1,9 +1,12 @@
 <?php
 
 return [
+    "admin_dashboard" => "Admin Dashboard",
     "create" => "Create",
     "edit" => "Edit",
     "delete" => "Delete",
+    "update" => "Update",
+    "add_type" => "Add new :type",
     "edit_type" => "Edit :type",
     "search" => "Search...",
     "title" => "Title",
