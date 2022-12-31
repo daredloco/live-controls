@@ -17,6 +17,7 @@
 
 ## Translations
 - English
+- German
 - Brazilian Portuguese
 
 
