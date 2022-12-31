@@ -31,5 +31,11 @@
     "dateTimeFormat": "d.m.Y H:i:s",
     "timeFormat": "H:i:s",
     
-    "Close": "Close"
+    "Close": "Close",
+
+    "Success!": "Success!",
+    "Warning!": "Warning!",
+    "Error!": "Error!",
+    "Information": "Information"
+
 }
