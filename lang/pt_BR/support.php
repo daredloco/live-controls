@@ -30,6 +30,9 @@ return [
     "update_status" => "Atualizar status",
     "status_0" => "Aberto",
     "status_1" => "Em andamento",
-    "status_2" => "Fechado"
+    "status_2" => "Fechado",
+
+    "reopen" => "Reabrir",
+    "reopened" => "Ticket abriu novamente!"
 
 ];

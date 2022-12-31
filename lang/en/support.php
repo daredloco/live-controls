@@ -30,6 +30,9 @@ return [
     "update_status" => "Update status",
     "status_0" => "Open",
     "status_1" => "In progress",
-    "status_2" => "Closed"
+    "status_2" => "Closed",
+
+    "reopen" => "Reopen",
+    "reopened" => "Ticket opened again!"
 
 ];

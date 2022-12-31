@@ -61,4 +61,15 @@ class SupportTicketController extends Controller
         }
         return redirect()->route('livecontrols.support.index')->with('exception', __('livecontrols::general.type__not_deleted', ['type' => __('livecontrols::support.support_ticket')]));
     }
+
+    public function reopen(SupportTicket $supportTicket){
+        $supportTicket->update([
+            'status' => 0
+        ]);
+
+        return redirect()->route('livecontrols.support.show', ['supportTicket' => $supportTicket])->popup([
+            'type' => 'success',
+            'message' => __('livecontrols::support.reopened')
+        ]);
+    }
 }

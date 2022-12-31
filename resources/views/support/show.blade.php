@@ -22,6 +22,8 @@
             <hr>
             @if(auth()->user()->support_team)
                 @livewire('livecontrols-support-status', ['supportTicket' => $supportTicket], key('support-status'))
+            @elseif(!auth()->user()->support_team && $supportTicket->status > 2)
+                <a class="btn btn-primary text-white" href="{{ route('livecontrols.support.reopen', ['supportTicket' => $supportTicket]) }}">{{ __('livecontrols::support.reopen') }}</a>
             @else
                 {{ __('livecontrols::support.status') }}: {{ $supportTicket->status_string }}
             @endif

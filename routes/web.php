@@ -21,6 +21,7 @@ Route::middleware([
             Route::post('tickets/new', [SupportTicketController::class, 'store'])->name('livecontrols.support.store');
             Route::get('tickets/show/{supportTicket}', [SupportTicketController::class, 'show'])->name('livecontrols.support.show');
             Route::delete('tickets/delete/{supportTicket}', [SupportTicketController::class, 'destroy'])->name('livecontrols.support.delete');
+            Route::get('tickets/reopen/{supportTicket}', [SupportTicketController::class, 'reopen'])->name('livecontrols.support.reopen');
         });
 
         //ADMIN INTERFACE
