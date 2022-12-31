@@ -3,12 +3,15 @@
 namespace Helvetiapps\LiveControls\Http\Livewire\Support;
 
 use Helvetiapps\LiveControls\Models\Support\SupportMessage;
+use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class MessagesHandler extends Component
 {
     use WithPagination;
+    use HasPopups;
+
     protected $paginationTheme = 'bootstrap';
 
     public $supportTicket;
@@ -39,10 +42,10 @@ class MessagesHandler extends Component
         if(!is_null($supportMessage)){
             $this->newTitle = '';
             $this->newBody = '';
-            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::support.message_sent')]);
+            $this->popup(['type' => 'success', 'message' =>__('livecontrols::support.message_sent')]);
             return;
         }
-        $this->dispatchBrowserEvent('showToast', ['exception', __('livecontrols::support.message_not_sent')]);
+        $this->popup(['type' => 'exception', 'message' => __('livecontrols::support.message_not_sent')]);
     }
 
     public function removeMessage($id){
@@ -51,9 +54,9 @@ class MessagesHandler extends Component
             return;
         }
         if($supportMessage->delete()){
-            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.message')])]);
+            $this->popup(['type' => 'success', 'message' => __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.message')])]);
             return;
         }
-        $this->dispatchBrowserEvent('showToast', ['exception', __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::support.message')])]);
+        $this->popup(['type' => 'exception', 'message' => __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::support.message')])]);
     }
 }
