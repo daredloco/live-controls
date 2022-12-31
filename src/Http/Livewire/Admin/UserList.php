@@ -9,9 +9,12 @@ use Helvetiapps\LiveControls\Exceptions\InvalidUserGroupException;
 use Helvetiapps\LiveControls\Exceptions\InvalidUserPermissionException;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
 
 class UserList extends Component
 {
+    use HasPopups;
+
     public $search = '';
 
     public $showPermissionModal = false;
@@ -53,11 +56,11 @@ class UserList extends Component
     public function updatePermission($id){
         if($this->itemToEdit->permissions->contains($id)){
             $this->itemToEdit->permissions()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_removed')]);
+            $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.permission_removed')]);
             return;
         }
         $this->itemToEdit->permissions()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_granted')]);
+        $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.permission_granted')]);
     }
 
     public function editGroups($id){
@@ -75,10 +78,10 @@ class UserList extends Component
     public function updateGroup($id){
         if($this->itemToEdit->groups->contains($id)){
             $this->itemToEdit->groups()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols.admin.user_removed_from_group')]);
+            $this->popup(['type' => 'success', 'message' => __('livecontrols.admin.user_removed_from_group')]);
             return;
         }
         $this->itemToEdit->groups()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.user_added_to_group')]);
+        $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.user_added_to_group')]);
     }
 }

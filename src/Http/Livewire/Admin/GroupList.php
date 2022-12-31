@@ -5,9 +5,12 @@ namespace Helvetiapps\LiveControls\Http\Livewire\Admin;
 use Livewire\Component;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
 
 class GroupList extends Component
 {
+    use HasPopups;
+
     public $search = '';
 
     public $showPermissionModal = false;
@@ -39,10 +42,10 @@ class GroupList extends Component
     public function updatePermission($id){
         if($this->itemToEdit->permissions->contains($id)){
             $this->itemToEdit->permissions()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_removed')]);
+            $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.permission_removed')]);
             return;
         }
         $this->itemToEdit->permissions()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_granted')]);
+        $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.permission_granted')]);
     }
 }
