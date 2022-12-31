@@ -29,6 +29,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ### Todo
 - Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
+- Change popups to SweetAlert2
 - ?
 
 
@@ -78,7 +79,7 @@ A System handling support tickets where users can send tickets and admins/modera
 - Let moderators change the status of the tickets
 - If a ticket is closed, disable the function to send SupportMessages
 - Let users and moderators reopen a support ticket
-
+- Change popups to SweetAlerts2
 
 
 
@@ -166,7 +167,7 @@ Simple implementation of SweetAlert2 popups.
 ### Todo
 - Add option to call popup with custom options (Add a constructor for custom popups like in lagoon charts library, maybe with an aditional array $options or such)
 - Add inputfields to popups called from controller
-- Add more types of inputfields (Radio, Checkbox, ...)
+- Add more types of inputfields (Radio, Checkbox, File, ...)
 - Add button as "Inputfield"
 - Add to show loading spinner
 ```
