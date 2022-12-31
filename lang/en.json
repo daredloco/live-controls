@@ -22,5 +22,14 @@
 
     "Search...": "Search...",
 
+    "Title": "Title",
+    "Write your message...": "Write your message...",
+    "Remove": "Remove",
+    "Send": "Send",
+
+    "dateFormat": "d.m.Y",
+    "dateTimeFormat": "d.m.Y H:i:s",
+    "timeFormat": "H:i:s",
+    
     "Close": "Close"
 }
