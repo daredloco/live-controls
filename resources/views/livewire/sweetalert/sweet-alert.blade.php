@@ -97,6 +97,7 @@
                 imageAlt: "{{ $imageAlt }}",
                 focusConfirm: false
             });
+            //TODO: Add inputfields functionality with POST Route for confirmEvent and GET route for rest
         @else
             Swal.fire({
                 title: "{{ $title }}",
