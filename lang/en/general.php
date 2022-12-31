@@ -22,5 +22,11 @@ return [
     "actions" => "Actions",
     "date_format" => "d.m.Y",
     "date_time_format" => "d.m.Y H:i:s",
-    "time_format" => "H:i:s"
+    "time_format" => "H:i:s",
+    "type_created" => ":type created!",
+    "type_not_created" => "Couldn't create :type",
+    "type_updated" => ":type updated!",
+    "type_not_updated" => "Couldn't update :type",
+    "type_deleted" => ":type deleted!",
+    "type_not_deleted" => "Couldn't delete :type"
 ];

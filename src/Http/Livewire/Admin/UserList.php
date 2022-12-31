@@ -53,11 +53,11 @@ class UserList extends Component
     public function updatePermission($id){
         if($this->itemToEdit->permissions->contains($id)){
             $this->itemToEdit->permissions()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', 'Permission removed!']);
+            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_removed')]);
             return;
         }
         $this->itemToEdit->permissions()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', 'Permission granted!']);
+        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_granted')]);
     }
 
     public function editGroups($id){
@@ -75,10 +75,10 @@ class UserList extends Component
     public function updateGroup($id){
         if($this->itemToEdit->groups->contains($id)){
             $this->itemToEdit->groups()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', 'User removed from Group!']);
+            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols.admin.user_removed_from_group')]);
             return;
         }
         $this->itemToEdit->groups()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', 'User added to Group!']);
+        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.user_added_to_group')]);
     }
 }

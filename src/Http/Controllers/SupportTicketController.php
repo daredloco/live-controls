@@ -45,9 +45,9 @@ class SupportTicketController extends Controller
         ]));
 
         if(!is_null($supportTicket)){
-            return redirect()->route('livecontrols.support.index')->with('success', 'SupportTicket created!');
+            return redirect()->route('livecontrols.support.index')->with('success', __('livecontrols::general.type_created', ['type' => __('livecontrols::support.support_ticket')]));
         }
-        return redirect()->route('livecontrols.support.index')->with('exception', 'SupportTicket couldn\'t be created!');
+        return redirect()->route('livecontrols.support.index')->with('exception', __('livecontrols::general.type_not_created', ['type' => __('livecontrols::support.support_ticket')]));
     }
 
     public function destroy(SupportTicket $supportTicket){
@@ -57,8 +57,8 @@ class SupportTicketController extends Controller
         }
 
         if($supportTicket->delete()){
-            return redirect()->route('livecontrols.support.index')->with('success', 'SupportTicket deleted!');
+            return redirect()->route('livecontrols.support.index')->with('success', __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.support_ticket')]));
         }
-        return redirect()->route('livecontrols.support.index')->with('exception', 'SupportTicket couldn\'t be deleted!');
+        return redirect()->route('livecontrols.support.index')->with('exception', __('livecontrols::general.type__not_deleted', ['type' => __('livecontrols::support.support_ticket')]));
     }
 }

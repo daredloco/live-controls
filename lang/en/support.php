@@ -18,5 +18,10 @@ return [
     "new_ticket" => "New Support Ticket",
     "user_at_datetime" => ":user at :dateTime",
     "latest_update" => "Latest Update",
-    "messages" => "Messages"
+    "message" => "Message",
+    "messages" => "Messages",
+    
+    "message_sent" => "Message sent!",
+    "message_not_sent" => "Couldn't send message!",
+
 ];

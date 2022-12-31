@@ -22,9 +22,9 @@ class UserGroupController extends Controller
         $userGroup = UserGroup::create($validated);
 
         if(!is_null($userGroup)){
-            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', 'UserGroup created!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', __('livecontrols::general.type_created', ['type' => __('livecontrols::admin.user_group')]));
         }
-        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', 'Couldn\'t create UserGroup!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', __('livecontrols::general.type_not_created', ['type' => __('livecontrols::admin.user_group')]));
     }
 
     public function edit(UserGroup $userGroup){
@@ -40,15 +40,15 @@ class UserGroupController extends Controller
         ]);
 
         if($userGroup->update($validated)){
-            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', 'UserGroup updated!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', __('livecontrols::general.type_updated', ['type' => __('livecontrols::admin.user_group')]));
         }
-        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', 'Couldn\'t update UserGroup!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', __('livecontrols::general.type_not_updated', ['type' => __('livecontrols::admin.user_group')]));
     }
 
     public function destroy(UserGroup $userGroup){
         if($userGroup->delete()){
-            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', 'UserGroup deleted!');
+            return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', __('livecontrols::general.type_deleted', ['type' => __('livecontrols::admin.user_group')]));
         }
-        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', 'Couldn\'t delete UserGroup!');
+        return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('exception', __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::admin.user_group')]));
     }
 }

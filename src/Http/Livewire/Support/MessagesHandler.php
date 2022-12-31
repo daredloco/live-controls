@@ -39,10 +39,10 @@ class MessagesHandler extends Component
         if(!is_null($supportMessage)){
             $this->newTitle = '';
             $this->newBody = '';
-            $this->dispatchBrowserEvent('showToast', ['success', 'Message sent!']);
+            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::support.message_sent')]);
             return;
         }
-        $this->dispatchBrowserEvent('showToast', ['exception', 'Couldn\'t send message!']);
+        $this->dispatchBrowserEvent('showToast', ['exception', __('livecontrols::support.message_not_sent')]);
     }
 
     public function removeMessage($id){
@@ -51,9 +51,9 @@ class MessagesHandler extends Component
             return;
         }
         if($supportMessage->delete()){
-            $this->dispatchBrowserEvent('showToast', ['success', 'Message deleted!']);
+            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.message')])]);
             return;
         }
-        $this->dispatchBrowserEvent('showToast', ['exception', 'Coulnd\'t delete Message!']);
+        $this->dispatchBrowserEvent('showToast', ['exception', __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::support.message')])]);
     }
 }

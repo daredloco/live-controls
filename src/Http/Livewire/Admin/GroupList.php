@@ -39,10 +39,10 @@ class GroupList extends Component
     public function updatePermission($id){
         if($this->itemToEdit->permissions->contains($id)){
             $this->itemToEdit->permissions()->detach($id);
-            $this->dispatchBrowserEvent('showToast', ['success', 'Permission removed!']);
+            $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_removed')]);
             return;
         }
         $this->itemToEdit->permissions()->attach($id);
-        $this->dispatchBrowserEvent('showToast', ['success', 'Permission granted!']);
+        $this->dispatchBrowserEvent('showToast', ['success', __('livecontrols::admin.permission_granted')]);
     }
 }
