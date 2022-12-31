@@ -79,11 +79,11 @@ A System handling support tickets where users can send tickets and admins/modera
 - SupportTickets with Title, Body, Priority and Status
 - Configuration for "moderator" groups
 - SupportTickets contain SupportMessages
+- Moderators can change status of tickets
+- Users can reopen tickets (sending messages will be disabled when ticket is closed)
 
 ### Todo
-- Let moderators change the status of the tickets
-- If a ticket is closed, disable the function to send SupportMessages
-- Let users and moderators reopen a support ticket
+- Set configuration if users can reopen ticket
 
 
 
