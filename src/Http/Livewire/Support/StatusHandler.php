@@ -30,13 +30,17 @@ class StatusHandler extends Component
         ])){
             $this->popup([
                 'type' => 'success',
-                'message' => __('livecontrols::support.status_updated')
+                'message' => __('livecontrols::support.status_updated'),
+                'timer' => 2500,
+                'timerProgressBar' => true
             ]);
             return;
         }
         $this->popup([
             'type' => 'error',
-            'message' => __('livecontrols::support.invalid_status')
+            'message' => __('livecontrols::support.invalid_status'),
+            'timer' => 2500,
+            'timerProgressBar' => true
         ]);
     }
 }

@@ -42,10 +42,20 @@ class MessagesHandler extends Component
         if(!is_null($supportMessage)){
             $this->newTitle = '';
             $this->newBody = '';
-            $this->popup(['type' => 'success', 'message' =>__('livecontrols::support.message_sent')]);
+            $this->popup([
+                'type' => 'success', 
+                'message' =>__('livecontrols::support.message_sent'),
+                'timer' => 2500,
+                'timerProgressBar' => true
+            ]);
             return;
         }
-        $this->popup(['type' => 'exception', 'message' => __('livecontrols::support.message_not_sent')]);
+        $this->popup([
+            'type' => 'exception', 
+            'message' => __('livecontrols::support.message_not_sent'),
+            'timer' => 2500,
+            'timerProgressBar' => true
+        ]);
     }
 
     public function removeMessage($id){
@@ -54,9 +64,18 @@ class MessagesHandler extends Component
             return;
         }
         if($supportMessage->delete()){
-            $this->popup(['type' => 'success', 'message' => __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.message')])]);
+            $this->popup([
+                'type' => 'success', 
+                'message' => __('livecontrols::general.type_deleted', ['type' => __('livecontrols::support.message')]),
+                'timer' => 2500,
+                'timerProgressBar' => true
+            ]);
             return;
         }
-        $this->popup(['type' => 'exception', 'message' => __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::support.message')])]);
+        $this->popup([
+            'type' => 'exception', 
+            'message' => __('livecontrols::general.type_not_deleted', ['type' => __('livecontrols::support.message')]),
+            'timer' => 2500,
+            'timerProgressBar' => true]);
     }
 }
