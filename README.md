@@ -164,14 +164,13 @@ Simple implementation of SweetAlert2 popups.
 ### Content
 - Livewire Control (Blade Component didn't work). Add it to the body of your layout or the page you want to use it.
 - Timer and (optional) progressbar to close the window automatically
-- Added InputFields (Text, Numeric, Date, Time, Color, TextArea, Select) to Popups called by Livewire
+- Added InputFields (Text, Numeric, Date, Time, Color, TextArea, Select, Radio, File) to Popups called by Livewire
 - Added InputGroups which acts as a group of InputFields for easy implementation and creation
 
 ### Todo
 - Add option to call popup with custom options (Add a constructor for custom popups like in lagoon charts library, maybe with an aditional array $options or such)
 - Add inputfields to popups called from controller (Needs callback)
 - Add more types of inputfields (Radio, Checkbox, File, ...)
-- Add button as "Inputfield"
 - Add to show loading spinner
 ```
 didOpen: () => {
