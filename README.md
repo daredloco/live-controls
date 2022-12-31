@@ -35,7 +35,6 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ### Todo
 - Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
-- Change popups to SweetAlert2
 - ?
 
 
@@ -85,7 +84,6 @@ A System handling support tickets where users can send tickets and admins/modera
 - Let moderators change the status of the tickets
 - If a ticket is closed, disable the function to send SupportMessages
 - Let users and moderators reopen a support ticket
-- Change popups to SweetAlerts2
 
 
 
