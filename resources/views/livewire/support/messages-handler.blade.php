@@ -6,7 +6,7 @@
     <div class="mb-3">
       <textarea class="form-control" name="msg_body" id="msg_body" rows="3" wire:model='newBody' placeholder="{{ __('livecontrols::support.write_message') }}"></textarea>
     </div>
-    <button class="btn btn-success text-white" wire:click='sendMessage' @if($supportTicket->status > 3) disabled @endif>{{ __('livecontrols::general.send') }}</button>
+    <button class="btn btn-success text-white" wire:click='sendMessage' @if($supportTicket->status > 2) disabled @endif>{{ __('livecontrols::general.send') }}</button>
     <hr>
     <ul class="list-group">
         @foreach($supportMessages as $supportMessage)
