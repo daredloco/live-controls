@@ -1,13 +1,15 @@
 <div>
-    <div class="mb-3">
-      <input type="text"
-        class="form-control" name="msg_title" id="msg_title" placeholder="{{ __('livecontrols::general.title') }}" wire:model='newTitle'>
-    </div>
-    <div class="mb-3">
-      <textarea class="form-control" name="msg_body" id="msg_body" rows="3" wire:model='newBody' placeholder="{{ __('livecontrols::support.write_message') }}"></textarea>
-    </div>
-    <button class="btn btn-success text-white" wire:click='sendMessage' @if($supportTicket->status > 2) disabled @endif>{{ __('livecontrols::general.send') }}</button>
-    <hr>
+    @if(!$supportTicket->closed)
+        <div class="mb-3">
+        <input type="text"
+            class="form-control" name="msg_title" id="msg_title" placeholder="{{ __('livecontrols::general.title') }}" wire:model='newTitle'>
+        </div>
+        <div class="mb-3">
+        <textarea class="form-control" name="msg_body" id="msg_body" rows="3" wire:model='newBody' placeholder="{{ __('livecontrols::support.write_message') }}"></textarea>
+        </div>
+        <button class="btn btn-success text-white" wire:click='sendMessage'>{{ __('livecontrols::general.send') }}</button>
+        <hr>
+    @endif
     <ul class="list-group">
         @foreach($supportMessages as $supportMessage)
             <li class="list-group-item">

@@ -30,4 +30,8 @@ class SupportTicket extends Model{
     public function getStatusStringAttribute(): string{
         return __('livecontrols::support.status_'.$this->status);
     }
+
+    public function getClosedAttribute(): bool{
+        return $this->status >= 2;
+    }
 }
