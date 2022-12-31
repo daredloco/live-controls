@@ -15,6 +15,12 @@
 
 
 
+## Translations
+- English
+- Brazilian Portuguese
+
+
+
 ## Admin Interface
 A System providing an administration dashboard/interface to handle all the things here seperately
 
