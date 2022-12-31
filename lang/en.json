@@ -1,0 +1,20 @@
+{
+    "ID": "ID",
+    "Name": "Name",
+    "Key": "Key",
+    "Description": "Description",
+    "Color": "Color",
+    "Actions": "Actions",
+    
+    "Permissions": "Permissions",
+
+    "Create": "Create",
+    "Edit": "Edit",
+    "Delete": "Delete",
+
+    "Edit :type": "Edit :type",
+
+    "Search...": "Search...",
+    
+    "Close": "Close"
+}

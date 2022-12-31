@@ -39,9 +39,6 @@ class LiveControlsServiceProvider extends ServiceProvider
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
     });
-    $this->app->bind('encryptedmodel', function($app){
-      return new EncryptedModel();
-    });
 
     $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livecontrols');
   }
@@ -55,6 +52,7 @@ class LiveControlsServiceProvider extends ServiceProvider
       $migrationsPath.'support'
     ];
 
+    $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
     $this->loadMigrationsFrom($migrationPaths);
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols');
     $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
@@ -97,6 +95,10 @@ class LiveControlsServiceProvider extends ServiceProvider
       $this->publishes([
         __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
       ], 'livecontrols-config');
+
+      $this->publishes([
+        __DIR__.'/../lang' => resource_path('lang/vendor/livecontrols'),
+      ], 'livewirecontrols-localization');
     }
   }
 }
