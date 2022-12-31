@@ -12,7 +12,7 @@ class Main extends Component
 
     public function mount(){
         if(is_null($this->page)){
-            $this->page = 'dashboard';
+            $this->page = 'users';
         }
     }
 

@@ -34,7 +34,7 @@ A System providing an administration dashboard/interface to handle all the thing
 - You can add custom livewire controls to the Admin Interface by adding them to the configuration file
 
 ### Todo
-- Add custom Dashboard - Users will be able to select which controls they want to see on the dashboard
+- Add custom Dashboard (Maybe someday...)
 - ?
 
 

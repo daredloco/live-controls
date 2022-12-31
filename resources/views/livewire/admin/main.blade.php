@@ -51,7 +51,7 @@
     @endpush
     <div class="row">
         <div class="col-md-3 livecontrols-sidebar">
-            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('livecontrols::admin.dashboard') }}</a>
+            {{-- <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('livecontrols::admin.dashboard') }}</a> --}}
             <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">{{ __('livecontrols::admin.users') }}</a>
             <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('livecontrols::admin.user_groups') }}</a>
             <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('livecontrols::admin.permissions') }}</a>
@@ -60,9 +60,9 @@
             @endforeach
         </div>
         <div class="col-md-9 content">
-            @if($page == 'dashboard')
-                @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard'))
-            @elseif($page == 'users')
+            {{-- @if($page == 'dashboard')
+                @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard')) --}}
+            @if($page == 'users')
                 @livewire('livecontrols-admin-userlist', [], key('admin-userlist'))
             @elseif($page == 'groups')
                 @livewire('livecontrols-admin-grouplist', [], key('admin-grouplist'))
