@@ -149,7 +149,7 @@ Reason: https://github.com/CodeSeven/toastr/issues/689
 [Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
 
 ### Content
-- Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.
+- ~~Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.~~
 
 
 
