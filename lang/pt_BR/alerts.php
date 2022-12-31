@@ -4,5 +4,6 @@ return [
     "success" => "Sucesso!",
     "error" => "Erro!",
     "info" => "Informação",
-    "warning" => "Atenção!"
+    "warning" => "Atenção!",
+    "question" => "Pergunta"
 ];

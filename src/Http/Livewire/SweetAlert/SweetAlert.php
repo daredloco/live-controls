@@ -53,7 +53,7 @@ class SweetAlert extends Component
     public function createPopup(array $popupInfo, bool $fromListener = true){
         $this->hasPopup = true;
         $this->type = $popupInfo["type"];
-        $this->title = \Helvetiapps\LiveControls\Utils\Arrays::array_get("title", $popupInfo, ucfirst($this->type));
+        $this->title = \Helvetiapps\LiveControls\Utils\Arrays::array_get("title", $popupInfo, __('livecontrols::alerts.'.$this->type));
         $this->message = \Helvetiapps\LiveControls\Utils\Arrays::array_get('message', $popupInfo);
         $this->html = \Helvetiapps\LiveControls\Utils\Arrays::array_get('html', $popupInfo);
         $this->confirmButtonText = \Helvetiapps\LiveControls\Utils\Arrays::array_get('confirmButtonText', $popupInfo);
