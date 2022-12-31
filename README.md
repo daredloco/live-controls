@@ -16,9 +16,9 @@
 
 
 ## Translations
-- English
-- German
-- Brazilian Portuguese
+- English (en)
+- German (de)
+- Brazilian Portuguese (pt_BR)
 
 
 
