@@ -13,7 +13,7 @@
                     <h4 class="card-title">{{ $supportTicket->title }}</h4>
                     <p class="card-text">
                         {{ __('livecontrols::support.status') }}: {{ $supportTicket->status_string }}<br>
-                        {{ __('livecontrols::support.latest_update') }}: {{ $supportTicket->updated_at->format('d.m.Y') }}
+                        {{ __('livecontrols::support.latest_update') }}: {{ $supportTicket->updated_at->format(__('livecontrols::general.date_time_format')) }}
                     </p>
                     <a href="{{ route('livecontrols.support.show', ['supportTicket' => $supportTicket->id]) }}" class="stretched-link">&nbsp;</a>
                 </div>
