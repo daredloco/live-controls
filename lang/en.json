@@ -36,6 +36,10 @@
     "Success!": "Success!",
     "Warning!": "Warning!",
     "Error!": "Error!",
-    "Information": "Information"
+    "Information": "Information",
+
+    "Support Tickets": "Support Tickets",
+    "No Support Tickets found!": "No Support Tickets found!"
+
 
 }

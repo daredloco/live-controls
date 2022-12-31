@@ -7,7 +7,7 @@
 
     @if(count($supportTickets) < 1)
         <div class="alert alert-info text-center" role="alert">
-            <strong>No Support Tickets found!</strong>
+            <strong>{{ __('No Support Tickets found!') }}</strong>
         </div>
     @endif
 
@@ -17,9 +17,9 @@
                 <div class="card-body">
                     <h4 class="card-title">{{ $supportTicket->title }}</h4>
                     <p class="card-text">
-                        Status: {{ $supportTicket->status }}<br>
-                        Latest Update: {{ $supportTicket->updated_at->format('d.m.Y H:i:s')}}<br>
-                        <small class="text-muted">{{ $supportTicket->user->name.' at '.$supportTicket->created_at->format('d.m.Y H:i:s') }}</small>
+                        {{ __('Status') }}: {{ $supportTicket->status }}<br>
+                        {{ __('Latest Update') }}: {{ $supportTicket->updated_at->format(__('dateTimeFormat'))}}<br>
+                        <small class="text-muted">{{ $supportTicket->user->name.' at '.$supportTicket->created_at->format(__('dateTimeFormat')) }}</small>
                     </p>
                     <a href="{{ route('livecontrols.support.show', ['supportTicket' => $supportTicket->id]) }}" class="stretched-link">&nbsp;</a>
                 </div>
