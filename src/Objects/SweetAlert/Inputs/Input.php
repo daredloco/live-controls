@@ -24,16 +24,21 @@ class Input{
     }
 
     public function toArray():array{
+        
+        return [
+            'name' => $this->inputName,
+            'html' => $this->generateHtml()
+        ];
+    }
+
+    protected function generateHtml():string{
         $html = '<div class="'.$this->parentClass.'">';
         if($this->label != null && $this->label != ''){
             $html.= '<label for="'.$this->inputName.'" class="form-label">'.$this->label.'</label>';
         }
         $html .= '<input type="'.$this->inputType.'" class="'.$this->class.'" name="'.$this->inputName.'" id="'.$this->inputName.'" value="'.$this->value.'" placeholder="'.$this->placeHolder.'"'.($this->disabled ? ' disabled' : '').($this->required ? ' required' : '').'>';
         $html .= '</div>';
-        return [
-            'name' => $this->inputName,
-            'html' => $html
-        ];
+        return $html;
     }
 
     public function getName():string{
