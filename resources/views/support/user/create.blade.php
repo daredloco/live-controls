@@ -30,7 +30,7 @@
                             <div class="mb-3">
                                 <label for="priority" class="form-label">{{ __('livecontrols::support.priority') }}</label>
                                 <select class="form-select" name="priority" id="priority">
-                                    <option selected>{{ __('Select one') }}</option>
+                                    <option selected>{{ __('livecontrols::general.select_one') }}</option>
                                     <option value="1" @if(old('priority') == 1) selected @endif>{{ __('livecontrols::support.low') }}</option>
                                     <option value="2" @if(old('priority') == 2) selected @endif>{{ __('livecontrols::support.medium') }}</option>
                                     <option value="3" @if(old('priority') == 3) selected @endif>{{ __('livecontrols::support.high') }}</option>

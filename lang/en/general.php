@@ -28,5 +28,7 @@ return [
     "type_updated" => ":type updated!",
     "type_not_updated" => "Couldn't update :type",
     "type_deleted" => ":type deleted!",
-    "type_not_deleted" => "Couldn't delete :type"
+    "type_not_deleted" => "Couldn't delete :type",
+
+    "select_one" => "Select"
 ];

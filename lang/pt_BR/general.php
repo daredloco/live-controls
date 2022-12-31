@@ -28,5 +28,7 @@ return [
     "type_updated" => ":type atualizado!",
     "type_not_updated" => "Não foi possível atualizar :type",
     "type_deleted" => ":type excluído!",
-    "type_not_deleted" => "Não foi possível excluir :type"
+    "type_not_deleted" => "Não foi possível excluir :type",
+
+    "select_one" => "Selecione"
 ];
