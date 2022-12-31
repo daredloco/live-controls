@@ -7,9 +7,9 @@ class RadioInput extends Input {
     public string $groupName;
     public bool $checked = false;
 
-    public function __construct(string $inputName, $value, string $label, bool $checked = false, string $parentClass = "mt-3")
+    public function __construct(string $inputName, $value, string $label, string $groupName = "", bool $checked = false, string $parentClass = "mt-3")
     {
-        $this->groupName = $inputName;
+        $this->groupName = $groupName = "" ? $inputName : $groupName;
         $this->checked = $checked;
         parent::__construct($inputName, $value, $label, "",$parentClass);
     }
