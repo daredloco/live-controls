@@ -7,5 +7,5 @@
             <option value="2">{{ __('livecontrols::support.status_2') }}</option>
         </select>
     </div>
-    <button class="btn btn-primary" wire:click='updateStatus'>{{ __('livecontrols::support.update_status') }}</button>
+    <button class="btn btn-primary text-white" wire:click='updateStatus'>{{ __('livecontrols::support.update_status') }}</button>
 </div>
