@@ -51,10 +51,10 @@
     @endpush
     <div class="row">
         <div class="col-md-3 livecontrols-sidebar">
-            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">Dashboard</a>
-            <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">Users</a>
-            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">User Groups</a>
-            <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">Permissions</a>
+            <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('Dashboard') }}</a>
+            <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">{{ __('Users') }}</a>
+            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('User Groups') }}</a>
+            <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('Permissions') }}</a>
             @foreach($customPages as $label => $key)
                 <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
             @endforeach

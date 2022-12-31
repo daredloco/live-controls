@@ -1,4 +1,9 @@
 {
+    "Dashboard": "Dashboard",
+    "Users": "Users",
+    "User Groups": "User Groups",
+    "Groups": "Groups",
+    
     "ID": "ID",
     "Name": "Name",
     "Key": "Key",
@@ -15,6 +20,6 @@
     "Edit :type": "Edit :type",
 
     "Search...": "Search...",
-    
+
     "Close": "Close"
 }
