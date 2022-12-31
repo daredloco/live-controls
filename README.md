@@ -15,13 +15,6 @@
 
 
 
-
-## General Todos
-- Add localization for Controllers and Livewire Components. (Already added for views)
-
-
-
-
 ## Admin Interface
 A System providing an administration dashboard/interface to handle all the things here seperately
 
