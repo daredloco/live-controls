@@ -24,4 +24,12 @@ return [
     "message_sent" => "Message sent!",
     "message_not_sent" => "Couldn't send message!",
 
+    "invalid_status" => "Invalid Status!",
+    "status_updated" => "Status updated!",
+
+    "update_status" => "Update status",
+    "status_0" => "Open",
+    "status_1" => "In progress",
+    "status_2" => "Closed"
+
 ];

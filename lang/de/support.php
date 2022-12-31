@@ -24,4 +24,12 @@ return [
     "message_sent" => "Nachricht gesendet!",
     "message_not_sent" => "Konnte Nachricht nicht senden!",
 
+    "invalid_status" => "Ungültiger Status!",
+    "status_updated" => "Status aktualisiert!",
+
+    "update_status" => "Status aktualisieren",
+    "status_0" => "Offen",
+    "status_1" => "In bearbeitung",
+    "status_2" => "Geschlossen"
+
 ];

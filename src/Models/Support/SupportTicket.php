@@ -26,4 +26,8 @@ class SupportTicket extends Model{
     public function messages(): HasMany{
         return $this->hasMany(SupportMessage::class, 'support_ticket_id');
     }
+
+    public function getStatusStringAttribute(): string{
+        return __('livecontrols::support.status_'.$this->status);
+    }
 }

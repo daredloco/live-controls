@@ -20,6 +20,12 @@
             <br>
             <small class="text-muted">{{ __('livecontrols::support.user_at_datetime', ['user' => $supportTicket->user->name, 'dateTime' => $supportTicket->created_at->format(__('livecontrols::general.date_time_format'))]) }}</small>
             <hr>
+            @if(auth()->user()->support_team)
+                @livewire('livecontrols-support-status', ['supportTicket' => $supportTicket], key('support-status'))
+            @else
+                {{ __('livecontrols::support.status') }}: {{ $supportTicket->status_string }}
+            @endif
+            <hr>
             <strong>{{ __('livecontrols::support.messages') }}:</strong>
             @livewire('livecontrols-support-messages', ['supportTicket' => $supportTicket], key('support-messages'))
         </div>
