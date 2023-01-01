@@ -109,7 +109,7 @@ A System handling different payment systems for e-commerce etc.
 [Documentation](https://github.com/daredloco/live-controls/wiki/07.-Payment)
 
 ### Content
-- PagSeguro Redirect Checkout
+- PagSeguro (testing) Redirect Checkout
 - PagSeguro Objects with important informations: PaymentItem, PaymentReceiver, PaymentSender, ShippingInformation
 - IUGU Transparent Checkout
 - IUGU has the option to create a payment per PIX, Bank Slip or Credit Card and you can update a bill and remove it if it isn't already paid or due
@@ -120,6 +120,7 @@ A System handling different payment systems for e-commerce etc.
 - Add PagSeguro Transparent Checkout (Depends on demand on projects)
 - Add Sicoob/Credsete Handler (Depends on demand on projects)
 - Take a look at Paymee and see if you can/want to include it
+- Add PagSeguro production Redirect Checkout
 
 
 
