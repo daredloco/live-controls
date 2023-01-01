@@ -119,6 +119,7 @@ A System handling different payment systems for e-commerce etc.
 - Add IUGU Debit Card (If possible)
 - Add PagSeguro Transparent Checkout (Depends on demand on projects)
 - Add Sicoob/Credsete Handler (Depends on demand on projects)
+- Take a look at Paymee and see if you can/want to include it
 
 
 
