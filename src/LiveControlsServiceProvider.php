@@ -3,6 +3,7 @@
 namespace Helvetiapps\LiveControls;
 
 use Helvetiapps\Http\Livewire\AutoCEP\AutoCep;
+use Helvetiapps\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\AddUserToGroupCommand;
 use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
@@ -69,7 +70,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);
     Livewire::component('livecontrols-autocep', AutoCep::class);
-    
+    Livewire::component('livecontrols-masked-input', MaskedInput::class);
+
     //Load Blade Components
     Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
     
