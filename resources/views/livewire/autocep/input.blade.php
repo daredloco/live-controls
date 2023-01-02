@@ -1,31 +1,29 @@
 <div class="row g-3">
 
-    @push('headerscripts')
+    @once
+        @push('scripts')
         <script src="https://unpkg.com/imask"></script>
-    @endpush
+        <script type="text/javascript">
+            window.{{ $prefix }}areacodemask = IMask(
+                document.getElementById('{{ $prefix }}areacode'),
+                {
+                    mask: '00000-000'
+                }
+            );
 
-    @push('footerscripts')
-    <script type="text/javascript">
-        window.{{ $prefix }}areacodemask = IMask(
-            document.getElementById('{{ $prefix }}areacode'),
-            {
-                mask: '00000-000'
-            }
-        );
+            document.addEventListener("DOMContentLoaded", () => {
+                @if(!is_null($cep))
+                    window.{{ $prefix }}areacodemask.value = "{{ $cep }}";
+                @endif
+            });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            @if(!is_null($cep))
-                window.{{ $prefix }}areacodemask.value = "{{ $cep }}";
-            @endif
-        });
-
-        Livewire.on('{{ $prefix }}areacode-valueUpdated', value => {
-            @this.cep = window.{{ $prefix }}areacodemask.unmaskedValue;
-            Livewire.emit('cepUpdated');
-        });
-    </script>
-    @endpush
-
+            Livewire.on('{{ $prefix }}areacode-valueUpdated', value => {
+                @this.cep = window.{{ $prefix }}areacodemask.unmaskedValue;
+                Livewire.emit('cepUpdated');
+            });
+        </script>
+        @endpush
+    @endonce
     <div class="row">
         <div class="col-md-6">
             <label for="{{ $prefix }}areacode" class="form-label">{{ __('livecontrols::autocep.areacode') }} @if($titlesuffix != '') {{ $titlesuffix }} @endif</label>
