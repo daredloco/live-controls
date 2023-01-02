@@ -196,14 +196,14 @@ An Input for CEP which would give you the informations for road, etc. based on C
 ## Masked Input
 A masked input based on iMask
 
-### Todo
-- Add Masked Input livewire control
+### Content
+- Masked Input livewire control - @livewire('livecontrols-masked-input')
 
 
 
 
 ## BBEditor
-A BBEditor based on IDK
+A BBEditor based on SCEditor
 
 ### Todo
 - Add BBEditor livewire control
