@@ -58,7 +58,7 @@ class Utils
      * @param integer $numberInCents
      * @return string A text representation of the number
      */
-    public static function number2Text(int $numberInCents): string
+    public static function number2Text(int $numberInCents, string $locale = 'pt_BR'): string
     {
         $number = $numberInCents / 100;
         if (!is_numeric($number)) {
@@ -72,7 +72,7 @@ class Utils
         }
 
         //TODO: Check if numberformatter is loaded before tryiung to access it
-        $fmt = new \NumberFormatter('pt_BR', \NumberFormatter::SPELLOUT);
+        $fmt = new \NumberFormatter($locale, \NumberFormatter::SPELLOUT);
         if (is_array($arr)) {
             $numero_extenso = $fmt->format($inteiro) . ' reais';
             if (isset($decimos) && $decimos > 0) {
