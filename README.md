@@ -183,6 +183,33 @@ Swal.showLoading()
 [Documentation](https://github.com/daredloco/live-controls/wiki/10.-SweetAlert2)
 
 
+## AutoCEP Input
+An Input for CEP which would give you the informations for road, etc. based on CepAberto
+
+### Content
+- GetCEP class
+- AutoCep input - @livewire('livecontrols-autocep')
+
+
+
+
+## Masked Input
+A masked input based on iMask
+
+### Todo
+- Add Masked Input livewire control
+
+
+
+
+## BBEditor
+A BBEditor based on IDK
+
+### Todo
+- Add BBEditor livewire control
+- Add BBCode backend
+
+
 
 
 ## Utils Systemes
@@ -190,5 +217,9 @@ A System with different utilities to make life easier, can be everything that do
 
 [Documentation](https://github.com/daredloco/live-controls/wiki/11.-Utils)
 
+### Content
+- Utils class with various helpers
+
 ### Todo
+- Port everything from HelvetiUtils (Masked Input, BBEditor)
 - ?
