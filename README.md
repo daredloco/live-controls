@@ -219,6 +219,8 @@ A System with different utilities to make life easier, can be everything that do
 
 ### Content
 - Utils class with various helpers
+- Array class with various helpers
+- BBCodes class with transform() method to transform bbcode to html
 
 ### Todo
 - Port everything from HelvetiUtils (Masked Input, BBEditor)
