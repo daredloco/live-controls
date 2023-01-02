@@ -223,5 +223,4 @@ A System with different utilities to make life easier, can be everything that do
 - BBCodes class with transform() method to transform bbcode to html
 
 ### Todo
-- Port everything from HelvetiUtils (BBEditor)
 - ?
