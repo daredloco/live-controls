@@ -203,7 +203,7 @@ A masked input based on iMask
 
 
 ## BBEditor
-A BBEditor based on SCEditor
+A BBEditor based on SCEditor (Probably generate own library out of this)
 
 ### Todo
 - Add BBEditor livewire control
@@ -223,5 +223,5 @@ A System with different utilities to make life easier, can be everything that do
 - BBCodes class with transform() method to transform bbcode to html
 
 ### Todo
-- Port everything from HelvetiUtils (Masked Input, BBEditor)
+- Port everything from HelvetiUtils (BBEditor)
 - ?
