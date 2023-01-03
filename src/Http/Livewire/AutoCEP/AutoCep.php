@@ -2,8 +2,8 @@
 
 namespace Helvetiapps\Http\Livewire\AutoCEP;
 
-use Helvetiapps\Utils\GetCEP;
-use Helvetiapps\Utils\Utils;
+use Helvetiapps\LiveControls\Scripts\AutoCep\GetCEP;
+use Helvetiapps\LiveControls\Utils\Utils;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
