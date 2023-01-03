@@ -5,7 +5,7 @@ namespace Helvetiapps\LiveControls\Scripts\AutoCep;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Helvetiapps\LiveControls\Scripts\Utils\Utils;
+use Helvetiapps\LiveControls\Utils\Utils;
 use Illuminate\Support\Facades\Log;
 
 class GetCEP{

@@ -1,6 +1,7 @@
 <?php
 
 namespace Helvetiapps\LiveControls\Utils;
+
 class Utils
 {
     /**
