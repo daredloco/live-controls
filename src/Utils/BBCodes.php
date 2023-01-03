@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\Scripts\Utils;
+namespace Helvetiapps\LiveControls\Utils;
 
 class BBCodes
 {

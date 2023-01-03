@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Scripts\Utils;
+namespace Helvetiapps\LiveControls\Utils;
 class Utils
 {
     /**
