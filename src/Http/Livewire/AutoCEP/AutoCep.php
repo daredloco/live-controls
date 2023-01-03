@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\Http\Livewire\AutoCEP;
+namespace Helvetiapps\LiveControls\Http\Livewire\AutoCEP;
 
 use Helvetiapps\LiveControls\Scripts\AutoCep\GetCEP;
 use Helvetiapps\LiveControls\Utils\Utils;

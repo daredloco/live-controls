@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\Http\Livewire\MaskedInput;
+namespace Helvetiapps\LiveControls\Http\Livewire\MaskedInput;
 
 use Livewire\Component;
 
