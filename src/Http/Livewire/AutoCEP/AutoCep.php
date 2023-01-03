@@ -55,7 +55,7 @@ class AutoCep extends Component
             $this->oldcep = $this->cep;
         }
         $this->firststart = false;
-        return view('livecontrols::autocep.input');
+        return view('livecontrols::livewire.autocep.input');
     }
 
     public function updated($name, $value)

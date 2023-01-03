@@ -43,6 +43,6 @@ class MaskedInput extends Component
 
     public function render()
     {
-        return view('livecontrols::autocep.input');
+        return view('livecontrols::livewire.maskedinput.input');
     }
 }
