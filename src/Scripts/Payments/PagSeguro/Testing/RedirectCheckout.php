@@ -116,7 +116,7 @@ class RedirectCheckout{
         $client = static::getClient();
 
         try {
-            $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'headers' => [
                   'Accept' => 'application/xml; charset=ISO-8859-1',
                   'content-type' => 'application/json',
