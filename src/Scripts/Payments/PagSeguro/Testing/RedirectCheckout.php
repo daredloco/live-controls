@@ -100,9 +100,8 @@ class RedirectCheckout{
               ]);
             if($response->getStatusCode() == 200){
                 //CODE GENERATED
-                dd($response->getBody());
                 $sxml = simplexml_load_string($response->getBody());
-                return $sxml;
+                return $sxml->code;
             }else{
                 throw new Exception('Invalid PagSeguro Statuscode! => '.$response->getStatusCode());
             }
