@@ -82,7 +82,7 @@ class RedirectCheckout{
                   </address>
                   <type>'.$shippingInformation->shippingType.'</type>
                   <cost>'.number_format($shippingInformation->shippingCost,2,'.','').'</cost>
-                  <addressRequired>'.$shippingInformation->addressRequired.'</addressRequired>
+                  <addressRequired>'.($shippingInformation->addressRequired ? 'true' : 'false').'</addressRequired>
                 </shipping>
                 <timeout>'.$timeout.'</timeout>
                 <maxAge>'.$maxAge.'</maxAge>
