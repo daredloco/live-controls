@@ -116,7 +116,7 @@ class RedirectCheckout{
         $client = static::getClient();
 
         try {
-            $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'headers' => [
                   'Accept' => 'application/xml; charset=ISO-8859-1',
                   'content-type' => 'application/json',
@@ -163,5 +163,46 @@ class RedirectCheckout{
             throw new Exception("Status code is ".$response->getStatusCode());
         }
         return [];
+    }
+
+    public static function reverseTransaction(string $transactionCode, float $amount): bool{
+        $credentials = static::getCredentials();
+        $client = static::getClient();
+
+        $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
+          'body' => '{
+            "transactionCode":"'.$transactionCode.'",
+            "refundValue":'.number_format($amount,2,'.','').'
+          }',
+          'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/xml; charset=ISO-8859-1',
+          ],
+        ]);
+        if($response->getStatusCode() == 200){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function cancelTransaction(string $transactionCode){
+        $credentials = static::getCredentials();
+          $client = static::getClient();
+
+          $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
+            'body' => '{
+              "transactionCode":"'.$transactionCode.'"
+            }',
+            'headers' => [
+              'Content-Type' => 'application/json',
+              'Accept' => 'application/xml; charset=ISO-8859-1',
+            ],
+          ]);
+          if($response->getStatusCode() == 200){
+              return true;
+          }else{
+              return false;
+          }
     }
 }
