@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Scripts\Payments\PagSeguro\Testing;
+namespace Helvetiapps\LiveControls\Scripts\Payments\PagSeguro;
 
 use Carbon\Carbon;
 use Exception;
@@ -22,6 +22,13 @@ class RedirectCheckout{
             'email' => urlencode(env('PAGSEGURO_EMAIL_DEBUG')),
             'token' => urlencode(env('PAGSEGURO_TOKEN_DEBUG'))
         ];
+    }
+
+    private static function getHost():string{
+      if(config('app.debug')){
+        return 'https://sandbox.pagseguro.uol.com.br/v2/';
+      }
+      return 'https://pagseguro.uol.com.br/v2/';
     }
 
     private static function getClient(): \GuzzleHttp\Client
@@ -48,7 +55,7 @@ class RedirectCheckout{
         $itemsStr .= '</items>';
 
         try {
-            $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('POST', static::getHost().'checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'body' => '<checkout>
                 <sender>
                   <name>'.$sender->name.'</name>
@@ -116,7 +123,7 @@ class RedirectCheckout{
         $client = static::getClient();
 
         try {
-            $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('GET', static::getHost().'transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'headers' => [
                   'Accept' => 'application/xml; charset=ISO-8859-1',
                   'content-type' => 'application/json',
@@ -145,7 +152,7 @@ class RedirectCheckout{
         if($to->timestamp > Carbon::now()->timestamp){
             $to = Carbon::now()->subHours(3);
         }
-        $response = $client->request('GET', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions?email='.$credentials["email"].'&token='.$credentials["token"].'&initialDate='.$from->format(DATE_W3C).'&finalDate='.$to->format(DATE_W3C), [
+        $response = $client->request('GET', static::getHost().'transactions?email='.$credentials["email"].'&token='.$credentials["token"].'&initialDate='.$from->format(DATE_W3C).'&finalDate='.$to->format(DATE_W3C), [
             'headers' => [
               'Accept' => 'application/xml; charset=ISO-8859-1',
               'content-type' => 'application/json',
@@ -169,7 +176,7 @@ class RedirectCheckout{
         $credentials = static::getCredentials();
         $client = static::getClient();
 
-        $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
+        $response = $client->request('POST', static::getHost().'transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
           'body' => '{
             "transactionCode":"'.$transactionCode.'",
             "refundValue":'.number_format($amount,2,'.','').'
@@ -190,7 +197,7 @@ class RedirectCheckout{
         $credentials = static::getCredentials();
           $client = static::getClient();
 
-          $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
+          $response = $client->request('POST', static::getHost().'transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
             'body' => '{
               "transactionCode":"'.$transactionCode.'"
             }',
