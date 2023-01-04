@@ -17,6 +17,7 @@ class MaskedInput extends Component
     public $mask;
     public $masks;
 
+    public $currencySign = 'R$';
     public $value;
     public $cleanValue;
 

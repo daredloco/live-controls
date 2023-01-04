@@ -8,7 +8,7 @@
                     document.getElementById('{{ $inputID }}'),
                     {
                         @if($inputType == 'currency')
-                            mask: 'num',
+                            mask: '{{ $currencySign }}num',
                             blocks: {
                                 num: {
                                     // nested masks are available!
