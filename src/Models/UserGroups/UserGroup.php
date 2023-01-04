@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class UserGroup extends Model{
     use HasFactory;
 
+    protected $table = 'livecontrols_user_groups';
+    
     protected $fillable = [
         'name',
         'key',

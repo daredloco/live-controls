@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 trait HasPermissions{
     public function permissions(): BelongsToMany
     {
-        return $this->belongsToMany(UserPermission::class, 'user_userpermissions', 'user_id', 'user_permission_id');
+        return $this->belongsToMany(UserPermission::class, 'livecontrols_user_userpermissions', 'user_id', 'user_permission_id');
     }
 }

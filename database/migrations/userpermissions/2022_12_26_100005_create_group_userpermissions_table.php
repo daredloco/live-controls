@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('group_userpermissions', function (Blueprint $table) {
+        Schema::create('livecontrols_group_userpermissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_group_id')->constrained('user_groups', 'id')->cascadeOnDelete();
-            $table->foreignId('user_permission_id')->constrained('user_permissions', 'id')->cascadeOnDelete();
+            $table->foreignId('user_group_id')->constrained('livecontrols_user_groups', 'id')->cascadeOnDelete();
+            $table->foreignId('user_permission_id')->constrained('livecontrols_user_permissions', 'id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

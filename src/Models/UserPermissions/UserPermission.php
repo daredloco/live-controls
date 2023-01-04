@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class UserPermission extends Model{
     use HasFactory;
 
+    protected $table = 'livecontrols_user_permissions';
+    
     protected $fillable = [
         'name',
         'key',
