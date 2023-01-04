@@ -42,7 +42,8 @@ class RedirectCheckout{
             <amount>'.number_format($item->amount,2,'.','').'</amount>
             <quantity>'.$item->quantity.'</quantity>
             <weight>'.$item->weight.'</weight>
-            <shippingCost>'.$item->shippingCost.'</shippingCost>';
+            <shippingCost>'.number_format($item->shippingCost,2,'.','').'</shippingCost>
+            </item>';
         }
         $itemsStr .= '</items>';
 
@@ -81,7 +82,7 @@ class RedirectCheckout{
                   </address>
                   <type>'.$shippingInformation->shippingType.'</type>
                   <cost>'.number_format($shippingInformation->shippingCost,2,'.','').'</cost>
-                  <addressRequired>'.$shippingInformation->addressRequired.'</addressRequired>
+                  <addressRequired>'.($shippingInformation->addressRequired ? 'true' : 'false').'</addressRequired>
                 </shipping>
                 <timeout>'.$timeout.'</timeout>
                 <maxAge>'.$maxAge.'</maxAge>
@@ -89,7 +90,7 @@ class RedirectCheckout{
                 <receiver>
                   <email>'.$receiver->email.'</email>
                 </receiver>
-                <enableRecover>'.$enableRecover.'</enableRecover>
+                <enableRecover>'.($enableRecover ? 'true' : 'false').'</enableRecover>
               </checkout>
               ',
                 'headers' => [
@@ -100,7 +101,7 @@ class RedirectCheckout{
             if($response->getStatusCode() == 200){
                 //CODE GENERATED
                 $sxml = simplexml_load_string($response->getBody());
-                return $sxml;
+                return $sxml->code;
             }else{
                 throw new Exception('Invalid PagSeguro Statuscode! => '.$response->getStatusCode());
             }
