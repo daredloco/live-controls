@@ -42,7 +42,7 @@ class RedirectCheckout{
             <amount>'.number_format($item->amount,2,'.','').'</amount>
             <quantity>'.$item->quantity.'</quantity>
             <weight>'.$item->weight.'</weight>
-            <shippingCost>'.$item->shippingCost.'</shippingCost>';
+            <shippingCost>'.number_format($item->shippingCost,2,'.','').'</shippingCost>';
         }
         $itemsStr .= '</items>';
 
