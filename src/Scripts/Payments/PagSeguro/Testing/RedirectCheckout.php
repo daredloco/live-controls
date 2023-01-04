@@ -30,7 +30,7 @@ class RedirectCheckout{
         return $client;
     }
 
-    public static function generateCode(array $items, PaymentReceiver $receiver, PaymentSender $sender, ShippingInformation $shippingInformation, string $reference, string $redirectUrl, int $timeout = 60, int $maxAge = 30, int $maxUses = 1, bool $enableRecover = false, int $discount = 0):string|false{
+    public static function generateCode(array $items, PaymentReceiver $receiver, PaymentSender $sender, ShippingInformation $shippingInformation, string $reference, string $redirectUrl, int $timeout = 60, int $maxAge = 30, int $maxUses = 1, bool $enableRecover = false, int $discount = 0):SimpleXMLElement|false{
         $credentials = static::getCredentials();
         $client = static::getClient();
 
@@ -101,7 +101,7 @@ class RedirectCheckout{
             if($response->getStatusCode() == 200){
                 //CODE GENERATED
                 $sxml = simplexml_load_string($response->getBody());
-                return $sxml->code;
+                return $sxml;
             }else{
                 throw new Exception('Invalid PagSeguro Statuscode! => '.$response->getStatusCode());
             }
