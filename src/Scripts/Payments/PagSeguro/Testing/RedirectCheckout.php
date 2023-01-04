@@ -100,7 +100,7 @@ class RedirectCheckout{
               ]);
             if($response->getStatusCode() == 200){
                 //CODE GENERATED
-                dd($response);
+                dd($response->getBody());
                 $sxml = simplexml_load_string($response->getBody());
                 return $sxml;
             }else{
