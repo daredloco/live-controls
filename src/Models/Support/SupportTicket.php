@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class SupportTicket extends Model{
     use HasFactory;
 
+    protected $table = 'livecontrols_support_tickets';
+    
     protected $fillable = [
         'user_id',
         'title',

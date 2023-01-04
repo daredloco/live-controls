@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('support_messages', function (Blueprint $table) {
+        Schema::create('livecontrols_support_messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('support_ticket_id')->constrained('support_tickets', 'id')->cascadeOnDelete();
+            $table->foreignId('support_ticket_id')->constrained('livecontrols_support_tickets', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->text('body');

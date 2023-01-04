@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_userpermissions', function (Blueprint $table) {
+        Schema::create('livecontrols_user_userpermissions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
-            $table->foreignId('user_permission_id')->constrained('user_permissions', 'id')->cascadeOnDelete();
+            $table->foreignId('user_permission_id')->constrained('livecontrols_user_permissions', 'id')->cascadeOnDelete();
             $table->timestamps();
         });
     }
