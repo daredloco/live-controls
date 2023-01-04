@@ -13,6 +13,8 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
+use Helvetiapps\LiveControls\Http\Livewire\AutoCEP\AutoCep;
+use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
@@ -67,6 +69,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);
+    Livewire::component('livecontrols-autocep', AutoCep::class);
+    Livewire::component('livecontrols-masked-input', MaskedInput::class);
 
     //Load Blade Components
     Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');

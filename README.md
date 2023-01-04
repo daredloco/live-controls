@@ -109,7 +109,7 @@ A System handling different payment systems for e-commerce etc.
 [Documentation](https://github.com/daredloco/live-controls/wiki/07.-Payment)
 
 ### Content
-- PagSeguro Redirect Checkout
+- PagSeguro (testing) Redirect Checkout
 - PagSeguro Objects with important informations: PaymentItem, PaymentReceiver, PaymentSender, ShippingInformation
 - IUGU Transparent Checkout
 - IUGU has the option to create a payment per PIX, Bank Slip or Credit Card and you can update a bill and remove it if it isn't already paid or due
@@ -119,6 +119,8 @@ A System handling different payment systems for e-commerce etc.
 - Add IUGU Debit Card (If possible)
 - Add PagSeguro Transparent Checkout (Depends on demand on projects)
 - Add Sicoob/Credsete Handler (Depends on demand on projects)
+- Take a look at Paymee and see if you can/want to include it
+- Add PagSeguro production Redirect Checkout
 
 
 
@@ -170,7 +172,7 @@ Simple implementation of SweetAlert2 popups.
 ### Todo
 - Add option to call popup with custom options (Add a constructor for custom popups like in lagoon charts library, maybe with an aditional array $options or such)
 - Add inputfields to popups called from controller (Needs callback)
-- Add more types of inputfields (Radio, Checkbox, File, ...)
+- Add more types of inputfields (Radio, Checkbox, ...)
 - Add to show loading spinner
 ```
 didOpen: () => {
@@ -181,12 +183,44 @@ Swal.showLoading()
 [Documentation](https://github.com/daredloco/live-controls/wiki/10.-SweetAlert2)
 
 
+## AutoCEP Input
+An Input for CEP which would give you the informations for road, etc. based on CepAberto
+
+### Content
+- GetCEP class
+- AutoCep input - @livewire('livecontrols-autocep')
+
+
+
+
+## Masked Input
+A masked input based on iMask
+
+### Content
+- Masked Input livewire control - @livewire('livecontrols-masked-input')
+
+
+
+
+## BBEditor
+A BBEditor based on SCEditor (Probably generate own library out of this)
+
+### Todo
+- Add BBEditor livewire control
+- Add BBCode backend
+
+
 
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
 [Documentation](https://github.com/daredloco/live-controls/wiki/11.-Utils)
+
+### Content
+- Utils class with various helpers
+- Array class with various helpers
+- BBCodes class with transform() method to transform bbcode to html
 
 ### Todo
 - ?
