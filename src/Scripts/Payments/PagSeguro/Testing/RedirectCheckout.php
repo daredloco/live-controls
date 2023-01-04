@@ -164,4 +164,45 @@ class RedirectCheckout{
         }
         return [];
     }
+
+    public static function reverseTransaction(string $transactionCode, float $amount): bool{
+        $credentials = static::getCredentials();
+        $client = static::getClient();
+
+        $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
+          'body' => '{
+            "transactionCode":"'.$transactionCode.'",
+            "refundValue":'.number_format($amount,2,'.','').'
+          }',
+          'headers' => [
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/xml; charset=ISO-8859-1',
+          ],
+        ]);
+        if($response->getStatusCode() == 200){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static function cancelTransaction(string $transactionCode){
+        $credentials = static::getCredentials();
+          $client = static::getClient();
+
+          $response = $client->request('POST', 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
+            'body' => '{
+              "transactionCode":"'.$transactionCode.'"
+            }',
+            'headers' => [
+              'Content-Type' => 'application/json',
+              'Accept' => 'application/xml; charset=ISO-8859-1',
+            ],
+          ]);
+          if($response->getStatusCode() == 200){
+              return true;
+          }else{
+              return false;
+          }
+    }
 }
