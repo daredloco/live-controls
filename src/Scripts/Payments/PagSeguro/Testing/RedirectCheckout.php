@@ -88,7 +88,7 @@ class RedirectCheckout{
                 <maxAge>'.$maxAge.'</maxAge>
                 <maxUses>'.$maxUses.'</maxUses>
                 <receiveremail>'.$receiver->email.'</receiveremail>
-                <enableRecover>'.$enableRecover.'</enableRecover>
+                <enableRecover>'.($enableRecover ? 'true' : 'false').'</enableRecover>
               </checkout>
               ',
                 'headers' => [
