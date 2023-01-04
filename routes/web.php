@@ -7,11 +7,13 @@ use Helvetiapps\LiveControls\Http\Controllers\UserPermissionController;
 use Illuminate\Support\Facades\Route;
 
 //Admin Interface
-Route::middleware([
+Route::middleware(array_merge([
     'web',
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified']
+    'verified'],
+    config('livecontrols.route_middlewares')
+    )
     )->group(function(){
 
         //SUPPORT SYSTEM
