@@ -12,7 +12,7 @@ Route::middleware(array_merge([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'],
-    config('livecontrols.route_middlewares')
+    config('livecontrols.route_middlewares',[]) 
     )
     )->group(function(){
 
