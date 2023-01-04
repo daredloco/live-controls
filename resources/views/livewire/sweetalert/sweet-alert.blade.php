@@ -139,7 +139,9 @@
                 icon: "success",
                 showConfirmButton: false,
                 showDenyButton: false,
-                showCancelButton: false
+                showCancelButton: false,
+                timer: 2500,
+                timerProgressBar: true
             });
         @endif
 
@@ -150,7 +152,9 @@
                 icon: "warning",
                 showConfirmButton: false,
                 showDenyButton: false,
-                showCancelButton: false
+                showCancelButton: false,
+                timer: 2500,
+                timerProgressBar: true
             });
         @endif
 
@@ -161,7 +165,9 @@
                 icon: "error",
                 showConfirmButton: false,
                 showDenyButton: false,
-                showCancelButton: false
+                showCancelButton: false,
+                timer: 2500,
+                timerProgressBar: true
             });
         @endif
 
@@ -172,7 +178,9 @@
                 icon: "info",
                 showConfirmButton: false,
                 showDenyButton: false,
-                showCancelButton: false
+                showCancelButton: false,
+                timer: 2500,
+                timerProgressBar: true
             });
         @endif
 
@@ -184,7 +192,9 @@
                     icon: "success",
                     showConfirmButton: false,
                     showDenyButton: false,
-                    showCancelButton: false
+                    showCancelButton: false,
+                    timer: 2500,
+                    timerProgressBar: true
                 });
             }
             if(toastarr["detail"][0] == "warning"){
@@ -194,7 +204,9 @@
                     icon: "warning",
                     showConfirmButton: false,
                     showDenyButton: false,
-                    showCancelButton: false
+                    showCancelButton: false,
+                    timer: 2500,
+                    timerProgressBar: true
                 });
             }
             if(toastarr["detail"][0] == "exception"){
@@ -204,7 +216,9 @@
                     icon: "exception",
                     showConfirmButton: false,
                     showDenyButton: false,
-                    showCancelButton: false
+                    showCancelButton: false,
+                    timer: 2500,
+                    timerProgressBar: true
                 });
             }
             if(toastarr["detail"][0] == "info"){
@@ -214,7 +228,9 @@
                     icon: "info",
                     showConfirmButton: false,
                     showDenyButton: false,
-                    showCancelButton: false
+                    showCancelButton: false,
+                    timer: 2500,
+                    timerProgressBar: true
                 });
             }
         });
