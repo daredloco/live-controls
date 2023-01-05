@@ -24,9 +24,9 @@ class RedirectCheckout{
         ];
     }
 
-    private static function getHost():string{
+    private static function getHost(bool $withWs = false):string{
       if(config('app.debug')){
-        return 'https://sandbox.pagseguro.uol.com.br/v2/';
+        return 'https://'.($withWs ? 'ws.' : '').'sandbox.pagseguro.uol.com.br/v2/';
       }
       return 'https://pagseguro.uol.com.br/v2/';
     }
@@ -55,7 +55,7 @@ class RedirectCheckout{
         $itemsStr .= '</items>';
 
         try {
-            $response = $client->request('POST', static::getHost().'checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('POST', static::getHost(true).'checkout?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'body' => '<checkout>
                 <sender>
                   <name>'.$sender->name.'</name>
@@ -123,7 +123,7 @@ class RedirectCheckout{
         $client = static::getClient();
 
         try {
-            $response = $client->request('GET', static::getHost().'transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
+            $response = $client->request('GET', static::getHost(true).'transactions/'.$transactionCode.'?email='.$credentials["email"].'&token='.$credentials["token"], [
                 'headers' => [
                   'Accept' => 'application/xml; charset=ISO-8859-1',
                   'content-type' => 'application/json',
@@ -152,7 +152,7 @@ class RedirectCheckout{
         if($to->timestamp > Carbon::now()->timestamp){
             $to = Carbon::now()->subHours(3);
         }
-        $response = $client->request('GET', static::getHost().'transactions?email='.$credentials["email"].'&token='.$credentials["token"].'&initialDate='.$from->format(DATE_W3C).'&finalDate='.$to->format(DATE_W3C), [
+        $response = $client->request('GET', static::getHost(true).'transactions?email='.$credentials["email"].'&token='.$credentials["token"].'&initialDate='.$from->format(DATE_W3C).'&finalDate='.$to->format(DATE_W3C), [
             'headers' => [
               'Accept' => 'application/xml; charset=ISO-8859-1',
               'content-type' => 'application/json',
@@ -176,7 +176,7 @@ class RedirectCheckout{
         $credentials = static::getCredentials();
         $client = static::getClient();
 
-        $response = $client->request('POST', static::getHost().'transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
+        $response = $client->request('POST', static::getHost(true).'transactions/refunds?email='.$credentials["email"].'&token='.$credentials["token"], [
           'body' => '{
             "transactionCode":"'.$transactionCode.'",
             "refundValue":'.number_format($amount,2,'.','').'
@@ -197,7 +197,7 @@ class RedirectCheckout{
         $credentials = static::getCredentials();
           $client = static::getClient();
 
-          $response = $client->request('POST', static::getHost().'transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
+          $response = $client->request('POST', static::getHost(true).'transactions/cancels?email='.$credentials["email"].'&token='.$credentials["token"], [
             'body' => '{
               "transactionCode":"'.$transactionCode.'"
             }',
