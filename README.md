@@ -81,9 +81,7 @@ A System handling support tickets where users can send tickets and admins/modera
 - SupportTickets contain SupportMessages
 - Moderators can change status of tickets
 - Users can reopen tickets (sending messages will be disabled when ticket is closed)
-
-### Todo
-- Set configuration if users can reopen ticket
+- Configuration variable (support_reopen_tickets) if normal users can reopen ticket
 
 
 
