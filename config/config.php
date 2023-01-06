@@ -28,4 +28,5 @@ return [
     'support_enabled' => true, //Set this to true to enable the support system
     'support_groups' => ['moderators'], //Set the support groups here. (ex. ['moderators']), admins will be automatically set!
     'support_prefix' => 'support', //The prefix used for the Route::group
+    'support_reopen_ticket' => true, //Set this to true to enable users being able to reopen tickets
 ];
