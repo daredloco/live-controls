@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class SupportTicketController extends Controller
 {
     public function index(){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+
         if(auth()->user()->support_team){
             $supportTickets = SupportTicket::orderBy('created_at', 'desc')->paginate();
             return view('livecontrols::support.moderator.index', ['supportTickets' => $supportTickets]);
@@ -18,6 +22,10 @@ class SupportTicketController extends Controller
     }
 
     public function show(SupportTicket $supportTicket){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+        
         //Check if user did create support ticket or if he is in support team
         if($supportTicket->user_id != auth()->id() && !auth()->user()->support_team){
             return abort(403);
@@ -26,6 +34,10 @@ class SupportTicketController extends Controller
     }
 
     public function create(){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+        
         if(auth()->user()->support_team){
             abort(403);
         }
@@ -33,6 +45,10 @@ class SupportTicketController extends Controller
     }
 
     public function store(Request $request){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+        
         $validated = $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -51,6 +67,10 @@ class SupportTicketController extends Controller
     }
 
     public function destroy(SupportTicket $supportTicket){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+        
         //Check if user did create support ticket or if he is in support team
         if($supportTicket->user_id != auth()->id() && !auth()->user()->support_team){
             return abort(403);
@@ -63,6 +83,10 @@ class SupportTicketController extends Controller
     }
 
     public function reopen(SupportTicket $supportTicket){
+        if(!config('livecontrols.support_enabled', false)){
+            abort('404', 'Support System disabled!');
+        }
+        
         $supportTicket->update([
             'status' => 0
         ]);
