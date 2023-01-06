@@ -22,18 +22,20 @@ class CheckIsAdmin
             return $next($request);
         }
 
-        foreach(auth()->user()->groups as $group){
-            $groupKey = $group->key;
-            //Pass if user is in admin group(s)
-            if(is_array(config('livecontrols.usergroups_admins'))){
-                foreach(config('livecontrols.usergroups_admins') as $adminKey){
-                    if($adminKey == $groupKey){
+        if(config('livecontrols.usergroups_enabled', false)){
+            foreach(auth()->user()->groups as $group){
+                $groupKey = $group->key;
+                //Pass if user is in admin group(s)
+                if(is_array(config('livecontrols.usergroups_admins'))){
+                    foreach(config('livecontrols.usergroups_admins') as $adminKey){
+                        if($adminKey == $groupKey){
+                            return $next($request);
+                        }
+                    }
+                }else{
+                    if($groupKey == config('livecontrols.usergroups_admins')){
                         return $next($request);
                     }
-                }
-            }else{
-                if($groupKey == config('livecontrols.usergroups_admins')){
-                    return $next($request);
                 }
             }
         }

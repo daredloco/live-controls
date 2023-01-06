@@ -18,6 +18,10 @@ class CheckUserPermission
      */
     public function handle(Request $request, Closure $next, string ...$keys)
     {
+        if(!config('livecontrols.userpermissions_enabled', false)){
+            return $next($request);
+        }
+
         foreach($keys as $key){
             $permission = UserPermission::where('key', '=', $key)->first();
             if(is_null($permission)){

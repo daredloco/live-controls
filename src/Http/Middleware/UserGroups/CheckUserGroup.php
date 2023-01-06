@@ -18,6 +18,10 @@ class CheckUserGroup
      */
     public function handle(Request $request, Closure $next, string ...$keys)
     {
+        if(!config('livecontrols.usergroups_enabled', false)){
+            return $next($request);
+        }
+        
         foreach($keys as $key){
             $group = UserGroup::where('key', '=', $key)->first();
             if(is_null($group)){
