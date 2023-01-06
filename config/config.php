@@ -21,7 +21,6 @@ return [
     'userpermissions_enabled' => true, //Set this to true if userpermissions should be enabled
 
     //Payment System
-    'payments_enabled' => true, //Set this to true if payments should be enabled
     'payments_backends' => ['pagseguro'], //Set the payment backends here. Supported are 'pagseguro', 'iugu'
 
     //Support System
