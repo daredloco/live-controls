@@ -24,7 +24,10 @@
                         <td>{{ $group->description }}</td>
                         <td style="background-color: {{ $group->color }}"></td>
                         <td>
-                            <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                            
+                            @if(config('livecontrols.userpermissions_enabled', false))
+                                <a href="#" wire:click.prevent='editPermissions({{$group->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                            @endif
                             <a href="{{ route('livecontrols.admin.usergroups.edit', ['userGroup' => $group->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
                             <a href="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" onclick="event.preventDefault(); document.delete{{ $group->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
                             <form name="delete{{$group->id}}Form" action="{{ route('livecontrols.admin.usergroups.delete', ['userGroup' => $group->id]) }}" method="POST">
@@ -39,6 +42,7 @@
     </div>
     <a href="{{ route('livecontrols.admin.usergroups.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
+    @if(config('livecontrols.userpermissions_enabled', false))
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
@@ -67,4 +71,5 @@
         </x-slot>
     </x-jet-dialog-modal>    
     <!-- /Permissions Modal -->
+    @endif
 </div>

@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 class UserGroupController extends Controller
 {
     public function create(){
+        if(!config('livecontrols.usergroups_enabled', false)){
+            abort(404, 'User groups disabled!');
+        }
+
         return view('livecontrols::usergroups.create');
     }
 
     public function store(Request $request){
+        if(!config('livecontrols.usergroups_enabled', false)){
+            abort(404, 'User groups disabled!');
+        }
+        
         $validated = $request->validate([
             'name' => 'required|string',
             'key' => 'required|string',
@@ -28,10 +36,18 @@ class UserGroupController extends Controller
     }
 
     public function edit(UserGroup $userGroup){
+        if(!config('livecontrols.usergroups_enabled', false)){
+            abort(404, 'User groups disabled!');
+        }
+        
         return view('livecontrols::usergroups.edit', ['userGroup' => $userGroup]);
     }
 
     public function update(Request $request, UserGroup $userGroup){
+        if(!config('livecontrols.usergroups_enabled', false)){
+            abort(404, 'User groups disabled!');
+        }
+        
         $validated = $request->validate([
             'name' => 'required|string',
             'key' => 'required|string',
@@ -46,6 +62,10 @@ class UserGroupController extends Controller
     }
 
     public function destroy(UserGroup $userGroup){
+        if(!config('livecontrols.usergroups_enabled', false)){
+            abort(404, 'User groups disabled!');
+        }
+        
         if($userGroup->delete()){
             return redirect()->route('livecontrols.admin.dashboard', ['p' => 'groups'])->with('success', __('livecontrols::general.type_deleted', ['type' => __('livecontrols::admin.user_group')]));
         }

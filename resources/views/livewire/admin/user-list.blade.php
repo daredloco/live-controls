@@ -21,8 +21,12 @@
                         <td>{{ $user->email }}</td>
                         <td>
                             @if($user->id != config('livecontrols.admininterface_master') || $user->id == auth()->id())
-                                <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
-                                <a href="#" wire:click.prevent='editGroups({{$user->id}})'>{{ __('livecontrols::admin.groups') }}</a>
+                                @if(config('livecontrols.userpermissions_enabled', false))
+                                    <a href="#" wire:click.prevent='editPermissions({{$user->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                                @endif
+                                @if(config('livecontrols.usergroups_enabled', false))
+                                    <a href="#" wire:click.prevent='editGroups({{$user->id}})'>{{ __('livecontrols::admin.groups') }}</a>
+                                @endif
                                 @if($editRoute !== false)
                                     <a href="{{ $editRoute }}">{{ __('livecontrols::general.edit') }}</a> 
                                 @endif
@@ -45,6 +49,7 @@
         <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
     @endif
 
+    @if(config('livecontrols.userpermissions_enabled', false))
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
@@ -73,7 +78,9 @@
         </x-slot>
     </x-jet-dialog-modal>    
     <!-- /Permissions Modal -->
+    @endif
 
+    @if(config('livecontrols.usergroups_enabled', false))
     <!-- Groups Modal -->
     <x-jet-dialog-modal wire:model="showGroupModal">
         <x-slot name="title">
@@ -102,4 +109,5 @@
         </x-slot>
     </x-jet-dialog-modal>    
     <!-- /Groups Modal -->
+    @endif
 </div>

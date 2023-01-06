@@ -53,8 +53,15 @@
         <div class="col-md-3 livecontrols-sidebar">
             {{-- <a @if($page == 'dashboard') class="active" @endif wire:click.prevent="changePage('dashboard')">{{ __('livecontrols::admin.dashboard') }}</a> --}}
             <a @if($page == 'users') class="active" @endif wire:click.prevent="changePage('users')">{{ __('livecontrols::admin.users') }}</a>
-            <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('livecontrols::admin.user_groups') }}</a>
+            
+            @if(config('livecontrols.usergroups_enabled'))
+                <a @if($page == 'groups') class="active" @endif wire:click.prevent="changePage('groups')">{{ __('livecontrols::admin.user_groups') }}</a>
+            @endif
+
+            @if(config('livecontrols.userpermissions_enabled'))
             <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('livecontrols::admin.permissions') }}</a>
+            @endif
+
             @foreach($customPages as $label => $key)
                 <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
             @endforeach
@@ -64,9 +71,9 @@
                 @livewire('livecontrols-admin-dashboard', [], key('admin-dashboard')) --}}
             @if($page == 'users')
                 @livewire('livecontrols-admin-userlist', [], key('admin-userlist'))
-            @elseif($page == 'groups')
+            @elseif($page == 'groups' && config('livecontrols.usergroups_enabled'))
                 @livewire('livecontrols-admin-grouplist', [], key('admin-grouplist'))
-            @elseif($page == 'permissions')
+            @elseif($page == 'permissions' && config('livecontrols.userpermissions_enabled'))
                 @livewire('livecontrols-admin-permissionlist', [], key('admin-permissionlist'))
             @endif
             @foreach($customPages as $key)
