@@ -41,4 +41,8 @@ trait HasSupport{
 
         return false;
     }
+
+    public function getCanReopenTicketAttribute(): bool{
+        return config('livecontrols.support_reopen_ticket', false);
+    }
 }

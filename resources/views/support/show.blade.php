@@ -20,9 +20,9 @@
             <br>
             <small class="text-muted">{{ __('livecontrols::support.user_at_datetime', ['user' => $supportTicket->user->name, 'dateTime' => $supportTicket->created_at->format(__('livecontrols::general.date_time_format'))]) }}</small>
             <hr>
-            @if(auth()->user()->support_team)
+            @if(auth()->user()->support_team && !$supportTicket->closed)
                 @livewire('livecontrols-support-status', ['supportTicket' => $supportTicket], key('support-status'))
-            @elseif(!auth()->user()->support_team && $supportTicket->status > 2)
+            @elseif($supportTicket->closed && (auth()->user()->support_team || auth()->user()->can_reopen_ticket))
                 <a class="btn btn-primary text-white" href="{{ route('livecontrols.support.reopen', ['supportTicket' => $supportTicket]) }}">{{ __('livecontrols::support.reopen') }}</a>
             @else
                 {{ __('livecontrols::support.status') }}: {{ $supportTicket->status_string }}
