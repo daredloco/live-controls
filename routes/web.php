@@ -1,6 +1,7 @@
 <?php
 
 use Helvetiapps\LiveControls\Http\Controllers\AdminInterfaceController;
+use Helvetiapps\LiveControls\Http\Controllers\SubscriptionController;
 use Helvetiapps\LiveControls\Http\Controllers\SupportTicketController;
 use Helvetiapps\LiveControls\Http\Controllers\UserGroupController;
 use Helvetiapps\LiveControls\Http\Controllers\UserPermissionController;
@@ -47,6 +48,13 @@ Route::middleware(array_merge([
             Route::get('userpermissions/edit/{userPermission}', [UserPermissionController::class, 'edit'])->name('livecontrols.admin.userpermissions.edit');
             Route::put('userpermissions/edit/{userPermission}', [UserPermissionController::class, 'update'])->name('livecontrols.admin.userpermissions.update');
             Route::delete('userpermissions/delete/{userPermission}', [UserPermissionController::class, 'destroy'])->name('livecontrols.admin.userpermissions.delete');
+        
+            //Subscriptions
+            Route::get('subscriptions/create', [SubscriptionController::class, 'create'])->name('livecontrols.admin.subscriptions.create');
+            Route::post('subscriptions/create', [SubscriptionController::class, 'store'])->name('livecontrols.admin.subscriptions.store');
+            Route::get('subscriptions/edit/{subscriptions}', [SubscriptionController::class, 'edit'])->name('livecontrols.admin.subscriptions.edit');
+            Route::put('subscriptions/edit/{subscriptions}', [SubscriptionController::class, 'update'])->name('livecontrols.admin.subscriptions.update');
+            Route::delete('subscriptions/delete/{subscriptions}', [SubscriptionController::class, 'destroy'])->name('livecontrols.admin.subscriptions.delete');
         });
         
 });
