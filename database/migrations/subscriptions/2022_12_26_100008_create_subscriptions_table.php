@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('key');
             $table->text('description');
             $table->unsignedInteger('value_in_cents');
+            $table->unsignedInteger('length_in_days');
             $table->boolean('public')->default(true);
             $table->timestamps();
         });

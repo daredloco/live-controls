@@ -19,6 +19,7 @@ class Subscription extends Model{
         'key',
         'description',
         'value_in_cents',
+        'length_in_days',
         'public'
     ];
 
