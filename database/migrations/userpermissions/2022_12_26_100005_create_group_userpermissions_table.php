@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_userpermissions');
+        Schema::dropIfExists('livecontrols_group_userpermissions');
     }
 };
