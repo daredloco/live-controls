@@ -31,6 +31,7 @@ return [
 
     //Subscriptions System
     'subscriptions_enabled' => true, //Set this to true to enable the subscription system
-    'subscriptions_default_months' => 12, //Set this to the default months a subscription will be valid
-    'subscription_payment_delay' => 1, //Set this to the amount of months you'd let the user use the system without renew the plan
+    'subscriptions_default_dayss' => 365, //Set this to the default days a subscription will be valid
+    'subscriptions_payment_delay_days' => 30, //Set this to the amount of days you'd let the user use the system without renew the plan
+    'subscriptions_multiple_per_user' => true, //If set to true, users can have multiple subscriptions
 ];
