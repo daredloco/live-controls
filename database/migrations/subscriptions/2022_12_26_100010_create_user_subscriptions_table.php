@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('subscription_id')->constrained('livecontrols_subscriptions', 'id')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
+            $table->unsignedInteger('value_in_cents');
+            $table->date('due_date');
             $table->timestamps();
         });
     }
