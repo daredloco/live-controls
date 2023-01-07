@@ -28,4 +28,9 @@ return [
     'support_groups' => ['moderators'], //Set the support groups here. (ex. ['moderators']), admins will be automatically set!
     'support_prefix' => 'support', //The prefix used for the Route::group
     'support_reopen_ticket' => true, //Set this to true to enable users being able to reopen tickets
+
+    //Subscriptions System
+    'subscriptions_enabled' => true, //Set this to true to enable the subscription system
+    'subscriptions_default_months' => 12, //Set this to the default months a subscription will be valid
+    'subscription_payment_delay' => 1, //Set this to the amount of months you'd let the user use the system without renew the plan
 ];
