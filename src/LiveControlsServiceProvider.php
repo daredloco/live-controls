@@ -12,6 +12,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\Dashboard;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\SubscriptionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Livewire\AutoCEP\AutoCep;
 use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
@@ -66,6 +67,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-admin-userlist', UserList::class);
     Livewire::component('livecontrols-admin-grouplist', GroupList::class);
     Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
+    Livewire::component('livecontrols-admin-subscriptionlist', SubscriptionList::class);
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);
