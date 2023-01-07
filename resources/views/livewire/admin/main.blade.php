@@ -62,6 +62,10 @@
             <a @if($page == 'permissions') class="active" @endif wire:click.prevent="changePage('permissions')">{{ __('livecontrols::admin.permissions') }}</a>
             @endif
 
+            @if(config('livecontrols.subscriptions_enabled'))
+            <a @if($page == 'subscriptions') class="active" @endif wire:click.prevent="changePage('subscriptions')">{{ __('livecontrols::admin.subscriptions') }}</a>
+            @endif
+
             @foreach($customPages as $label => $key)
                 <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
             @endforeach
@@ -75,6 +79,8 @@
                 @livewire('livecontrols-admin-grouplist', [], key('admin-grouplist'))
             @elseif($page == 'permissions' && config('livecontrols.userpermissions_enabled'))
                 @livewire('livecontrols-admin-permissionlist', [], key('admin-permissionlist'))
+            @elseif($page == 'subscriptions' && config('livecontrols.subscriptions_enabled'))
+                @livewire('livecontrols-admin-subscriptionlist', [], key('admin-subscriptionlist'))
             @endif
             @foreach($customPages as $key)
                 @if($page == $key)
