@@ -11,5 +11,7 @@ return [
     "permission_removed" => "Berechtigung entfernt!",
     "permission_granted" => "Berechtigung hinzugefügt!",
     "user_added_to_group" => "Benutzer zur Berechtigung hinzugefügt!",
-    "user_removed_from_group" => "Benutzer von Berechtigung entfernt!"
+    "user_removed_from_group" => "Benutzer von Berechtigung entfernt!",
+    "subscriptions" => "Abonnements",
+    "subscription" => "Abonnement"
 ];
