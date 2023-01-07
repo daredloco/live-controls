@@ -137,8 +137,16 @@ A System handling cryptography like encrypted database entries and such
 ## Subscriptions
 A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
 
+### Content
+- Subscription System where users can subscribe to different subscriptions at once
+- Config variables
+- SubscriptionsHandler class to add/remove subscriptions from users, to check if subscription is valid and to check if user has a certain (valid) subscription
+
 ### Todo
-- Add a system to create subscription plans with name, description, value and default values
+- Add subscriptions to admin interface
+- Add create and edit function for subscriptions
+- Add permissions to subscriptions
+- Add Middleware if user has subscription
 
 
 
