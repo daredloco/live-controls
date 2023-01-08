@@ -42,7 +42,7 @@
                             'currencySign' => 'R$'
                             ], key('masked-value'))
 
-                            <div class="mb-3">
+                            <div class="mb-3 mt-3">
                                 <x-jet-label value="{{ __('livecontrols::subscriptions.length_in_days') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('key') ? 'is-invalid' : '' }}" type="numeric" name="length_in_days"
                                              :value="old('length_in_days')" min="1" required />
