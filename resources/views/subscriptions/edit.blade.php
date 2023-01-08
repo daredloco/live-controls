@@ -53,7 +53,7 @@
                             <div class="mb-0">
                                 <div class="d-flex justify-content-end align-items-baseline">
                                     <x-jet-button>
-                                        {{ __('livecontrols::general.create') }}
+                                        {{ __('livecontrols::general.update') }}
                                     </x-jet-button>
                                 </div>
                             </div>
