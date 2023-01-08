@@ -20,6 +20,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
+use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
 use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
@@ -39,6 +40,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     app('router')->aliasMiddleware('usergroup', CheckUserGroup::class);
     app('router')->aliasMiddleware('userpermission', CheckUserPermission::class);
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
+    app('router')->aliasMiddleware('subscription', CheckSubscription::class);
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
