@@ -24,11 +24,16 @@ class SubscriptionController extends Controller
             'name' => 'required|string',
             'key' => 'required|string',
             'description' => 'nullable|string',
-            'value_in_cents' => 'required|numeric',
+            'value' => 'required|numeric',
             'duration_in_days' => 'required|numeric'
         ]);
 
-        $subscription = Subscription::create($validated);
+        $subscription = Subscription::create(
+            array_merge(
+                $validated,
+                ['value_in_cents' => $validated["value"] * 100]
+            )
+        );
 
         if(!is_null($subscription)){
             return redirect()->route('livecontrols.admin.dashboard', ['p' => 'subscriptions'])->with('success', __('livecontrols::general.type_created', ['type' => __('livecontrols::admin.subscription')]));
@@ -53,11 +58,11 @@ class SubscriptionController extends Controller
             'name' => 'required|string',
             'key' => 'required|string',
             'description' => 'nullable|string',
-            'value_in_cents' => 'required|numeric',
+            'value' => 'required|numeric',
             'duration_in_days' => 'required|numeric'
         ]);
 
-        if($subscription->update($validated)){
+        if($subscription->update(array_merge($validated, ['value_in_cents' => $validated["value"] * 100]))){
             return redirect()->route('livecontrols.admin.dashboard', ['p' => 'subscriptions'])->with('success', __('livecontrols::general.type_updated', ['type' => __('livecontrols::admin.subscription')]));
         }
         return redirect()->route('livecontrols.admin.dashboard', ['p' => 'subscriptions'])->with('exception', __('livecontrols::general.type_not_updated', ['type' => __('livecontrols::admin.subscription')]));
