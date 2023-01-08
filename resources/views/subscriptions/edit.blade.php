@@ -14,7 +14,8 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('livecontrols.admin.subscriptions.update', ['subscription' => $subscription->id]) }}">
                             @csrf
-
+                            @method('PUT')
+                            
                             <div class="mb-3">
                                 <x-jet-label value="{{ __('livecontrols::general.name') }}" /><br>
                                 <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
