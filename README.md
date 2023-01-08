@@ -148,6 +148,7 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 ### Todo
 - Add permissions to subscriptions
 - Add subscriptions to groups
+- Add check for permissions in subscriptions check (maybe with $withPermissions parameter)
 
 
 
