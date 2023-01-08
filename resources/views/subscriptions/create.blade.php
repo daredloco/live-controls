@@ -35,7 +35,7 @@
                             </div>
                             
                             @livewire('livecontrols-masked-input', [
-                            'label' => 'Value',
+                            'label' => __('livecontrols::subscriptions.value'),
                             'inputID' => 'currInput',
                             'cleanID' => 'value_in_cents',
                             'inputType' => 'currency',
