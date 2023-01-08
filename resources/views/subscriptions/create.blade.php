@@ -36,8 +36,8 @@
                             
                             @livewire('livecontrols-masked-input', [
                             'label' => __('livecontrols::subscriptions.value'),
-                            'inputID' => 'currInput',
-                            'cleanID' => 'value_in_cents',
+                            'inputID' => 'input_value',
+                            'cleanID' => 'value',
                             'inputType' => 'currency',
                             'currencySign' => 'R$'
                             ], key('masked-value'))
