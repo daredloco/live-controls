@@ -22,9 +22,9 @@
                         <td>{{ $subscription->key }}</td>
                         <td>{{ $subscription->description }}</td>
                         <td>
-                            <a href="{{ route('livecontrols.admin.subscriptions.edit', ['userPermission' => $subscription->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
-                            <a href="{{ route('livecontrols.admin.subscriptions.delete', ['userPermission' => $subscription->id]) }}" onclick="event.preventDefault(); document.delete{{ $subscription->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
-                            <form name="delete{{$subscription->id}}Form" action="{{ route('livecontrols.admin.subscriptions.delete', ['userPermission' => $subscription->id]) }}" method="POST">
+                            <a href="{{ route('livecontrols.admin.subscriptions.edit', ['subscription' => $subscription->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
+                            <a href="{{ route('livecontrols.admin.subscriptions.delete', ['subscription' => $subscription->id]) }}" onclick="event.preventDefault(); document.delete{{ $subscription->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
+                            <form name="delete{{$subscription->id}}Form" action="{{ route('livecontrols.admin.subscriptions.delete', ['subscription' => $subscription->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                             </form>    
