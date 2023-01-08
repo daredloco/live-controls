@@ -25,7 +25,7 @@ class SubscriptionController extends Controller
             'key' => 'required|string',
             'description' => 'nullable|string',
             'value_in_cents' => 'required|numeric',
-            'length_in_days' => 'required|numeric'
+            'duration_in_days' => 'required|numeric'
         ]);
 
         $subscription = Subscription::create($validated);
@@ -54,7 +54,7 @@ class SubscriptionController extends Controller
             'key' => 'required|string',
             'description' => 'nullable|string',
             'value_in_cents' => 'required|numeric',
-            'length_in_days' => 'required|numeric'
+            'duration_in_days' => 'required|numeric'
         ]);
 
         if($subscription->update($validated)){

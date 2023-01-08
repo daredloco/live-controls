@@ -2,5 +2,5 @@
 
 return [
     'value' => 'Wert',
-    'length_in_days' => 'Dauer in Tagen'
+    'duration_in_days' => 'Dauer in Tagen'
 ];

@@ -43,10 +43,10 @@
                             ], key('masked-value'))
 
                             <div class="mb-3 mt-3">
-                                <x-jet-label value="{{ __('livecontrols::subscriptions.length_in_days') }}" /><br>
-                                <x-jet-input class="{{ $errors->has('key') ? 'is-invalid' : '' }}" type="numeric" name="length_in_days"
-                                             :value="old('length_in_days')" min="1" required />
-                                <x-jet-input-error for="length_in_days"></x-jet-input-error>
+                                <x-jet-label value="{{ __('livecontrols::subscriptions.duration_in_days') }}" /><br>
+                                <x-jet-input class="{{ $errors->has('key') ? 'is-invalid' : '' }}" type="numeric" name="duration_in_days"
+                                             :value="old('duration_in_days')" min="1" required />
+                                <x-jet-input-error for="duration_in_days"></x-jet-input-error>
                             </div>
 
                             <div class="mb-0">
