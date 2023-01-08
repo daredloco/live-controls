@@ -135,7 +135,7 @@ A System handling cryptography like encrypted database entries and such
 
 
 ## Subscriptions
-A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
+A system for adding subscriptions for certain "products"/plugins/systems inside the system.
 
 ### Content
 - Subscription System where users can subscribe to different subscriptions at once
