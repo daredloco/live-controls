@@ -52,7 +52,7 @@
         <small class="text-muted">{{ $helperText }}</small>
     @endif
         <input type="{{ $inputType == 'currency' ? 'text' : $inputType }}"
-            class="form-control" name="{{ $inputID }}" id="{{ $inputID }}" placeholder="{{ $placeholder }}" wire:model.debounce.500ms='value' @if($required) required @endif>
+            class="form-control" name="{{ $inputID }}" id="{{ $inputID }}" placeholder="{{ $placeholder }}" wire:model.debounce.250ms='value' @if($required) required @endif>
     @if(!is_null($cleanID))
         <input type="hidden" name="{{ $cleanID }}" id="{{ $cleanID }}" value="{{ $cleanValue }}">
     @endif
