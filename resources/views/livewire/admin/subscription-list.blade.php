@@ -10,6 +10,8 @@
                     <th scope="col">{{ __('livecontrols::general.id') }}</th>
                     <th scope="col">{{ __('livecontrols::general.name') }}</th>
                     <th scope="col">{{ __('livecontrols::general.key') }}</th>
+                    <th scope="col">{{ __('livecontrols::subscription.value') }}</th>
+                    <th scope="col">{{ __('livecontrols::subscription.duration_in_days') }}</th>
                     <th scope="col">{{ __('livecontrols::general.description') }}</th>
                     <th scope="col">{{ __('livecontrols::general.actions') }}</th>
                 </tr>
@@ -20,6 +22,8 @@
                         <th scope="row">{{ $subscription->id }}</th>
                         <td>{{ $subscription->name }}</td>
                         <td>{{ $subscription->key }}</td>
+                        <td>{{ number_format($subscription->value_in_cents / 100,2,',','.') }}</td>
+                        <td>{{ $subscription->duration_in_days }}</td>
                         <td>{{ $subscription->description }}</td>
                         <td>
                             <a href="{{ route('livecontrols.admin.subscriptions.edit', ['subscription' => $subscription->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
