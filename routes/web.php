@@ -52,9 +52,9 @@ Route::middleware(array_merge([
             //Subscriptions
             Route::get('subscriptions/create', [SubscriptionController::class, 'create'])->name('livecontrols.admin.subscriptions.create');
             Route::post('subscriptions/create', [SubscriptionController::class, 'store'])->name('livecontrols.admin.subscriptions.store');
-            Route::get('subscriptions/edit/{subscriptions}', [SubscriptionController::class, 'edit'])->name('livecontrols.admin.subscriptions.edit');
-            Route::put('subscriptions/edit/{subscriptions}', [SubscriptionController::class, 'update'])->name('livecontrols.admin.subscriptions.update');
-            Route::delete('subscriptions/delete/{subscriptions}', [SubscriptionController::class, 'destroy'])->name('livecontrols.admin.subscriptions.delete');
+            Route::get('subscriptions/edit/{subscription}', [SubscriptionController::class, 'edit'])->name('livecontrols.admin.subscriptions.edit');
+            Route::put('subscriptions/edit/{subscription}', [SubscriptionController::class, 'update'])->name('livecontrols.admin.subscriptions.update');
+            Route::delete('subscriptions/delete/{subscription}', [SubscriptionController::class, 'destroy'])->name('livecontrols.admin.subscriptions.delete');
         });
         
 });
