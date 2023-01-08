@@ -141,10 +141,10 @@ A system for adding subscriptions like plans etc. (Probably will be a seperate l
 - Subscription System where users can subscribe to different subscriptions at once
 - Config variables
 - SubscriptionsHandler class to add/remove subscriptions from users, to check if subscription is valid and to check if user has a certain (valid) subscription
+- Subscriptions inside Admin Interface
+- Create/Edit/Delete Subscriptions in Admin Interface
 
 ### Todo
-- Add subscriptions to admin interface
-- Add create and edit function for subscriptions
 - Add permissions to subscriptions
 - Add Middleware if user has subscription
 
