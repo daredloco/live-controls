@@ -53,7 +53,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     $migrationPaths = [
       $migrationsPath.'usergroups',
       $migrationsPath.'userpermissions',
-      $migrationsPath.'support'
+      $migrationsPath.'support',
+      $migrationsPath.'subscriptions'
     ];
 
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
