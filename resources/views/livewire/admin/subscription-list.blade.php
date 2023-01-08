@@ -10,8 +10,8 @@
                     <th scope="col">{{ __('livecontrols::general.id') }}</th>
                     <th scope="col">{{ __('livecontrols::general.name') }}</th>
                     <th scope="col">{{ __('livecontrols::general.key') }}</th>
-                    <th scope="col">{{ __('livecontrols::subscription.value') }}</th>
-                    <th scope="col">{{ __('livecontrols::subscription.duration_in_days') }}</th>
+                    <th scope="col">{{ __('livecontrols::subscriptions.value') }}</th>
+                    <th scope="col">{{ __('livecontrols::subscriptions.duration_in_days') }}</th>
                     <th scope="col">{{ __('livecontrols::general.description') }}</th>
                     <th scope="col">{{ __('livecontrols::general.actions') }}</th>
                 </tr>
