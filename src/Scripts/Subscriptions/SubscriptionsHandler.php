@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Scripts\Subscriptions;
 use App\Models\User;
 use Carbon\Carbon;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
+use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
 class SubscriptionsHandler
 {
@@ -51,6 +52,42 @@ class SubscriptionsHandler
             return false;
         }
         $user->subscriptions()->detach($subscription->id);
+        return true;
+    }
+
+    public static function addPermission(Subscription|string $subscription, UserPermission|string $permission): bool
+    {
+        if(is_string($subscription)){
+            $subscription = Subscription::where('key', '=', $subscription)->first();
+        }
+        if(is_null($subscription)){
+            return false;
+        }
+        if(is_string($permission)){
+            $permission = UserPermission::where('key', '=', $permission)->first();
+        }
+        if(is_null($permission)){
+            return false;
+        }
+        $subscription->permissions()->attach($permission->id);
+        return true;
+    }
+
+    public static function removePermission(Subscription|string $subscription, UserPermission|string $permission)
+    {
+        if(is_string($subscription)){
+            $subscription = Subscription::where('key', '=', $subscription)->first();
+        }
+        if(is_null($subscription)){
+            return false;
+        }
+        if(is_string($permission)){
+            $permission = UserPermission::where('key', '=', $permission)->first();
+        }
+        if(is_null($permission)){
+            return false;
+        }
+        $subscription->permissions()->detach($permission->id);
         return true;
     }
 
