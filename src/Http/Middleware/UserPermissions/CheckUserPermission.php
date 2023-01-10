@@ -34,13 +34,17 @@ class CheckUserPermission
 
             
             //Check user group permissions
-            if($permission->groups()->whereIn('group_id', auth()->user()->groups()->get()->toArray())->count() > 0){
-                return $next($request);
+            if(config('livecontrols.usergroups_enabled', false)){
+                if($permission->groups()->whereIn('group_id', auth()->user()->groups()->get()->toArray())->count() > 0){
+                    return $next($request);
+                }
             }
 
             //Check subscriptions permissions
-            if($permission->subscriptions()->whereIn('subscription_id', auth()->user()->subscriptions()->get()->toArray())->count() > 0){
-                return $next($request);
+            if(config('livecontrols.subscriptions_enabled', false)){
+                if($permission->subscriptions()->whereIn('subscription_id', auth()->user()->subscriptions()->get()->toArray())->count() > 0){
+                    return $next($request);
+                }
             }
         }
 
