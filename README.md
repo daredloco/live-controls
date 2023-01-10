@@ -144,11 +144,10 @@ A system for adding subscriptions for certain "products"/plugins/systems inside 
 - Subscriptions inside Admin Interface
 - Create/Edit/Delete Subscriptions in Admin Interface
 - Middleware to check if user has subscription
+- Subscriptions have permissions (Will fall into permissionscheck if active)
 
 ### Todo
-- Add permissions to subscriptions
 - Add subscriptions to groups
-- Add check for permissions in subscriptions check (maybe with $withPermissions parameter)
 
 
 
