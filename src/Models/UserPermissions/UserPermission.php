@@ -31,6 +31,6 @@ class UserPermission extends Model{
 
     public function subscriptions(): BelongsToMany
     {
-        return $this->belongsToMany(UserPermission::class, 'livecontrols_subscription_permissions', 'user_permission_id', 'subscription_id');
+        return $this->belongsToMany(UserPermission::class, 'livecontrols_subscription_permissions', 'subscription_id', 'user_permission_id');
     }
 }
