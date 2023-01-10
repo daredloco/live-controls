@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('support_tickets');
+        Schema::dropIfExists('livecontrols_support_tickets');
     }
 };

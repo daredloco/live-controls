@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('support_messages');
+        Schema::dropIfExists('livecontrols_support_messages');
     }
 };

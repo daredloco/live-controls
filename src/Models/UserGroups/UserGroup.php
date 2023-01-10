@@ -22,11 +22,11 @@ class UserGroup extends Model{
     
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_usergroups', 'user_group_id', 'user_id');
+        return $this->belongsToMany(User::class, 'livecontrols_user_usergroups', 'user_group_id', 'user_id');
     }
 
     public function permissions(): BelongsToMany
     {
-        return $this->belongsToMany(UserPermission::class, 'group_userpermissions', 'user_group_id', 'user_permission_id');
+        return $this->belongsToMany(UserPermission::class, 'livecontrols_group_userpermissions', 'user_group_id', 'user_permission_id');
     }
 }

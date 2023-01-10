@@ -12,6 +12,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\Dashboard;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\PermissionList;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\SubscriptionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Livewire\AutoCEP\AutoCep;
 use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
@@ -19,6 +20,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
+use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
 use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
@@ -38,6 +40,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     app('router')->aliasMiddleware('usergroup', CheckUserGroup::class);
     app('router')->aliasMiddleware('userpermission', CheckUserPermission::class);
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
+    app('router')->aliasMiddleware('subscription', CheckSubscription::class);
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
@@ -52,7 +55,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     $migrationPaths = [
       $migrationsPath.'usergroups',
       $migrationsPath.'userpermissions',
-      $migrationsPath.'support'
+      $migrationsPath.'support',
+      $migrationsPath.'subscriptions'
     ];
 
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
@@ -66,6 +70,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-admin-userlist', UserList::class);
     Livewire::component('livecontrols-admin-grouplist', GroupList::class);
     Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
+    Livewire::component('livecontrols-admin-subscriptionlist', SubscriptionList::class);
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);

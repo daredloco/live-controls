@@ -50,6 +50,7 @@ class PermissionsHandler{
         }
 
         $groups = $user->groups;
+        $subscriptions = $user->subscriptions;
 
         foreach($this->permissions as $permission){
             $perm = UserPermission::where('key', '=', $permission)->first();
@@ -61,7 +62,12 @@ class PermissionsHandler{
                 return true;
             }
             foreach($groups as $group){
-                if($perm->groups()->where('user_groups.id', '=', $group->id)->exists()){
+                if($perm->groups()->where('livecontrols_user_groups.id', '=', $group->id)->exists()){
+                    return true;
+                }
+            }
+            foreach($subscriptions as $subscription){
+                if($perm->subscriptions()->where('livecontrols_subscriptions.id', '=', $subscription->id)->exists()){
                     return true;
                 }
             }

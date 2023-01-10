@@ -11,5 +11,9 @@ return [
     "permission_removed" => "Permissão retirada!",
     "permission_granted" => "Permissão concedida!",
     "user_added_to_group" => "Usuário adicionado ao grupo!",
-    "user_removed_from_group" => "Usuário retirado do grupo!"
+    "user_removed_from_group" => "Usuário retirado do grupo!",
+    "subscriptions" => "Assinaturas",
+    "subscription" => "Assinatura",
+    "subscription_added" => "Assinatura adicionado",
+    "subscription_removed" => "Assinatura retirada"
 ];

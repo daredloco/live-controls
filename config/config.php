@@ -21,7 +21,6 @@ return [
     'userpermissions_enabled' => true, //Set this to true if userpermissions should be enabled
 
     //Payment System
-    'payments_enabled' => true, //Set this to true if payments should be enabled
     'payments_backends' => ['pagseguro'], //Set the payment backends here. Supported are 'pagseguro', 'iugu'
 
     //Support System
@@ -29,4 +28,10 @@ return [
     'support_groups' => ['moderators'], //Set the support groups here. (ex. ['moderators']), admins will be automatically set!
     'support_prefix' => 'support', //The prefix used for the Route::group
     'support_reopen_ticket' => true, //Set this to true to enable users being able to reopen tickets
+
+    //Subscriptions System
+    'subscriptions_enabled' => true, //Set this to true to enable the subscription system
+    'subscriptions_default_dayss' => 365, //Set this to the default days a subscription will be valid
+    'subscriptions_payment_delay_days' => 30, //Set this to the amount of days you'd let the user use the system without renew the plan
+    'subscriptions_multiple_per_user' => true, //If set to true, users can have multiple subscriptions
 ];

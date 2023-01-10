@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('livecontrols_user_permissions', function (Blueprint $table) {
+        Schema::create('livecontrols_user_subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('key');
-            $table->string('description')->nullable();
+            $table->foreignId('subscription_id')->constrained('livecontrols_subscriptions', 'id')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
+            $table->unsignedInteger('value_in_cents');
+            $table->date('due_date');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livecontrols_user_permissions');
+        Schema::dropIfExists('livecontrols_user_subscriptions');
     }
 };

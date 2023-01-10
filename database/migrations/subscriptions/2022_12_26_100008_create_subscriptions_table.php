@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('livecontrols_user_permissions', function (Blueprint $table) {
+        Schema::create('livecontrols_subscriptions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('key');
-            $table->string('description')->nullable();
+            $table->text('description');
+            $table->unsignedInteger('value_in_cents');
+            $table->unsignedInteger('duration_in_days');
+            $table->boolean('public')->default(true);
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livecontrols_user_permissions');
+        Schema::dropIfExists('livecontrols_subscriptions');
     }
 };

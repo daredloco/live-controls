@@ -81,9 +81,7 @@ A System handling support tickets where users can send tickets and admins/modera
 - SupportTickets contain SupportMessages
 - Moderators can change status of tickets
 - Users can reopen tickets (sending messages will be disabled when ticket is closed)
-
-### Todo
-- Set configuration if users can reopen ticket
+- Configuration variable (support_reopen_tickets) if normal users can reopen ticket
 
 
 
@@ -137,11 +135,20 @@ A System handling cryptography like encrypted database entries and such
 
 
 ## Subscriptions
-A system for adding subscriptions like plans etc. (Probably will be a seperate library as it's not used in many projects)
+A system for adding subscriptions for certain "products"/plugins/systems inside the system.
+
+### Content
+- Subscription System where users can subscribe to different subscriptions at once
+- Config variables
+- SubscriptionsHandler class to add/remove subscriptions from users, to check if subscription is valid and to check if user has a certain (valid) subscription
+- Subscriptions inside Admin Interface
+- Create/Edit/Delete Subscriptions in Admin Interface
+- Middleware to check if user has subscription
 
 ### Todo
-- Add a system to create subscription plans with name, description, value and default values
-
+- Add permissions to subscriptions
+- Add subscriptions to groups
+- Add check for permissions in subscriptions check (maybe with $withPermissions parameter)
 
 
 

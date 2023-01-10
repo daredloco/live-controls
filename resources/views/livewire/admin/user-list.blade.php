@@ -27,6 +27,9 @@
                                 @if(config('livecontrols.usergroups_enabled', false))
                                     <a href="#" wire:click.prevent='editGroups({{$user->id}})'>{{ __('livecontrols::admin.groups') }}</a>
                                 @endif
+                                @if(config('livecontrols.subscriptions_enabled', false))
+                                    <a href="#" wire:click.prevent='editSubscriptions({{$user->id}})'>{{ __('livecontrols::admin.subscriptions') }}</a>
+                                @endif
                                 @if($editRoute !== false)
                                     <a href="{{ $editRoute }}">{{ __('livecontrols::general.edit') }}</a> 
                                 @endif
@@ -53,7 +56,7 @@
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
-            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.permissions']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.permissions')]) }}
         </x-slot>
     
         <x-slot name="content">
@@ -84,7 +87,7 @@
     <!-- Groups Modal -->
     <x-jet-dialog-modal wire:model="showGroupModal">
         <x-slot name="title">
-            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.groups']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.groups')]) }}
         </x-slot>
     
         <x-slot name="content">
@@ -109,5 +112,36 @@
         </x-slot>
     </x-jet-dialog-modal>    
     <!-- /Groups Modal -->
+    @endif
+
+    @if(config('livecontrols.subscriptions_enabled', false))
+    <!-- Subscriptions Modal -->
+    <x-jet-dialog-modal wire:model="showSubscriptionsModal">
+        <x-slot name="title">
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.subscriptions')]) }}
+        </x-slot>
+    
+        <x-slot name="content">
+            @if($showSubscriptionsModal === true)
+                @foreach($subscriptions as $subscription)
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                        type="checkbox" value="1" id="perm-{{ $subscription->id }}" wire:click='updateSubscription({{$subscription->id}})'
+                        @if(in_array($subscription->id, $itemSubscriptions)) checked @endif>
+                        <label class="form-check-label" for="perm-{{ $subscription->id }}">
+                            {{ $subscription->name }}
+                        </label>
+                    </div>
+                @endforeach
+            @endif
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('showSubscriptionsModal')" wire:loading.attr="disabled">
+                {{ __('livecontrols::general.close') }}
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-jet-dialog-modal>    
+    <!-- /Subscriptions Modal -->
     @endif
 </div>
