@@ -13,5 +13,7 @@ return [
     "user_added_to_group" => "Benutzer zur Berechtigung hinzugefügt!",
     "user_removed_from_group" => "Benutzer von Berechtigung entfernt!",
     "subscriptions" => "Abonnements",
-    "subscription" => "Abonnement"
+    "subscription" => "Abonnement",
+    "subscription_added" => "Abonnement hinzugefügt",
+    "subscription_removed" => "Abonnement entfernt"
 ];

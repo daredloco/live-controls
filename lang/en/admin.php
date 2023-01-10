@@ -13,5 +13,7 @@ return [
     "user_added_to_group" => "User added to group!",
     "user_removed_from_group" => "User removed from group!",
     "subscriptions" => "Subscriptions",
-    "subscription" => "Subscription"
+    "subscription" => "Subscription",
+    "subscription_added" => "Subscription added",
+    "subscription_removed" => "Subscription_removed"
 ];
