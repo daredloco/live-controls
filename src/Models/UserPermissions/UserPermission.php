@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Models\UserPermissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -31,6 +32,6 @@ class UserPermission extends Model{
 
     public function subscriptions(): BelongsToMany
     {
-        return $this->belongsToMany(UserPermission::class, 'livecontrols_subscription_permissions', 'subscription_id', 'user_permission_id');
+        return $this->belongsToMany(Subscription::class, 'livecontrols_subscription_permissions', 'subscription_id', 'user_permission_id');
     }
 }
