@@ -2,9 +2,8 @@
 
 namespace Helvetiapps\LiveControls\Traits\Subscriptions;
 
-use Helvetiapps\LiveControls\Models\Support\SupportTicket;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\User;
 
 trait HasSubscriptions{
     public function subscriptions():BelongsToMany
