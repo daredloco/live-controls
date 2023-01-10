@@ -53,7 +53,7 @@
     <!-- Permissions Modal -->
     <x-jet-dialog-modal wire:model="showPermissionModal">
         <x-slot name="title">
-            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.permissions']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.permissions')]) }}
         </x-slot>
     
         <x-slot name="content">
@@ -84,7 +84,7 @@
     <!-- Groups Modal -->
     <x-jet-dialog-modal wire:model="showGroupModal">
         <x-slot name="title">
-            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.groups']) }}
+            {{ __('livecontrols::general.edit_type', ['type' => __('livecontrols::admin.groups')]) }}
         </x-slot>
     
         <x-slot name="content">
