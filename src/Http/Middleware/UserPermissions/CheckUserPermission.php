@@ -31,6 +31,17 @@ class CheckUserPermission
             if($permission->users()->where('user_id', '=', auth()->id())->exists()){
                 return $next($request);
             }
+
+            
+            //Check user group permissions
+            if($permission->groups()->whereIn('group_id', auth()->user()->groups()->get()->toArray())->count() > 0){
+                return $next($request);
+            }
+
+            //Check subscriptions permissions
+            if($permission->subscriptions()->whereIn('subscription_id', auth()->user()->subscriptions()->get()->toArray())->count() > 0){
+                return $next($request);
+            }
         }
 
         abort(403);

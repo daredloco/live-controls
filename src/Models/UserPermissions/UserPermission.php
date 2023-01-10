@@ -28,4 +28,9 @@ class UserPermission extends Model{
     {
         return $this->belongsToMany(UserGroup::class, 'group_userpermissions', 'user_group_id', 'user_permission_id');
     }
+
+    public function subscriptions(): BelongsToMany
+    {
+        return $this->belongsToMany(UserPermission::class, 'livecontrols_subscription_permissions', 'user_permission_id', 'subscription_id');
+    }
 }
