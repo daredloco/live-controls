@@ -9,9 +9,12 @@ use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
 class SubscriptionsHandler
 {
-    public static function addToUser(User $user, Subscription|string $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
+    public static function addToUser(User $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
@@ -24,9 +27,12 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function updateFromUser(User $user, Subscription|string $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
+    public static function updateFromUser(User $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
@@ -43,9 +49,12 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function removeFromUser(User $user, Subscription|string $subscription): bool
+    public static function removeFromUser(User $user, Subscription|string|int $subscription): bool
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
@@ -55,15 +64,21 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function addPermission(Subscription|string $subscription, UserPermission|string $permission): bool
+    public static function addPermission(Subscription|string|int $subscription, UserPermission|string|int $permission): bool
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
             return false;
         }
-        if(is_string($permission)){
+        if(is_numeric($permission)){
+            $permission = UserPermission::find($permission);
+        }
+        elseif(is_string($permission)){
             $permission = UserPermission::where('key', '=', $permission)->first();
         }
         if(is_null($permission)){
@@ -73,15 +88,21 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function removePermission(Subscription|string $subscription, UserPermission|string $permission)
+    public static function removePermission(Subscription|string|int $subscription, UserPermission|string|int $permission)
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
             return false;
         }
-        if(is_string($permission)){
+        if(is_numeric($permission)){
+            $permission = UserPermission::find($permission);
+        }
+        elseif(is_string($permission)){
             $permission = UserPermission::where('key', '=', $permission)->first();
         }
         if(is_null($permission)){
@@ -91,9 +112,12 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function hasExpired(User $user, Subscription|string $subscription): bool|null
+    public static function hasExpired(User $user, Subscription|string|int $subscription): bool|null
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
@@ -107,9 +131,12 @@ class SubscriptionsHandler
         return $subscription->pivot->due_date->isPast();
     }
 
-    public static function hasSubscription(User $user, Subscription|string $subscription, bool $withExpired = false): bool
+    public static function hasSubscription(User $user, Subscription|string|int $subscription, bool $withExpired = false): bool
     {
-        if(is_string($subscription)){
+        if(is_numeric($subscription)){
+            $subscription = Subscription::find($subscription);
+        }
+        elseif(is_string($subscription)){
             $subscription = Subscription::where('key', '=', $subscription)->first();
         }
         if(is_null($subscription)){
