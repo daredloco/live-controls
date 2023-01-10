@@ -10,6 +10,7 @@ use Helvetiapps\LiveControls\Exceptions\InvalidUserPermissionException;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Helvetiapps\LiveControls\Scripts\Subscriptions\SubscriptionsHandler;
 use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
 
 class UserList extends Component
@@ -102,11 +103,11 @@ class UserList extends Component
 
     public function updateSubscription($id){
         if($this->itemToEdit->subscriptions->contains($id)){
-            $this->itemToEdit->subscriptions()->detach($id);
+            SubscriptionsHandler::removeFromUser($this->itemToEdit, $id);
             $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.subscription_removed')]);
             return;
         }
-        $this->itemToEdit->subscriptions()->attach($id);
+        SubscriptionsHandler::addToUser($this->itemToEdit, $id);
         $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.subscription_added')]);
     }
 }
