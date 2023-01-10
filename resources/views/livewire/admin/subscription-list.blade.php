@@ -26,6 +26,9 @@
                         <td>{{ $subscription->duration_in_days }}</td>
                         <td>{{ $subscription->description }}</td>
                         <td>
+                            @if(config('livecontrols.userpermissions_enabled', false))
+                                <a href="#" wire:click.prevent='editPermissions({{$subscription->id}})'>{{ __('livecontrols::admin.permissions') }}</a> 
+                            @endif
                             <a href="{{ route('livecontrols.admin.subscriptions.edit', ['subscription' => $subscription->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
                             <a href="{{ route('livecontrols.admin.subscriptions.delete', ['subscription' => $subscription->id]) }}" onclick="event.preventDefault(); document.delete{{ $subscription->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
                             <form name="delete{{$subscription->id}}Form" action="{{ route('livecontrols.admin.subscriptions.delete', ['subscription' => $subscription->id]) }}" method="POST">
@@ -40,4 +43,34 @@
     </div>
     <a href="{{ route('livecontrols.admin.subscriptions.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
+    @if(config('livecontrols.userpermissions_enabled', false))
+    <!-- Permissions Modal -->
+    <x-jet-dialog-modal wire:model="showPermissionModal">
+        <x-slot name="title">
+            {{ __('livecontrols::general.edit_type', ['type' => 'livecontrols::admin.permissions']) }}
+        </x-slot>
+    
+        <x-slot name="content">
+            @if($showPermissionModal === true)
+                @foreach($permissions as $permission)
+                    <div class="form-check">
+                        <input class="form-check-input" 
+                        type="checkbox" value="1" id="perm-{{ $permission->id }}" wire:click='updatePermission({{$permission->id}})'
+                        @if(in_array($permission->id, $itemPermissions)) checked @endif>
+                        <label class="form-check-label" for="perm-{{ $permission->id }}">
+                            {{ $permission->name }}
+                        </label>
+                    </div>
+                @endforeach
+            @endif
+        </x-slot>
+    
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('showPermissionModal')" wire:loading.attr="disabled">
+                {{ __('livecontrols::general.close') }}
+            </x-jet-secondary-button>
+        </x-slot>
+    </x-jet-dialog-modal>    
+    <!-- /Permissions Modal -->
+    @endif
 </div>
