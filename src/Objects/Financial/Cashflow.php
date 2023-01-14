@@ -76,6 +76,34 @@ class Cashflow{
         array_push($this->expenses, $expense);
     }
 
+    public function getProfits(Carbon $from = null, Carbon $to = null): array{
+        $profits = [];
+        if(is_null($from) && is_null($to)){
+            return $this->profits;
+        }
+        foreach($this->profits as $profit)
+        {
+            if($profit->dueDate->between($from, $to)){
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getExpenses(Carbon $from = null, Carbon $to = null): array{
+        $expenses = [];
+        if(is_null($from) && is_null($to)){
+            return $this->expenses;
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->dueDate->between($from, $to)){
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
+    }
+
     public function getPaidProfits(): array{
         $profits = [];
         foreach($this->profits as $profit){
