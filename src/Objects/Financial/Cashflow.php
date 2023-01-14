@@ -126,7 +126,7 @@ class Cashflow{
             $saldo += $profit->value_in_cents;
         }
         foreach($this->expenses as $expense){
-            $saldo += $expense->value_in_cents;
+            $saldo -= $expense->value_in_cents;
         }
         return $saldo;
     }
@@ -137,7 +137,7 @@ class Cashflow{
             $saldo += $profit->value_paid_in_cents;
         }
         foreach($this->expenses as $expense){
-            $saldo += $expense->value_paid_in_cents;
+            $saldo -= $expense->value_paid_in_cents;
         }
         return $saldo;
     }
