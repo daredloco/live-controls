@@ -141,4 +141,44 @@ class Cashflow{
         }
         return $saldo;
     }
+
+    public function getSaldoBetween(Carbon $from, Carbon $to):int
+    {
+        $saldo = 0;
+        foreach($this->profits as $profit)
+        {
+            if($profit->dueDate->between($from,$to))
+            {
+                $saldo += $profit->value_in_cents;
+            }
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->dueDate->between($from,$to))
+            {
+                $saldo -= $expense->value_in_cents;
+            }
+        }
+        return $saldo;
+    }
+
+    public function getPaidSaldoBetween(Carbon $from, Carbon $to):int
+    {
+        $saldo = 0;
+        foreach($this->profits as $profit)
+        {
+            if($profit->paidDate->between($from,$to))
+            {
+                $saldo += $profit->value_paid_in_cents;
+            }
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->paidDate->between($from,$to))
+            {
+                $saldo -= $expense->value_paid_in_cents;
+            }
+        }
+        return $saldo;
+    }
 }
