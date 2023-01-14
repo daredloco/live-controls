@@ -104,44 +104,68 @@ class Cashflow{
         return $expenses;
     }
 
-    public function getPaidProfits(): array{
+    public function getPaidProfits(Carbon $from = null, Carbon $to = null): array{
         $profits = [];
         foreach($this->profits as $profit){
             if($profit->isPaid())
             {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$profit->paidDate->between($from,$to)){
+                        continue;
+                    }
+                }
                 array_push($profits, $profit);
             }
         }
         return $profits;
     }
 
-    public function getPaidExpenses(): array{
+    public function getPaidExpenses(Carbon $from = null, Carbon $to = null): array{
         $expenses = [];
         foreach($this->expenses as $expense){
             if($expense->isPaid())
             {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$expense->paidDate->between($from,$to)){
+                        continue;
+                    }
+                }
                 array_push($expenses, $expense);
             }
         }
         return $expenses;
     }
 
-    public function getUnpaidProfits(): array{
+    public function getUnpaidProfits(Carbon $from = null, Carbon $to = null): array{
         $profits = [];
         foreach($this->profits as $profit){
             if(!$profit->isPaid())
             {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$profit->dueDate->between($from,$to)){
+                        continue;
+                    }
+                }
                 array_push($profits, $profit);
             }
         }
         return $profits;
     }
 
-    public function getUnpaidExpenses(): array{
+    public function getUnpaidExpenses(Carbon $from = null, Carbon $to = null): array{
         $expenses = [];
         foreach($this->expenses as $expense){
-            if($expense->isPaid())
+            if(!$expense->isPaid())
             {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$expense->dueDate->between($from,$to)){
+                        continue;
+                    }
+                }
                 array_push($expenses, $expense);
             }
         }
