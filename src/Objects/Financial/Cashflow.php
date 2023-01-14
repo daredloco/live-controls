@@ -2,6 +2,8 @@
 
 namespace Helvetiapps\LiveControls\Objects\Financial;
 
+use Carbon\Carbon;
+
 class Cashflow{
     public array $profits = [];
     public array $expenses = [];
@@ -38,6 +40,84 @@ class Cashflow{
                 array_push($this->expenses, $expense);
             }
         }
+    }
+
+    public function addProfit(string $documentNumber, string $name, string $description, string $from, int $value_in_cents, int $value_paid_in_cents, Carbon $referenceDate, Carbon $dueDate, Carbon $paidDate)
+    {
+        $profit = new CashflowItem(
+            $documentNumber,
+            $name,
+            $description,
+            $from,
+            $value_in_cents,
+            $value_paid_in_cents,
+            $referenceDate,
+            $dueDate,
+            $paidDate
+        );
+
+        array_push($this->profits, $profit);
+    }
+
+    public function addExpense(string $documentNumber, string $name, string $description, string $from, int $value_in_cents, int $value_paid_in_cents, Carbon $referenceDate, Carbon $dueDate, Carbon $paidDate)
+    {
+        $expense = new CashflowItem(
+            $documentNumber,
+            $name,
+            $description,
+            $from,
+            $value_in_cents,
+            $value_paid_in_cents,
+            $referenceDate,
+            $dueDate,
+            $paidDate
+        );
+
+        array_push($this->expenses, $expense);
+    }
+
+    public function getPaidProfits(): array{
+        $profits = [];
+        foreach($this->profits as $profit){
+            if($profit->isPaid())
+            {
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getPaidExpenses(): array{
+        $expenses = [];
+        foreach($this->expenses as $expense){
+            if($expense->isPaid())
+            {
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
+    }
+
+    public function getUnpaidProfits(): array{
+        $profits = [];
+        foreach($this->profits as $profit){
+            if(!$profit->isPaid())
+            {
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getUnpaidExpenses(): array{
+        $expenses = [];
+        foreach($this->expenses as $expense){
+            if($expense->isPaid())
+            {
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
     }
 
     public function getSaldo():int{

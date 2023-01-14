@@ -28,4 +28,8 @@ class CashflowItem
         $this->dueDate = $dueDate;
         $this->paidDate = $paidDate;
     }
+
+    public function isPaid(): bool{
+        return $this->paidDate != null;
+    }
 }
