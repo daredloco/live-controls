@@ -2,6 +2,8 @@
 
 namespace Helvetiapps\LiveControls\Objects\Financial;
 
+use Carbon\Carbon;
+
 class Cashflow{
     public array $profits = [];
     public array $expenses = [];
@@ -40,13 +42,143 @@ class Cashflow{
         }
     }
 
+    public function addProfit(string $documentNumber, string $name, string $description, string $from, int $value_in_cents, int $value_paid_in_cents, Carbon $referenceDate, Carbon $dueDate, Carbon $paidDate)
+    {
+        $profit = new CashflowItem(
+            $documentNumber,
+            $name,
+            $description,
+            $from,
+            $value_in_cents,
+            $value_paid_in_cents,
+            $referenceDate,
+            $dueDate,
+            $paidDate
+        );
+
+        array_push($this->profits, $profit);
+    }
+
+    public function addExpense(string $documentNumber, string $name, string $description, string $from, int $value_in_cents, int $value_paid_in_cents, Carbon $referenceDate, Carbon $dueDate, Carbon $paidDate)
+    {
+        $expense = new CashflowItem(
+            $documentNumber,
+            $name,
+            $description,
+            $from,
+            $value_in_cents,
+            $value_paid_in_cents,
+            $referenceDate,
+            $dueDate,
+            $paidDate
+        );
+
+        array_push($this->expenses, $expense);
+    }
+
+    public function getProfits(Carbon $from = null, Carbon $to = null): array{
+        $profits = [];
+        if(is_null($from) && is_null($to)){
+            return $this->profits;
+        }
+        foreach($this->profits as $profit)
+        {
+            if($profit->dueDate->between($from, $to)){
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getExpenses(Carbon $from = null, Carbon $to = null): array{
+        $expenses = [];
+        if(is_null($from) && is_null($to)){
+            return $this->expenses;
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->dueDate->between($from, $to)){
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
+    }
+
+    public function getPaidProfits(Carbon $from = null, Carbon $to = null): array{
+        $profits = [];
+        foreach($this->profits as $profit){
+            if($profit->isPaid())
+            {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$profit->paidDate->between($from,$to)){
+                        continue;
+                    }
+                }
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getPaidExpenses(Carbon $from = null, Carbon $to = null): array{
+        $expenses = [];
+        foreach($this->expenses as $expense){
+            if($expense->isPaid())
+            {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$expense->paidDate->between($from,$to)){
+                        continue;
+                    }
+                }
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
+    }
+
+    public function getUnpaidProfits(Carbon $from = null, Carbon $to = null): array{
+        $profits = [];
+        foreach($this->profits as $profit){
+            if(!$profit->isPaid())
+            {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$profit->dueDate->between($from,$to)){
+                        continue;
+                    }
+                }
+                array_push($profits, $profit);
+            }
+        }
+        return $profits;
+    }
+
+    public function getUnpaidExpenses(Carbon $from = null, Carbon $to = null): array{
+        $expenses = [];
+        foreach($this->expenses as $expense){
+            if(!$expense->isPaid())
+            {
+                if(!is_null($from) && !is_null($to))
+                {
+                    if(!$expense->dueDate->between($from,$to)){
+                        continue;
+                    }
+                }
+                array_push($expenses, $expense);
+            }
+        }
+        return $expenses;
+    }
+
     public function getSaldo():int{
         $saldo = 0;
         foreach($this->profits as $profit){
             $saldo += $profit->value_in_cents;
         }
         foreach($this->expenses as $expense){
-            $saldo += $expense->value_in_cents;
+            $saldo -= $expense->value_in_cents;
         }
         return $saldo;
     }
@@ -57,7 +189,47 @@ class Cashflow{
             $saldo += $profit->value_paid_in_cents;
         }
         foreach($this->expenses as $expense){
-            $saldo += $expense->value_paid_in_cents;
+            $saldo -= $expense->value_paid_in_cents;
+        }
+        return $saldo;
+    }
+
+    public function getSaldoBetween(Carbon $from, Carbon $to):int
+    {
+        $saldo = 0;
+        foreach($this->profits as $profit)
+        {
+            if($profit->dueDate->between($from,$to))
+            {
+                $saldo += $profit->value_in_cents;
+            }
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->dueDate->between($from,$to))
+            {
+                $saldo -= $expense->value_in_cents;
+            }
+        }
+        return $saldo;
+    }
+
+    public function getPaidSaldoBetween(Carbon $from, Carbon $to):int
+    {
+        $saldo = 0;
+        foreach($this->profits as $profit)
+        {
+            if($profit->paidDate->between($from,$to))
+            {
+                $saldo += $profit->value_paid_in_cents;
+            }
+        }
+        foreach($this->expenses as $expense)
+        {
+            if($expense->paidDate->between($from,$to))
+            {
+                $saldo -= $expense->value_paid_in_cents;
+            }
         }
         return $saldo;
     }
