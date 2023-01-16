@@ -4,13 +4,20 @@ namespace Helvetiapps\LiveControls\Scripts\Subscriptions;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
 class SubscriptionsHandler
 {
-    public static function addToUser(User $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
+    public static function addToUser(User|int $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
     {
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            return false;
+        }
         if(is_numeric($subscription)){
             $subscription = Subscription::find($subscription);
         }
@@ -27,8 +34,14 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function updateFromUser(User $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
+    public static function updateFromUser(User|int $user, Subscription|string|int $subscription, ?int $value_in_cents = null, Carbon $due_date = null):bool
     {
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            return false;
+        }
         if(is_numeric($subscription)){
             $subscription = Subscription::find($subscription);
         }
@@ -49,8 +62,15 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function removeFromUser(User $user, Subscription|string|int $subscription): bool
+    public static function removeFromUser(User|int $user, Subscription|string|int $subscription): bool
     {
+        
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            return false;
+        }
         if(is_numeric($subscription)){
             $subscription = Subscription::find($subscription);
         }
@@ -112,8 +132,14 @@ class SubscriptionsHandler
         return true;
     }
 
-    public static function hasExpired(User $user, Subscription|string|int $subscription): bool|null
+    public static function hasExpired(User|int $user, Subscription|string|int $subscription): bool|null
     {
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            return false;
+        }
         if(is_numeric($subscription)){
             $subscription = Subscription::find($subscription);
         }
@@ -131,8 +157,14 @@ class SubscriptionsHandler
         return $subscription->pivot->due_date->isPast();
     }
 
-    public static function hasSubscription(User $user, Subscription|string|int $subscription, bool $withExpired = false): bool
+    public static function hasSubscription(User|int $user, Subscription|string|int $subscription, bool $withExpired = false): bool
     {
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            return false;
+        }
         if(is_numeric($subscription)){
             $subscription = Subscription::find($subscription);
         }
@@ -154,5 +186,21 @@ class SubscriptionsHandler
         }
 
         return true;
+    }
+
+    public static function getExpiredSubscriptions(User|int $user):array{
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            throw new Exception('Invalid User');
+        }
+        $expiredOnes = [];
+        foreach($user->subscriptions as $subscription){
+            if(static::hasExpired($user, $subscription)){
+                array_push($expiredOnes, $subscription);
+            }
+        }
+        return $expiredOnes;
     }
 }

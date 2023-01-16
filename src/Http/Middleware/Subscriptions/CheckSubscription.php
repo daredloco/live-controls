@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Http\Middleware\Subscriptions;
 use Closure;
 use Helvetiapps\LiveControls\Exceptions\InvalidSubscriptionException;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
+use Helvetiapps\LiveControls\Scripts\Subscriptions\SubscriptionsHandler;
 use Illuminate\Http\Request;
 
 class CheckSubscription
@@ -28,11 +29,19 @@ class CheckSubscription
                 throw new InvalidSubscriptionException($key);
             }
             
-            if($subscription->users()->where('user_id', '=', auth()->id())->exists()){
+            if(SubscriptionsHandler::hasSubscription(auth()->id(), $subscription, false)){
+                if(SubscriptionsHandler::hasExpired(auth()->id(), $subscription)){
+                    if(!is_null(config('livecontrols.subscriptions_due_route', null))){
+                        return redirect()->route(config('livecontrols.subscriptions_due_route'));
+                    }else{
+                        abort(403);
+                    }
+                }
                 return $next($request);
             }
         }
 
+        
         abort(403);
     }
 }
