@@ -4,6 +4,7 @@ namespace Helvetiapps\LiveControls\Scripts\Subscriptions;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Exception;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 
@@ -185,5 +186,21 @@ class SubscriptionsHandler
         }
 
         return true;
+    }
+
+    public static function getExpiredSubscriptions(User|int $user):array{
+        if(is_numeric($user)){
+            $user = User::find($user);
+        }
+        if(is_null($user)){
+            throw new Exception('Invalid User');
+        }
+        $expiredOnes = [];
+        foreach($user->subscriptions as $subscription){
+            if(static::hasExpired($user, $subscription)){
+                array_push($expiredOnes, $subscription);
+            }
+        }
+        return $expiredOnes;
     }
 }
