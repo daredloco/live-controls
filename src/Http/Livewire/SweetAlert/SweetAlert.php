@@ -35,6 +35,8 @@ class SweetAlert extends Component
     public $imageWidth;
     public $imageAlt;
 
+    public $customOptions;
+
     protected $listeners = ['popupSent' => 'createPopup'];
 
     public function mount(){
@@ -113,6 +115,9 @@ class SweetAlert extends Component
             'inputFields' => $this->inputFields
         ];
 
+        if(!is_null($this->customOptions)){
+            $popupArr = array_merge($popupArr, $this->customOptions);
+        }
         $this->emit('showPopup', $popupArr);
     }
 }
