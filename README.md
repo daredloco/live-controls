@@ -68,7 +68,7 @@ A System handling permissions for users or user groups, developer can add specif
 - HasPermissions trait for Users
 
 ### Todo
-- Check if Subscription has expired inside the CheckUserPermission Middleware
+- Check if Subscription has expired inside the PermissionsHandler check
 
 
 
