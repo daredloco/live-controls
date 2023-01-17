@@ -154,7 +154,7 @@ class SubscriptionsHandler
             return null;
         }
 
-        return $subscription->pivot->due_date->isPast();
+        return (new \Carbon\Carbon($subscription->pivot->due_date))->isPast();
     }
 
     public static function hasSubscription(User|int $user, Subscription|string|int $subscription, bool $withExpired = false): bool
