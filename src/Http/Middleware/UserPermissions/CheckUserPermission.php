@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Http\Middleware\UserPermissions;
 use Closure;
 use Helvetiapps\LiveControls\Exceptions\InvalidUserPermissionException;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Helvetiapps\LiveControls\Scripts\Subscriptions\SubscriptionsHandler;
 use Illuminate\Http\Request;
 
 class CheckUserPermission
@@ -42,7 +43,17 @@ class CheckUserPermission
 
             //Check subscriptions permissions
             if(config('livecontrols.subscriptions_enabled', false)){
-                if($permission->subscriptions()->whereIn('subscription_id', auth()->user()->subscriptions()->get()->toArray())->count() > 0){
+                if($permission->subscriptions()->where('subscription_id', auth()->user()->subscriptions()->get()->toArray())->count() > 0){
+                    foreach($permission->subscriptions()->where('subscription_id', auth()->user()->subscriptions()->get()->toArray())->get() as $subscription)
+                    {
+                        if(SubscriptionsHandler::hasExpired(auth()->id(), $subscription)){
+                            if(!is_null(config('livecontrols.subscriptions_due_route', null))){
+                                return redirect()->route(config('livecontrols.subscriptions_due_route'));
+                            }else{
+                                abort(403);
+                            }
+                        }
+                    }
                     return $next($request);
                 }
             }
