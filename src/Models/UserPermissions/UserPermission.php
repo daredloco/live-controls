@@ -32,6 +32,6 @@ class UserPermission extends Model{
 
     public function subscriptions(): BelongsToMany
     {
-        return $this->belongsToMany(Subscription::class, 'livecontrols_subscription_permissions', 'subscription_id', 'user_permission_id');
+        return $this->belongsToMany(Subscription::class, 'livecontrols_subscription_permissions', 'subscription_id', 'user_permission_id')->withPivot(['due_date']);
     }
 }
