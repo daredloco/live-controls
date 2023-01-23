@@ -213,7 +213,7 @@
                 Swal.fire({
                     title: '{{ __('livecontrols::alerts.error') }}',
                     text: toastarr["detail"][1],
-                    icon: "exception",
+                    icon: "error",
                     showConfirmButton: false,
                     showDenyButton: false,
                     showCancelButton: false,
