@@ -67,6 +67,10 @@ A System handling permissions for users or user groups, developer can add specif
 - Artisan commands to add Permissions and add/remove user/usergroups from permissions: livecontrols:addpermission, livecontrols:setpermission, livecontrols:unsetpermission
 - HasPermissions trait for Users
 
+### Todo
+- Check if Subscription has expired inside the PermissionsHandler check
+
+
 
 
 ## Support Tickets System
