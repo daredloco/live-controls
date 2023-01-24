@@ -85,6 +85,6 @@ class GroupsHandler
         if(is_null($group)){
             throw new Exception('Invalid group!');
         }
-        return $user->groups()->exists($group->id);
+        return $user->groups()->where('user_group_id', '=', $group->id)->exists();
     }
 }
