@@ -82,7 +82,7 @@ class UserList extends Component
     public function updateGroup($id){
         if($this->itemToEdit->groups->contains($id)){
             $this->itemToEdit->groups()->detach($id);
-            $this->popup(['type' => 'success', 'message' => __('livecontrols.admin.user_removed_from_group')]);
+            $this->popup(['type' => 'success', 'message' => __('livecontrols::admin.user_removed_from_group')]);
             return;
         }
         $this->itemToEdit->groups()->attach($id);
