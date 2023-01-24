@@ -77,18 +77,23 @@ class GroupsHandler
            throw new Exception('Invalid user!');
         }
         if(is_array($group)){
-            foreach($group as $singleGroup){
-                if(is_numeric($singleGroup)){
-                    $singleGroup = UserGroup::find($singleGroup);
-                }
-                elseif(is_string($singleGroup)){
-                    $singleGroup = UserGroup::where('key', '=', $singleGroup)->first();
-                }
-                if(is_null($singleGroup)){
-                    throw new Exception('Invalid group!');
-                }
-                if($user->groups()->where('user_group_id', '=', $singleGroup->id)->exists()){
+            if(is_numeric($group[0])){
+                if($user->groups()->whereIn('user_group_id', $group)->count() > 0){
                     return true;
+                }
+            }
+            elseif(is_string($group[0])){
+                if($user->groups()->whereIn('livecontrols_user_groups.key', $group)->count() > 0){
+                    return true;
+                }
+            }else{
+                foreach($group as $singleGroup){
+                    if(is_null($singleGroup)){
+                        throw new Exception('Invalid group!');
+                    }
+                    if($user->groups()->where('user_group_id', '=', $singleGroup->id)->exists()){
+                        return true;
+                    }
                 }
             }
             return false;
