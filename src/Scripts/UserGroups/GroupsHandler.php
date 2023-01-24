@@ -69,13 +69,31 @@ class GroupsHandler
         $user->groups()->attach($group->id);
     }
 
-    public static function inGroup(User|int $user, UserGroup|string|int $group):bool{
+    public static function inGroup(User|int $user, UserGroup|string|int|array $group):bool{
         if(is_numeric($user)){
             $user = User::find($user);
         }
         if(is_null($user)){
            throw new Exception('Invalid user!');
         }
+        if(is_array($group)){
+            foreach($group as $singleGroup){
+                if(is_numeric($singleGroup)){
+                    $singleGroup = UserGroup::find($singleGroup);
+                }
+                elseif(is_string($singleGroup)){
+                    $singleGroup = UserGroup::where('key', '=', $singleGroup)->first();
+                }
+                if(is_null($singleGroup)){
+                    throw new Exception('Invalid group!');
+                }
+                if($user->groups()->where('user_group_id', '=', $singleGroup->id)->exists()){
+                    return true;
+                }
+            }
+            return false;
+        }
+        
         if(is_numeric($group)){
             $group = UserGroup::find($group);
         }
