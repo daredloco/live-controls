@@ -220,7 +220,12 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 - Add BBCode backend
 
 
+## User blocking/banning
+Add a system to block users for a certain amount of time or ban them completely. This should be done not only by email, but by IP and other systems
 
+### Todo
+- Think about an implementation of this system
+- Maybe add a blacklist of names(?)
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
