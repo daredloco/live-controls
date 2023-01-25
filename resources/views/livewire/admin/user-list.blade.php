@@ -30,7 +30,7 @@
                                 @if(config('livecontrols.subscriptions_enabled', false))
                                     <a href="#" wire:click.prevent='editSubscriptions({{$user->id}})'>{{ __('livecontrols::admin.subscriptions') }}</a>
                                 @endif
-                                @if($editRoute !== false && config('livecontrols.admininterface_master', null) != $user->id)
+                                @if($editRoute !== false)
                                     <a href="{{ route(config('livecontrols.routes_users')['edit'], ['user' => $user->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
                                 @endif
 
