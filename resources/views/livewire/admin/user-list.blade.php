@@ -31,12 +31,12 @@
                                     <a href="#" wire:click.prevent='editSubscriptions({{$user->id}})'>{{ __('livecontrols::admin.subscriptions') }}</a>
                                 @endif
                                 @if($editRoute !== false)
-                                    <a href="{{ $editRoute }}">{{ __('livecontrols::general.edit') }}</a> 
+                                    <a href="{{ route(config('livecontrols.routes_users')['edit'], ['user' => $user->id]) }}">{{ __('livecontrols::general.edit') }}</a> 
                                 @endif
 
                                 @if($deleteRoute !== false)
-                                    <a href="{{ $deleteRoute }}" onclick="event.preventDefault(); document.delete{{ $user->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
-                                    <form name="delete{{$user->id}}Form" action="{{ route($deleteRoute, ['user' => $user->id]) }}" method="POST">
+                                    <a href="{{ route(config('livecontrols.routes_users')['delete']) }}" onclick="event.preventDefault(); document.delete{{ $user->id }}Form.submit();">{{ __('livecontrols::general.delete') }}</a>
+                                    <form name="delete{{$user->id}}Form" action="{{ route(config('livecontrols.routes_users')['delete'], ['user' => $user->id]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     </form>  
