@@ -11,7 +11,7 @@
             <p class="card-text">
                 {!! nl2br($supportTicket->body) !!}
             </p>
-            <a href="#delete" style="color: rgb(184, 4, 4);" onclick="event.preventDefault(); document.deleteSt{{ $supportTicket->id }}Form.submit();">Remove</a>
+            <a href="#delete" style="color: rgb(184, 4, 4);" onclick="event.preventDefault(); document.deleteSt{{ $supportTicket->id }}Form.submit();">{{ __('livecontrols::general.remove') }}</a>
             
             <form name="deleteSt{{$supportTicket->id}}Form" action="{{ route('livecontrols.support.delete', ['supportTicket' => $supportTicket->id]) }}" method="POST">
                 @csrf
