@@ -67,7 +67,7 @@
             @endif
 
             @foreach($customPages as $label => $key)
-                <a wire:click.prevent="changePage('{{ $key }}')">{{ $label }}</a>
+                <a @if($page == urlencode($label)) class="active" @endif wire:click.prevent="changePage('{{ $label }}')">{{ $label }}</a>
             @endforeach
         </div>
         <div class="col-md-9 content">
@@ -82,9 +82,9 @@
             @elseif($page == 'subscriptions' && config('livecontrols.subscriptions_enabled'))
                 @livewire('livecontrols-admin-subscriptionlist', [], key('admin-subscriptionlist'))
             @endif
-            @foreach($customPages as $key)
-                @if($page == $key)
-                    @livewire($key)
+            @foreach($customPages as $key => $value)
+                @if($page == urlencode($key))
+                    @livewire($value)
                 @endif
             @endforeach
         </div>

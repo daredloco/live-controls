@@ -22,7 +22,7 @@ class Main extends Component
         return view('livecontrols::livewire.admin.main', ['customPages' => $customPages]);
     }
 
-    public function changePage($page){
-        $this->page = $page;
+    public function changePage($label){
+        $this->page = urlencode($label);
     }
 }
