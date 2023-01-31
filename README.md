@@ -215,9 +215,11 @@ A masked input based on iMask
 ## BBEditor
 A BBEditor based on SCEditor (Probably generate own library out of this)
 
+### Content
+- Simple BB Editor livewire control
+
 ### Todo
-- Add BBEditor livewire control
-- Add BBCode backend
+- Add placeholders like in private system, but more dynamic
 
 
 ## User blocking/banning
