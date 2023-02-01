@@ -21,11 +21,13 @@ class Calendar extends Component
         if(is_null($this->events)){
             $this->events = [];
         }
+        if(is_null($this->convertedEvents)){
+            $this->convertEvents();
+        }
     }
 
     public function render()
     {
-        $this->convertEvents();
         return view('livecontrols::livewire.calendar.calendar');
     }
 
