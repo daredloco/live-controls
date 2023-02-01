@@ -225,8 +225,13 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 ## Calendar
 A Calendar based on FullCalendar.io
 
+### Content
+- Livewire Control with @livewire('livecontrols-calendar')
+
 ### Todo
-- Implement FullCalendar.io
+- Add custom options for time shown etc.
+- Add dayview
+- Add more options
 
 
 ## User blocking/banning
