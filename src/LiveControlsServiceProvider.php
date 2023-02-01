@@ -16,6 +16,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\SubscriptionList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Livewire\AutoCEP\AutoCep;
 use Helvetiapps\LiveControls\Http\Livewire\BbEditor\BbEditor;
+use Helvetiapps\LiveControls\Http\Livewire\Calendar\Calendar;
 use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
@@ -78,7 +79,8 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-autocep', AutoCep::class);
     Livewire::component('livecontrols-masked-input', MaskedInput::class);
     Livewire::component('livecontrols-bbeditor', BbEditor::class);
-
+    Livewire::component('livecontrols-calendar', Calendar::class);
+    
     //Load Blade Components
     Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
     

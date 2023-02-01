@@ -222,6 +222,18 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 - Add placeholders like in private system, but more dynamic
 
 
+## Calendar
+A Calendar based on FullCalendar.io
+
+### Content
+- Livewire Control with @livewire('livecontrols-calendar')
+
+### Todo
+- Add custom options for time shown etc.
+- Add dayview
+- Add more options
+
+
 ## User blocking/banning
 Add a system to block users for a certain amount of time or ban them completely. This should be done not only by email, but by IP and other systems
 
