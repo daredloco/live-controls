@@ -38,6 +38,8 @@ class Calendar extends Component
                 'title' => $title,
                 'start' => $start
             ];
+
+            array_push($events, $event);
         }
 
         $this->convertedEvents = $events;
