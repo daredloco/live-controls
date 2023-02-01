@@ -221,11 +221,13 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 ### Todo
 - Add placeholders like in private system, but more dynamic
 
+
 ## Calendar
 A Calendar based on FullCalendar.io
 
 ### Todo
 - Implement FullCalendar.io
+
 
 ## User blocking/banning
 Add a system to block users for a certain amount of time or ban them completely. This should be done not only by email, but by IP and other systems
