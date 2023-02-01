@@ -8,6 +8,11 @@ class CalendarEvents{
 
     private $events = [];
 
+    public function __construct()
+    {
+        
+    }
+    
     public function add(string $title, Carbon $start, Carbon $end = null, bool $allDay = false){
         $event = [
             'title' => $title,
