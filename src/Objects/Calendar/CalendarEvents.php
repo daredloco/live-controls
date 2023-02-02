@@ -13,8 +13,9 @@ class CalendarEvents{
         
     }
 
-    public function add(string $title, Carbon $start, Carbon $end = null, bool $allDay = false){
+    public function add(string $id, string $title, Carbon $start, Carbon $end = null, bool $allDay = false){
         $event = [
+            'id' => $id,
             'title' => $title,
             'start' => $start->format('Y-m-d').'T'.$start->format('H:i:s'),
             'allDay' => $allDay

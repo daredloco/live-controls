@@ -2,6 +2,8 @@
 
 namespace Helvetiapps\LiveControls\Http\Livewire\Calendar;
 
+use Carbon\Carbon;
+use Exception;
 use Livewire\Component;
 
 class Calendar extends Component
@@ -11,6 +13,12 @@ class Calendar extends Component
     public $events;
     public $convertedEvents;
     
+    public $eventClickCallback;
+    public $eventClickBrowserEvent;
+    public $eventClickLiveEvent;
+
+    public $random;
+
     public function mount(){
         if(is_null($this->elementId)){
             $this->elementId = "calendar";
@@ -28,7 +36,12 @@ class Calendar extends Component
 
     public function render()
     {
+        //$this->random = Carbon::now()->timestamp;
         return view('livecontrols::livewire.calendar.calendar');
+    }
+
+    public function hydrate(){
+        $this->dispatchBrowserEvent('refreshCalendar');
     }
 
     private function convertEvents()
@@ -45,5 +58,21 @@ class Calendar extends Component
         }
 
         $this->convertedEvents = $events;
+    }
+
+    public function clickEvent($info){
+        if(!is_null($this->eventClickCallback)){
+            $callback = $this->eventClickCallback;
+            if(!is_callable($callback)){
+                throw new Exception("The clickEvent callback \"".$callback."\" is not callable!");
+            }
+            $callback($info);
+        }
+        if(!is_null($this->eventClickBrowserEvent)){
+            $this->dispatchBrowserEvent($this->eventClickBrowserEvent, $info);
+        }
+        if(!is_null($this->eventClickLiveEvent)){
+            $this->emit($this->eventClickLiveEvent, $info);
+        }
     }
 }
