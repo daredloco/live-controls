@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls\Http\Livewire\Calendar;
 
+use Exception;
 use Livewire\Component;
 
 class Calendar extends Component
@@ -11,6 +12,8 @@ class Calendar extends Component
     public $events;
     public $convertedEvents;
     
+    public $eventClickCallback;
+
     public function mount(){
         if(is_null($this->elementId)){
             $this->elementId = "calendar";
@@ -45,5 +48,13 @@ class Calendar extends Component
         }
 
         $this->convertedEvents = $events;
+    }
+
+    public function clickEvent($id){
+        $callback = $this->eventClickCallback;
+        if(!is_callable($callback)){
+            throw new Exception("The clickEvent callback \"".$callback."\" is not callable!");
+        }
+        $callback($id);
     }
 }
