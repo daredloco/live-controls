@@ -40,6 +40,10 @@ class Calendar extends Component
         return view('livecontrols::livewire.calendar.calendar');
     }
 
+    public function hydrate(){
+        $this->dispatchBrowserEvent('refreshCalendar');
+    }
+
     private function convertEvents()
     {
         $events = [];
