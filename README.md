@@ -227,6 +227,7 @@ A Calendar based on FullCalendar.io
 
 ### Content
 - Livewire Control with @livewire('livecontrols-calendar')
+- Added eventClick events
 
 ### Todo
 - Add custom options for time shown etc.
