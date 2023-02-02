@@ -36,7 +36,7 @@ class Calendar extends Component
 
     public function render()
     {
-        $this->random = Carbon::now()->timestamp;
+        //$this->random = Carbon::now()->timestamp;
         return view('livecontrols::livewire.calendar.calendar');
     }
 
