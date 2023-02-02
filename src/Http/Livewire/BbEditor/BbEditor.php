@@ -23,6 +23,11 @@ class BbEditor extends Component
 
     public $savebutton;
 
+    public $theme; //The link to the theme
+    public $dateFormat; //The dateformat
+
+    public $language; //An array of languages to be used
+
     public function mount()
     {
         if(is_null($this->areaid))
@@ -52,6 +57,12 @@ class BbEditor extends Component
         if(is_null($this->savebutton))
         {
             $this->savebutton = true;
+        }
+        if(is_null($this->theme)){
+            $this->theme = "https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css";
+        }
+        if(is_null($this->dateFormat)){
+            $this->dateFormat = "day/month/year";
         }
     }
 
