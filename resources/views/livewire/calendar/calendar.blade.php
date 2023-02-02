@@ -23,7 +23,7 @@
         document.addEventListener('refreshCalendar', function(){
             calendarEl = document.getElementById('{{ $elementId.$random }}');
             calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: '{{ $initialView }}',
             events: @json($convertedEvents),
             eventTimeFormat: {
               hour: '2-digit',
