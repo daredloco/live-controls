@@ -20,5 +20,5 @@
         });
     </script>
 
-    <div id='{{ $elementId.$random }}'></div>
+    <div id='{{ $elementId.$random }}' wire:ignore></div>
 </div>
