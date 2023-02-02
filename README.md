@@ -233,6 +233,7 @@ A Calendar based on FullCalendar.io
 - Add custom options for time shown etc.
 - Add dayview
 - Add more options
+- Make design better on mobile devices
 
 
 ## User blocking/banning
