@@ -16,6 +16,9 @@
               @this.clickEvent(info);
             }
           });
+          @foreach($options as $key => $value)
+            calendar.setOption('{{ $key }}', '{{ $value }}');
+          @endforeach
           calendar.setOption('locale', '{{ $locale }}');
           calendar.render();
         });
@@ -34,6 +37,9 @@
               @this.clickEvent(info);
             }
           });
+          @foreach($options as $key => $value)
+            calendar.setOption('{{ $key }}', '{{ $value }}');
+          @endforeach
           calendar.setOption('locale', '{{ $locale }}');
           calendar.render();
         });

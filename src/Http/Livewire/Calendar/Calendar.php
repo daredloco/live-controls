@@ -19,6 +19,8 @@ class Calendar extends Component
 
     public $initialView;
 
+    public $options;
+
     public $random;
 
     public function mount(){
@@ -36,6 +38,9 @@ class Calendar extends Component
         }
         if(is_null($this->initialView)){
             $this->initialView = "dayGridMonth";
+        }
+        if(is_null($this->options)){
+            $this->options = [];
         }
     }
 
