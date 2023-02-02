@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls\Http\Livewire\Calendar;
 
+use Carbon\Carbon;
 use Exception;
 use Livewire\Component;
 
@@ -35,7 +36,7 @@ class Calendar extends Component
 
     public function render()
     {
-        $this->random = rand(0,1000000);
+        $this->random = Carbon::now()->timestamp;
         return view('livecontrols::livewire.calendar.calendar');
     }
 
