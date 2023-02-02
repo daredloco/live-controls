@@ -5,8 +5,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
-    @if(!is_null($language))
-        <script src="https://cdn.jsdelivr.net/npm/sceditor@3/languages/{{ $language }}.js"></script>
+    @if(!is_null($locale))
+        <script src="https://cdn.jsdelivr.net/npm/sceditor@3/languages/{{ $locale }}.js"></script>
     @endif
 
 

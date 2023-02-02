@@ -26,7 +26,7 @@ class BbEditor extends Component
     public $theme; //The link to the theme
     public $dateFormat; //The dateformat
 
-    public $language; //An array of languages to be used
+    public $locale; //The locale to be used
 
     public function mount()
     {
