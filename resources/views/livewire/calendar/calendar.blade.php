@@ -10,12 +10,10 @@
               hour: '2-digit',
               minute: '2-digit',
               meridiem: false
-            }
-            @if(!is_null($eventClickCallback))
-            ,eventClick: function(info){
+            },
+            eventClick: function(info){
               @this.clickEvent(info);
             }
-            @endif
           });
           calendar.setOption('locale', '{{ $locale }}');
           calendar.render();

@@ -13,6 +13,8 @@ class Calendar extends Component
     public $convertedEvents;
     
     public $eventClickCallback;
+    public $eventClickBrowserEvent;
+    public $eventClickLiveEvent;
 
     public function mount(){
         if(is_null($this->elementId)){
@@ -50,11 +52,19 @@ class Calendar extends Component
         $this->convertedEvents = $events;
     }
 
-    public function clickEvent($id){
-        $callback = $this->eventClickCallback;
-        if(!is_callable($callback)){
-            throw new Exception("The clickEvent callback \"".$callback."\" is not callable!");
+    public function clickEvent($info){
+        if(!is_null($this->eventClickCallback)){
+            $callback = $this->eventClickCallback;
+            if(!is_callable($callback)){
+                throw new Exception("The clickEvent callback \"".$callback."\" is not callable!");
+            }
+            $callback($info);
         }
-        $callback($id);
+        if(!is_null($this->eventClickBrowserEvent)){
+            $this->dispatchBrowserEvent($this->eventClickBrowserEvent, $info);
+        }
+        if(!is_null($this->eventClickLiveEvent)){
+            $this->emit($this->eventClickLiveEvent, $info);
+        }
     }
 }
