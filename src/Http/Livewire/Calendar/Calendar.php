@@ -16,6 +16,8 @@ class Calendar extends Component
     public $eventClickBrowserEvent;
     public $eventClickLiveEvent;
 
+    public $random;
+
     public function mount(){
         if(is_null($this->elementId)){
             $this->elementId = "calendar";
@@ -33,6 +35,7 @@ class Calendar extends Component
 
     public function render()
     {
+        $this->random = rand(0,1000000);
         return view('livecontrols::livewire.calendar.calendar');
     }
 
