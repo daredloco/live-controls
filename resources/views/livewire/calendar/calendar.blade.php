@@ -5,7 +5,7 @@
         document.addEventListener('DOMContentLoaded', function() {
           var calendarEl = document.getElementById('{{ $elementId.$random }}');
           var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: '{{ $initialView }}',
             events: @json($convertedEvents),
             eventTimeFormat: {
               hour: '2-digit',
@@ -16,6 +16,9 @@
               @this.clickEvent(info);
             }
           });
+          @foreach($options as $key => $value)
+            calendar.setOption('{{ $key }}', '{{ $value }}');
+          @endforeach
           calendar.setOption('locale', '{{ $locale }}');
           calendar.render();
         });
@@ -23,7 +26,7 @@
         document.addEventListener('refreshCalendar', function(){
             calendarEl = document.getElementById('{{ $elementId.$random }}');
             calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: '{{ $initialView }}',
             events: @json($convertedEvents),
             eventTimeFormat: {
               hour: '2-digit',
@@ -34,6 +37,9 @@
               @this.clickEvent(info);
             }
           });
+          @foreach($options as $key => $value)
+            calendar.setOption('{{ $key }}', '{{ $value }}');
+          @endforeach
           calendar.setOption('locale', '{{ $locale }}');
           calendar.render();
         });

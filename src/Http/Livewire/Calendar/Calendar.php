@@ -17,6 +17,10 @@ class Calendar extends Component
     public $eventClickBrowserEvent;
     public $eventClickLiveEvent;
 
+    public $initialView;
+
+    public $options;
+
     public $random;
 
     public function mount(){
@@ -31,6 +35,12 @@ class Calendar extends Component
         }
         if(is_null($this->convertedEvents)){
             $this->convertEvents();
+        }
+        if(is_null($this->initialView)){
+            $this->initialView = "dayGridMonth";
+        }
+        if(is_null($this->options)){
+            $this->options = [];
         }
     }
 

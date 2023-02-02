@@ -5,7 +5,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sceditor@3/languages/pt.js"></script>
+    @if(!is_null($language))
+        <script src="https://cdn.jsdelivr.net/npm/sceditor@3/languages/{{ $language }}.js"></script>
+    @endif
 
 
       <textarea name="{{ $areaid }}" id="{{ $areaid }}" class="form-control" style="height: 350px;"></textarea>
@@ -20,11 +22,11 @@
         var textarea = document.getElementById('{{ $areaid }}');
         sceditor.create(textarea, {
             format: 'bbcode',
-            style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css',
+            style: '{{ $theme }}',
             emoticonsEnabled: false,
             resizeEnabled: false,
             toolbar: "bold,italic,underline,strike|subscript,superscript|left,center,right,justify|size,color,removeformat|cut,copy,paste|image,bulletlist,orderedlist|horizontalrule|email,link,unlink|date|time|ltr,rtl",
-            dateFormat: "day/month/year",
+            dateFormat: "{{ $dateFormat }}",
             autoUpdate: false,
             enablePasteFiltering: true
         });
