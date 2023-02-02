@@ -84,7 +84,7 @@
             @endif
             @foreach($customPages as $key => $value)
                 @if($page == urlencode($key))
-                    @livewire($value)
+                    @livewire($value, [], key($key.now()))
                 @endif
             @endforeach
         </div>
