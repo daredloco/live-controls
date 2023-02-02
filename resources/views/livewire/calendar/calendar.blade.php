@@ -1,4 +1,5 @@
 <div>
+  @push('scripts')
     <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.1/index.global.min.js "></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -19,6 +20,6 @@
           calendar.render();
         });
     </script>
-
-    <div id='{{ $elementId.$random }}' wire:ignore.self></div>
+  @endpush
+    <div id='{{ $elementId.$random }}'></div>
 </div>
