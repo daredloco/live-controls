@@ -20,4 +20,24 @@ trait HasGroups{
         }
         return false;
     }
+
+    public function inOneGroup(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->inGroup($key)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function inGroups(array $keys): bool
+    {
+        foreach($keys as $key){
+            if(!$this->inGroup($key)){
+                return false;
+            }
+        }
+        return true;
+    }
 }
