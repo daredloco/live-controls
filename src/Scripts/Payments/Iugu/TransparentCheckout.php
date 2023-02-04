@@ -4,7 +4,6 @@ namespace Helvetiapps\LiveControls\Scripts\Payments\Iugu;
 
 use Carbon\Carbon;
 use Exception;
-use GuzzleHttp\Client;
 use Helvetiapps\LiveControls\Objects\Payments\Iugu\PaymentSender;
 use Illuminate\Support\Facades\Log;
 

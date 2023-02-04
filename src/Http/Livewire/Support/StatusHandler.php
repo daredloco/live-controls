@@ -2,7 +2,6 @@
 
 namespace Helvetiapps\LiveControls\Http\Livewire\Support;
 
-use Helvetiapps\LiveControls\Models\Support\SupportMessage;
 use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
 use Livewire\Component;
 

@@ -3,7 +3,6 @@
 namespace Helvetiapps\LiveControls\Http\Middleware\AdminInterface;
 
 use Closure;
-use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Illuminate\Http\Request;
 
 class CheckIsAdmin

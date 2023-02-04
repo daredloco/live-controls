@@ -25,12 +25,9 @@ use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
-use Helvetiapps\LiveControls\Models\Crypto\EncryptedModel;
 use Helvetiapps\LiveControls\Scripts\PermissionsHandler;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 
@@ -82,7 +79,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-calendar', Calendar::class);
     
     //Load Blade Components
-    Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
+    // Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
     
     //MACROS
     //Add Popup Macros
