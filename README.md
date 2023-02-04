@@ -235,6 +235,11 @@ A Calendar based on FullCalendar.io
 - Add more options
 - Make design better on mobile devices
 
+## Dynamic Pages
+Pages with controls that can be dynamically added and positioned
+
+### Todo
+- Add base system
 
 ## User blocking/banning
 Add a system to block users for a certain amount of time or ban them completely. This should be done not only by email, but by IP and other systems

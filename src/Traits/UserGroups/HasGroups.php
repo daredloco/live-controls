@@ -10,4 +10,14 @@ trait HasGroups{
     {
         return $this->belongsToMany(UserGroup::class, 'livecontrols_user_usergroups', 'user_id', 'user_group_id');
     }
+
+    public function inGroup(string $key) : bool
+    {
+        foreach($this->groups as $group){
+            if($group->key == $key){
+                return true;
+            }
+        }
+        return false;
+    }
 }
