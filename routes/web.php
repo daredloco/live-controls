@@ -18,7 +18,7 @@ Route::middleware(array_merge([
     )->group(function(){
 
         //SUPPORT SYSTEM
-        Route::prefix(config('livecontrols.support_prefix'))->group(function () {
+        Route::prefix(config('livecontrols.support_prefix', 'support'))->group(function () {
             Route::get('tickets', [SupportTicketController::class, 'index'])->name('livecontrols.support.index');
             Route::get('tickets/new', [SupportTicketController::class, 'create'])->name('livecontrols.support.create');
             Route::post('tickets/new', [SupportTicketController::class, 'store'])->name('livecontrols.support.store');
@@ -29,7 +29,7 @@ Route::middleware(array_merge([
         
 
         //ADMIN INTERFACE
-        Route::prefix(config('livecontrols.admininterface_prefix'))->middleware(['admin'])->group(function () {
+        Route::prefix(config('livecontrols.admininterface_prefix', 'admin'))->middleware(['admin'])->group(function () {
             //Add routes that can be accessed only by admins
             Route::get('dashboard', [AdminInterfaceController::class, 'index'])->name('livecontrols.admin.dashboard');
 
