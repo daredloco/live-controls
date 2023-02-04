@@ -21,6 +21,26 @@ trait HasPermissions{
         return false;
     }
 
+    public function hasOnePermission(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->hasPermission($key)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hasPermissions(array $keys): bool
+    {
+        foreach($keys as $key){
+            if(!$this->hasPermission($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function isAdmin(): bool
     {
         if($this->id == config('livecontrols.admininterface_master')){
