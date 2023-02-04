@@ -11,6 +11,16 @@ trait HasPermissions{
         return $this->belongsToMany(UserPermission::class, 'livecontrols_user_userpermissions', 'user_id', 'user_permission_id');
     }
 
+    public function hasPermission(string $key): bool
+    {
+        foreach($this->permissions as $permission){
+            if($permission->key == $key){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function isAdmin(): bool
     {
         if($this->id == config('livecontrols.admininterface_master')){
