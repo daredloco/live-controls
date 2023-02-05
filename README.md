@@ -254,7 +254,7 @@ Add a system to block users for a certain amount of time or ban them completely.
 
 ### Todo
 - Add a blacklist of names
-
+- Add blocking to Admin Interface
 
 
 ## Utils Systemes
