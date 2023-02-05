@@ -229,10 +229,10 @@ A Calendar based on FullCalendar.io
 ### Content
 - Livewire Control with @livewire('livecontrols-calendar')
 - Added eventClick events
+- Added different view options
 
 ### Todo
 - Add custom options for time shown etc.
-- Add dayview
 - Add more options
 - Make design better on mobile devices
 
