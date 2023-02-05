@@ -22,6 +22,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
+use Helvetiapps\LiveControls\Http\Middleware\Banning\BanCheck;
 use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
 use Helvetiapps\LiveControls\Http\Middleware\UserGroups\CheckUserGroup;
 use Helvetiapps\LiveControls\Http\Middleware\UserPermissions\CheckUserPermission;
@@ -40,6 +41,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     app('router')->aliasMiddleware('userpermission', CheckUserPermission::class);
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
     app('router')->aliasMiddleware('subscription', CheckSubscription::class);
+    app('router')->aliasMiddleware('banned', BanCheck::class);
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
@@ -55,7 +57,8 @@ class LiveControlsServiceProvider extends ServiceProvider
       $migrationsPath.'usergroups',
       $migrationsPath.'userpermissions',
       $migrationsPath.'support',
-      $migrationsPath.'subscriptions'
+      $migrationsPath.'subscriptions',
+      $migrationsPath.'banning'
     ];
 
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
