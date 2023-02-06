@@ -10,10 +10,14 @@ use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Helvetiapps\LiveControls\Scripts\Subscriptions\SubscriptionsHandler;
 use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
+use Livewire\WithPagination;
 
 class UserList extends Component
 {
     use HasPopups;
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public $search = '';
 
