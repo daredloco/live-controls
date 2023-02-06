@@ -6,10 +6,14 @@ use Livewire\Component;
 use Helvetiapps\LiveControls\Models\UserGroups\UserGroup;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
+use Livewire\WithPagination;
 
 class GroupList extends Component
 {
     use HasPopups;
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
 
     public $search = '';
 

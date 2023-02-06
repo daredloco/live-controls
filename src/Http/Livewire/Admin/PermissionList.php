@@ -4,9 +4,14 @@ namespace Helvetiapps\LiveControls\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
+use Livewire\WithPagination;
 
 class PermissionList extends Component
 {
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+
     public $search = '';
 
     public function render()

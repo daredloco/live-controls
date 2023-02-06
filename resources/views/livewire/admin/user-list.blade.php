@@ -48,6 +48,7 @@
             </tbody>
         </table>
     </div>
+    {{ $users->links() }}
     @if($createRoute !== false)
         <a href="{{ route(config('livecontrols.routes_users')['create']) }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
     @endif

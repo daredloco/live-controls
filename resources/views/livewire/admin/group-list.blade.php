@@ -40,6 +40,7 @@
             </tbody>
         </table>
     </div>
+    {{ $groups->links() }}
     <a href="{{ route('livecontrols.admin.usergroups.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
     @if(config('livecontrols.userpermissions_enabled', false))

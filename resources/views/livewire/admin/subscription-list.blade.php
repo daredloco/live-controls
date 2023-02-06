@@ -41,6 +41,7 @@
             </tbody>
         </table>
     </div>
+    {{ $subscriptions->links() }}
     <a href="{{ route('livecontrols.admin.subscriptions.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
     @if(config('livecontrols.userpermissions_enabled', false))

@@ -34,6 +34,7 @@
             </tbody>
         </table>
     </div>
+    {{ $permissions->links() }}
     <a href="{{ route('livecontrols.admin.userpermissions.create') }}" class="btn btn-success text-white">{{ __('livecontrols::general.create') }}</a>
 
 </div>

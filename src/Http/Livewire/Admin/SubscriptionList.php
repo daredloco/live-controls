@@ -7,10 +7,14 @@ use Livewire\Component;
 use Helvetiapps\LiveControls\Models\Subscriptions\Subscription;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Helvetiapps\LiveControls\Traits\SweetAlert\HasPopups;
+use Livewire\WithPagination;
 
 class SubscriptionList extends Component
 {
     use HasPopups;
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
     
     public $search = '';
 
