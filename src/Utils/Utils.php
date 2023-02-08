@@ -72,7 +72,7 @@ class Utils
             $decimos = strlen($arr[1]) == 1 ? $arr[1] . '0' : $arr[1];
         }
 
-        //TODO: Check if numberformatter is loaded before tryiung to access it
+        //TODO: Check if numberformatter is loaded before trying to access it
         $fmt = new \NumberFormatter($locale, \NumberFormatter::SPELLOUT);
         if (is_array($arr)) {
             $numero_extenso = $fmt->format($inteiro) . ' reais';
