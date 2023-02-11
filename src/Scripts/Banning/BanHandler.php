@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Scripts;
+namespace Helvetiapps\LiveControls\Scripts\Banning;
 
 use Helvetiapps\LiveControls\Models\Banning\Ban;
 
