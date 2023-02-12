@@ -2,6 +2,8 @@
 
 namespace Helvetiapps\LiveControls\Utils;
 
+use Exception;
+
 class Utils
 {
     /**
@@ -81,5 +83,30 @@ class Utils
             }
         }
         return $numero_extenso;
+    }
+
+    public static function leadingZeros(int $value, int $length, bool $isMax = false):string
+    {
+        $value = strval($value);
+        $valueLength = strlen($value);
+        if($valueLength > $length && $isMax){
+            throw new Exception('Value has more numbers than max length!');
+        }
+        if($valueLength >= $length){
+            return (string)$value;
+        }
+
+        $valueArr = str_split($value);
+
+        $diff = $length - $valueLength;
+        $newValue = '';
+        for($i = 0; $i < $length; $i++){
+            if($i < $diff){
+                $newValue .= '0';
+            }else{
+                $newValue .= $valueArr[$i - $diff];
+            }
+        }
+        return $newValue;
     }
 }
