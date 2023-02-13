@@ -11,10 +11,13 @@
               hour: '2-digit',
               minute: '2-digit',
               meridiem: false
-            },
-            eventClick: function(info){
-              @this.clickEvent(info);
             }
+            @if(!is_null($eventClickCallback) || !is_null($eventClickBrowserEvent) || !is_null($eventClickLiveEvent))
+              ,
+              eventClick: function(info){
+                @this.clickEvent(info);
+              }
+            @endif
           });
           @foreach($options as $key => $value)
             calendar.setOption('{{ $key }}', '{{ $value }}');
@@ -32,10 +35,13 @@
               hour: '2-digit',
               minute: '2-digit',
               meridiem: false
-            },
-            eventClick: function(info){
-              @this.clickEvent(info);
             }
+            @if(!is_null($eventClickCallback) || !is_null($eventClickBrowserEvent) || !is_null($eventClickLiveEvent))
+              ,
+              eventClick: function(info){
+                @this.clickEvent(info);
+              }
+            @endif
           });
           @foreach($options as $key => $value)
             calendar.setOption('{{ $key }}', '{{ $value }}');
