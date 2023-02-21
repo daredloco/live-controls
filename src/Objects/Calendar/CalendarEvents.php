@@ -13,7 +13,7 @@ class CalendarEvents{
         
     }
 
-    public function add(string $id, string $title, Carbon $start, Carbon $end = null, bool $allDay = false){
+    public function add(string $id, string $title, Carbon $start, Carbon $end = null, bool $allDay = false, string $backgroundColor = null, string $textColor = null, string $borderColor = null){
         $event = [
             'id' => $id,
             'title' => $title,
@@ -21,6 +21,16 @@ class CalendarEvents{
             'allDay' => $allDay
         ];
 
+        if(!is_null($backgroundColor)){
+            $event['backgroundColor'] = $backgroundColor;
+        }
+        if(!is_null($textColor)){
+            $event['textColor'] = $textColor;
+        }
+        if(!is_null($borderColor)){
+            $event['borderColor'] = $borderColor;
+        }
+        
         if(!is_null($end)){
             $event["end"] = $end->format('Y-m-d').'T'.$end->format('H:i:s');
         }
