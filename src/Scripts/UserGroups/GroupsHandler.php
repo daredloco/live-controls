@@ -110,4 +110,8 @@ class GroupsHandler
         }
         return $user->groups()->where('user_group_id', '=', $group->id)->exists();
     }
+    
+    public static function notInGroup(User|int $user, UserGroup|string|int|array $group):bool{
+        return !static::inGroup($user, $group);
+    }
 }
