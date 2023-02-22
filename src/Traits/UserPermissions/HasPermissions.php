@@ -11,6 +11,36 @@ trait HasPermissions{
         return $this->belongsToMany(UserPermission::class, 'livecontrols_user_userpermissions', 'user_id', 'user_permission_id');
     }
 
+    public function hasNotPermission(string $key): bool
+    {
+        foreach($this->permissions as $permission){
+            if($permission->key == $key){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function hasNotOnePermission(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->hasPermission($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function hasNotPermissions(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->hasPermission($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function hasPermission(string $key): bool
     {
         foreach($this->permissions as $permission){
