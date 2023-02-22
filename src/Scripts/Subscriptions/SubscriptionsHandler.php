@@ -157,6 +157,11 @@ class SubscriptionsHandler
         return (new \Carbon\Carbon($subscription->pivot->due_date))->isPast();
     }
 
+    public static function hasNotExpired(User|int $user, Subscription|string|int $subscription): bool|null
+    {
+        return !static::hasExpired($user, $subscription);
+    }
+
     public static function hasSubscription(User|int $user, Subscription|string|int $subscription, bool $withExpired = false): bool
     {
         if(is_numeric($user)){
@@ -186,6 +191,11 @@ class SubscriptionsHandler
         }
 
         return true;
+    }
+
+    public static function hasNotSubscription(User|int $user, Subscription|string|int $subscription, bool $withExpired = false): bool
+    {
+        return !static::hasSubscription($user, $subscription, $withExpired);
     }
 
     public static function getExpiredSubscriptions(User|int $user):array{
