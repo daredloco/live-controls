@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls\Http\Livewire\Calendar;
 
+use Carbon\Carbon;
 use Exception;
 use Livewire\Component;
 
@@ -17,10 +18,12 @@ class Calendar extends Component
     public $eventClickLiveEvent;
 
     public $initialView;
+    public $initialDate;
 
     public $options;
 
     public $random;
+
 
     public function mount(){
         if(is_null($this->elementId)){
@@ -37,6 +40,9 @@ class Calendar extends Component
         }
         if(is_null($this->initialView)){
             $this->initialView = "dayGridMonth";
+        }
+        if(is_null($this->initialDate)){
+            $this->initialDate = Carbon::now()->format('Y-m-d');
         }
         if(is_null($this->options)){
             $this->options = [];
