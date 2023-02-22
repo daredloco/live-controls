@@ -11,6 +11,36 @@ trait HasGroups{
         return $this->belongsToMany(UserGroup::class, 'livecontrols_user_usergroups', 'user_id', 'user_group_id');
     }
 
+    public function notInGroup(string $key): bool
+    {
+        foreach($this->groups as $group){
+            if($group->key == $key){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function notInOneGroup(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->inGroup($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public function notInGroups(array $keys): bool
+    {
+        foreach($keys as $key){
+            if($this->inGroup($key)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function inGroup(string $key) : bool
     {
         foreach($this->groups as $group){
