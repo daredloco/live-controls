@@ -6,6 +6,7 @@
           var calendarEl = document.getElementById('{{ $elementId.$random }}');
           var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: '{{ $initialView }}',
+            initialDate: '{{ $initialDate }}',
             events: @json($convertedEvents),
             eventTimeFormat: {
               hour: '2-digit',
