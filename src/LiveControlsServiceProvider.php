@@ -113,7 +113,11 @@ class LiveControlsServiceProvider extends ServiceProvider
 
       $this->publishes([
         __DIR__.'/../lang' => resource_path('lang/vendor/livecontrols'),
-      ], 'livewirecontrols-localization');
+      ], 'livecontrols-localization');
+
+      $this->publishes([
+        __DIR__.'/../resources/views' => resource_path('views/vendor/livecontrols'),
+      ], 'livecontrols-views');
     }
   }
 }
