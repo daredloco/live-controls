@@ -16,7 +16,7 @@ class BanCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(config('livecontrols.banning_enabled', false)){
+        if(!config('livecontrols.banning_enabled', false)){
             return $next($request);
         }
 
