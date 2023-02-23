@@ -21,13 +21,16 @@ trait HasBanning
                 if(!is_null($this->ban->banned_until)){
                     if($this->ban->banned_until->isFuture()){
                         return true;
+                    }else{
+                        $this->ban()->delete();
+                        return false;
                     }
                 }else{
                     return true;
                 }
             }
         }   
-        false;
+        return false;
     }
 
     public function doBan(Carbon $banned_until = null): bool
