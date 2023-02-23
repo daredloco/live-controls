@@ -20,7 +20,7 @@ class Ban extends Model{
     ];
 
     protected $casts = [
-        'banned_until' => 'dateTime'
+        'banned_until' => 'datetime'
     ];
 
     public function users():BelongsToMany
