@@ -85,6 +85,14 @@ class Utils
         return $numero_extenso;
     }
 
+    /**
+     * Adds leading zeros to a integer value like ID etc.
+     *
+     * @param integer $value The integer value you want to edit
+     * @param integer $length The length of the returned string (missing numbers will be replaced with leading zeros)
+     * @param boolean $isMax IF set to true, length will be the max length and an exception will be thrown if number is bigger
+     * @return string
+     */
     public static function leadingZeros(int $value, int $length, bool $isMax = false):string
     {
         $value = strval($value);

@@ -16,9 +16,21 @@ trait HasBanning
     public function isBanned(): bool
     {
         if(config('livecontrols.banning_enabled', false)){
-            return !is_null($this->ban);
+            if(!is_null($this->ban)){
+                //Check if banned_until is not null
+                if(!is_null($this->ban->banned_until)){
+                    if($this->ban->banned_until->isFuture()){
+                        return true;
+                    }else{
+                        $this->ban()->delete();
+                        return false;
+                    }
+                }else{
+                    return true;
+                }
+            }
         }   
-        false;
+        return false;
     }
 
     public function doBan(Carbon $banned_until = null): bool
@@ -33,5 +45,10 @@ trait HasBanning
     public function doUnban(): bool
     {
         return $this->ban()->delete();
+    }
+
+    public function bannedUntil(): Carbon|null
+    {
+        return is_null($this->ban) ? null : $this->ban->banned_until;
     }
 }
