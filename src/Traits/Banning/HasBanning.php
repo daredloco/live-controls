@@ -34,4 +34,9 @@ trait HasBanning
     {
         return $this->ban()->delete();
     }
+
+    public function bannedUntil(): Carbon|null
+    {
+        return is_null($this->ban) ? null : $this->ban->banned_until;
+    }
 }
