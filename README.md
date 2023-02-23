@@ -256,6 +256,11 @@ Add a system to block users for a certain amount of time or ban them completely.
 - Add a blacklist of names
 - Add blocking to Admin Interface
 
+## Statistics
+Have a simple system that saves user/usage statistics
+
+### Todo
+- ?
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
