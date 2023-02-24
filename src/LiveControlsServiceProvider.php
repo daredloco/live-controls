@@ -8,6 +8,7 @@ use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\AnalyticsAdmin;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Dashboard;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
@@ -76,6 +77,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-admin-grouplist', GroupList::class);
     Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
     Livewire::component('livecontrols-admin-subscriptionlist', SubscriptionList::class);
+    Livewire::component('livecontrols-admin-analytics', AnalyticsAdmin::class);
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);

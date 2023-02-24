@@ -66,6 +66,11 @@
             <a @if($page == 'subscriptions') class="active" @endif wire:click.prevent="changePage('subscriptions')">{{ __('livecontrols::admin.subscriptions') }}</a>
             @endif
 
+            @if(config('livecontrols.analytics_enabled'))
+            <a @if($page == 'analytics') class="active" @endif wire:click.prevent="changePage('analytics')">{{ __('livecontrols::admin.analytics') }}</a>
+            @endif
+
+
             @foreach($customPages as $label => $key)
                 <a @if($page == urlencode($label)) class="active" @endif wire:click.prevent="changePage('{{ $label }}')">{{ $label }}</a>
             @endforeach
@@ -81,6 +86,8 @@
                 @livewire('livecontrols-admin-permissionlist', [], key('admin-permissionlist'))
             @elseif($page == 'subscriptions' && config('livecontrols.subscriptions_enabled'))
                 @livewire('livecontrols-admin-subscriptionlist', [], key('admin-subscriptionlist'))
+            @elseif($page == 'analytics' && config('livecontrols.analytics_enabled'))
+                @livewire('livecontrols-admin-analytics', [], key('admin-analytics'))
             @endif
             @foreach($customPages as $key => $value)
                 @if($page == urlencode($key))
