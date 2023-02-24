@@ -257,6 +257,26 @@ Add a system to block users for a certain amount of time or ban them completely.
 - Add blocking to Admin Interface
 
 
+
+## Analytics
+Have a simple system that saves user/usage statistics
+
+### Content
+- Analytics database table for requests
+- Analytics Middleware
+- Saving user informations (Identifier (IP/Hashed IP), Mobile or not, DateTime of visit, page visited, User-Agent, Preferred language, languages)
+
+### Todo
+- Dashboard
+- Add Analytics to Admin Interface with Charts (Use lagoon-charts for it, but make it optional)
+- Save user informations (Country (optional))
+- Save usage informations (list/chart with most pages visited, Usage per user(? + optional))
+- Save cookie on user device (Optional)
+- Add actions to the analytics system
+- Add campaigns to the analytics system
+
+
+
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 

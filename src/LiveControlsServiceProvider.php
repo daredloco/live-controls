@@ -8,6 +8,7 @@ use Helvetiapps\LiveControls\Console\UserGroups\RemoveUserFromGroupCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\RemoveUserFromPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserPermissionCommand;
 use Helvetiapps\LiveControls\Console\UserPermissions\AddUserToPermissionCommand;
+use Helvetiapps\LiveControls\Http\Livewire\Admin\AnalyticsAdmin;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Dashboard;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\GroupList;
 use Helvetiapps\LiveControls\Http\Livewire\Admin\Main;
@@ -21,6 +22,7 @@ use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
+use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\Analyzer;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\Banning\BanCheck;
 use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
@@ -42,6 +44,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
     app('router')->aliasMiddleware('subscription', CheckSubscription::class);
     app('router')->aliasMiddleware('banned', BanCheck::class);
+    app('router')->aliasMiddleware('analytics', Analyzer::class);
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
@@ -58,7 +61,8 @@ class LiveControlsServiceProvider extends ServiceProvider
       $migrationsPath.'userpermissions',
       $migrationsPath.'support',
       $migrationsPath.'subscriptions',
-      $migrationsPath.'banning'
+      $migrationsPath.'banning',
+      $migrationsPath.'analytics'
     ];
 
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
@@ -73,6 +77,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-admin-grouplist', GroupList::class);
     Livewire::component('livecontrols-admin-permissionlist', PermissionList::class);
     Livewire::component('livecontrols-admin-subscriptionlist', SubscriptionList::class);
+    Livewire::component('livecontrols-admin-analytics', AnalyticsAdmin::class);
     Livewire::component('livecontrols-support-messages', MessagesHandler::class);
     Livewire::component('livecontrols-support-status', StatusHandler::class);
     Livewire::component('livecontrols-sweetalert', SweetAlert::class);

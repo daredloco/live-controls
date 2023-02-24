@@ -38,4 +38,12 @@ return [
 
     //Banning System
     'banning_enabled' => true, //Set this to true to enable the banning system
+
+    //Analytics System
+    'analytics_enabled' => false, //Set this to true to enable the analytics system
+    'analytics_cookie' => false, //Set this to true if you want to send an analytics cookie
+    'analytics_user' => false, //Set this to true to save the user with the Request
+    'analytics_identifier'=> 'ip_hash', //Set what should be used as identifier. Default is ip_hash. Possible values ip_hash, full_ip
+    'analytics_geoapi' => null, //Set the geo API used. There aren't any included at the moment!
+    'analytics_query_key' => 'lcid', //This would be the querystring key to identify a special campaign etc.
 ];
