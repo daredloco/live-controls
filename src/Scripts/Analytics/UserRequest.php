@@ -40,9 +40,9 @@ class UserRequest
         $this->targetPath = $this->request->path();
     }
 
-    public function save():bool
+    public function save()
     {
-        return is_null(Request::create([
+        Request::create([
             'user_id' => $this->user,
             'identifier' => $this->identifier,
             'preferred_language' => $this->preferredLanguage,
@@ -51,6 +51,10 @@ class UserRequest
             'country' => $this->country,
             'request_timestamp' => $this->timestamp,
             'target_path' => $this->targetPath
-        ]));
+        ]);
+    }
+
+    public static function create(HttpRequest $request, bool $autoSave = true){
+        return new UserRequest($request, $autoSave);
     }
 }
