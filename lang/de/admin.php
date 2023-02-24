@@ -15,5 +15,6 @@ return [
     "subscriptions" => "Abonnements",
     "subscription" => "Abonnement",
     "subscription_added" => "Abonnement hinzugefügt",
-    "subscription_removed" => "Abonnement entfernt"
+    "subscription_removed" => "Abonnement entfernt",
+    "analytics" => "Analytik"
 ];

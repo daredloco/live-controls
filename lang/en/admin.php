@@ -15,5 +15,6 @@ return [
     "subscriptions" => "Subscriptions",
     "subscription" => "Subscription",
     "subscription_added" => "Subscription added",
-    "subscription_removed" => "Subscription removed"
+    "subscription_removed" => "Subscription removed",
+    "analytics" => "Analytics"
 ];
