@@ -74,7 +74,12 @@ class Utils
             $decimos = strlen($arr[1]) == 1 ? $arr[1] . '0' : $arr[1];
         }
 
-        //TODO: Check if numberformatter is loaded before trying to access it
+        //Check if numberformatter is loaded before trying to access it
+        if(!class_exists('NumberFormatter', false))
+        {
+            throw new Exception('NumberFormatter class is required, but couldn\'t be found!');
+        }
+
         $fmt = new \NumberFormatter($locale, \NumberFormatter::SPELLOUT);
         if (is_array($arr)) {
             $numero_extenso = $fmt->format($inteiro) . ' reais';
@@ -120,6 +125,12 @@ class Utils
 
     public static function number2Currency(float $number, string $locale = 'en', string $currency = null)
     {
+        //Check if numberformatter is loaded before trying to access it
+        if(!class_exists('NumberFormatter', false))
+        {
+            throw new Exception('NumberFormatter class is required, but couldn\'t be found!');
+        }
+        
         $nf = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
 
         if(!is_null($currency))
