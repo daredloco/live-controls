@@ -117,4 +117,15 @@ class Utils
         }
         return $newValue;
     }
+
+    public static function number2Currency(float $number, string $locale = 'en', string $currency = null)
+    {
+        $nf = new \NumberFormatter($locale, \NumberFormatter::CURRENCY);
+
+        if(!is_null($currency))
+        {
+            return $nf->formatCurrency($number, $currency);
+        }
+        return $nf->format($number);
+    }
 }
