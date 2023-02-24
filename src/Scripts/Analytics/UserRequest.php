@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Scripts\Analytics;
 use Helvetiapps\LiveControls\Models\Analytics\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Hash;
+use Jenssegers\Agent\Agent;
 
 class UserRequest
 {
@@ -17,6 +18,7 @@ class UserRequest
     public $userAgent;
     public $timestamp;
     public $targetPath;
+    public $mobile;
 
     public $campaignKey;
 
@@ -40,7 +42,7 @@ class UserRequest
         $this->country = ''; //TODO: Add some country API inside here
         $this->timestamp = time();
         $this->targetPath = $this->request->path();
-
+        $this->mobile = (new Agent())->isMobile();
         $this->campaignKey = $this->request->get(config('livecontrols.analytics_query_key', 'lcid'), null);
     }
 
