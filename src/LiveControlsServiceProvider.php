@@ -21,6 +21,7 @@ use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
 use Helvetiapps\LiveControls\Http\Livewire\SweetAlert\SweetAlert;
+use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\Analyzer;
 use Helvetiapps\LiveControls\Http\Middleware\AdminInterface\CheckIsAdmin;
 use Helvetiapps\LiveControls\Http\Middleware\Banning\BanCheck;
 use Helvetiapps\LiveControls\Http\Middleware\Subscriptions\CheckSubscription;
@@ -42,6 +43,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     app('router')->aliasMiddleware('admin', CheckIsAdmin::class);
     app('router')->aliasMiddleware('subscription', CheckSubscription::class);
     app('router')->aliasMiddleware('banned', BanCheck::class);
+    app('router')->aliasMiddleware('analytics', Analyzer::class);
 
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
