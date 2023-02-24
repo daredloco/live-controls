@@ -35,7 +35,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ### Todo
 - Add custom Dashboard (Maybe someday...)
-- ?
+- Add Analytics Page where admins can see analytics stuff
 
 
 
