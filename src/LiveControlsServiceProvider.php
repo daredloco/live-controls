@@ -58,7 +58,8 @@ class LiveControlsServiceProvider extends ServiceProvider
       $migrationsPath.'userpermissions',
       $migrationsPath.'support',
       $migrationsPath.'subscriptions',
-      $migrationsPath.'banning'
+      $migrationsPath.'banning',
+      $migrationsPath.'analytics'
     ];
 
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
