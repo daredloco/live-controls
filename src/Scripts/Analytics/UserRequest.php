@@ -18,6 +18,8 @@ class UserRequest
     public $timestamp;
     public $targetPath;
 
+    public $campaignKey;
+
     public function __construct(HttpRequest $request, bool $autoSave = true)
     {
         $this->request = $request;
@@ -38,11 +40,13 @@ class UserRequest
         $this->country = ''; //TODO: Add some country API inside here
         $this->timestamp = time();
         $this->targetPath = $this->request->path();
+
+        $this->campaignKey = $this->request->get(config('livecontrols.analytics_query_key', 'lcid'), null);
     }
 
     public function save()
     {
-        Request::create([
+        $request = Request::create([
             'user_id' => $this->user,
             'identifier' => $this->identifier,
             'preferred_language' => $this->preferredLanguage,
@@ -52,6 +56,11 @@ class UserRequest
             'request_timestamp' => $this->timestamp,
             'target_path' => $this->targetPath
         ]);
+
+        if(!is_null($this->campaignKey))
+        {
+            //TODO: Do something with the campaignKey
+        }
     }
 
     public static function create(HttpRequest $request, bool $autoSave = true){
