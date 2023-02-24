@@ -261,6 +261,9 @@ Add a system to block users for a certain amount of time or ban them completely.
 ## Analytics
 Have a simple system that saves user/usage statistics
 
+### Content
+- Analytics database table for request
+
 ### Todo
 - Add Analytics to Admin Interface with Charts (Use lagoon-charts for it, but make it optional)
 - Save user informations (IP, Country (optional), DateTime, UserAgent, Mobile or not, preferred language, languages)
