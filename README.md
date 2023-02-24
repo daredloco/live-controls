@@ -259,7 +259,7 @@ Add a system to block users for a certain amount of time or ban them completely.
 
 
 ## Analytics
-Have a simple system that saves user/usage statistics
+Simple system to track user behaviour. **NOT PRODUCTION READY**
 
 ### Content
 - Analytics database table for requests
