@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Request extends Model{
     use HasFactory;
@@ -35,5 +36,15 @@ class Request extends Model{
     public function getSiblingsAttribute()
     {
         return Request::where('identifier', '=', $this->identifier)->get();
+    }
+
+    public function actions(): BelongsToMany
+    {
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_action_requests', 'analytics_action_id', 'analytics_request_id');
+    }
+
+    public function campaigns(): BelongsToMany
+    {
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_campaign_requests', 'analytics_campaign_id', 'analytics_request_id');
     }
 }

@@ -46,4 +46,6 @@ return [
     'analytics_identifier'=> 'ip_hash', //Set what should be used as identifier. Default is ip_hash. Possible values ip_hash, full_ip
     'analytics_geoapi' => null, //Set the geo API used. There aren't any included at the moment!
     'analytics_query_key' => 'lcid', //This would be the querystring key to identify a special campaign etc.
+    'analytics_campaigns_enabled' => true, //Set this to true to enable analytics campaigns
+    'analytics_actions_enabled' => true, //Set this to true to enable analytics actions
 ];

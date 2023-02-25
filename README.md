@@ -35,7 +35,7 @@ A System providing an administration dashboard/interface to handle all the thing
 
 ### Todo
 - Add custom Dashboard (Maybe someday...)
-- ?
+- Add Analytics Page where admins can see analytics stuff
 
 
 
@@ -259,21 +259,20 @@ Add a system to block users for a certain amount of time or ban them completely.
 
 
 ## Analytics
-Have a simple system that saves user/usage statistics
+Simple system to track user behaviour. **NOT PRODUCTION READY**
 
 ### Content
 - Analytics database table for requests
 - Analytics Middleware
 - Saving user informations (Identifier (IP/Hashed IP), Mobile or not, DateTime of visit, page visited, User-Agent, Preferred language, languages)
+- Campaigns added which can be called by using a certain query key
+- Actions added which can be called by code
 
 ### Todo
 - Dashboard
 - Add Analytics to Admin Interface with Charts (Use lagoon-charts for it, but make it optional)
-- Save user informations (Country (optional))
 - Save usage informations (list/chart with most pages visited, Usage per user(? + optional))
 - Save cookie on user device (Optional)
-- Add actions to the analytics system
-- Add campaigns to the analytics system
 
 
 

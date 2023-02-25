@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls\Scripts\Analytics;
 
+use Helvetiapps\LiveControls\Models\Analytics\Campaign;
 use Helvetiapps\LiveControls\Models\Analytics\Request;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Hash;
@@ -59,9 +60,12 @@ class UserRequest
             'target_path' => $this->targetPath
         ]);
 
-        if(!is_null($this->campaignKey))
+        if(!is_null($this->campaignKey) && config('livecontrols.analytics_campaigns_enabled', false))
         {
-            //TODO: Do something with the campaignKey
+            $campaign = Campaign::where('key', '=', $this->campaignKey)->first();
+            if(!is_null($campaign)){
+                $campaign->requests()->attach($request);
+            }
         }
     }
 
