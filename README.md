@@ -271,7 +271,6 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ### Todo
 - Dashboard
 - Add Analytics to Admin Interface with Charts (Use lagoon-charts for it, but make it optional)
-- Save usage informations (list/chart with most pages visited, Usage per user(? + optional))
 - Save cookie on user device (Optional)
 
 
