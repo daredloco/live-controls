@@ -12,7 +12,7 @@ class AnalyticsAdmin extends Component
     public $page;
 
     protected $queryString = [
-        'page' => ['as' => 'p']
+        'page' => ['as' => 'tab']
     ];
    
     public function mount()
