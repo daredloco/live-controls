@@ -2,31 +2,31 @@
     <!-- NAVIGATION TAB -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link @if($page == 'dashboard') active @endif" aria-current="page" href="#" wire:click="$set('page', 'dashboard')">Dashboard</a>
+          <a class="nav-link @if($tab == 'dashboard') active @endif" aria-current="tab" href="#" wire:click.prevent="$set('tab', 'dashboard')">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if($page == 'visits') active @endif" href="#" wire:click="$set('page', 'visits')">Visits</a>
+          <a class="nav-link @if($tab == 'visits') active @endif" href="#" wire:click.prevent="$set('tab', 'visits')">Visits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('page', 'paths')" tabindex="-1" aria-disabled="true">Paths</a>
+          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'paths')" tabindex="-1" aria-disabled="true">Paths</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('page', 'users')" tabindex="-1" aria-disabled="true">Users</a>
+          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'users')" tabindex="-1" aria-disabled="true">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('page', 'campaigns')" tabindex="-1" aria-disabled="true">Campaigns</a>
+          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'campaigns')" tabindex="-1" aria-disabled="true">Campaigns</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('page', 'actions')" tabindex="-1" aria-disabled="true">Actions</a>
+          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'actions')" tabindex="-1" aria-disabled="true">Actions</a>
         </li>
     </ul>
     <!-- /NAVIGATION TAB -->
 
-    @if($page == 'dashboard')
+    @if($tab == 'dashboard')
     <div class="alert alert-warning text-center">
       <strong>Admin Interface for analytics is heavy work in progress!</strong>
     </div>
-    @elseif($page == 'visits')
+    @elseif($tab == 'visits')
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
@@ -56,11 +56,11 @@
         </table>
       </div>
       
-    @elseif($page == 'users')
+    @elseif($tab == 'users')
 
-    @elseif($page == 'campaigns')
+    @elseif($tab == 'campaigns')
 
-    @elseif($page == 'actions')
+    @elseif($tab == 'actions')
 
     @endif
 

@@ -9,16 +9,16 @@ use Livewire\Component;
 
 class AnalyticsAdmin extends Component
 {
-    public $page;
+    public $tab;
 
     protected $queryString = [
-        'page' => ['as' => 'tab']
+        'tab' => ['as' => 'tab']
     ];
    
     public function mount()
     {
-        if(is_null($this->page)){
-            $this->page = 'dashboard';
+        if(is_null($this->tab)){
+            $this->tab = 'dashboard';
         }
     }
 
