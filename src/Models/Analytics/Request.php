@@ -25,7 +25,8 @@ class Request extends Model{
     ];
 
     protected $casts = [
-        'languages' => 'array'
+        'languages' => 'array',
+        'request_timestamp' => 'timestamp'
     ];
 
     public function user(): BelongsTo
