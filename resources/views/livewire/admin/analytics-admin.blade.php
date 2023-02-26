@@ -2,10 +2,10 @@
     <!-- NAVIGATION TAB -->
     <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" wire:click="$set('page', 'dashboard')">Dashboard</a>
+          <a class="nav-link @if($page == 'dashboard') active @endif" aria-current="page" href="#" wire:click="$set('page', 'dashboard')">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('page', 'visits')" tabindex="-1" aria-disabled="true">Visits</a>
+          <a class="nav-link @if($page == 'visits') active @endif" href="#" wire:click="$set('page', 'visits')">Visits</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" wire:click="$set('page', 'users')" tabindex="-1" aria-disabled="true">Users</a>
