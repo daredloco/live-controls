@@ -4,6 +4,7 @@ namespace Helvetiapps\LiveControls\Scripts\Analytics;
 
 use Exception;
 use Illuminate\Support\Collection;
+use Helvetiapps\LagoonCharts\DataTables\PieChartTable;
 
 class Charts
 {
@@ -11,13 +12,13 @@ class Charts
     {
         static::checkForLagoon();
 
-        $pieChartTable = new \HelvetiApps\LagoonCharts\DataTables\PieChartTable();
+        $pieChartTable = new PieChartTable();
         
         foreach($paths as $path => $amount)
         {
             $pieChartTable->addRow($path, $amount);
         }
-        
+
         return $pieChartTable->toArray();
     }
 
