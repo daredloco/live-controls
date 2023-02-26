@@ -25,7 +25,34 @@
     @if($page == 'dashboard')
     
     @elseif($page == 'visits')
-    
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Identifier</th>
+              <th scope="col">Target Path</th>
+              <th scope="col">Preferred Language</th>
+              <th scope="col">Languages</th>
+              <th scope="col">User Agent</th>
+              <th scope="col">Country</th>
+              <th scope="col">Date & Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($userRequests as $userRequest)
+            <tr class="">
+              <td scope="row">{{ $userRequest->identifier }}</td>
+              <td>{{ $userRequest->target_path }}</td>
+              <td>{{ $userRequest->preferred_language }}</td>
+              <td>@json($userRequest->languages)</td>
+              <td>{{ $userRequest->user_agent }}</td>
+              <td>{{ $userRequest->country }}</td>
+              <td>{{ $userRequest->created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
     @elseif($page == 'users')
 
     @elseif($page == 'campaigns')
