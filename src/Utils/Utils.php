@@ -139,4 +139,19 @@ class Utils
         }
         return $nf->format($number);
     }
+
+    public static function array2String(array $array, string $delimiter = ', '): string
+    {
+        $str = '';
+        foreach($array as $key => $value)
+        {
+            
+            $str .= $value;
+            if($key != count($array) - 1)
+            {
+                $str .= $delimiter;
+            }
+        }
+        return $str;
+    }
 }
