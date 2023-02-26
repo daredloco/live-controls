@@ -48,4 +48,5 @@ return [
     'analytics_query_key' => 'lcid', //This would be the querystring key to identify a special campaign etc.
     'analytics_campaigns_enabled' => true, //Set this to true to enable analytics campaigns
     'analytics_actions_enabled' => true, //Set this to true to enable analytics actions
+    'analytics_charts_enabled' => false, //Set this to true to enable charts, charts will need helvetiapps/lagoon-charts to work!
 ];

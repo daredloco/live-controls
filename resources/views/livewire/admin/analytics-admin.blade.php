@@ -24,8 +24,12 @@
 
     @if($tab == 'dashboard')
 
-      <div class="alert alert-warning text-center">
-        <strong>Admin Interface for analytics is heavy work in progress!</strong>
+      <div class="row">
+        <div class="card">
+          @if(config('livecontrols.analytics_charts_enabled', false))
+            @livewire('lagoon-pie-chart', ['chartId' => 'pathsChart', 'chartData' => $pathsChartData, 'title' => 'Paths', 'width' => 400, 'height' => 200, 'column1' => 'Paths', 'column2' => 'Amount'], key('pathsChart'.now()))
+          @endif
+        </div>
       </div>
 
     @elseif($tab == 'visits')
