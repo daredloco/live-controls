@@ -20,13 +20,11 @@ class Request extends Model{
         'preferred_language',
         'languages',
         'user_agent',
-        'request_timestamp',
         'country'
     ];
 
     protected $casts = [
         'languages' => 'array',
-        'request_timestamp' => 'timestamp'
     ];
 
     public function user(): BelongsTo

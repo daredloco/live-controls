@@ -17,7 +17,6 @@ class UserRequest
     public $preferredLanguage;
     public $languages;
     public $userAgent;
-    public $timestamp;
     public $targetPath;
     public $mobile;
 
@@ -41,7 +40,6 @@ class UserRequest
         $this->languages = $this->request->getLanguages();
         $this->userAgent = $this->request->userAgent();
         $this->country = ''; //TODO: Add some country API inside here
-        $this->timestamp = time();
         $this->targetPath = $this->request->path();
         $this->mobile = (new Agent())->isMobile();
         $this->campaignKey = $this->request->get(config('livecontrols.analytics_query_key', 'lcid'), null);
@@ -56,7 +54,6 @@ class UserRequest
             'languages' => $this->languages,
             'user_agent' => $this->userAgent,
             'country' => $this->country,
-            'request_timestamp' => $this->timestamp,
             'target_path' => $this->targetPath
         ]);
 
