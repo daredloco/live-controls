@@ -8,6 +8,9 @@
           <a class="nav-link @if($page == 'visits') active @endif" href="#" wire:click="$set('page', 'visits')">Visits</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link disabled" href="#" wire:click="$set('page', 'paths')" tabindex="-1" aria-disabled="true">Paths</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link disabled" href="#" wire:click="$set('page', 'users')" tabindex="-1" aria-disabled="true">Users</a>
         </li>
         <li class="nav-item">
@@ -19,11 +22,10 @@
     </ul>
     <!-- /NAVIGATION TAB -->
 
-    <div class="alert alert-warning text-center">
-      <strong>Admin Interface for analytics not included in this version!</strong>
-    </div>
     @if($page == 'dashboard')
-    
+    <div class="alert alert-warning text-center">
+      <strong>Admin Interface for analytics is heavy work in progress!</strong>
+    </div>
     @elseif($page == 'visits')
       <div class="table-responsive">
         <table class="table table-hover">
