@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Http\Middleware\AdminInterface;
+namespace Helvetiapps\LiveControls\Http\Middleware\Analytics;
 
 use Closure;
 use Helvetiapps\LiveControls\Scripts\Analytics\UserRequest;

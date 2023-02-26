@@ -20,12 +20,11 @@ class Request extends Model{
         'preferred_language',
         'languages',
         'user_agent',
-        'request_timestamp',
         'country'
     ];
 
     protected $casts = [
-        'languages' => 'array'
+        'languages' => 'array',
     ];
 
     public function user(): BelongsTo
@@ -40,11 +39,11 @@ class Request extends Model{
 
     public function actions(): BelongsToMany
     {
-        return $this->belongsToMany(Request::class, 'livecontrols_analytics_action_requests', 'analytics_action_id', 'analytics_request_id');
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_action_requests', 'action_id', 'request_id');
     }
 
     public function campaigns(): BelongsToMany
     {
-        return $this->belongsToMany(Request::class, 'livecontrols_analytics_campaign_requests', 'analytics_campaign_id', 'analytics_request_id');
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_campaign_requests', 'campaign_id', 'request_id');
     }
 }

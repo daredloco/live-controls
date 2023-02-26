@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('preferred_language');
             $table->json('languages');
             $table->string('user_agent');
-            $table->timestamp('request_timestamp');
             $table->string('country');
             $table->timestamps();
         });

@@ -24,6 +24,6 @@ class Campaign extends Model{
 
     public function requests(): BelongsToMany
     {
-        return $this->belongsToMany(Request::class, 'livecontrols_analytics_campaign_requests', 'analytics_request_id', 'analytics_campaign_id');
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_campaign_requests', 'request_id', 'campaign_id');
     }
 }
