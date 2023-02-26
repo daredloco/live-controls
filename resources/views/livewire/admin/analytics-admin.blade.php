@@ -49,6 +49,7 @@
               <td>{{ $userRequest->country }}</td>
               <td>{{ $userRequest->created_at }}</td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
