@@ -8,25 +8,28 @@
           <a class="nav-link @if($tab == 'visits') active @endif" href="#" wire:click.prevent="$set('tab', 'visits')">Visits</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'paths')" tabindex="-1" aria-disabled="true">Paths</a>
+          <a class="nav-link" href="#" wire:click.prevent="$set('tab', 'paths')">Paths</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'users')" tabindex="-1" aria-disabled="true">Users</a>
+          <a class="nav-link disabled" href="#" wire:click.prevent="$set('tab', 'users')" tabindex="-1" aria-disabled="true">Users</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'campaigns')" tabindex="-1" aria-disabled="true">Campaigns</a>
+          <a class="nav-link disabled" href="#" wire:click.prevent="$set('tab', 'campaigns')" tabindex="-1" aria-disabled="true">Campaigns</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" wire:click="$set('tab', 'actions')" tabindex="-1" aria-disabled="true">Actions</a>
+          <a class="nav-link disabled" href="#" wire:click.prevent="$set('tab', 'actions')" tabindex="-1" aria-disabled="true">Actions</a>
         </li>
     </ul>
     <!-- /NAVIGATION TAB -->
 
     @if($tab == 'dashboard')
-    <div class="alert alert-warning text-center">
-      <strong>Admin Interface for analytics is heavy work in progress!</strong>
-    </div>
+
+      <div class="alert alert-warning text-center">
+        <strong>Admin Interface for analytics is heavy work in progress!</strong>
+      </div>
+
     @elseif($tab == 'visits')
+
       <div class="table-responsive">
         <table class="table table-hover">
           <thead>
@@ -56,6 +59,27 @@
         </table>
       </div>
       
+    @elseif($tab == 'paths')
+
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Target Path</th>
+              <th scope="col">Visits</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($paths as $path => $visits)
+            <tr class="">
+              <th scope="row">{{ $path }}</th>
+              <td>{{ $visits }}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+
     @elseif($tab == 'users')
 
     @elseif($tab == 'campaigns')
