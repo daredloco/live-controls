@@ -7,6 +7,7 @@ use Helvetiapps\LiveControls\Models\Analytics\Campaign;
 use Helvetiapps\LiveControls\Models\Analytics\Request;
 use Helvetiapps\LiveControls\Scripts\Analytics\AnalyticsHandler;
 use Carbon\Carbon;
+use Helvetiapps\LiveControls\Scripts\Analytics\Charts;
 use Livewire\Component;
 
 class AnalyticsAdmin extends Component
@@ -40,8 +41,9 @@ class AnalyticsAdmin extends Component
         $to = new Carbon($this->to);
         $userRequests = Request::orderBy('created_at', 'desc')->paginate();
         $paths = AnalyticsHandler::getPaths($from, $to);
+        $pathsChartData = config('livecontrols.analytics_charts_enabled', false) ? Charts::pathsChartData($paths) : null;
         $campaigns = Campaign::where('active', '=', true)->orderBy('name')->paginate();
         $actions = Action::where('active', '=', true)->orderBy('name')->paginate();
-        return view('livecontrols::livewire.admin.analytics-admin', ['paths' => $paths, 'userRequests' => $userRequests, 'campaigns' => $campaigns, 'actions' => $actions]);
+        return view('livecontrols::livewire.admin.analytics-admin', ['pathsChartData' => $pathsChartData, 'paths' => $paths, 'userRequests' => $userRequests, 'campaigns' => $campaigns, 'actions' => $actions]);
     }
 }
