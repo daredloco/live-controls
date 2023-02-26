@@ -34,7 +34,7 @@ class UserRequest
 
     public function update()
     {
-        $this->user == auth()->check() ? (config('livecontrols.analytics_user', false) ? auth()->user()->id : null) : null;
+        $this->user = auth()->check() ? (config('livecontrols.analytics_user', false) ? auth()->user()->id : null) : null;
         $this->identifier = config('livecontrols.analytics_identifier', 'ip_hash') == 'ip_hash' ? Hash::make($this->request->ip()) : $this->request->ip();
         $this->preferredLanguage = $this->request->getPreferredLanguage();
         $this->languages = $this->request->getLanguages();
