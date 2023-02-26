@@ -26,7 +26,7 @@ class AnalyticsAdmin extends Component
             $this->from = Carbon::now()->startOfMonth()->format('Y-m-d');
         }
         if(is_null($this->to)){
-            $this->to = $this->from->endOfMonth()->format('Y-m-d');
+            $this->to = Carbon::now()->endOfMonth()->format('Y-m-d');
         }
 
         if(is_null($this->tab)){
