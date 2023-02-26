@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('livecontrols_analytics_action_requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('analytics_action_id')->constrained('livecontrols_analytics_actions', 'id')->cascadeOnDelete();
-            $table->foreignId('analytics_request_id')->nullable()->constrained('livecontrols_analytics_requests', 'id')->nullOnDelete();
+            $table->foreignId('action_id')->constrained('livecontrols_analytics_actions', 'id')->cascadeOnDelete();
+            $table->foreignId('request_id')->nullable()->constrained('livecontrols_analytics_requests', 'id')->nullOnDelete();
             $table->timestamps();
         });
     }
