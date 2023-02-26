@@ -46,7 +46,7 @@
               <td scope="row">{{ $userRequest->identifier }}</td>
               <td>{{ $userRequest->target_path }}</td>
               <td>{{ $userRequest->preferred_language }}</td>
-              <td>@json($userRequest->languages)</td>
+              <td>{{ \Helvetiapps\LiveControls\Utils\Utils::array2String($userRequest->languages) }}</td>
               <td>{{ $userRequest->user_agent }}</td>
               <td>{{ $userRequest->country }}</td>
               <td>{{ $userRequest->created_at }}</td>
