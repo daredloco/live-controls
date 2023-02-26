@@ -24,6 +24,6 @@ class Action extends Model{
 
     public function requests(): BelongsToMany
     {
-        return $this->belongsToMany(Request::class, 'livecontrols_analytics_action_requests', 'analytics_request_id', 'analytics_action_id');
+        return $this->belongsToMany(Request::class, 'livecontrols_analytics_action_requests', 'request_id', 'action_id');
     }
 }
