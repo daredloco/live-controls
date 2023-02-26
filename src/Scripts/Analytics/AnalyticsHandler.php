@@ -5,7 +5,7 @@ namespace Helvetiapps\LiveControls\Scripts\Analytics;
 use Exception;
 use Helvetiapps\LiveControls\Models\Analytics\Action;
 use Helvetiapps\LiveControls\Models\Analytics\Request;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
 class AnalyticsHandler
