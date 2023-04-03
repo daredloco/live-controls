@@ -274,7 +274,6 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Save cookie on user device (Optional)
 
 
-
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 

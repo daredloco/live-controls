@@ -16,8 +16,8 @@
                                     scale: 2,
                                     padFractionalZeros: true,
                                     normalizeZeros: false,
-                                    radix: ',',
-                                    thousandsSeparator: '.'
+                                    radix: '{{ $radix }}',
+                                    thousandsSeparator: '{{ $thousandsSeparator }}'
                                 }
                             }
                         @else
