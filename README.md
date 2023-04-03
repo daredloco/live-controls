@@ -274,14 +274,6 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Save cookie on user device (Optional)
 
 
-## Word/Excel Document Generator
-A plugin that lets you easily generate Word and/or Excel documents
-
-### Todo
-- Search a good plugin(s) to handle the generation. PHP ones seem to be bad, maybe there is a better JS option around
-
-
-
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
