@@ -117,7 +117,7 @@ class LiveControlsServiceProvider extends ServiceProvider
       ], 'livecontrols-config');
 
       $this->publishes([
-        __DIR__.'/../lang' => resource_path('lang/vendor/livecontrols'),
+        __DIR__.'/../lang' => $this->app->langPath('vendor/livecontrols'),
       ], 'livecontrols-localization');
 
       $this->publishes([
