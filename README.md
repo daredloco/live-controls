@@ -220,6 +220,7 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 
 ### Todo
 - Add placeholders like in private system, but more dynamic
+- Add function to add images and save them to disk
 
 
 
