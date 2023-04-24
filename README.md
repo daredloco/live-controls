@@ -134,7 +134,6 @@ A System handling cryptography like encrypted database entries and such
 
 ### Content
 - Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
-- ~~EncryptedModel object based on model with create and update function.~~
 
 
 
