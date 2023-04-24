@@ -267,7 +267,7 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Ability for users to see images (In a galery, make it publishable so you can change the design)
 - Ability to select images (Save them in a livewire emit or such {the filename can be sent})
 - Ability to show the images only for the user, for a group or for everyone
-
+- Ability to add (optional) title and description to images. Can be enabled in config
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
