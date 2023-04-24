@@ -134,7 +134,6 @@ A System handling cryptography like encrypted database entries and such
 
 ### Content
 - Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
-- ~~EncryptedModel object based on model with create and update function.~~
 
 
 
@@ -152,21 +151,6 @@ A system for adding subscriptions for certain "products"/plugins/systems inside 
 
 ### Todo
 - Add subscriptions to groups
-
-
-
-## ToastR
-Simple implementation of ToastR popups
-
-**DO NOT USE TOASTR ANYMORE, REMOVED IN VERSION 0.4-dev AND ABOVE!**
-
-Reason: https://github.com/CodeSeven/toastr/issues/689
-
-[Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
-
-### Content
-- ~~Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.~~
-
 
 
 
