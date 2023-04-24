@@ -11,7 +11,7 @@ trait HasPopups{
     public function popupInfo(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'info',
-            'title' => $title,
+            'title' => is_null($title) ? __('livecontrols::alerts.info') : $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
             'confirmEvent' => $confirmEvent,
@@ -27,7 +27,7 @@ trait HasPopups{
     public function popupWarn(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'warning',
-            'title' => $title,
+            'title' => is_null($title) ? __('livecontrols::alerts.warning') : $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
             'confirmEvent' => $confirmEvent,
@@ -43,7 +43,7 @@ trait HasPopups{
     public function popupSuccess(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'success',
-            'title' => $title,
+            'title' => is_null($title) ? __('livecontrols::alerts.success') : $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
             'confirmEvent' => $confirmEvent,
@@ -59,7 +59,7 @@ trait HasPopups{
     public function popupError(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'error',
-            'title' => $title,
+            'title' => is_null($title) ? __('livecontrols::alerts.error') : $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
             'confirmEvent' => $confirmEvent,
@@ -75,7 +75,7 @@ trait HasPopups{
     public function popupQuestion(string $title, string $message, ?int $timer = null, string $confirmText = null, string $confirmEvent = null, string $denyText = null, string $denyEvent = null, string $cancelText = null, string $cancelEvent = null){
         $this->dispatchBrowserEvent('popup', [
             'type' => 'question',
-            'title' => $title,
+            'title' => is_null($title) ? __('livecontrols::alerts.question') : $title,
             'message' => $message,
             'confirmButtonText' => $confirmText,
             'confirmEvent' => $confirmEvent,
