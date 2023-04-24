@@ -155,21 +155,6 @@ A system for adding subscriptions for certain "products"/plugins/systems inside 
 
 
 
-## ToastR
-Simple implementation of ToastR popups
-
-**DO NOT USE TOASTR ANYMORE, REMOVED IN VERSION 0.4-dev AND ABOVE!**
-
-Reason: https://github.com/CodeSeven/toastr/issues/689
-
-[Documentation](https://github.com/daredloco/live-controls/wiki/09.-ToastR)
-
-### Content
-- ~~Blade Component <livecontrols::toastr> which can be called by livewire or javascript. Put it on the bottom of the body.~~
-
-
-
-
 ## SweetAlert2
 Simple implementation of SweetAlert2 popups.
 
