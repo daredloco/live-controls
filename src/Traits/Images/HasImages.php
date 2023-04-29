@@ -3,6 +3,7 @@
 namespace Helvetiapps\LiveControls\Traits\Images;
 
 use Exception;
+use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Nette\Utils\Image;
 
 trait HasImages{
@@ -21,6 +22,10 @@ trait HasImages{
      */
     public function uploadImage($image, string $key = 'image', bool $isPrivate = false, array $options = []): string
     {
+        if(!$this->checkPermissions('upload')){
+            abort(403);
+        }
+
         $quality = array_key_exists('quality', $options) && is_numeric($options["quality"]) ? $options["quality"] : null;
         $transform = array_key_exists('transform_to_jpeg', $options) && is_bool($options["transform_to_jpeg"]) ? $options['transform_to_jpeg'] : false;
 
@@ -31,8 +36,9 @@ trait HasImages{
         }else{
             $photolocation = $image->store($key, $disk);
 
-            throw new Exception($photolocation);
             $diskroot = config('filesystems.disks.'.($disk).'.root');
+
+            throw new Exception($diskroot.$photolocation);
             $img = Image::fromFile(public_path('uploads/'.$photolocation));
 
             if(config('filesystems.disks.'.($disk).'.driver') != 'local'){
@@ -58,20 +64,45 @@ trait HasImages{
         return 'path/to/image';
     }
 
-    public function downloadImage(string $name, string $key = 'image'){
-
+    public function downloadImage(string $name, string $key = 'image', bool $isPrivate = false){
+        if(!$this->checkPermissions('show')){
+                    abort(403);
+        }
     }
 
-    public function deleteImage(string $name, string $key = 'image'){
-
+    public function deleteImage(string $name, string $key = 'image', bool $isPrivate = false){
+        if(!$this->checkPermissions('delete')){
+            abort(403);
+        }
     }
 
-    public function getUrl(string $name, string $key = 'image'){
-
+    public function getUrl(string $name, string $key = 'image', bool $isPrivate = false){
+        if(!$this->checkPermissions('show')){
+            abort(403);
+        }
     }
 
-    private function checkPermissions():bool{
+    private function checkPermissions(string $permission):bool{
         //TODO: Check if the user has permissions from the config if enabled
-        return false;
+        if($permission == "upload"){
+            $perm = config('livecontrols.images_permission_upload', null);
+            if(is_null($perm)){
+                return true;
+            }
+            return PermissionsHandler::add($permission)->check();
+        }elseif($permission == "show"){
+            $perm = config('livecontrols.images_permission_show', null);
+            if(is_null($perm)){
+                return true;
+            }
+            return PermissionsHandler::add($permission)->check();
+        }elseif($permission == "delete"){
+            $perm = config('livecontrols.images_permission_delete', null);
+            if(is_null($perm)){
+                return true;
+            }
+            return PermissionsHandler::add($permission)->check();
+        }
+        throw new Exception('Invalid permission! Valid permissions are "upload", "show", "delete" but found "'.$permission.'"');
     }
 }
