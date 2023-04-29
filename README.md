@@ -260,7 +260,7 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 
 
 
-## Image Gallery
+## Image Gallery/Handling
 
 ### Todo
 - Ability to let users upload images (on any drive)
@@ -268,6 +268,7 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Ability to select images (Save them in a livewire emit or such {the filename can be sent})
 - Ability to show the images only for the user, for a group or for everyone
 - Ability to add (optional) title and description to images. Can be enabled in config
+- Add a trait to models which could easily handle image/avatar upload and handling of one or many images
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
