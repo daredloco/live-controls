@@ -4,6 +4,7 @@ namespace Helvetiapps\LiveControls\Traits\Images;
 
 use Exception;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
+use Illuminate\Support\Facades\Storage;
 use Nette\Utils\Image;
 
 trait HasImages{
@@ -38,30 +39,30 @@ trait HasImages{
 
             $diskroot = config('filesystems.disks.'.($disk).'.root');
 
-            throw new Exception($diskroot.$photolocation);
-            $img = Image::fromFile(public_path('uploads/'.$photolocation));
+            $filePath = $diskroot.'/'.$photolocation;
+            $img = Image::fromFile($filePath);
 
             if(config('filesystems.disks.'.($disk).'.driver') != 'local'){
                 throw new Exception('Only disks with the local driver are allowed!');
             }
 
             if($transform == true){
-                $ftype = Image::detectTypeFromFile(public_path('uploads/'.$photolocation));
+                $ftype = Image::detectTypeFromFile($filePath);
                 if($ftype == Image::PNG){
                     //Transform to JPEG
-                    $flocation = explode('.', $photolocation)[0];
-                    $img->save(public_path('uploads/'.$flocation.'.jpg'), $quality);
-                    unlink(public_path('uploads/'.$photolocation));
-                    $photolocation = $flocation.'.jpg';
+                    $flocation = explode('.', $filePath)[0];
+                    $img->save($flocation.'.jpg', $quality);
+                    unlink($filePath);
+                    $filePath = $flocation.'.jpg';
                 }elseif($ftype == Image::JPEG){
-                    $img->save(public_path('uploads/'.$photolocation), $quality);
+                    $img->save($filePath, $quality);
                 }
             }else{
-                $img->save(public_path('uploads/'.$photolocation), $quality);
+                $img->save($filePath, $quality);
             }
-            
         }
-        return 'path/to/image';
+        
+        return Storage::disk($disk)->url($photolocation);
     }
 
     public function downloadImage(string $name, string $key = 'image', bool $isPrivate = false){
