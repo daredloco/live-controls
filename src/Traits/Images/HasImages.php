@@ -35,6 +35,10 @@ trait HasImages{
             $diskroot = config('filesystems.disks.'.($disk).'.root');
             $img = Image::fromFile(public_path('uploads/'.$photolocation));
 
+            if(config('filesystems.disks.'.($disk).'.driver') != 'local'){
+                throw new Exception('Only disks with the local driver are allowed!');
+            }
+
             if($transform == true){
                 $ftype = Image::detectTypeFromFile(public_path('uploads/'.$photolocation));
                 if($ftype == Image::PNG){
