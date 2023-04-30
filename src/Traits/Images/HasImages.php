@@ -23,7 +23,7 @@ trait HasImages
         if(!$replace && !is_null($this->{$column})){
             throw new Exception('Image in column "'.$column.'" in table "'.$this->getTable().'" already exists and replace is disabled!');
         }elseif($replace && !is_null($this->{$column})){
-            $this->removeImage($this->{$column}, $isPrivate);
+            $this->removeImage($column, $isPrivate);
         }
 
         $table = $this->getTable();
