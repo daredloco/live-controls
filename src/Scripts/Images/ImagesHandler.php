@@ -85,7 +85,6 @@ class ImagesHandler
     }
 
     public static function checkPermissions(string $permission):bool{
-        //TODO: Check if the user has permissions from the config if enabled
         if($permission == "upload"){
             $perm = config('livecontrols.images_permission_upload', null);
             if(is_null($perm)){
