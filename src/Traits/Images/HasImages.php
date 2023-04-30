@@ -16,7 +16,7 @@ trait HasImages
         if(is_null($isPrivate)){
             $isPrivate = $this->imagePrivate;
         }
-        if($column == null){
+        if(is_null($column)){
             $column = $this->imageColumn;
         }
 
@@ -30,7 +30,7 @@ trait HasImages
         $imageLocation = ImagesHandler::uploadImage($image, $table.'_'.$column, $isPrivate);
 
         return $this->update([
-            $this->imageColumn => $imageLocation
+            $column => $imageLocation
         ]);
     }
 
