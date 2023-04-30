@@ -11,7 +11,8 @@ trait HasImages
 
     public function uploadImage($image): bool
     {
-        $photoLocation = ImagesHandler::uploadImage($image, $this->imageColumn, $this->imagePrivate);
+        $table = $this->getTable();
+        $photoLocation = ImagesHandler::uploadImage($image, $table.'_'.$this->imageColumn, $this->imagePrivate);
 
         return $this->update([
             $this->imageColumn => $photoLocation
