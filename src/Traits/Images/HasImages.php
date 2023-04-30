@@ -54,6 +54,7 @@ trait HasImages{
                     $img->save($flocation.'.jpg', $quality);
                     unlink($filePath);
                     $filePath = $flocation.'.jpg';
+                    $photolocation = explode('.', $photolocation)[0].'.jpg';
                 }elseif($ftype == Image::JPEG){
                     $img->save($filePath, $quality);
                 }
@@ -62,25 +63,28 @@ trait HasImages{
             }
         }
         
-        return Storage::disk($disk)->url($photolocation);
+        return $photolocation;
     }
 
-    public function downloadImage(string $name, string $key = 'image', bool $isPrivate = false){
-        if(!$this->checkPermissions('show')){
-                    abort(403);
-        }
-    }
-
-    public function deleteImage(string $name, string $key = 'image', bool $isPrivate = false){
+    public function deleteImage(string $photolocation, bool $isPrivate = false):bool{
         if(!$this->checkPermissions('delete')){
             abort(403);
         }
+        $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
+        return Storage::disk($disk)->delete($photolocation);
     }
 
-    public function getUrl(string $name, string $key = 'image', bool $isPrivate = false){
+    public function imageUrl($photolocation, bool $isPrivate = false){
         if(!$this->checkPermissions('show')){
             abort(403);
         }
+        $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
+        return Storage::disk($disk)->url($photolocation);
+    }
+
+    public function imagePath($photolocation, bool $isPrivate = false){
+        $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
+        return Storage::disk($disk)->path($photolocation);
     }
 
     private function checkPermissions(string $permission):bool{
