@@ -85,6 +85,14 @@ class ImagesHandler
     }
 
     public static function checkPermissions(string $permission):bool{
+        if(config('livecontrols.images_enabled', true) == false){
+            //If images system is disabled it will always return false
+            return false;
+        }
+        if(config('livecontrols.images_permissions_enabled', false) == false){
+            //This will ignore the check
+            return true;
+        }
         if($permission == "upload"){
             $perm = config('livecontrols.images_permission_upload', null);
             if(is_null($perm)){
