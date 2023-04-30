@@ -204,8 +204,8 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 
 ### Todo
 - Add placeholders like in private system, but more dynamic
-- Add function to add images and save them to disk
-
+- Add ability to include the Image Gallery to the editor and when clicking on an image include it in the editor
+- Add function to add images and save them to disk (Maybe someday)
 
 
 ## Calendar
@@ -258,6 +258,18 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Add Analytics to Admin Interface with Charts (Use lagoon-charts for it, but make it optional)
 - Save cookie on user device (Optional)
 
+
+
+## Image Gallery/Handling
+### Content
+- Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
+
+### Todo
+- Ability for users to see images (In a galery, make it publishable so you can change the design)
+- Ability to select images (Save them in a livewire emit or such {the filename can be sent})
+- Ability to show the images only for the user, for a group or for everyone
+- Ability to add (optional) title and description to images. Can be enabled in config
+- Add a trait to models which could easily handle image/avatar upload and handling of one or many images
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
