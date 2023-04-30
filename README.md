@@ -263,6 +263,7 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ## Image Gallery/Handling
 ### Content
 - Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
+- HasImages trait with simple main image (avatar) functions
 
 ### Todo
 - Ability for users to see images (In a galery, make it publishable so you can change the design)
