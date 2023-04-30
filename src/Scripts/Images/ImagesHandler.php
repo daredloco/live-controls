@@ -1,19 +1,16 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Traits\Images;
+namespace Helvetiapps\LiveControls\Scripts\Images;
 
 use Exception;
 use Helvetiapps\LiveControls\Facades\PermissionsHandler;
 use Illuminate\Support\Facades\Storage;
 use Nette\Utils\Image;
 
-trait HasImages{
-    protected $imagesTable = null;
-    protected $imagesColumns = ['image' => 'image']; //This should be key => value, with key first and database column afterwards
-    protected $imagesFolder = null; //If this is set, it will overwrite the config('livecontrols.images_folder)
-
+class ImagesHandler
+{
     /**
-     * Uploads an image 
+     * Uploads an image
      *
      * @param [type] $image The image from a request $request->file('somefile')
      * @param string $key The key (subfolder) the image should be saved to
@@ -21,9 +18,9 @@ trait HasImages{
      * @param array $options quality => sets quality of image, transform_to_jpeg => transforms image to jpeg
      * @return string
      */
-    public function uploadImage($image, string $key = 'image', bool $isPrivate = false, array $options = []): string
+    public static function uploadImage($image, string $key = 'image', bool $isPrivate = false, array $options = []): string
     {
-        if(!$this->checkPermissions('upload')){
+        if(!static::checkPermissions('upload')){
             abort(403);
         }
 
@@ -62,32 +59,32 @@ trait HasImages{
                 $img->save($filePath, $quality);
             }
         }
-        
+
         return $photolocation;
     }
 
-    public function deleteImage(string $photolocation, bool $isPrivate = false):bool{
-        if(!$this->checkPermissions('delete')){
+    public static function deleteImage(string $photolocation, bool $isPrivate = false):bool{
+        if(!static::checkPermissions('delete')){
             abort(403);
         }
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
         return Storage::disk($disk)->delete($photolocation);
     }
 
-    public function imageUrl($photolocation, bool $isPrivate = false){
-        if(!$this->checkPermissions('show')){
+    public static function imageUrl($photolocation, bool $isPrivate = false){
+        if(!static::checkPermissions('show')){
             abort(403);
         }
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
         return Storage::disk($disk)->url($photolocation);
     }
 
-    public function imagePath($photolocation, bool $isPrivate = false){
+    public static function imagePath($photolocation, bool $isPrivate = false){
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
         return Storage::disk($disk)->path($photolocation);
     }
 
-    private function checkPermissions(string $permission):bool{
+    public static function checkPermissions(string $permission):bool{
         //TODO: Check if the user has permissions from the config if enabled
         if($permission == "upload"){
             $perm = config('livecontrols.images_permission_upload', null);
