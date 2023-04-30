@@ -46,7 +46,11 @@ trait HasImages
         if(is_null($imageLocation)){
             return false;
         }
-        return ImagesHandler::deleteImage($this->{$column}, $isPrivate);
+        if(ImagesHandler::deleteImage($this->{$column}, $isPrivate)){
+            $this->update([
+                $column => null
+            ]);
+        }
     }
 
     public function getImageUrl(string $column = null, string $noImage = null){
