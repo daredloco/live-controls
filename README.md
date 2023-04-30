@@ -263,13 +263,15 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ## Image Gallery/Handling
 ### Content
 - Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
+- HasImages trait with ability to add avatar/image or specific images with column value
 
 ### Todo
 - Ability for users to see images (In a galery, make it publishable so you can change the design)
 - Ability to select images (Save them in a livewire emit or such {the filename can be sent})
 - Ability to show the images only for the user, for a group or for everyone
 - Ability to add (optional) title and description to images. Can be enabled in config
-- Add a trait to models which could easily handle image/avatar upload and handling of one or many images
+
+
 
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
