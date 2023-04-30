@@ -11,27 +11,39 @@ class ImageGallery extends Component
     public $titleColumn = null;
     public $columns = [];
 
-    public $items = [];
+    public $items;
+    public $selectedItem;
 
     public function mount()
     {
+        $fetchedColumns = [$this->idColumn];
+        if($this->titleColumn != null){
+            array_push($fetchedColumns, $this->titleColumn);
+        }
+
+        $this->items = [];
         foreach($this->models as $modelName => $model)
         {
-            $items = $model::all([$this->idColumn, $this->columns]);
-            $this->items[$modelName] = [];
-            foreach($items as $item)
-            {
-                $this->items[$modelName][$item->{$this->idColumn}] = [
-                    'columns' => []
+            $this->items[$modelName] = [
+                'name' => $modelName,
+                'items' => []
+            ];
+
+            foreach($model::all(array_merge($fetchedColumns, $this->columns)) as $singleModel){
+                $this->items[$modelName]["items"][$singleModel->{$this->idColumn}] = [
+                    'id' => $singleModel->{$this->idColumn},
                 ];
-                if(is_null($this->titleColumn)){
-                    $this->items[$item->{$this->idColumn}]["title"] = $item->{$this->titleColumn};
-                }else{
-                    $this->items[$item->{$this->idColumn}]["title"] = null;
+                if(!is_null($this->titleColumn)){
+                    $this->items[$modelName]["items"][$singleModel->{$this->idColumn}]["title"] = $singleModel->{$this->titleColumn};
                 }
+                $this->items[$modelName]["items"][$singleModel->{$this->idColumn}]["columns"] = [];
                 foreach($this->columns as $column)
                 {
-                    $this->items[$item->{$this->idColumn}]["columns"][$column] = $item->{$column};
+                    $this->items[$modelName]["items"][$singleModel->{$this->idColumn}]["columns"][$column] =
+                    [
+                        'path' => $singleModel->{$column},
+                        'url' => $singleModel->getImageUrl($column)
+                    ];
                 }
             }
         }
@@ -40,5 +52,10 @@ class ImageGallery extends Component
     public function render()
     {
         return view('livecontrols::livewire.images.image-gallery');
+    }
+
+    public function select(string $path)
+    {
+        $this->selectedItem = $path;
     }
 }
