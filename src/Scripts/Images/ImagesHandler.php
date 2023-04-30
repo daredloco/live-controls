@@ -32,11 +32,11 @@ class ImagesHandler
         if(is_null($image)){
             throw new Exception('Image does not exist!');
         }else{
-            $photolocation = $image->store($key, $disk);
+            $imageLocation = $image->store($key, $disk);
 
             $diskroot = config('filesystems.disks.'.($disk).'.root');
 
-            $filePath = $diskroot.'/'.$photolocation;
+            $filePath = $diskroot.'/'.$imageLocation;
             $img = Image::fromFile($filePath);
 
             if(config('filesystems.disks.'.($disk).'.driver') != 'local'){
@@ -51,7 +51,7 @@ class ImagesHandler
                     $img->save($flocation.'.jpg', $quality);
                     unlink($filePath);
                     $filePath = $flocation.'.jpg';
-                    $photolocation = explode('.', $photolocation)[0].'.jpg';
+                    $imageLocation = explode('.', $imageLocation)[0].'.jpg';
                 }elseif($ftype == Image::JPEG){
                     $img->save($filePath, $quality);
                 }
@@ -60,28 +60,28 @@ class ImagesHandler
             }
         }
 
-        return $photolocation;
+        return $imageLocation;
     }
 
-    public static function deleteImage(string $photolocation, bool $isPrivate = false):bool{
+    public static function deleteImage(string $imageLocation, bool $isPrivate = false):bool{
         if(!static::checkPermissions('delete')){
             abort(403);
         }
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
-        return Storage::disk($disk)->delete($photolocation);
+        return Storage::disk($disk)->delete($imageLocation);
     }
 
-    public static function imageUrl($photolocation, bool $isPrivate = false){
+    public static function imageUrl($imageLocation, bool $isPrivate = false){
         if(!static::checkPermissions('show')){
             abort(403);
         }
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
-        return Storage::disk($disk)->url($photolocation);
+        return Storage::disk($disk)->url($imageLocation);
     }
 
-    public static function imagePath($photolocation, bool $isPrivate = false){
+    public static function imagePath($imageLocation, bool $isPrivate = false){
         $disk = $isPrivate ? config('livecontrols.images_disk_private') : config('livecontrols.images_disk');
-        return Storage::disk($disk)->path($photolocation);
+        return Storage::disk($disk)->path($imageLocation);
     }
 
     public static function checkPermissions(string $permission):bool{
