@@ -11,12 +11,12 @@ trait HasImages
     protected $imagePrivate = false;
     protected $noImageUrl = null;
 
-    public function uploadImage($image, bool $replace = true, string $column = null, bool $isPrivate = null): bool
+    public function uploadImage($image, string $column = null, bool $replace = true, bool $isPrivate = null): bool
     {
         if(is_null($isPrivate)){
             $isPrivate = $this->imagePrivate;
         }
-        if($column == null){
+        if(is_null($column)){
             $column = $this->imageColumn;
         }
 
@@ -30,7 +30,7 @@ trait HasImages
         $imageLocation = ImagesHandler::uploadImage($image, $table.'_'.$column, $isPrivate);
 
         return $this->update([
-            $this->imageColumn => $imageLocation
+            $column => $imageLocation
         ]);
     }
 
