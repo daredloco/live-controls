@@ -34,12 +34,12 @@ trait HasImages
         ]);
     }
 
-    public function removeImage(string $imageLocation, bool $isPrivate = null)
+    public function removeImage(string $column, bool $isPrivate = null)
     {
         if(is_null($isPrivate)){
             $isPrivate = $this->imagePrivate;
         }
-        return ImagesHandler::deleteImage($imageLocation, $isPrivate);
+        return ImagesHandler::deleteImage($this->{$column}, $isPrivate);
     }
 
     public function getImageUrl(string $column = null, string $noImage = null){
