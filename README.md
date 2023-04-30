@@ -261,9 +261,10 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 
 
 ## Image Gallery/Handling
+### Content
+- Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
 
 ### Todo
-- Ability to let users upload images (on any drive)
 - Ability for users to see images (In a galery, make it publishable so you can change the design)
 - Ability to select images (Save them in a livewire emit or such {the filename can be sent})
 - Ability to show the images only for the user, for a group or for everyone
