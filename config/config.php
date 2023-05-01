@@ -58,7 +58,7 @@ return [
     'images_permission_upload' => null, //Set this to a string representing the UserPermission needed to upload images or to null to enable it for everyone
     'images_permission_show' => null, //Set this to a string representing the UserPermission needed to show images or to null to enable it for everyone
     'images_permission_delete' => null, //Set this to a string representing the UserPermission needed to delete images or to null to enable it for admins/user
-    'images_galery_enabled' => true, //Set this to true to enable the image galery
+    'images_gallery_enabled' => true, //Set this to true to enable the image galery
     'images_thumbnails_enabled' => true, //Set this to false and every image will be returned as full size image
     'images_thumbnails_runtime' => false, //Set this to true if you want to generate thumbnails on runtime for whatever reason
     'images_thumbnail_size' => [100,100], //Set this to the dimensions you want your thumbnails to be shown
