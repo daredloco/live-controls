@@ -18,6 +18,7 @@ use Helvetiapps\LiveControls\Http\Livewire\Admin\UserList;
 use Helvetiapps\LiveControls\Http\Livewire\AutoCEP\AutoCep;
 use Helvetiapps\LiveControls\Http\Livewire\BbEditor\BbEditor;
 use Helvetiapps\LiveControls\Http\Livewire\Calendar\Calendar;
+use Helvetiapps\LiveControls\Http\Livewire\Images\ImageGallery;
 use Helvetiapps\LiveControls\Http\Livewire\MaskedInput\MaskedInput;
 use Helvetiapps\LiveControls\Http\Livewire\Support\MessagesHandler;
 use Helvetiapps\LiveControls\Http\Livewire\Support\StatusHandler;
@@ -85,7 +86,7 @@ class LiveControlsServiceProvider extends ServiceProvider
     Livewire::component('livecontrols-masked-input', MaskedInput::class);
     Livewire::component('livecontrols-bbeditor', BbEditor::class);
     Livewire::component('livecontrols-calendar', Calendar::class);
-    
+    Livewire::component('livecontrols-image-gallery', ImageGallery::class);
     //Load Blade Components
     // Blade::componentNamespace('Helvetiapps\\LiveControls\\Views\\Components', 'livecontrols');
     
@@ -123,6 +124,10 @@ class LiveControlsServiceProvider extends ServiceProvider
       $this->publishes([
         __DIR__.'/../resources/views' => resource_path('views/vendor/livecontrols'),
       ], 'livecontrols-views');
+
+      $this->publishes([
+        __DIR__.'/../resources/views/livewire/images' => resource_path('views/vendor/livecontrols/imagegallery')
+      ], 'livecontrols-imagegallery');
     }
   }
 }

@@ -139,24 +139,6 @@ A System handling cryptography like encrypted database entries and such
 - Added IsEncrypted trait with createEncrypted(array $fields, array $ignoredFields = []), updateEncrypted(array $fields, array $ignoredFields = []) and decrypt(string ...$fields)
 
 
-
-## Subscriptions
-A system for adding subscriptions for certain "products"/plugins/systems inside the system.
-
-### Content
-- Subscription System where users can subscribe to different subscriptions at once
-- Config variables
-- SubscriptionsHandler class to add/remove subscriptions from users, to check if subscription is valid and to check if user has a certain (valid) subscription
-- Subscriptions inside Admin Interface
-- Create/Edit/Delete Subscriptions in Admin Interface
-- Middleware to check if user has subscription
-- Subscriptions have permissions (Will fall into permissionscheck if active)
-
-### Todo
-- Add subscriptions to groups
-
-
-
 ## SweetAlert2
 Simple implementation of SweetAlert2 popups.
 
@@ -187,6 +169,7 @@ An Input for CEP which would give you the informations for road, etc. based on C
 - GetCEP class
 - AutoCep input - @livewire('livecontrols-autocep')
 
+[Documentation](https://github.com/daredloco/live-controls/wiki/11.-AutoCEP)
 
 
 
@@ -196,6 +179,26 @@ A masked input based on iMask
 ### Content
 - Masked Input livewire control - @livewire('livecontrols-masked-input')
 
+[Documentation](https://github.com/daredloco/live-controls/wiki/12.-Masked-Input)
+
+
+
+## Subscriptions
+A system for adding subscriptions for certain "products"/plugins/systems inside the system.
+
+### Content
+- Subscription System where users can subscribe to different subscriptions at once
+- Config variables
+- SubscriptionsHandler class to add/remove subscriptions from users, to check if subscription is valid and to check if user has a certain (valid) subscription
+- Subscriptions inside Admin Interface
+- Create/Edit/Delete Subscriptions in Admin Interface
+- Middleware to check if user has subscription
+- Subscriptions have permissions (Will fall into permissionscheck if active)
+
+### Todo
+- Add subscriptions to groups
+
+[Documentation](https://github.com/daredloco/live-controls/wiki/13.-Subscriptions)
 
 
 
@@ -209,6 +212,8 @@ A BBEditor based on SCEditor (Probably generate own library out of this)
 - Add placeholders like in private system, but more dynamic
 - Add ability to include the Image Gallery to the editor and when clicking on an image include it in the editor
 - Add function to add images and save them to disk (Maybe someday)
+
+[Documentation](https://github.com/daredloco/live-controls/wiki/14.-BB-Editor)
 
 
 ## Calendar
@@ -267,11 +272,11 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ### Content
 - Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
 - HasImages trait with ability to add avatar/image or specific images with column value
+- Image Gallery with prototype design (view is publishable with livecontrols-imagegallery)
+- Can select images in Image Gallery and an event 'imageSelectedForGallery{galleryId}' will be emitted 
 
 ### Todo
-- Ability for users to see images (In a galery, make it publishable so you can change the design)
-- Ability to select images (Save them in a livewire emit or such {the filename can be sent})
-- Ability to show the images only for the user, for a group or for everyone
+- Ability to show the images only for the user, ~~for a group~~ or for everyone
 - Ability to add (optional) title and description to images. Can be enabled in config
 
 
@@ -279,7 +284,7 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
-[Documentation](https://github.com/daredloco/live-controls/wiki/11.-Utils)
+[Documentation](https://github.com/daredloco/live-controls/wiki/18.-Utils)
 
 ### Content
 - Utils class with various helpers
