@@ -1,4 +1,5 @@
 <div id="{{ $galleryId }}">
+    @if(config('livecontrols.images_gallery_enabled', false))
     Selected Image: {{ $selectedItem }}
         @foreach($items as $modelsContent)
         <div class="card shadow-lg mt-3">
@@ -27,5 +28,5 @@
             </div>
         </div>
         @endforeach
-    </div>
+    @endif
 </div>
