@@ -1,4 +1,4 @@
-<div>
+<div id="{{ $galleryId }}">
     Selected Image: {{ $selectedItem }}
         @foreach($items as $modelsContent)
         <div class="card shadow-lg mt-3">

@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class ImageGallery extends Component
 {
+    public $galleryId = 'gallery';
     public $models = [];
     public $idColumn = 'id';
     public $titleColumn = null;
@@ -57,5 +58,6 @@ class ImageGallery extends Component
     public function select(string $path)
     {
         $this->selectedItem = $path;
+        $this->emit('imageSelectedForGallery'.$this->galleryId, $path);
     }
 }
