@@ -230,8 +230,6 @@ A Calendar based on FullCalendar.io
 - Make design better on mobile devices
 
 
-[Documentation](https://github.com/daredloco/live-controls/wiki/11.-AutoCEP)
-
 
 ## Dynamic Pages
 Pages with controls that can be dynamically added and positioned
