@@ -272,11 +272,10 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 ### Content
 - Simple image upload and management (get URL, get Path, remove). This is basically Storage in Laravel vanilla
 - HasImages trait with ability to add avatar/image or specific images with column value
-- Image Gallery Prototype
+- Image Gallery with prototype design (view is publishable with livecontrols-imagegallery)
+- Can select images in Image Gallery and an event 'imageSelectedForGallery{galleryId}' will be emitted 
 
 ### Todo
-- Ability for users to see images (In a galery, make it publishable so you can change the design)
-- Ability to select images (Save them in a livewire emit or such {the filename can be sent})
 - Ability to show the images only for the user, ~~for a group~~ or for everyone
 - Ability to add (optional) title and description to images. Can be enabled in config
 
