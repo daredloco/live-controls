@@ -124,6 +124,10 @@ class LiveControlsServiceProvider extends ServiceProvider
       $this->publishes([
         __DIR__.'/../resources/views' => resource_path('views/vendor/livecontrols'),
       ], 'livecontrols-views');
+
+      $this->publishes([
+        __DIR__.'/../resources/views/livewire/images' => resource_path('views/vendor/livecontrols/imagegallery')
+      ], 'livecontrols-imagegallery');
     }
   }
 }
