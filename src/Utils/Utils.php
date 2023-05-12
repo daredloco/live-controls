@@ -154,4 +154,14 @@ class Utils
         }
         return $str;
     }
+
+    /**
+     * Checks if the string is null or empty
+     *
+     * @param string $str
+     * @return boolean
+     */
+    public static function isNullOrEmpty(string $str): bool{
+        return ($str === null || trim($str) === '');
+    }
 }
