@@ -4,6 +4,7 @@ namespace Helvetiapps\LiveControls\Utils;
 
 use Exception;
 use Illuminate\Support\Facades\Storage;
+use Helvetiapps\LiveControls\Utils\Utils;
 
 class ContaboHandler
 {
@@ -37,7 +38,7 @@ class ContaboHandler
     public static function put($folder, $content, $fileName = "")
     {
         static::check();
-        if(isEmptyOrNullString($fileName)){
+        if(Utils::isNullOrEmpty($fileName)){
             return Storage::disk(static::$disk)->put($folder, $content);
         }
         return Storage::disk(static::$disk)->putFileAs(
