@@ -280,7 +280,6 @@ Simple system to track user behaviour. **NOT PRODUCTION READY**
 - Ability to add (optional) title and description to images. Can be enabled in config
 
 
-
 ## Utils Systemes
 A System with different utilities to make life easier, can be everything that doesn't fit into the other Systemes
 
@@ -290,6 +289,7 @@ A System with different utilities to make life easier, can be everything that do
 - Utils class with various helpers
 - Array class with various helpers
 - BBCodes class with transform() method to transform bbcode to html
+- ContaboHandler for simple tasks with Contabo. Read wiki for more informations
 
 ### Todo
 - ?
