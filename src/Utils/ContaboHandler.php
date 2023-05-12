@@ -34,10 +34,15 @@ class ContaboHandler
         return Storage::disk(static::$disk)->exists($path);
     }
 
-    public static function put($folder, $content)
+    public static function put($folder, $content, $fileName = "")
     {
         static::check();
-        return Storage::disk(static::$disk)->put($folder, $content);
+        if(isEmptyOrNullString($fileName)){
+            return Storage::disk(static::$disk)->put($folder, $content);
+        }
+        return Storage::disk(static::$disk)->putFileAs(
+            'avatars', $content, $fileName
+        );
     }
 
     public static function get($path): string|null
