@@ -17,6 +17,11 @@ class ImageGallery extends Component
 
     public function mount()
     {
+        if(is_array($this->items) && count($this->items) > 0 && array_key_exists('name', $this->items[0]) && array_key_exists('items', $this->items[0])){
+            //Do not load any models, if items are set manually
+            return;
+        }
+
         $fetchedColumns = [$this->idColumn];
         if($this->titleColumn != null){
             array_push($fetchedColumns, $this->titleColumn);
