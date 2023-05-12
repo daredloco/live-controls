@@ -46,6 +46,12 @@ class ContaboHandler
         return Storage::disk(static::$disk)->get($path);
     }
 
+    public static function delete(string|array $paths): bool
+    {
+        static::check();
+        return Storage::disk(static::$disk)->delete($paths);
+    }
+
     public static function baseImage($path): string|null
     {
         static::check();
