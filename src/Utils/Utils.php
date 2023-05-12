@@ -158,10 +158,10 @@ class Utils
     /**
      * Checks if the string is null or empty
      *
-     * @param string $str
+     * @param $str
      * @return boolean
      */
-    public static function isNullOrEmpty(string $str): bool{
+    public static function isNullOrEmpty($str): bool{
         return ($str === null || trim($str) === '');
     }
 }
