@@ -41,7 +41,7 @@ class ContaboHandler
             return Storage::disk(static::$disk)->put($folder, $content);
         }
         return Storage::disk(static::$disk)->putFileAs(
-            'avatars', $content, $fileName
+            $folder, $content, $fileName
         );
     }
 
