@@ -6,6 +6,9 @@ use Exception;
 use Illuminate\Support\Facades\Storage;
 use Helvetiapps\LiveControls\Utils\Utils;
 
+/**
+ * @deprecated v1.8.7 use ObjectStorageHandler^class instead
+ */
 class ContaboHandler
 {
     private static $disk = 'contabo';
