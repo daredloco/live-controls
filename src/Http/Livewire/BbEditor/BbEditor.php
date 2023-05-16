@@ -18,6 +18,8 @@ class BbEditor extends Component
     public $redirparams; //if set it will redirect with those params
     public $savefunction; //Set this to a function which accepts a string for $content and saves it to a model or such and it should return a boolean
 
+    public $blurEvent; //Set this to an event to emit when the blur event is called by the editor. Useful inside livewire components
+    
     public $successMessage;
     public $exceptionMessage;
 
