@@ -39,6 +39,10 @@
             @else
                 document.getElementById('{{ $hiddeninputid }}').value = window.scInstance.val();
             @endif
+
+            @if(!is_null($blurEvent))
+                Livewire.emit('{{ $blurEvent }}');
+            @endif
         });
 
         @if($oldcontent != null)
