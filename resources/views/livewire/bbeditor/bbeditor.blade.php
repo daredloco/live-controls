@@ -41,7 +41,7 @@
             @endif
 
             @if(!is_null($blurEvent))
-                Livewire.emit('{{ $blurEvent }}');
+                Livewire.emit('{{ $blurEvent }}', [window.scInstance.val()]);
             @endif
         });
 
