@@ -19,8 +19,8 @@
       @endif
     <script>
 
-        var textarea = document.getElementById('{{ $areaid }}');
-        sceditor.create(textarea, {
+        var textarea{{ $areaid }} = document.getElementById('{{ $areaid }}');
+        sceditor.create(textarea{{ $areaid }}, {
             format: 'bbcode',
             style: '{{ $theme }}',
             emoticonsEnabled: false,
@@ -31,32 +31,32 @@
             enablePasteFiltering: true
         });
 
-        window.scInstance = sceditor.instance(textarea);
+        window.scInstance = sceditor.instance(textarea{{ $areaid }});
 
-        window.scInstance.blur(function(){
+        sceditor.instance(textarea{{ $areaid }}).blur(function(){
             @if($savebutton)
-                @this.content = window.scInstance.val();
+                @this.content = sceditor.instance(textarea{{ $areaid }}).val();
             @else
-                document.getElementById('{{ $hiddeninputid }}').value = window.scInstance.val();
+                document.getElementById('{{ $hiddeninputid }}').value = sceditor.instance(textarea{{ $areaid }}).val();
             @endif
 
             @if(!is_null($blurEvent))
-                Livewire.emit('{{ $blurEvent }}', [window.scInstance.val()]);
+                Livewire.emit('{{ $blurEvent }}', [sceditor.instance(textarea{{ $areaid }}).val()]);
             @endif
         });
 
         @if($oldcontent != null)
             document.addEventListener("DOMContentLoaded", function(event) {
-                sceditor.instance(textarea).keyDown(function(e) {
+                sceditor.instance(textarea{{ $areaid }}).keyDown(function(e) {
                     if(e.keyCode == 116 || e.keyCode == 32 || e.keyCode == 13){ return; }
                 });
                 setTimeout(function () {
-                        sceditor.instance(textarea).insert('{!! str_replace(["\r", "\n"], ['\\r', '\\n'], $oldcontent) !!}');
+                        sceditor.instance(textarea{{ $areaid }}).insert('{!! str_replace(["\r", "\n"], ['\\r', '\\n'], $oldcontent) !!}');
                 }, 10);
             }, false);
         @else
             document.addEventListener("DOMContentLoaded", function(event) {
-                sceditor.instance(textarea).keyDown(function(e) {
+                sceditor.instance(textarea{{ $areaid }}).keyDown(function(e) {
                     if(e.keyCode == 116 || e.keyCode == 32 || e.keyCode == 13){ return; }
                 });
             },false);
