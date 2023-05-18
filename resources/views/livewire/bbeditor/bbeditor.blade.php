@@ -31,7 +31,7 @@
             enablePasteFiltering: true
         });
 
-        window.scInstance = sceditor.instance(textarea{{ $areaid }});
+        window.scInstance = sceditor.instance(textarea{{ $areaid }}); //This can most likely be removed...
 
         sceditor.instance(textarea{{ $areaid }}).blur(function(){
             @if($savebutton)
