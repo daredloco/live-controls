@@ -58,6 +58,12 @@ class ObjectStorageHandler
         return Storage::disk(static::$disk)->delete($paths);
     }
 
+    public static function download($path)
+    {
+        static::check();
+        return Storage::disk(static::$disk)->download($path);
+    }
+
     public static function baseImage($path): string|null
     {
         static::check();
