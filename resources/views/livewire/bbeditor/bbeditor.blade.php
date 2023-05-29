@@ -51,7 +51,7 @@
                     if(e.keyCode == 116 || e.keyCode == 32 || e.keyCode == 13){ return; }
                 });
                 setTimeout(function () {
-                        sceditor.instance(textarea{{ $areaid }}).insert('{!! str_replace(["\r", "\n"], ['\\r', '\\n'], $oldcontent) !!}');
+                        sceditor.instance(textarea{{ $areaid }}).insert('{!! htmlspecialchars(str_replace(["\r", "\n"], ['\\r', '\\n'], $oldcontent)) !!}');
                 }, 10);
             }, false);
         @else
