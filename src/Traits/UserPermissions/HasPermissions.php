@@ -2,6 +2,7 @@
 
 namespace Helvetiapps\LiveControls\Traits\UserPermissions;
 
+use Exception;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -89,5 +90,67 @@ trait HasPermissions{
         }
 
         return false;
+    }
+
+    public function addPermissions(UserPermission|int|string ...$permissions)
+    {
+        foreach($permissions as $permission)
+        {
+            $this->addPermission($permission);
+        }
+    }
+
+    public function addPermission(UserPermission|int|string $permission)
+    {
+        if(is_numeric($permission)){
+            $permission = UserPermission::find($permission);
+        }
+        elseif(is_string($permission)){
+            $permission = UserPermission::where('key', '=', $permission)->first();
+        }
+        if(is_null($permission)){
+            throw new Exception('Invalid permission!');
+        }
+        $this->permissions()->attach($permission->id);
+    }
+
+    public function removePermissions(UserPermission|int|string ...$permissions)
+    {
+        foreach($permissions as $permission)
+        {
+            $this->removePermission($permission);
+        }
+    }
+
+    public function removePermission(UserPermission|int|string $permission)
+    {
+        if(is_numeric($permission)){
+            $permission = UserPermission::find($permission);
+        }
+        elseif(is_string($permission)){
+            $permission = UserPermission::where('key', '=', $permission)->first();
+        }
+        if(is_null($permission)){
+            throw new Exception('Invalid permission!');
+        }
+        $this->permissions()->detach($permission->id);
+    }
+
+    public function togglePermission(UserPermission|int|string $permission)
+    {
+        if(is_numeric($permission)){
+            $permission = UserPermission::find($permission);
+        }
+        elseif(is_string($permission)){
+            $permission = UserPermission::where('key', '=', $permission)->first();
+        }
+        if(is_null($permission)){
+            throw new Exception('Invalid permission!');
+        }
+        if($this->permissions->contains($permission->id)){
+            $this->permissions()->detach($permission->id);
+            return;
+        }
+        $this->permissions()->attach($permission->id);
     }
 }
