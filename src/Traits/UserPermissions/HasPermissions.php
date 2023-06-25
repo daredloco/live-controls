@@ -7,11 +7,19 @@ use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait HasPermissions{
-    protected $permissionsTable = 'livecontrols_user_userpermissions';
-    protected $permissionsForeignColumn = 'user_id';
+    protected $permissionsTable;
+    protected $permissionsForeignColumn;
+    
     
     public function permissions(): BelongsToMany
     {
+        if(is_null($this->permissionsTable)){
+            $this->permissionsTable = 'livecontrols_user_userpermissions';
+        }
+        if(is_null($this->permissionsForeignColumn))
+        {
+            $this->permissionsForeignColumn = 'user_id';
+        }
         return $this->belongsToMany(UserPermission::class, $this->permissionsTable, $this->permissionsForeignColumn, 'user_permission_id');
     }
 
