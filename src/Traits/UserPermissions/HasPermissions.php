@@ -5,6 +5,7 @@ namespace Helvetiapps\LiveControls\Traits\UserPermissions;
 use Exception;
 use Helvetiapps\LiveControls\Models\UserPermissions\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Session;
 
 trait HasPermissions{
     public function permissions(): BelongsToMany
@@ -51,7 +52,7 @@ trait HasPermissions{
 
     public function hasPermission(string $key): bool
     {
-        foreach($this->permissions as $permission){
+        foreach($this->fetchPermissions() as $permission){
             if($permission->key == $key){
                 return true;
             }
@@ -119,6 +120,9 @@ trait HasPermissions{
             throw new Exception('Invalid permission!');
         }
         $this->permissions()->attach($permission->id);
+        
+        //Reload permissions into session
+        $this->fetchPermissions(true);
     }
 
     public function removePermissions(UserPermission|int|string ...$permissions)
@@ -141,6 +145,9 @@ trait HasPermissions{
             throw new Exception('Invalid permission!');
         }
         $this->permissions()->detach($permission->id);
+        
+        //Reload permissions into session
+        $this->fetchPermissions(true);
     }
 
     public function togglePermission(UserPermission|int|string $permission)
@@ -159,5 +166,34 @@ trait HasPermissions{
             return;
         }
         $this->permissions()->attach($permission->id);
+
+        //Reload permissions into session
+        $this->fetchPermissions(true);
+    }
+
+    private function fetchPermissions(bool $reload = false) : \Illuminate\Database\Eloquent\Collection
+    {
+        if(isset($this->permissionsTable) && $this->permissionsTable == "livecontrols_user_userpermissions"){
+            $permissions = Session::get('user_permissions', null);
+            $ts = Session::get('user_permissions_timestamp', 0);
+            if(is_null($permissions) || time() < $ts + (60 * 60) || $reload){
+                $permissions = $this->permissions()->get();
+                Session::put('user_permissions', $permissions);
+                Session::put('user_permissions_timestamp', time());
+            }
+        }else{
+            if(!isset($this->permissionsName))
+            {
+                throw new Exception('protected $permissionsName is not set, but is needed!');
+            }
+            $permissions = Session::get($this->permissionsName.'_user_permissions', null);
+            $ts = Session::get($this->permissionsName.'user_permissions_timestamp', 0);
+            if(is_null($permissions) || time() < $ts + (60 * 60) || $reload){
+                $permissions = $this->permissions()->get();
+                Session::put($this->permissionsName.'_user_permissions', $permissions);
+                Session::put($this->permissionsName.'_user_permissions_timestamp', time());
+            }
+        }
+        return $permissions;
     }
 }
