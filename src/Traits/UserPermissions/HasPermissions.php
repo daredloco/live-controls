@@ -120,6 +120,9 @@ trait HasPermissions{
             throw new Exception('Invalid permission!');
         }
         $this->permissions()->attach($permission->id);
+        
+        //Reload permissions into session
+        $this->fetchPermissions(true);
     }
 
     public function removePermissions(UserPermission|int|string ...$permissions)
@@ -142,6 +145,9 @@ trait HasPermissions{
             throw new Exception('Invalid permission!');
         }
         $this->permissions()->detach($permission->id);
+        
+        //Reload permissions into session
+        $this->fetchPermissions(true);
     }
 
     public function togglePermission(UserPermission|int|string $permission)
@@ -160,14 +166,17 @@ trait HasPermissions{
             return;
         }
         $this->permissions()->attach($permission->id);
+
+        //Reload permissions into session
+        $this->fetchPermissions(true);
     }
 
-    private function fetchPermissions() : \Illuminate\Database\Eloquent\Collection
+    private function fetchPermissions(bool $reload = false) : \Illuminate\Database\Eloquent\Collection
     {
         if(isset($this->permissionsTable) && $this->permissionsTable == "livecontrols_user_userpermissions"){
             $permissions = Session::get('user_permissions', null);
             $ts = Session::get('user_permissions_timestamp', 0);
-            if(is_null($permissions) || time() < $ts + (60 * 60)){
+            if(is_null($permissions) || time() < $ts + (60 * 60) || $reload){
                 $permissions = $this->permissions()->get();
                 Session::put('user_permissions', $permissions);
                 Session::put('user_permissions_timestamp', time());
@@ -179,7 +188,7 @@ trait HasPermissions{
             }
             $permissions = Session::get($this->permissionsName.'_user_permissions', null);
             $ts = Session::get($this->permissionsName.'user_permissions_timestamp', 0);
-            if(is_null($permissions) || time() < $ts + (60 * 60)){
+            if(is_null($permissions) || time() < $ts + (60 * 60) || $reload){
                 $permissions = $this->permissions()->get();
                 Session::put($this->permissionsName.'_user_permissions', $permissions);
                 Session::put($this->permissionsName.'_user_permissions_timestamp', time());
