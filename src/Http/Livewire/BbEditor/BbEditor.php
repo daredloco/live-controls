@@ -4,9 +4,12 @@ namespace Helvetiapps\LiveControls\Http\Livewire\BbEditor;
 
 use Exception;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class BbEditor extends Component
 {
+    use WithFileUploads;
+
     public $areaid; //The ID of the control, if not set it will be called bbeditor
     public $hiddeninputid; //The ID of the hidden input in case it is set
     public $savebuttontext; //The text on the savebutton
@@ -29,6 +32,12 @@ class BbEditor extends Component
     public $dateFormat; //The dateformat
 
     public $locale; //The locale to be used
+
+    public $uploadEnabled = false; //If false, upload will be hidden
+    public $uploadDisk; //The disk for the upload
+    public $uploadFolder; //The folder for the upload
+
+    public $uploadedImage; //The image uploaded with the uploading form
 
     public function mount()
     {
@@ -73,6 +82,21 @@ class BbEditor extends Component
         return view('livecontrols::livewire.bbeditor.bbeditor');
     }
 
+
+    public function uploadImage()
+    {
+        if(is_null($this->uploadDisk)){
+            throw new Exception('You need to set the upload disk!');
+        }
+        if(is_null($this->uploadFolder)){
+            throw new Exception('YOu need to set the upload folder!');
+        }
+        $this->validate([
+            'uploadedImage' => 'image|max:2048'
+        ]);
+        $imgUrl = $this->uploadedImage->store($this->uploadFolder, $this->uploadDisk);
+        $this->emit('imageUploaded'.$this->areaid, $imgUrl);
+    }
 
     public function save()
     {

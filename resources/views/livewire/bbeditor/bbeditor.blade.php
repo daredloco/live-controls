@@ -10,7 +10,22 @@
     @endif
 
 
-      <textarea name="{{ $areaid }}" id="{{ $areaid }}" class="form-control" style="height: 350px;"></textarea>
+    <textarea name="{{ $areaid }}" id="{{ $areaid }}" class="form-control" style="height: 350px;"></textarea>
+    @if($uploadEnabled)
+        <form wire:submit.prevent="uploadImage" class="mt-2">
+            <input class="form-control form-control-file" type="file" wire:model="uploadedImage">
+            @error('uploadedImage') <span class="text-danger">{{ $message }}</span> @enderror
+            <button class="btn btn-primary text-white mt-1" type="submit">{{ __('Add Image') }}</button>
+        </form>
+
+        @push('scripts')
+        <script type="text/javascript">
+            Livewire.on('imageUploaded{{ $areaid }}', imageUrl => {
+                sceditor.instance(textarea{{ $areaid }}).wysiwygEditorInsertHtml('[cloudimg]' + imageUrl + "[/cloudimg]");
+            });
+        </script>
+        @endpush
+    @endif
 
       @if($savebutton)
         <button wire:click='save' class="mt-2 btn btn-success text-white">{{ $savebuttontext }}</button>
@@ -18,6 +33,7 @@
         <input type="hidden" id="{{ $hiddeninputid }}" name="{{ $hiddeninputid }}">
       @endif
     <script>
+
 
         var textarea{{ $areaid }} = document.getElementById('{{ $areaid }}');
         sceditor.create(textarea{{ $areaid }}, {
