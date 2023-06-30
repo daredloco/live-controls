@@ -173,7 +173,7 @@ trait HasPermissions{
 
     private function fetchPermissions(bool $reload = false) : \Illuminate\Database\Eloquent\Collection
     {
-        if(isset($this->permissionsTable) && $this->permissionsTable == "livecontrols_user_userpermissions"){
+        if((isset($this->permissionsTable) && $this->permissionsTable == "livecontrols_user_userpermissions") || !isset($this->permissionsTable)){
             $permissions = Session::get('user_permissions', null);
             $ts = Session::get('user_permissions_timestamp', 0);
             if(is_null($permissions) || time() < $ts + (60 * 60) || $reload){
