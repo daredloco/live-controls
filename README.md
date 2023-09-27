@@ -2,12 +2,12 @@
  ![Release Version](https://img.shields.io/github/v/release/daredloco/live-controls)
  ![Packagist Version](https://img.shields.io/packagist/v/helvetiapps/live-controls?color=%23007500)
 
+**Use https://github.com/live-controls instead! This library won't be updated any further...**
  Controls/Scripts/Helpers for Laravel and Livewire
  Those are free to use, but are mostly for my own projects so no full support guaranteed.
 
  Check out the [Documentation](https://github.com/daredloco/live-controls/wiki/01.-Installation-&-Setup)
  
- **This library is not ready to be used in production!**
 
 ## Requirements
 - Laravel 9+
