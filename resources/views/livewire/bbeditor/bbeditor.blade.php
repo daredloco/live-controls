@@ -1,5 +1,5 @@
 <div>
-    @push('styles')
+    {{-- @push('styles')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
     @endpush
 
@@ -7,15 +7,16 @@
     <script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/formats/bbcode.min.js"></script>
     @if(!is_null($locale))
         <script src="https://cdn.jsdelivr.net/npm/sceditor@3/languages/{{ $locale }}.js"></script>
-    @endif
+    @endif --}}
 
 
     <textarea name="{{ $areaid }}" id="{{ $areaid }}" class="form-control" style="height: 350px;"></textarea>
     @if($uploadEnabled)
         <form wire:submit.prevent="uploadImage" class="mt-2">
             <input class="form-control form-control-file" type="file" wire:model="uploadedImage">
+            <div wire:loading wire:target="uploadedImage"><div class="ms-2 row">Uploading...</div></div>
             @error('uploadedImage') <span class="text-danger">{{ $message }}</span> @enderror
-            <button class="btn btn-primary text-white mt-1" type="submit">{{ __('Add Image') }}</button>
+            <button class="btn btn-primary text-white mt-1" type="submit" wire:loading.attr="disabled" wire:target="uploadedImage">{{ __('Add Image') }}</button>
         </form>
 
         @push('scripts')

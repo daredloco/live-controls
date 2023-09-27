@@ -22,7 +22,7 @@ class BbEditor extends Component
     public $savefunction; //Set this to a function which accepts a string for $content and saves it to a model or such and it should return a boolean
 
     public $blurEvent; //Set this to an event to emit when the blur event is called by the editor. Useful inside livewire components
-    
+
     public $successMessage;
     public $exceptionMessage;
 
@@ -89,7 +89,7 @@ class BbEditor extends Component
             throw new Exception('You need to set the upload disk!');
         }
         if(is_null($this->uploadFolder)){
-            throw new Exception('YOu need to set the upload folder!');
+            throw new Exception('You need to set the upload folder!');
         }
         $this->validate([
             'uploadedImage' => 'image|max:2048'
