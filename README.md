@@ -3,6 +3,7 @@
  ![Packagist Version](https://img.shields.io/packagist/v/helvetiapps/live-controls?color=%23007500)
 
 **Use https://github.com/live-controls instead! This library won't be updated any further...**
+
  Controls/Scripts/Helpers for Laravel and Livewire
  Those are free to use, but are mostly for my own projects so no full support guaranteed.
 
